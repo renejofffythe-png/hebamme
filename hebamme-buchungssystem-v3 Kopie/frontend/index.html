@@ -1552,7 +1552,7 @@ footer {
 <div class="toast" id="toast"></div>
 
 <script>
-const API_BASE = 'http://localhost:3000';
+const API_BASE = '';
 let STRIPE_KEY = '';
 let stripe = null;
 let cardElement = null;
@@ -1567,9 +1567,22 @@ window.addEventListener('scroll', () => {
 
 // ── SCROLL REVEAL ─────────────────────────────────────────────────────
 const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
 }, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+document.querySelectorAll('.reveal').forEach(el => {
+  const rect = el.getBoundingClientRect();
+  if (rect.top < window.innerHeight && rect.bottom >= 0) {
+    el.classList.add('visible');
+  } else {
+    observer.observe(el);
+  }
+});
 
 // ── STRIPE ────────────────────────────────────────────────────────────
 async function initStripe() {
