@@ -1,0 +1,10 @@
+<!-- icon-status-voll: Ausgebucht — Vollkreis gefüllt, ink-muted -->
+<!-- Gefüllter Kreis = kein Raum mehr, abgeschlossen, klar -->
+<!-- fill auf SVG-Ebene gesetzt, kein separates fill="none" da Kreis gefüllt sein soll -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+     stroke="#8a7a68" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+
+  <!-- Vollkreis — cx/cy=12 (Zentrum), r=6.5, gefüllt mit ink-muted -->
+  <circle cx="12" cy="12" r="6.5" fill="#8a7a68" stroke="none"/>
+
+</svg>

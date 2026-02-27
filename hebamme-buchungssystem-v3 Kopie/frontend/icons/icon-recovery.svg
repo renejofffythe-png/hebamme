@@ -1,0 +1,30 @@
+<!-- icon-recovery: Rückbildung — Salbeiblatt, einheitlich stroke-width 1.5, 2 Seitenrippen-Paare -->
+<!-- Vereinfacht gegenüber r1: Mittelrippe auf 1.5 normiert, Adern auf oberes/unteres Paar reduziert -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+     stroke="#7a6045" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+
+  <!-- Blattumriss — sanft asymmetrisch: rechte Seite minimal breiter, Basis runder -->
+  <path d="M12 4.0
+           C14.5 4.5  17.0 7.0  17.5 10.5
+           C18.0 14.0  16.0 17.5  13.5 19.0
+           C13.0 19.5  12.5 19.5  12 19.5
+           C11.5 19.5  11.0 19.0  10.5 18.5
+           C8.0 17.0   6.0 13.5   6.5 10.0
+           C7.0 6.5    9.5 4.5   12 4.0 Z"/>
+
+  <!-- Mittelrippe — von Basis bis Spitze, durchgehend -->
+  <line x1="12" y1="5.0" x2="12" y2="19.0"/>
+
+  <!-- Seitenrippe links oben -->
+  <path d="M12 9.0 C10.5 8.5 9.0 7.5 8.0 6.5"/>
+
+  <!-- Seitenrippe rechts oben — gespiegelt -->
+  <path d="M12 9.0 C13.5 8.5 15.0 7.5 16.0 6.5"/>
+
+  <!-- Seitenrippe links unten -->
+  <path d="M12 14.5 C10.5 14.0 9.0 13.5 8.0 12.5"/>
+
+  <!-- Seitenrippe rechts unten — gespiegelt -->
+  <path d="M12 14.5 C13.5 14.0 15.0 13.5 16.0 12.5"/>
+
+</svg>

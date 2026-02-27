@@ -1,0 +1,15 @@
+<!-- icon-status-offen: Plätze frei — zunehmende Mondsichel, öffnet nach rechts, olive -->
+<!-- Schmale Sichel = Raum vorhanden, wachsend, einladend -->
+<!-- Geometrie: äußerer Kreisbogen r=6 + innerer Gegenbogen r=3.5 erzeugt saubere Sichel -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+     stroke="#6b7c5c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+
+  <!-- Sichel: geschlossener Pfad aus äußerem Bogen (r≈6) und innerem Gegenbogen (r≈3.5) -->
+  <!-- Spitzen bei (12, 6) oben und (12, 18) unten — beide auf Achse x=12 -->
+  <path d="M12 6.0
+           C15.5 6.0  18.0 8.7  18.0 12.0
+           C18.0 15.3  15.5 18.0  12 18.0
+           C14.0 15.5  15.5 13.8  15.5 12.0
+           C15.5 10.2  14.0 8.5   12 6.0 Z"/>
+
+</svg>

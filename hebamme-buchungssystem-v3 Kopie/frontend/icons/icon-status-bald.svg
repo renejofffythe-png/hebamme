@@ -1,0 +1,15 @@
+<!-- icon-status-bald: Demnächst / bald ausgebucht — Halbmond D-Form, earth -->
+<!-- Halbkreis = halb voll, Spannung zwischen offen und geschlossen -->
+<!-- Geometrie: gerade Kante (Durchmesser) links auf x=12, Halbkreisbogen rechts r=6.5 -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+     stroke="#7a6045" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+
+  <!-- Gerade Kante links (Durchmesser, x=12, y: 5.5→18.5) -->
+  <line x1="12" y1="5.5" x2="12" y2="18.5"/>
+
+  <!-- Halbkreisbogen rechts — Radius 6.5, Mittelpunkt (12, 12) -->
+  <path d="M12 5.5
+           C15.5 5.5  18.5 8.5  18.5 12.0
+           C18.5 15.5  15.5 18.5  12 18.5"/>
+
+</svg>

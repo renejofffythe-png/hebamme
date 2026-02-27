@@ -1,0 +1,30 @@
+<!-- icon-datum: Kalender — Rahmen, zwei Ösen, Trennlinie, drei Datumsstriche -->
+<!-- Basis: r1-datum, leicht optimiert: zweite Datumsstrich-Reihe vervollständigt -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+     stroke="#8a7a68" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+
+  <!-- Kalenderrahmen, rx=2 für weiche Ecken -->
+  <rect x="4" y="5.5" width="16" height="15" rx="2" ry="2"/>
+
+  <!-- Öse links -->
+  <line x1="8.5" y1="3.5" x2="8.5" y2="7.0"/>
+
+  <!-- Öse rechts -->
+  <line x1="15.5" y1="3.5" x2="15.5" y2="7.0"/>
+
+  <!-- Kopfzeilen-Trennlinie -->
+  <line x1="4" y1="9.5" x2="20" y2="9.5"/>
+
+  <!-- Datumsstrich Reihe 1 links -->
+  <line x1="8.0" y1="13.0" x2="11.0" y2="13.0"/>
+
+  <!-- Datumsstrich Reihe 1 rechts -->
+  <line x1="13.0" y1="13.0" x2="16.0" y2="13.0"/>
+
+  <!-- Datumsstrich Reihe 2 links -->
+  <line x1="8.0" y1="16.5" x2="11.0" y2="16.5"/>
+
+  <!-- Datumsstrich Reihe 2 rechts -->
+  <line x1="13.0" y1="16.5" x2="16.0" y2="16.5"/>
+
+</svg>
