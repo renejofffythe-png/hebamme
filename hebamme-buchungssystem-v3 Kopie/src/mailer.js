@@ -99,7 +99,12 @@ async function sendConfirmationToParticipant({ toEmail, toName, course, paymentM
     }];
   }
 
-  await transporter.sendMail(mailOptions);
+  try {
+    await transporter.sendMail(mailOptions);
+  } catch (e) {
+    console.error('Bestätigungs-Mail fehlgeschlagen:', e.message);
+    throw e; // Weitergeben – Buchung bleibt gespeichert, aber Fehler wird gemeldet
+  }
   return invoiceNumber;
 }
 
@@ -124,28 +129,38 @@ async function sendAdminNotification({ participant, course, paymentMethod, amoun
   </table>
 </div>`;
 
-  await transporter.sendMail({
-    from: FROM,
-    to:   process.env.ADMIN_EMAIL,
-    subject: `📋 Buchung: ${participant.firstName} ${participant.lastName} → ${course.title} (${invoiceNumber})`,
-    html,
-  });
+  // Admin-Benachrichtigung ist nicht kritisch – Fehler nur loggen, nicht werfen
+  try {
+    await transporter.sendMail({
+      from: FROM,
+      to:   process.env.ADMIN_EMAIL,
+      subject: `📋 Buchung: ${participant.firstName} ${participant.lastName} → ${course.title} (${invoiceNumber})`,
+      html,
+    });
+  } catch (e) {
+    console.error('Admin-Benachrichtigung fehlgeschlagen:', e.message);
+  }
 }
 
 // ── Warteliste ─────────────────────────────────────────────────────────
 async function sendWaitlistConfirmation({ toEmail, toName, course }) {
-  await transporter.sendMail({
-    from: FROM,
-    to:   toEmail,
-    subject: `Warteliste: ${course.title}`,
-    html: `<div style="font-family:Arial,sans-serif;max-width:520px;color:#3d2e22;">
-      <h2 style="color:#5c4a38;">Du bist auf der Warteliste 📋</h2>
-      <p>Hallo ${toName},</p>
-      <p>wir haben dich auf der Warteliste für <strong>${course.title}</strong> (${course.date}) eingetragen.</p>
-      <p>Sobald ein Platz frei wird, benachrichtigen wir dich umgehend.</p>
-      <p style="color:#c4836a;margin-top:20px;">Herzliche Grüße,<br>Kristina Schuldeis</p>
-    </div>`,
-  });
+  try {
+    await transporter.sendMail({
+      from: FROM,
+      to:   toEmail,
+      subject: `Warteliste: ${course.title}`,
+      html: `<div style="font-family:Arial,sans-serif;max-width:520px;color:#3d2e22;">
+        <h2 style="color:#5c4a38;">Du bist auf der Warteliste 📋</h2>
+        <p>Hallo ${toName},</p>
+        <p>wir haben dich auf der Warteliste für <strong>${course.title}</strong> (${course.date}) eingetragen.</p>
+        <p>Sobald ein Platz frei wird, benachrichtigen wir dich umgehend.</p>
+        <p style="color:#c4836a;margin-top:20px;">Herzliche Grüße,<br>Kristina Schuldeis</p>
+      </div>`,
+    });
+  } catch (e) {
+    console.error('Wartelisten-Mail fehlgeschlagen:', e.message);
+    throw e;
+  }
 }
 
 module.exports = { sendConfirmationToParticipant, sendAdminNotification, sendWaitlistConfirmation };

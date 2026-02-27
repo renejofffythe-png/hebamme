@@ -1,14 +1,41 @@
 // src/pdf.js – Rechnungs-HTML-Generator
-let invoiceCounter = 1000;
+const fs   = require('fs');
+const path = require('path');
+
+// Zählerstand wird in data/ gespeichert, damit er Server-Neustarts überlebt
+const COUNTER_FILE = path.join(__dirname, '../data/invoice-counter.json');
 
 function getNextInvoiceNumber() {
+  let counter = 1000;
+  if (fs.existsSync(COUNTER_FILE)) {
+    try { counter = JSON.parse(fs.readFileSync(COUNTER_FILE, 'utf8')).counter || 1000; } catch (_) {}
+  }
+  counter += 1;
+  fs.writeFileSync(COUNTER_FILE, JSON.stringify({ counter }));
   const year = new Date().getFullYear();
-  const num  = String(++invoiceCounter).padStart(4, '0');
-  return `RE-${year}-${num}`;
+  return `RE-${year}-${String(counter).padStart(4, '0')}`;
+}
+
+// Verhindert HTML-Injection aus Nutzereingaben
+function escapeHtml(str) {
+  return String(str ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 }
 
 function generateInvoiceHTML({ invoiceNumber, date, participant, course, amount, paymentMethod }) {
-  const methodLabel = { card:'Kreditkarte', paypal:'PayPal', sepa:'SEPA-Lastschrift', klarna:'Klarna' }[paymentMethod] || paymentMethod;
+  const methodLabel = { card:'Kreditkarte', paypal:'PayPal', sepa:'SEPA-Lastschrift', klarna:'Klarna' }[paymentMethod] || escapeHtml(paymentMethod);
+  const eName    = escapeHtml(`${participant.firstName} ${participant.lastName}`);
+  const eEmail   = escapeHtml(participant.email);
+  const ePhone   = participant.phone ? escapeHtml(participant.phone) : null;
+  const eTitle   = escapeHtml(course.title);
+  const eDate    = escapeHtml(course.date);
+  const eAmount  = escapeHtml(amount);
+  const eInvNum  = escapeHtml(invoiceNumber);
+  const eInvDate = escapeHtml(date);
   return `<!DOCTYPE html>
 <html lang="de">
 <head><meta charset="UTF-8"><title>Rechnung ${invoiceNumber}</title>
@@ -50,22 +77,22 @@ tbody td:last-child { text-align:right; font-weight:bold; }
 <body><div class="page">
   <div class="header">
     <div class="logo"><h1>Hebamme Kristina Schuldeis</h1><p>Wentorf &amp; Reinbek</p></div>
-    <div class="inv-meta"><div class="label">Rechnung</div><div class="number">${invoiceNumber}</div><div class="idate">Datum: ${date}</div></div>
+    <div class="inv-meta"><div class="label">Rechnung</div><div class="number">${eInvNum}</div><div class="idate">Datum: ${eInvDate}</div></div>
   </div>
   <div class="addresses">
-    <div><div class="addr-label">Rechnungsempfänger</div><div class="addr-block"><p><strong>${participant.firstName} ${participant.lastName}</strong><br>${participant.email}${participant.phone ? '<br>'+participant.phone : ''}</p></div></div>
+    <div><div class="addr-label">Rechnungsempfänger</div><div class="addr-block"><p><strong>${eName}</strong><br>${eEmail}${ePhone ? '<br>'+ePhone : ''}</p></div></div>
     <div><div class="addr-label">Rechnungssteller</div><div class="addr-block"><p><strong>Kristina Schuldeis</strong><br>Hebamme<br>[Deine Adresse]<br>[PLZ] Wentorf</p></div></div>
   </div>
   <table>
     <thead><tr><th style="width:40px">#</th><th>Leistung</th><th style="width:80px;text-align:center">Menge</th><th style="width:100px;text-align:right">Betrag</th></tr></thead>
-    <tbody><tr><td>1</td><td><div class="item-title">${course.title}</div><div class="item-desc">Termin: ${course.date}<br>Hebammenkurs · 7 Einheiten à 90 Minuten</div></td><td style="text-align:center">1</td><td>${amount}</td></tr></tbody>
+    <tbody><tr><td>1</td><td><div class="item-title">${eTitle}</div><div class="item-desc">Termin: ${eDate}<br>Hebammenkurs · 7 Einheiten à 90 Minuten</div></td><td style="text-align:center">1</td><td>${eAmount}</td></tr></tbody>
   </table>
   <div class="totals"><div class="totals-box">
-    <div class="trow"><span class="lbl">Zwischensumme</span><span>${amount}</span></div>
+    <div class="trow"><span class="lbl">Zwischensumme</span><span>${eAmount}</span></div>
     <div class="trow"><span class="lbl">USt. (0%)</span><span>0,00 €</span></div>
-    <div class="trow"><span>Gesamtbetrag</span><span>${amount}</span></div>
+    <div class="trow"><span>Gesamtbetrag</span><span>${eAmount}</span></div>
   </div></div>
-  <div class="paid-box">✅ &nbsp;<strong>Bezahlt – vielen Dank!</strong> &nbsp;·&nbsp; Zahlung via ${methodLabel} am ${date}</div>
+  <div class="paid-box">✅ &nbsp;<strong>Bezahlt – vielen Dank!</strong> &nbsp;·&nbsp; Zahlung via ${methodLabel} am ${eInvDate}</div>
   <div class="tax-note">Gemäß §4 Nr. 14 UStG umsatzsteuerfrei.</div>
   <div class="footer">
     <div><div class="fl">Kontakt</div><p>[deine@email.de]<br>[Telefon]<br>www.hebamme-wentorf.de</p></div>

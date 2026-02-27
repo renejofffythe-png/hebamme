@@ -28,11 +28,15 @@ function ensureDataFiles() {
   if (!fs.existsSync(WAITLIST_FILE)) fs.writeFileSync(WAITLIST_FILE, '{}');
 }
 
-function readCourses()          { ensureDataFiles(); return JSON.parse(fs.readFileSync(DATA_FILE, 'utf8')); }
+function readJson(file, fallback) {
+  try { return JSON.parse(fs.readFileSync(file, 'utf8')); }
+  catch (e) { console.error(`Fehler beim Lesen von ${path.basename(file)}:`, e.message); return fallback; }
+}
+function readCourses()  { ensureDataFiles(); return readJson(DATA_FILE,     []); }
 function writeCourses(c)        { fs.writeFileSync(DATA_FILE, JSON.stringify(c, null, 2)); }
-function readBookings()         { ensureDataFiles(); return JSON.parse(fs.readFileSync(BOOKINGS_FILE, 'utf8')); }
+function readBookings() { ensureDataFiles(); return readJson(BOOKINGS_FILE, []); }
 function writeBookings(b)       { fs.writeFileSync(BOOKINGS_FILE, JSON.stringify(b, null, 2)); }
-function readWaitlist()         { ensureDataFiles(); return JSON.parse(fs.readFileSync(WAITLIST_FILE, 'utf8')); }
+function readWaitlist() { ensureDataFiles(); return readJson(WAITLIST_FILE, {}); }
 function writeWaitlist(w)       { fs.writeFileSync(WAITLIST_FILE, JSON.stringify(w, null, 2)); }
 
 function getAllCourses() {
@@ -49,17 +53,24 @@ function getCourse(id) {
 }
 
 function createCourse(data) {
-  const courses  = readCourses();
+  const price    = Math.round(parseFloat(data.price) * 100);
+  const capacity = parseInt(data.capacity, 10);
+  if (!data.title || !data.date)        throw new Error('Titel und Datum sind Pflicht');
+  if (isNaN(price) || price <= 0)       throw new Error('Ungültiger Preis');
+  if (isNaN(capacity) || capacity <= 0) throw new Error('Ungültige Kapazität');
+
+  const courses   = readCourses();
+  // Kollisionssichere ID: Timestamp + Zufallssuffix
   const newCourse = {
-    id:       'kurs-' + Date.now(),
-    type:     data.type     || 'birth',
+    id:       `kurs-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
+    type:     data.type   || 'birth',
     title:    data.title,
     date:     data.date,
-    price:    Math.round(parseFloat(data.price) * 100),
+    price,
     currency: 'eur',
-    capacity: parseInt(data.capacity, 10),
+    capacity,
     enrolled: 0,
-    status:   data.status   || 'soon',
+    status:   data.status || 'soon',
   };
   courses.push(newCourse);
   writeCourses(courses);

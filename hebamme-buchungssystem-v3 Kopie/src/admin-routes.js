@@ -2,6 +2,7 @@
 // Alle API-Routen für das Admin-Panel – passwortgeschützt
 
 const express = require('express');
+const crypto  = require('crypto');
 const router  = express.Router();
 const {
   getAllCourses, getCourse, createCourse, updateCourse, deleteCourse,
@@ -10,17 +11,22 @@ const {
 } = require('./courses');
 
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'hebamme2026';
+if (!process.env.ADMIN_PASSWORD) {
+  console.warn('[SICHERHEIT] ADMIN_PASSWORD nicht in .env gesetzt – Standard-Passwort aktiv! Bitte .env konfigurieren.');
+}
 
 // ── Einfache Session-Tokens (in-memory, reicht für Einzelnutzer) ──────
 const validTokens = new Set();
 
+// Kryptografisch sicherer Token (ersetzt Math.random)
 function generateToken() {
-  return Math.random().toString(36).slice(2) + Date.now().toString(36);
+  return crypto.randomBytes(32).toString('hex');
 }
 
 // ── Auth-Middleware ───────────────────────────────────────────────────
 function requireAuth(req, res, next) {
-  const token = req.headers['x-admin-token'] || req.query.token;
+  // Nur Header akzeptieren – kein Query-Parameter (würde in Logs landen)
+  const token = req.headers['x-admin-token'];
   if (!token || !validTokens.has(token)) {
     return res.status(401).json({ error: 'Nicht angemeldet' });
   }

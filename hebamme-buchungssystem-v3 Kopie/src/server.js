@@ -16,7 +16,8 @@ const { sendConfirmationToParticipant, sendAdminNotification, sendWaitlistConfir
 const app  = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors({ origin: process.env.FRONTEND_URL || '*' }));
+// Fallback auf localhost – nie '*' in Produktion
+app.use(cors({ origin: process.env.FRONTEND_URL || 'http://localhost:3000' }));
 app.use('/webhook', express.raw({ type: 'application/json' }));
 app.use(express.json());
 
