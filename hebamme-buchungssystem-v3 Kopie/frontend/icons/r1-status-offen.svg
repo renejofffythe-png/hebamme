@@ -1,0 +1,15 @@
+<!-- Richtung 1: status offen — Kleines Blättchen, Ovalform mit feiner Mittelrippe -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+     stroke="#6b7c5c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+
+  <!-- Blattumriss: schlankes Oval, leicht zur Seite geneigt -->
+  <path d="M12 5.0
+           C14.8 5.8  16.5 8.2  16.0 11.2
+           C15.5 14.2  13.5 17.2  12 18.5
+           C10.5 17.2   8.5 14.2   8.0 11.2
+           C7.5 8.2    9.2 5.8   12 5.0 Z"/>
+
+  <!-- Mittelrippe -->
+  <line x1="12" y1="5.8" x2="12" y2="18.0"/>
+
+</svg>

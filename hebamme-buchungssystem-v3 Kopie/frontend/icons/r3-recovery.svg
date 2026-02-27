@@ -1,0 +1,25 @@
+<!-- Richtung 3: recovery — Vereinfachte aufwärts zeigende Hand: Handgelenk-Linie, ovale Handfläche, 3 Fingerspitzen -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+     stroke="#7a6045" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+
+  <!-- Handgelenk-Linie: gerade, horizontal, unten -->
+  <line x1="8.5" y1="19.5" x2="15.5" y2="19.5"/>
+
+  <!-- Handfläche: ovale Form, sitzt auf dem Handgelenk -->
+  <path d="M8.5 19.5
+           C8.5 19.5  7.5 16.5  8.0 13.5
+           C8.5 10.5  10.0 9.0  12 9.0
+           C14.0 9.0  15.5 10.5  16.0 13.5
+           C16.5 16.5  15.5 19.5  15.5 19.5"/>
+
+  <!-- Fingerspitzen: drei sanfte Erhebungen, Bögen oben auf der Handfläche -->
+  <!-- Linker Finger -->
+  <path d="M9.5 9.5 C9.0 8.0 9.2 6.5 10.0 5.5 C10.8 4.5 11.5 4.8 11.8 5.8"/>
+
+  <!-- Mittelfinger -->
+  <path d="M11.8 9.0 C11.5 7.2 11.6 5.5 12.0 4.5 C12.4 5.5 12.5 7.2 12.2 9.0"/>
+
+  <!-- Rechter Finger -->
+  <path d="M12.2 9.5 C13.0 8.0 13.8 6.8 14.5 6.0 C15.0 5.4 15.5 5.5 15.5 6.5"/>
+
+</svg>
