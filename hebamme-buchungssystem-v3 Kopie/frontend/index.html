@@ -473,18 +473,15 @@ section { padding: 7rem 6rem; }
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(42,35,24,0.20), 0 1px 5px rgba(42,35,24,0.12);
+  border-left: 5px solid var(--olive);
 }
 .course-card:hover {
-  background: #ffffff;
   box-shadow: 0 12px 36px rgba(42,35,24,0.28), 0 3px 10px rgba(42,35,24,0.16);
   transform: translateY(-5px);
 }
-.course-top {
-  height: 6px;
-  background: var(--olive);
-}
-.course-top.recovery { background: var(--earth); }
-.course-top.other { background: var(--sand-dark); }
+.course-top { display: none; }
+.course-card:has(.course-top.recovery) { border-left-color: var(--earth); }
+.course-card:has(.course-top.other) { border-left-color: var(--sand-dark); }
 .course-body { padding: 2rem 2rem 1.5rem; flex: 1; }
 .course-title-text {
   font-family: 'Fraunces', serif;
