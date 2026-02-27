@@ -1,0 +1,18 @@
+# Claude Code internal files
+.claude/
+
+# Environment variables
+.env
+
+# Node modules
+node_modules/
+
+# Data files (persistent JSON, not for version control)
+"hebamme-buchungssystem-v3 Kopie"/data/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Backup files
+*.bak
