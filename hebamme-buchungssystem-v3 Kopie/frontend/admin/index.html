@@ -402,6 +402,15 @@ async function api(path, method = 'GET', body = null) {
   };
   if (body) opts.body = JSON.stringify(body);
   const res  = await fetch(API + path, opts);
+  if (res.status === 401) {
+    // Token abgelaufen oder ungültig → zurück zum Login
+    TOKEN = '';
+    localStorage.removeItem('admin_token');
+    document.getElementById('app').style.display = 'none';
+    document.getElementById('login-screen').style.display = 'flex';
+    document.getElementById('login-error').textContent = 'Sitzung abgelaufen. Bitte neu anmelden.';
+    throw new Error('Nicht angemeldet');
+  }
   const data = await res.json();
   if (!res.ok) throw new Error(data.error || 'Fehler');
   return data;
