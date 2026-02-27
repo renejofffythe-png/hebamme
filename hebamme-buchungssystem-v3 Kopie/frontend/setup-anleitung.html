@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Setup-Anleitung – Hebamme Buchungssystem</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --cream:#f8f3ed; --sand:#e8ddd0; --terra:#c4836a; --forest:#5a6e52; --brown:#5c4a38; --text:#3d2e22; --light:#7a6655; }
+  body { font-family: 'Jost', sans-serif; font-weight: 300; background: var(--cream); color: var(--text); line-height: 1.7; }
+
+  header { background: linear-gradient(135deg, #5a6e52, #5c4a38); color: white; padding: 3rem 4rem; }
+  header h1 { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 300; margin-bottom: 0.4rem; }
+  header p  { color: rgba(255,255,255,0.7); font-size: 0.9rem; }
+
+  .progress-bar { background: white; padding: 1rem 4rem; border-bottom: 1px solid var(--sand); display: flex; gap: 0; overflow-x: auto; }
+  .prog-step { display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.78rem; letter-spacing: 0.05em; white-space: nowrap; cursor: pointer; transition: all 0.2s; color: var(--light); }
+  .prog-step.active { background: var(--terra); color: white; }
+  .prog-step.done   { color: var(--forest); }
+  .prog-step .dot   { width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid currentColor; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; flex-shrink: 0; }
+  .prog-step.done .dot { background: var(--forest); border-color: var(--forest); color: white; }
+  .prog-step.active .dot { background: white; color: var(--terra); border-color: white; }
+
+  .content { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 6rem; }
+
+  .step-card { display: none; }
+  .step-card.active { display: block; animation: fadeUp 0.4s ease; }
+
+  .step-num { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--terra); margin-bottom: 0.5rem; }
+  .step-title { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 400; color: var(--brown); margin-bottom: 0.5rem; }
+  .step-intro { font-size: 0.92rem; color: var(--light); margin-bottom: 2rem; line-height: 1.8; }
+
+  .instruction { background: white; border-radius: 8px; border: 1px solid var(--sand); padding: 1.5rem; margin-bottom: 1.2rem; }
+  .instruction h3 { font-size: 0.85rem; font-weight: 500; color: var(--brown); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
+  .instruction p, .instruction li { font-size: 0.88rem; color: var(--light); line-height: 1.75; }
+  .instruction ul, .instruction ol { padding-left: 1.4rem; }
+  .instruction li { margin-bottom: 0.3rem; }
+
+  .code-block { background: #2d2d2d; color: #f8f3ed; padding: 1rem 1.2rem; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 0.85rem; line-height: 1.7; margin: 0.8rem 0; position: relative; overflow-x: auto; }
+  .code-block .comment { color: #888; }
+  .code-block .key     { color: #c4836a; }
+  .code-block .val     { color: #a8c890; }
+
+  .copy-btn { position: absolute; top: 0.6rem; right: 0.6rem; padding: 0.3rem 0.7rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; color: rgba(255,255,255,0.7); font-size: 0.72rem; cursor: pointer; transition: all 0.2s; font-family: 'Jost', sans-serif; }
+  .copy-btn:hover { background: rgba(255,255,255,0.2); color: white; }
+
+  .highlight-box { background: linear-gradient(135deg, rgba(90,110,82,0.08), rgba(196,131,106,0.06)); border: 1px solid rgba(90,110,82,0.2); border-radius: 6px; padding: 1.2rem 1.4rem; margin: 1rem 0; }
+  .highlight-box p { font-size: 0.88rem; color: var(--text); }
+  .highlight-box strong { color: var(--forest); }
+
+  .warning-box { background: #fef9e7; border: 1px solid #f9d94e; border-radius: 6px; padding: 1rem 1.2rem; margin: 1rem 0; font-size: 0.85rem; color: #7a6500; }
+  .success-box  { background: #f0f7f0; border: 1px solid #c3dbc3; border-radius: 6px; padding: 1rem 1.2rem; margin: 1rem 0; font-size: 0.85rem; color: #2d6a2d; }
+
+  .test-card-box { background: #1a1a2e; color: #e8ddd0; border-radius: 8px; padding: 1.2rem 1.5rem; margin: 1rem 0; font-family: 'Courier New', monospace; }
+  .test-card-box .tcb-label { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: #c4836a; margin-bottom: 0.8rem; font-family: 'Jost', sans-serif; }
+  .test-card-box .tcb-num   { font-size: 1.4rem; letter-spacing: 4px; color: #f8f3ed; }
+  .test-card-box .tcb-row   { display: flex; gap: 3rem; margin-top: 0.8rem; }
+  .test-card-box .tcb-field { }
+  .test-card-box .tcb-field .lbl { font-size: 0.65rem; color: #888; text-transform: uppercase; letter-spacing: 1px; font-family: 'Jost', sans-serif; }
+  .test-card-box .tcb-field .val { font-size: 0.95rem; color: #e8ddd0; }
+
+  .step-nav { display: flex; gap: 1rem; margin-top: 2.5rem; }
+  .btn-next { padding: 0.9rem 2.5rem; background: var(--terra); color: white; border: none; border-radius: 3px; font-family: 'Jost', sans-serif; font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; transition: all 0.2s; }
+  .btn-next:hover { background: var(--brown); transform: translateY(-1px); }
+  .btn-prev { padding: 0.9rem 2rem; background: transparent; color: var(--light); border: 1.5px solid var(--sand); border-radius: 3px; font-family: 'Jost', sans-serif; font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; transition: all 0.2s; }
+  .btn-prev:hover { border-color: var(--terra); color: var(--terra); }
+
+  .checklist { display: flex; flex-direction: column; gap: 0.7rem; margin: 1rem 0; }
+  .check-item { display: flex; gap: 0.8rem; align-items: flex-start; }
+  .check-item input[type="checkbox"] { margin-top: 3px; width: 16px; height: 16px; accent-color: var(--terra); flex-shrink: 0; }
+  .check-item label { font-size: 0.88rem; color: var(--text); line-height: 1.6; cursor: pointer; }
+
+  .file-tree { background: #2d2d2d; color: #e8ddd0; padding: 1.2rem 1.5rem; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 0.84rem; line-height: 2; }
+  .file-tree .folder { color: #c4836a; }
+  .file-tree .file   { color: #a8c890; }
+  .file-tree .desc   { color: #888; font-size: 0.75rem; }
+
+  .final-box { text-align: center; padding: 3rem 2rem; background: linear-gradient(135deg, rgba(90,110,82,0.1), rgba(196,131,106,0.08)); border-radius: 12px; border: 1px solid rgba(196,131,106,0.2); }
+  .final-box h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 300; color: var(--brown); margin-bottom: 1rem; }
+  .final-box p  { color: var(--light); font-size: 0.9rem; margin-bottom: 1.5rem; }
+
+  @keyframes fadeUp { from { opacity:0; transform: translateY(16px); } to { opacity:1; transform: translateY(0); } }
+  @media(max-width:600px) { header { padding: 2rem 1.5rem; } .progress-bar { padding: 1rem 1rem; } }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🌿 Setup-Anleitung</h1>
+  <p>Hebamme Buchungssystem · Schritt für Schritt zum ersten Test</p>
+</header>
+
+<div class="progress-bar" id="progress-bar">
+  <div class="prog-step active" onclick="goTo(0)"><div class="dot">1</div> Überblick</div>
+  <div class="prog-step" onclick="goTo(1)"><div class="dot">2</div> Node.js</div>
+  <div class="prog-step" onclick="goTo(2)"><div class="dot">3</div> Dateien</div>
+  <div class="prog-step" onclick="goTo(3)"><div class="dot">4</div> Stripe</div>
+  <div class="prog-step" onclick="goTo(4)"><div class="dot">5</div> Gmail</div>
+  <div class="prog-step" onclick="goTo(5)"><div class="dot">6</div> .env ausfüllen</div>
+  <div class="prog-step" onclick="goTo(6)"><div class="dot">7</div> Starten</div>
+  <div class="prog-step" onclick="goTo(7)"><div class="dot">8</div> Testen</div>
+</div>
+
+<div class="content">
+
+  <!-- STEP 0: Überblick -->
+  <div class="step-card active" id="step-0">
+    <div class="step-num">Schritt 1 von 8</div>
+    <h2 class="step-title">Was wir gleich machen</h2>
+    <p class="step-intro">Keine Angst – du brauchst kein technisches Vorwissen. Ich führe dich durch jeden Schritt. Das Ganze dauert ca. 20–30 Minuten.</p>
+
+    <div class="instruction">
+      <h3>🗂️ So sieht das fertige System aus</h3>
+      <div class="file-tree">
+        <span class="folder">📁 hebamme-buchungssystem/</span><br>
+        &nbsp;&nbsp;<span class="file">📄 package.json</span> &nbsp;<span class="desc">← Liste aller Bausteine</span><br>
+        &nbsp;&nbsp;<span class="file">📄 .env</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="desc">← Deine geheimen Keys (nicht teilen!)</span><br>
+        &nbsp;&nbsp;<span class="folder">📁 src/</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">📄 server.js</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="desc">← Das Backend (die "Küche")</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">📄 courses.js</span> &nbsp;&nbsp;&nbsp;<span class="desc">← Kursdaten &amp; Platzverwaltung</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">📄 mailer.js</span> &nbsp;&nbsp;&nbsp;&nbsp;<span class="desc">← E-Mail mit Rechnung</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">📄 pdf.js</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="desc">← Rechnungserstellung</span><br>
+        &nbsp;&nbsp;<span class="folder">📁 frontend/</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">📄 index.html</span> &nbsp;&nbsp;&nbsp;<span class="desc">← Die Website (das "Gesicht")</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">📄 agb.html</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="desc">← AGB-Seite</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">📄 teilnahme...</span> &nbsp;<span class="desc">← Teilnahmebedingungen</span>
+      </div>
+    </div>
+
+    <div class="instruction">
+      <h3>📋 Was du brauchst</h3>
+      <div class="checklist">
+        <div class="check-item"><input type="checkbox" id="c0a"><label for="c0a">Einen Computer (Mac oder Windows)</label></div>
+        <div class="check-item"><input type="checkbox" id="c0b"><label for="c0b">Internetverbindung</label></div>
+        <div class="check-item"><input type="checkbox" id="c0c"><label for="c0c">Eine E-Mail-Adresse (Gmail empfohlen)</label></div>
+        <div class="check-item"><input type="checkbox" id="c0d"><label for="c0d">Ca. 30 Minuten Zeit</label></div>
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <p>💡 <strong>Keine Kosten im Testmodus!</strong> Stripe und Gmail sind kostenlos zum Testen. Echtes Geld fließt erst, wenn du bewusst auf Live-Modus umschaltest.</p>
+    </div>
+
+    <div class="step-nav"><button class="btn-next" onclick="goTo(1)">Los geht's →</button></div>
+  </div>
+
+  <!-- STEP 1: Node.js -->
+  <div class="step-card" id="step-1">
+    <div class="step-num">Schritt 2 von 8</div>
+    <h2 class="step-title">Node.js installieren</h2>
+    <p class="step-intro">Node.js ist die Software, die dein Backend ausführt. Stell dir vor: Node.js ist der Motor, das Backend ist das Auto.</p>
+
+    <div class="instruction">
+      <h3>⬇️ Installation</h3>
+      <ol>
+        <li>Geh auf <strong><a href="https://nodejs.org" target="_blank" style="color:var(--terra);">nodejs.org</a></strong></li>
+        <li>Klick auf den großen grünen Button <strong>„LTS"</strong> (nicht „Current")</li>
+        <li>Installiere es wie jedes normale Programm (einfach auf „Weiter" klicken)</li>
+      </ol>
+    </div>
+
+    <div class="instruction">
+      <h3>✅ Testen ob es geklappt hat</h3>
+      <p>Öffne das Terminal:</p>
+      <ul style="margin:0.5rem 0 0.8rem">
+        <li><strong>Mac:</strong> ⌘ + Leertaste → „Terminal" eintippen → Enter</li>
+        <li><strong>Windows:</strong> Windows-Taste → „cmd" eintippen → Enter</li>
+      </ul>
+      <p>Tippe diesen Befehl ein und drücke Enter:</p>
+      <div class="code-block" style="position:relative">
+        node --version
+        <button class="copy-btn" onclick="copyText('node --version', this)">Kopieren</button>
+      </div>
+      <div class="success-box">Wenn du etwas wie <strong>v22.0.0</strong> siehst – perfekt! Node.js ist installiert. ✅</div>
+    </div>
+
+    <div class="step-nav">
+      <button class="btn-prev" onclick="goTo(0)">← Zurück</button>
+      <button class="btn-next" onclick="goTo(2)">Weiter →</button>
+    </div>
+  </div>
+
+  <!-- STEP 2: Dateien -->
+  <div class="step-card" id="step-2">
+    <div class="step-num">Schritt 3 von 8</div>
+    <h2 class="step-title">Dateien einrichten</h2>
+    <p class="step-intro">Wir legen den Projektordner an und installieren alle benötigten Bausteine mit einem einzigen Befehl.</p>
+
+    <div class="instruction">
+      <h3>📁 Ordner anlegen</h3>
+      <ol>
+        <li>Erstelle einen neuen Ordner auf deinem Computer, z.B. auf dem Desktop: <strong>hebamme-buchungssystem</strong></li>
+        <li>Kopiere alle Dateien, die du von mir bekommen hast, in diesen Ordner</li>
+      </ol>
+    </div>
+
+    <div class="instruction">
+      <h3>💻 Terminal in den Ordner navigieren</h3>
+      <p>Im Terminal (das du vorhin geöffnet hast):</p>
+      <p style="margin:0.5rem 0;"><strong>Mac:</strong></p>
+      <div class="code-block" style="position:relative">
+        cd ~/Desktop/hebamme-buchungssystem
+        <button class="copy-btn" onclick="copyText('cd ~/Desktop/hebamme-buchungssystem', this)">Kopieren</button>
+      </div>
+      <p style="margin:0.5rem 0;"><strong>Windows:</strong></p>
+      <div class="code-block" style="position:relative">
+        cd %USERPROFILE%\Desktop\hebamme-buchungssystem
+        <button class="copy-btn" onclick="copyText('cd %USERPROFILE%\\Desktop\\hebamme-buchungssystem', this)">Kopieren</button>
+      </div>
+    </div>
+
+    <div class="instruction">
+      <h3>📦 Bausteine installieren (einmalig, ~2 Minuten)</h3>
+      <div class="code-block" style="position:relative">
+        npm install
+        <button class="copy-btn" onclick="copyText('npm install', this)">Kopieren</button>
+      </div>
+      <div class="success-box">Du siehst viele Zeilen Text – das ist normal! Am Ende steht etwas wie <strong>„added 200 packages"</strong>. ✅</div>
+    </div>
+
+    <div class="instruction">
+      <h3>📄 .env Datei erstellen</h3>
+      <p>Jetzt erstellen wir die Datei mit deinen geheimen Zugangsdaten:</p>
+      <div class="code-block" style="position:relative">
+        <span class="comment"># Mac/Linux:</span><br>
+        cp .env.example .env<br><br>
+        <span class="comment"># Windows:</span><br>
+        copy .env.example .env
+        <button class="copy-btn" onclick="copyText('cp .env.example .env', this)">Kopieren</button>
+      </div>
+      <p style="margin-top:0.6rem;">Öffne die neue <strong>.env</strong> Datei mit einem Texteditor (z.B. Notepad). Wir füllen sie in den nächsten Schritten aus.</p>
+    </div>
+
+    <div class="step-nav">
+      <button class="btn-prev" onclick="goTo(1)">← Zurück</button>
+      <button class="btn-next" onclick="goTo(3)">Weiter →</button>
+    </div>
+  </div>
+
+  <!-- STEP 3: Stripe -->
+  <div class="step-card" id="step-3">
+    <div class="step-num">Schritt 4 von 8</div>
+    <h2 class="step-title">Stripe einrichten</h2>
+    <p class="step-intro">Stripe ist dein Zahlungsdienstleister – wie ein digitales Kartenterminal. Im Testmodus kostet dich das gar nichts.</p>
+
+    <div class="instruction">
+      <h3>🔑 Konto erstellen & API-Keys holen</h3>
+      <ol>
+        <li>Geh auf <a href="https://stripe.com/de" target="_blank" style="color:var(--terra);"><strong>stripe.com/de</strong></a> → „Konto erstellen"</li>
+        <li>Mit E-Mail + Passwort registrieren, E-Mail bestätigen</li>
+        <li>Du landest im <strong>Dashboard</strong>. Oben rechts siehst du: <strong>„Testmodus"</strong> – lass den AN ✅</li>
+        <li>Links im Menü: <strong>Entwickler</strong> → <strong>API-Schlüssel</strong></li>
+        <li>Du siehst zwei Schlüssel – beide brauchst du gleich</li>
+      </ol>
+    </div>
+
+    <div class="highlight-box">
+      <p>🔐 <strong>Geheimer Schlüssel:</strong> beginnt mit <code>sk_test_...</code> → kommt in die .env Datei (niemals teilen!)<br>
+      📢 <strong>Veröffentlichbarer Schlüssel:</strong> beginnt mit <code>pk_test_...</code> → kommt ins Frontend (ist ok zu zeigen)</p>
+    </div>
+
+    <div class="instruction">
+      <h3>🔗 Webhook einrichten (für zuverlässige Buchungsbestätigung)</h3>
+      <ol>
+        <li>Im Stripe Dashboard: <strong>Entwickler → Webhooks → Endpunkt hinzufügen</strong></li>
+        <li>URL eingeben: <code>http://localhost:3000/webhook</code> (für lokalen Test)</li>
+        <li>Events auswählen: <code>payment_intent.succeeded</code></li>
+        <li>Speichern → den <strong>„Signaturgeheimnis"</strong> (whsec_...) kopieren</li>
+      </ol>
+    </div>
+
+    <div class="warning-box">
+      ⚠️ Für den lokalen Test kannst du den Webhook auch erstmal weglassen. Das System funktioniert trotzdem – der Webhook ist nur eine extra Sicherheit.
+    </div>
+
+    <div class="step-nav">
+      <button class="btn-prev" onclick="goTo(2)">← Zurück</button>
+      <button class="btn-next" onclick="goTo(4)">Weiter →</button>
+    </div>
+  </div>
+
+  <!-- STEP 4: Gmail -->
+  <div class="step-card" id="step-4">
+    <div class="step-num">Schritt 5 von 8</div>
+    <h2 class="step-title">Gmail App-Passwort</h2>
+    <p class="step-intro">Google lässt Apps nicht mit deinem normalen Passwort auf Gmail zugreifen. Deshalb erstellen wir ein spezielles „App-Passwort" – das ist in 5 Minuten erledigt.</p>
+
+    <div class="instruction">
+      <h3>🔐 App-Passwort erstellen</h3>
+      <ol>
+        <li>Geh auf <a href="https://myaccount.google.com/security" target="_blank" style="color:var(--terra);"><strong>myaccount.google.com/security</strong></a></li>
+        <li>Scrolle zu <strong>„Wie du dich bei Google anmeldest"</strong></li>
+        <li>Klicke auf <strong>„2-Schritt-Verifizierung"</strong> → aktivieren (falls noch nicht aktiv)</li>
+        <li>Dann zurück zur Security-Seite → suche nach <strong>„App-Passwörter"</strong></li>
+        <li>App-Name eingeben: <em>Hebamme Buchung</em> → <strong>Erstellen</strong></li>
+        <li>Du bekommst ein <strong>16-stelliges Passwort</strong> angezeigt → sofort kopieren!</li>
+      </ol>
+    </div>
+
+    <div class="warning-box">
+      ⚠️ Das App-Passwort wird nur einmal angezeigt! Kopiere es sofort und sichere es, bevor du das Fenster schließt.
+    </div>
+
+    <div class="highlight-box">
+      <p>🔄 <strong>Alternative ohne Gmail:</strong> Du kannst auch jeden anderen E-Mail-Anbieter nutzen. Bei web.de oder GMX findest du die SMTP-Daten in den Kontoeinstellungen unter „E-Mail-Programm einrichten".</p>
+    </div>
+
+    <div class="step-nav">
+      <button class="btn-prev" onclick="goTo(3)">← Zurück</button>
+      <button class="btn-next" onclick="goTo(5)">Weiter →</button>
+    </div>
+  </div>
+
+  <!-- STEP 5: .env ausfüllen -->
+  <div class="step-card" id="step-5">
+    <div class="step-num">Schritt 6 von 8</div>
+    <h2 class="step-title">.env Datei ausfüllen</h2>
+    <p class="step-intro">Jetzt trägst du alle Zugangsdaten in die .env Datei ein. Öffne sie in einem Texteditor (Notepad, TextEdit, etc.).</p>
+
+    <div class="instruction">
+      <h3>📝 So sieht die fertig ausgefüllte .env aus:</h3>
+      <div class="code-block">
+        <span class="comment"># Stripe</span><br>
+        <span class="key">STRIPE_SECRET_KEY</span>=<span class="val">sk_test_51AbCdEf...</span><br>
+        <span class="key">STRIPE_PUBLISHABLE_KEY</span>=<span class="val">pk_test_51AbCdEf...</span><br>
+        <span class="key">STRIPE_WEBHOOK_SECRET</span>=<span class="val">whsec_abc123...</span><br><br>
+        <span class="comment"># Server</span><br>
+        <span class="key">PORT</span>=<span class="val">3000</span><br>
+        <span class="key">FRONTEND_URL</span>=<span class="val">http://localhost:3000</span><br><br>
+        <span class="comment"># E-Mail (Gmail)</span><br>
+        <span class="key">SMTP_HOST</span>=<span class="val">smtp.gmail.com</span><br>
+        <span class="key">SMTP_PORT</span>=<span class="val">587</span><br>
+        <span class="key">SMTP_USER</span>=<span class="val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5d39383433387338303c34311d3a303c3431733e3230">[email&#160;protected]</a></span><br>
+        <span class="key">SMTP_PASS</span>=<span class="val">abcd efgh ijkl mnop</span>&nbsp;<span class="comment">&lt;-- App-Passwort</span><br><br>
+        <span class="key">EMAIL_FROM_NAME</span>=<span class="val">Hebamme Kristina Schuldeis</span><br>
+        <span class="key">EMAIL_FROM_ADDRESS</span>=<span class="val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e783828e8982c9828a868e8ba7808a868e8bc984888a">[email&#160;protected]</a></span><br>
+        <span class="key">ADMIN_EMAIL</span>=<span class="val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="98f3eaf1ebecf1f6f9d8f0fdfaf9f5f5fdb5effdf6ecf7eafeb6fcfd">[email&#160;protected]</a></span>
+      </div>
+    </div>
+
+    <div class="instruction">
+      <h3>⚡ Und dann noch: Stripe Key ins Frontend</h3>
+      <p>Öffne <strong>frontend/index.html</strong> in einem Texteditor und suche nach dieser Zeile (ca. Zeile 570):</p>
+      <div class="code-block">
+        const STRIPE_KEY = '<span class="val">pk_test_DEIN_PUBLISHABLE_KEY</span>';
+      </div>
+      <p>Ersetze <code>pk_test_DEIN_PUBLISHABLE_KEY</code> mit deinem echten Publishable Key aus Stripe.</p>
+    </div>
+
+    <div class="success-box">✅ Wenn alle Felder ausgefüllt sind, bist du bereit zum Starten!</div>
+
+    <div class="step-nav">
+      <button class="btn-prev" onclick="goTo(4)">← Zurück</button>
+      <button class="btn-next" onclick="goTo(6)">Weiter →</button>
+    </div>
+  </div>
+
+  <!-- STEP 6: Starten -->
+  <div class="step-card" id="step-6">
+    <div class="step-num">Schritt 7 von 8</div>
+    <h2 class="step-title">Backend starten</h2>
+    <p class="step-intro">Jetzt starten wir das Backend! Ab hier siehst du dein Buchungssystem zum ersten Mal live.</p>
+
+    <div class="instruction">
+      <h3>🚀 Starten</h3>
+      <p>Im Terminal (du solltest noch im Projektordner sein):</p>
+      <div class="code-block" style="position:relative">
+        npm start
+        <button class="copy-btn" onclick="copyText('npm start', this)">Kopieren</button>
+      </div>
+      <div class="success-box">Du siehst:<br><br>
+        🌿 Hebamme Buchungssystem läuft auf http://localhost:3000<br>
+        Frontend: http://localhost:3000/index.html<br>
+        Stripe-Modus: 🟡 TEST<br>
+        Admin-E-Mail: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="97f3f2fef9f2d7f2faf6fefbb9f3f2">[email&#160;protected]</a> ✅
+      </div>
+    </div>
+
+    <div class="instruction">
+      <h3>🌐 Website aufrufen</h3>
+      <p>Öffne deinen Browser und geh auf:</p>
+      <div class="code-block" style="position:relative">
+        http://localhost:3000
+        <button class="copy-btn" onclick="copyText('http://localhost:3000', this)">Kopieren</button>
+      </div>
+      <p style="margin-top:0.6rem;">Du solltest jetzt deine Website sehen – komplett mit allen Kursen!</p>
+    </div>
+
+    <div class="warning-box">
+      ⚠️ Das Terminal muss offen bleiben, solange du testest. Wenn du es schließt, stoppt das Backend. Zum Stoppen: <strong>Strg+C</strong> im Terminal.
+    </div>
+
+    <div class="step-nav">
+      <button class="btn-prev" onclick="goTo(5)">← Zurück</button>
+      <button class="btn-next" onclick="goTo(7)">Weiter →</button>
+    </div>
+  </div>
+
+  <!-- STEP 7: Testen -->
+  <div class="step-card" id="step-7">
+    <div class="step-num">Schritt 8 von 8</div>
+    <h2 class="step-title">Erste Testbuchung</h2>
+    <p class="step-intro">Jetzt probieren wir eine echte Buchung durch – mit einer Testkreditkarte, bei der kein echtes Geld fließt.</p>
+
+    <div class="instruction">
+      <h3>💳 Deine Test-Kreditkarte</h3>
+      <p>Stripe stellt diese Karte zum Testen bereit – funktioniert immer:</p>
+      <div class="test-card-box">
+        <div class="tcb-label">Test-Kreditkarte (kein echtes Geld!)</div>
+        <div class="tcb-num">4242 4242 4242 4242</div>
+        <div class="tcb-row">
+          <div class="tcb-field"><div class="lbl">Ablaufdatum</div><div class="val">12/29</div></div>
+          <div class="tcb-field"><div class="lbl">CVC</div><div class="val">123</div></div>
+          <div class="tcb-field"><div class="lbl">PLZ</div><div class="val">12345</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="instruction">
+      <h3>📋 Buchung durchführen</h3>
+      <ol>
+        <li>Geh auf <strong>http://localhost:3000</strong></li>
+        <li>Klicke bei einem Kurs auf <strong>„Jetzt buchen"</strong></li>
+        <li>Fülle das Formular aus (beliebige Daten, aber echte E-Mail!)</li>
+        <li>Akzeptiere AGB, Teilnahmebedingungen, Stornierung und Datenschutz</li>
+        <li>Wähle <strong>Kreditkarte</strong> und gib die Testkarte ein</li>
+        <li>Klicke auf <strong>„Jetzt buchen & bezahlen"</strong></li>
+      </ol>
+    </div>
+
+    <div class="instruction">
+      <h3>✅ Was du danach prüfen solltest</h3>
+      <div class="checklist">
+        <div class="check-item"><input type="checkbox" id="t1"><label for="t1">Auf der Website erscheint der Erfolgsscreen mit „Buchung bestätigt!"</label></div>
+        <div class="check-item"><input type="checkbox" id="t2"><label for="t2">Du hast eine Bestätigungs-E-Mail mit Kursdetails erhalten</label></div>
+        <div class="check-item"><input type="checkbox" id="t3"><label for="t3">An die E-Mail ist eine Rechnung als HTML-Datei angehängt</label></div>
+        <div class="check-item"><input type="checkbox" id="t4"><label for="t4">Kristina hat eine Admin-Benachrichtigung mit allen Teilnehmer-Infos erhalten</label></div>
+        <div class="check-item"><input type="checkbox" id="t5"><label for="t5">Im Stripe-Dashboard (Testmodus) erscheint die Zahlung unter „Zahlungen"</label></div>
+        <div class="check-item"><input type="checkbox" id="t6"><label for="t6">Die Platzanzahl auf der Kurskarte hat sich um 1 reduziert</label></div>
+      </div>
+    </div>
+
+    <div class="final-box">
+      <h2>🎉 Alles grün?</h2>
+      <p>Dann ist dein Buchungssystem einsatzbereit! Wenn du live gehen möchtest, einfach die Stripe Test-Keys durch Live-Keys ersetzen und auf einem Server wie Render.com deployen.</p>
+      <p style="margin-top:0.5rem;font-size:0.8rem;color:#aaa;">Bei Problemen: Fehlermeldungen im Terminal lesen – die erklären meist genau was fehlt.</p>
+    </div>
+
+    <div class="step-nav">
+      <button class="btn-prev" onclick="goTo(6)">← Zurück</button>
+    </div>
+  </div>
+
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+let current = 0;
+const total = 8;
+
+function goTo(n) {
+  document.getElementById(`step-${current}`).classList.remove('active');
+  document.querySelectorAll('.prog-step')[current].classList.remove('active');
+  document.querySelectorAll('.prog-step')[current].classList.add('done');
+
+  current = n;
+  documen

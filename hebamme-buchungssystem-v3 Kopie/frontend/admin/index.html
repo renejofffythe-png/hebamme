@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin – Hebamme Kristina Schuldeis</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --cream: #f8f3ed; --sand: #e8ddd0; --terracotta: #c4836a;
+  --forest: #5a6e52; --brown: #5c4a38; --text: #3d2e22;
+  --text-light: #7a6655; --white: #fff;
+  --success: #27ae60; --error: #c0392b; --warning: #e67e22;
+  --sidebar: #2d2118;
+}
+
+body { font-family: 'Jost', sans-serif; font-weight: 300; background: var(--cream); color: var(--text); min-height: 100vh; }
+
+/* ── LOGIN ── */
+#login-screen {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, #2d2118 0%, #5c4a38 100%);
+}
+.login-box {
+  background: var(--cream); border-radius: 10px; padding: 3rem 2.5rem;
+  width: 100%; max-width: 380px; box-shadow: 0 40px 80px rgba(0,0,0,0.4);
+  text-align: center;
+}
+.login-box .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; color: var(--brown); margin-bottom: 0.3rem; }
+.login-box .subtitle { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-light); margin-bottom: 2rem; }
+.login-box input { width: 100%; padding: 0.85rem 1rem; border: 1.5px solid var(--sand); border-radius: 4px; font-family: 'Jost', sans-serif; font-size: 1rem; background: white; color: var(--text); outline: none; margin-bottom: 1rem; transition: border-color 0.2s; }
+.login-box input:focus { border-color: var(--terracotta); }
+.login-box button { width: 100%; padding: 0.9rem; background: var(--terracotta); color: white; border: none; border-radius: 4px; font-family: 'Jost', sans-serif; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; }
+.login-box button:hover { background: var(--brown); }
+.login-error { color: var(--error); font-size: 0.82rem; margin-top: 0.8rem; min-height: 1.2rem; }
+
+/* ── LAYOUT ── */
+#app { display: none; min-height: 100vh; }
+
+.sidebar {
+  position: fixed; left: 0; top: 0; bottom: 0; width: 220px;
+  background: var(--sidebar); padding: 0;
+  display: flex; flex-direction: column;
+  z-index: 10;
+}
+.sidebar-logo { padding: 1.8rem 1.5rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.sidebar-logo .name { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; color: white; line-height: 1.3; }
+.sidebar-logo .role { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-top: 0.3rem; }
+
+.sidebar-nav { flex: 1; padding: 1.2rem 0; }
+.nav-item {
+  display: flex; align-items: center; gap: 0.8rem;
+  padding: 0.75rem 1.5rem; cursor: pointer; transition: background 0.2s;
+  color: rgba(255,255,255,0.55); font-size: 0.85rem; font-weight: 400;
+  border-left: 3px solid transparent;
+}
+.nav-item:hover { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.85); }
+.nav-item.active { background: rgba(196,131,106,0.15); color: white; border-left-color: var(--terracotta); }
+.nav-icon { font-size: 1.1rem; width: 20px; text-align: center; }
+
+.sidebar-footer { padding: 1rem 1.5rem; border-top: 1px solid rgba(255,255,255,0.08); }
+.logout-btn { width: 100%; padding: 0.6rem; background: transparent; border: 1px solid rgba(255,255,255,0.15); border-radius: 3px; color: rgba(255,255,255,0.5); font-family: 'Jost', sans-serif; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: all 0.2s; }
+.logout-btn:hover { border-color: var(--terracotta); color: var(--terracotta); }
+
+.main { margin-left: 220px; padding: 2.5rem 2.5rem 4rem; min-height: 100vh; }
+.page { display: none; }
+.page.active { display: block; }
+
+.page-header { margin-bottom: 2rem; }
+.page-title { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: var(--brown); }
+.page-sub { font-size: 0.85rem; color: var(--text-light); margin-top: 0.2rem; }
+
+/* ── STATS CARDS ── */
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1.2rem; margin-bottom: 2.5rem; }
+.stat-card { background: white; border-radius: 8px; padding: 1.4rem 1.5rem; border: 1px solid var(--sand); }
+.stat-label { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-light); margin-bottom: 0.5rem; }
+.stat-value { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 300; color: var(--brown); line-height: 1; }
+.stat-sub { font-size: 0.78rem; color: var(--text-light); margin-top: 0.3rem; }
+.stat-card.highlight { background: var(--forest); border-color: var(--forest); }
+.stat-card.highlight .stat-label, .stat-card.highlight .stat-value, .stat-card.highlight .stat-sub { color: white; }
+.stat-card.highlight .stat-label { color: rgba(255,255,255,0.65); }
+.stat-card.highlight .stat-sub { color: rgba(255,255,255,0.65); }
+
+/* ── TOOLBAR ── */
+.toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem; }
+.btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.65rem 1.4rem; border-radius: 3px; font-family: 'Jost', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; border: none; transition: all 0.2s; font-weight: 400; }
+.btn-primary  { background: var(--terracotta); color: white; }
+.btn-primary:hover  { background: var(--brown); }
+.btn-outline  { background: transparent; border: 1.5px solid var(--sand); color: var(--text-light); }
+.btn-outline:hover  { border-color: var(--terracotta); color: var(--terracotta); }
+.btn-danger   { background: transparent; border: 1.5px solid #e9b5b5; color: var(--error); }
+.btn-danger:hover   { background: var(--error); color: white; border-color: var(--error); }
+.btn-small { padding: 0.4rem 0.9rem; font-size: 0.72rem; }
+.btn-success { background: var(--forest); color: white; }
+.btn-success:hover { background: #3d5235; }
+
+/* ── TABLE ── */
+.table-wrap { background: white; border-radius: 8px; border: 1px solid var(--sand); overflow: hidden; }
+table { width: 100%; border-collapse: collapse; }
+th { background: #faf6f1; padding: 0.85rem 1.2rem; text-align: left; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); font-weight: 400; border-bottom: 1px solid var(--sand); }
+td { padding: 0.9rem 1.2rem; border-bottom: 1px solid #faf0e8; font-size: 0.88rem; vertical-align: middle; }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: #fdfaf6; }
+
+.badge { display: inline-block; padding: 0.2rem 0.7rem; border-radius: 20px; font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 400; }
+.badge-open     { background: #dff0d8; color: #3d7a2a; }
+.badge-soon     { background: #fde8d8; color: #b05a20; }
+.badge-done     { background: #e8e0d8; color: #7a6655; }
+.badge-full     { background: #fdd; color: var(--error); }
+
+/* ── CAPACITY BAR ── */
+.cap-bar-wrap { width: 120px; height: 6px; background: var(--sand); border-radius: 3px; overflow: hidden; display: inline-block; vertical-align: middle; margin-right: 0.5rem; }
+.cap-bar { height: 100%; border-radius: 3px; transition: width 0.4s; }
+.cap-low  { background: var(--success); }
+.cap-mid  { background: var(--warning); }
+.cap-high { background: var(--error); }
+
+/* ── MODAL / DRAWER ── */
+.overlay { display: none; position: fixed; inset: 0; background: rgba(45,33,24,0.55); z-index: 100; backdrop-filter: blur(3px); align-items: center; justify-content: center; padding: 2rem; }
+.overlay.open { display: flex; }
+.drawer { background: var(--cream); border-radius: 10px; width: 100%; max-width: 520px; max-height: 92vh; overflow-y: auto; box-shadow: 0 30px 80px rgba(0,0,0,0.3); animation: slideUp 0.25s ease; }
+.drawer-header { padding: 1.8rem 2rem 1.2rem; border-bottom: 1px solid var(--sand); display: flex; justify-content: space-between; align-items: center; }
+.drawer-title { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; color: var(--brown); }
+.drawer-close { background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--text-light); transition: color 0.2s; }
+.drawer-close:hover { color: var(--terracotta); }
+.drawer-body { padding: 1.8rem 2rem; }
+.drawer-footer { padding: 1.2rem 2rem 1.8rem; border-top: 1px solid var(--sand); display: flex; gap: 0.8rem; justify-content: flex-end; }
+
+/* ── FORM ── */
+.form-group { margin-bottom: 1.2rem; }
+.form-label { display: block; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-light); margin-bottom: 0.4rem; }
+.form-input, .form-select { width: 100%; padding: 0.7rem 0.9rem; border: 1.5px solid var(--sand); border-radius: 3px; font-family: 'Jost', sans-serif; font-size: 0.9rem; font-weight: 300; background: white; color: var(--text); outline: none; transition: border-color 0.2s; }
+.form-input:focus, .form-select:focus { border-color: var(--terracotta); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-hint { font-size: 0.75rem; color: var(--text-light); margin-top: 0.3rem; }
+
+/* ── EMPTY STATE ── */
+.empty-state { text-align: center; padding: 4rem 2rem; color: var(--text-light); }
+.empty-icon { font-size: 3rem; margin-bottom: 1rem; opacity: 0.4; }
+.empty-state p { font-size: 0.9rem; }
+
+/* ── TOAST ── */
+.toast { position: fixed; bottom: 2rem; right: 2rem; z-index: 999; padding: 0.9rem 1.4rem; border-radius: 4px; font-size: 0.84rem; box-shadow: 0 8px 32px rgba(0,0,0,0.2); transform: translateY(16px); opacity: 0; transition: all 0.3s; pointer-events: none; max-width: 320px; }
+.toast.show { transform: translateY(0); opacity: 1; }
+.toast.ok  { background: var(--forest); color: white; }
+.toast.err { background: var(--error);  color: white; }
+.toast.inf { background: var(--brown);  color: white; }
+
+/* ── DETAIL PANEL ── */
+.detail-list { list-style: none; }
+.detail-list li { display: flex; justify-content: space-between; padding: 0.6rem 0; border-bottom: 1px solid var(--sand); font-size: 0.88rem; }
+.detail-list li:last-child { border-bottom: none; }
+.detail-list .key { color: var(--text-light); }
+.detail-list .val { font-weight: 400; color: var(--text); text-align: right; max-width: 60%; }
+
+@keyframes slideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ── CONFIRM ── */
+.confirm-box { background: var(--cream); border-radius: 8px; padding: 2rem; max-width: 380px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,0.3); text-align: center; }
+.confirm-box h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--brown); margin-bottom: 0.8rem; }
+.confirm-box p  { font-size: 0.88rem; color: var(--text-light); margin-bottom: 1.5rem; line-height: 1.6; }
+.confirm-btns   { display: flex; gap: 0.8rem; justify-content: center; }
+
+@media(max-width: 768px) {
+  .sidebar { transform: translateX(-100%); }
+  .main { margin-left: 0; padding: 1.5rem; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login-screen">
+  <div class="login-box">
+    <p class="logo">Hebamme Kristina Schuldeis</p>
+    <p class="subtitle">Admin-Bereich</p>
+    <input type="password" id="pw-input" placeholder="Passwort" />
+    <button onclick="login()">Anmelden</button>
+    <p class="login-error" id="login-error"></p>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="name">Kristina Schuldeis</div>
+      <div class="role">Admin-Panel</div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-item active" onclick="showPage('dashboard')"><span class="nav-icon">📊</span> Dashboard</div>
+      <div class="nav-item" onclick="showPage('courses')"><span class="nav-icon">📅</span> Kurse</div>
+      <div class="nav-item" onclick="showPage('bookings')"><span class="nav-icon">🧾</span> Buchungen</div>
+      <div class="nav-item" onclick="showPage('waitlist')"><span class="nav-icon">📋</span> Warteliste</div>
+    </nav>
+    <div class="sidebar-footer">
+      <button class="logout-btn" onclick="logout()">Abmelden</button>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+
+    <!-- DASHBOARD -->
+    <div class="page active" id="page-dashboard">
+      <div class="page-header">
+        <h1 class="page-title">Dashboard</h1>
+        <p class="page-sub">Übersicht deiner Kurse und Buchungen</p>
+      </div>
+      <div class="stats-grid" id="stats-grid">
+        <div class="stat-card"><div class="stat-label">Kurse gesamt</div><div class="stat-value" id="stat-courses">–</div></div>
+        <div class="stat-card"><div class="stat-label">Offene Kurse</div><div class="stat-value" id="stat-open">–</div></div>
+        <div class="stat-card"><div class="stat-label">Anmeldungen</div><div class="stat-value" id="stat-enrolled">–</div></div>
+        <div class="stat-card"><div class="stat-label">Buchungen gesamt</div><div class="stat-value" id="stat-bookings">–</div></div>
+        <div class="stat-card highlight"><div class="stat-label">Einnahmen</div><div class="stat-value" id="stat-revenue">–</div><div class="stat-sub">gesamt (Testmodus)</div></div>
+        <div class="stat-card"><div class="stat-label">Warteliste</div><div class="stat-value" id="stat-waitlist">–</div><div class="stat-sub">Personen warten</div></div>
+      </div>
+
+      <div class="page-header" style="margin-top:1rem">
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;color:var(--brown)">Kurs-Auslastung</h2>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Kurs</th><th>Status</th><th>Auslastung</th><th>Plätze</th></tr></thead>
+          <tbody id="dashboard-table"><tr><td colspan="4" style="text-align:center;color:var(--text-light);padding:2rem">Wird geladen…</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- KURSE -->
+    <div class="page" id="page-courses">
+      <div class="page-header">
+        <h1 class="page-title">Kurse verwalten</h1>
+        <p class="page-sub">Hier legst du neue Kurse an, bearbeitest oder löschst bestehende.</p>
+      </div>
+      <div class="toolbar">
+        <span style="font-size:0.85rem;color:var(--text-light)" id="course-count"></span>
+        <button class="btn btn-primary" onclick="openCourseDrawer()">+ Neuer Kurs</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Kurs</th><th>Datum</th><th>Preis</th><th>Status</th><th>Auslastung</th><th>Aktionen</th></tr></thead>
+          <tbody id="courses-table"><tr><td colspan="6" style="text-align:center;color:var(--text-light);padding:2rem">Wird geladen…</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- BUCHUNGEN -->
+    <div class="page" id="page-bookings">
+      <div class="page-header">
+        <h1 class="page-title">Buchungen</h1>
+        <p class="page-sub">Alle eingegangenen Buchungen in der Übersicht.</p>
+      </div>
+      <div class="toolbar">
+        <span style="font-size:0.85rem;color:var(--text-light)" id="booking-count"></span>
+        <button class="btn btn-outline btn-small" onclick="exportBookings()">⬇ CSV exportieren</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Datum</th><th>Name</th><th>E-Mail</th><th>Kurs</th><th>Betrag</th><th>Zahlung</th></tr></thead>
+          <tbody id="bookings-table"><tr><td colspan="6" style="text-align:center;color:var(--text-light);padding:2rem">Wird geladen…</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- WARTELISTE -->
+    <div class="page" id="page-waitlist">
+      <div class="page-header">
+        <h1 class="page-title">Warteliste</h1>
+        <p class="page-sub">Personen die auf einen freien Platz warten.</p>
+      </div>
+      <div id="waitlist-content"></div>
+    </div>
+
+  </main>
+</div>
+
+<!-- KURS-DRAWER -->
+<div class="overlay" id="course-overlay">
+  <div class="drawer">
+    <div class="drawer-header">
+      <span class="drawer-title" id="drawer-title">Neuer Kurs</span>
+      <button class="drawer-close" onclick="closeDrawer()">✕</button>
+    </div>
+    <div class="drawer-body">
+      <input type="hidden" id="edit-id" />
+      <div class="form-group">
+        <label class="form-label">Kursname *</label>
+        <input type="text" id="f-title" class="form-input" placeholder="z.B. Geburtsvorbereitung 6/26" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Datum / Zeiten *</label>
+        <input type="text" id="f-date" class="form-input" placeholder="z.B. 14.4.–26.5.2026, dienstags 18:30 Uhr" />
+        <p class="form-hint">So wie es auf der Website angezeigt werden soll.</p>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Preis (€) *</label>
+          <input type="number" id="f-price" class="form-input" placeholder="180" step="1" min="0" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Max. Teilnehmer *</label>
+          <input type="number" id="f-capacity" class="form-input" placeholder="8" min="1" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Kurstyp</label>
+          <select id="f-type" class="form-select">
+            <option value="birth">🌸 Geburtsvorbereitung</option>
+            <option value="recovery">🤱 Rückbildung</option>
+            <option value="other">📚 Sonstiges</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Status</label>
+          <select id="f-status" class="form-select">
+            <option value="soon">Demnächst (noch nicht buchbar)</option>
+            <option value="open">Offen (buchbar)</option>
+            <option value="done">Beendet</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group" id="enrolled-group" style="display:none">
+        <label class="form-label">Aktuelle Anmeldungen (manuell korrigieren)</label>
+        <input type="number" id="f-enrolled" class="form-input" min="0" />
+        <p class="form-hint">Nur ändern wenn du eine Zahl manuell korrigieren musst.</p>
+      </div>
+    </div>
+    <div class="drawer-footer">
+      <button class="btn btn-outline" onclick="closeDrawer()">Abbrechen</button>
+      <button class="btn btn-primary" onclick="saveCourse()">Speichern</button>
+    </div>
+  </div>
+</div>
+
+<!-- CONFIRM DELETE -->
+<div class="overlay" id="confirm-overlay">
+  <div class="confirm-box">
+    <h3>Kurs löschen?</h3>
+    <p id="confirm-text">Dieser Kurs wird unwiderruflich gelöscht. Bestehende Buchungsdaten bleiben erhalten.</p>
+    <div class="confirm-btns">
+      <button class="btn btn-outline" onclick="closeConfirm()">Abbrechen</button>
+      <button class="btn btn-danger" id="confirm-ok-btn">Löschen</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const API = ''; // leer = gleicher Server
+let TOKEN = localStorage.getItem('admin_token') || '';
+let allCourses = [];
+let pendingDeleteId = null;
+
+// ── AUTH ──────────────────────────────────────────────────────────────
+async function login() {
+  const pw  = document.getElementById('pw-input').value;
+  const err = document.getElementById('login-error');
+  err.textContent = '';
+  try {
+    const res  = await api('/api/admin/login', 'POST', { password: pw });
+    TOKEN = res.token;
+    localStorage.setItem('admin_token', TOKEN);
+    showApp();
+  } catch(e) {
+    err.textContent = 'Falsches Passwort. Bitte nochmal versuchen.';
+  }
+}
+
+async function logout() {
+  await api('/api/admin/logout', 'POST').catch(() => {});
+  TOKEN = '';
+  localStorage.removeItem('admin_token');
+  document.getElementById('app').style.display = 'none';
+  document.getElementById('login-screen').style.display = 'flex';
+}
+
+document.getElementById('pw-input').addEventListener('keydown', e => { if (e.key === 'Enter') login(); });
+
+// Auto-login if token exists
+if (TOKEN) showApp();
+
+function showApp() {
+  document.getElementById('login-screen').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+  loadDashboard();
+  loadCourses();
+  loadBookings();
+  loadWaitlist();
+}
+
+// ── API HELPER ────────────────────────────────────────────────────────
+async function api(path, method = 'GET', body = null) {
+  const opts = {
+    method,
+    headers: { 'Content-Type': 'application/json', 'x-admin-token': TOKEN },
+  };
+  if (body) opts.body = JSON.stringify(body);
+  const res  = await fetch(API + path, opts);
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.error || 'Fehler');
+  return data;
+}
+
+// ── NAVIGATION ────────────────────────────────────────────────────────
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
+
+// ── DASHBOARD ─────────────────────────────────────────────────────────
+async function loadDashboard() {
+  try {
+    const s = await api('/api/admin/stats');
+    document.getElementById('stat-courses').textContent  = s.totalCourses;
+    document.getElementById('stat-open').textContent     = s.openCourses;
+    document.getElementById('stat-enrolled').textContent = s.totalEnrolled;
+    document.getElementById('stat-bookings').textContent = s.totalBookings;
+    document.getElementById('stat-revenue').textContent  = `${(s.totalRevenue / 100).toFixed(0)} €`;
+    document.getElementById('stat-waitlist').textContent = s.totalWaitlist;
+  } catch(e) { console.warn('Stats:', e.message); }
+}
+
+function renderDashboardTable(courses) {
+  const tbody = document.getElementById('dashboard-table');
+  if (!courses.length) { tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;padding:2rem;color:var(--text-light)">Noch keine Kurse angelegt.</td></tr>'; return; }
+  tbody.innerHTML = courses.map(c => {
+    const pct = Math.round((c.enrolled / c.capacity) * 100);
+    const cls = pct >= 90 ? 'cap-high' : pct >= 60 ? 'cap-mid' : 'cap-low';
+    return `<tr>
+      <td><strong>${c.title}</strong></td>
+      <td>${statusBadge(c)}</td>
+      <td><div class="cap-bar-wrap"><div class="cap-bar ${cls}" style="width:${pct}%"></div></div>${c.enrolled}/${c.capacity}</td>
+      <td>${c.seats > 0 ? `<span style="color:var(--forest)">${c.seats} frei</span>` : '<span style="color:var(--error)">Voll</span>'}</td>
+    </tr>`;
+  }).join('');
+}
+
+// ── KURSE ─────────────────────────────────────────────────────────────
+async function loadCourses() {
+  try {
+    allCourses = await api('/api/admin/courses');
+    renderCoursesTable(allCourses);
+    renderDashboardTable(allCourses);
+    document.getElementById('course-count').textContent = `${allCourses.length} Kurs${allCourses.length !== 1 ? 'e' : ''}`;
+  } catch(e) { toast('Kurse konnten nicht geladen werden.', 'err'); }
+}
+
+function statusBadge(c) {
+  const labels = { open: 'Offen', soon: 'Demnächst', done: 'Beendet' };
+  return `<span class="badge badge-${c.status}">${labels[c.status] || c.status}</span>`;
+}
+
+function renderCoursesTable(courses) {
+  const tbody = document.getElementById('courses-table');
+  if (!courses.length) {
+    tbody.innerHTML = `<tr><td colspan="6"><div class="empty-state"><div class="empty-icon">📅</div><p>Noch keine Kurse. Lege deinen ersten Kurs an!</p></div></td></tr>`;
+    return;
+  }
+  tbody.innerHTML = courses.map(c => {
+    const pct = Math.round((c.enrolled / c.capacity) * 100);
+    const cls = pct >= 90 ? 'cap-high' : pct >= 60 ? 'cap-mid' : 'cap-low';
+    return `<tr>
+      <td><strong style="font-size:0.92rem">${c.title}</strong></td>
+      <td style="font-size:0.82rem;color:var(--text-light);max-width:180px">${c.date}</td>
+      <td>${c.priceFormatted}</td>
+      <td>${statusBadge(c)}</td>
+      <td>
+        <div class="cap-bar-wrap"><div class="cap-bar ${cls}" style="width:${pct}%"></div></div>
+        <span style="font-size:0.82rem">${c.enrolled}/${c.capacity}</span>
+      </td>
+      <td>
+        <div style="display:flex;gap:0.4rem;flex-wrap:wrap">
+          <button class="btn btn-outline btn-small" onclick="editCourse('${c.id}')">✏️ Bearbeiten</button>
+          <button class="btn btn-danger btn-small" onclick="confirmDelete('${c.id}','${c.title.replace(/'/g,"\\'")}')">🗑</button>
+        </div>
+      </td>
+    </tr>`;
+  }).join('');
+}
+
+// ── KURS DRAWER ───────────────────────────────────────────────────────
+function openCourseDrawer(course = null) {
+  document.getElementById('drawer-title').textContent = course ? 'Kurs bearbeiten' : 'Neuer Kurs';
+  document.getElementById('edit-id').value    = course?.id    || '';
+  document.getElementById('f-title').value    = course?.title || '';
+  document.getElementById('f-date').value     = course?.date  || '';
+  document.getElementById('f-price').value    = course ? (course.price / 100).toFixed(0) : '';
+  document.getElementById('f-capacity').value = course?.capacity || '';
+  document.getElementById('f-type').value     = course?.type   || 'birth';
+  document.getElementById('f-status').value   = course?.status || 'soon';
+  document.getElementById('f-enrolled').value = course?.enrolled ?? 0;
+  document.getElementById('enrolled-group').style.display = course ? '' : 'none';
+  document.getElementById('course-overlay').classList.add('open');
+}
+
+function editCourse(id) {
+  const c = allCourses.find(x => x.id === id);
+  if (c) openCourseDrawer(c);
+}
+
+function closeDrawer() {
+  document.getElementById('course-overlay').classList.remove('open');
+}
+
+async function saveCourse() {
+  const id       = document.getElementById('edit-id').value;
+  const title    = document.getElementById('f-title').value.trim();
+  const date     = document.getElementById('f-date').value.trim();
+  const price    = document.getElementById('f-price').value;
+  const capacity = document.getElementById('f-capacity').value;
+  const type     = document.getElementById('f-type').value;
+  const status   = document.getElementById('f-status').value;
+  const enrolled = document.getElementById('f-enrolled').value;
+
+  if (!title || !date || !price || !capacity) {
+    toast('Bitte fülle alle Pflichtfelder aus.', 'inf'); return;
+  }
+
+  try {
+    if (id) {
+      await api(`/api/admin/courses/${id}`, 'PUT', { title, date, price, capacity, type, status, enrolled });
+      toast('Kurs gespeichert ✅', 'ok');
+    } else {
+      await api('/api/admin/courses', 'POST', { title, date, price, capacity, type, status });
+      toast('Kurs angelegt ✅', 'ok');
+    }
+    closeDrawer();
+    loadCourses();
+    loadDashboard();
+  } catch(e) { toast('Fehler: ' + e.message, 'err'); }
+}
+
+// ── DELETE ────────────────────────────────────────────────────────────
+function confirmDelete(id, title) {
+  pendingDeleteId = id;
+  document.getElementById('confirm-text').textContent = `„${title}" wird unwiderruflich gelöscht. Bestehende Buchungsdaten bleiben erhalten.`;
+  document.getElementById('confirm-overlay').classList.add('open');
+  document.getElementById('confirm-ok-btn').onclick = doDelete;
+}
+
+function closeConfirm() {
+  document.getElementById('confirm-overlay').classList.remove('open');
+  pendingDeleteId = null;
+}
+
+async function doDelete() {
+  if (!pendingDeleteId) return;
+  try {
+    await api(`/api/admin/courses/${pendingDeleteId}`, 'DELETE');
+    toast('Kurs gelöscht.', 'ok');
+    closeConfirm();
+    loadCourses();
+    loadDashboard();
+  } catch(e) { toast('Fehler: ' + e.message, 'err'); }
+}
+
+// ── BUCHUNGEN ─────────────────────────────────────────────────────────
+async function loadBookings() {
+  try {
+    const bookings = await api('/api/admin/bookings');
+    document.getElementById('booking-count').textContent = `${bookings.length} Buchung${bookings.length !== 1 ? 'en' : ''}`;
+    const tbody = document.getElementById('bookings-table');
+    if (!bookings.length) {
+      tbody.innerHTML = `<tr><td colspan="6"><div class="empty-state"><div class="empty-icon">🧾</div><p>Noch keine Buchungen vorhanden.</p></div></td></tr>`;
+      return;
+    }
+    tbody.innerHTML = bookings.slice().reverse().map(b => {
+      const d    = new Date(b.bookedAt);
+      const date = isNaN(d) ? '–' : d.toLocaleDateString('de-DE', { day:'2-digit', month:'2-digit', year:'numeric', hour:'2-digit', minute:'2-digit' });
+      const amt  = b.amount ? `${(b.amount / 100).toFixed(2).replace('.', ',')} €` : '–';
+      const methodLabel = { card:'Kreditkarte', paypal:'PayPal', sepa_debit:'SEPA', klarna:'Klarna' }[b.paymentMethod] || b.paymentMethod || '–';
+      return `<tr>
+        <td style="font-size:0.82rem;white-space:nowrap">${date}</td>
+        <td><strong>${b.participant?.firstName || ''} ${b.participant?.lastName || ''}</strong></td>
+        <td><a href="mailto:${b.participant?.email}" style="color:var(--terracotta);text-decoration:none">${b.participant?.email || '–'}</a></td>
+        <td style="font-size:0.82rem">${b.courseTitle || b.courseId}</td>
+        <td style="color:var(--forest);font-weight:500">${amt}</td>
+        <td style="font-size:0.82rem">${methodLabel}</td>
+      </tr>`;
+    }).join('');
+  } catch(e) { console.warn('Buchungen:', e.message); }
+}
+
+function exportBookings() {
+  const rows = [['Datum','Vorname','Nachname','E-Mail','Telefon','Kurs','Betrag','Zahlung']];
+  document.querySelectorAll('#bookings-table tr').forEach(tr => {
+    const cells = [...tr.querySelectorAll('td')].map(td => `"${td.textContent.trim()}"`);
+    if (cells.length) rows.push(cells);
+  });
+  const csv  = rows.map(r => r.join(';')).join('\n');
+  const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
+  const url  = URL.createObjectURL(blob);
+  const a    = Object.assign(document.createElement('a'), { href: url, download: 'buchungen.csv' });
+  a.click(); URL.revokeObjectURL(url);
+}
+
+// ── WARTELISTE ────────────────────────────────────────────────────────
+async function loadWaitlist() {
+  try {
+    const wl  = await api('/api/admin/waitlist');
+    const div = document.getElementById('waitlist-content');
+    const entries = Object.entries(wl).filter(([, v]) => v.entries?.length > 0);
+    if (!entries.length) {
+      div.innerHTML = `<div class="empty-state"><div class="empty-icon">📋</div><p>Keine Personen auf der Warteliste.</p></div>`;
+      return;
+    }
+    div.innerHTML = entries.map(([courseId, data]) => `
+      <div style="margin-bottom:2rem">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--brown);margin-bottom:0.8rem">
+          ${data.courseTitle} <span style="font-size:0.85rem;color:var(--text-light);font-family:'Jost',sans-serif;font-weight:300">(${data.entries.length} Person${data.entries.length !== 1 ? 'en' : ''})</span>
+        </h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Name</th><th>E-Mail</th><th>Eingetragen am</th><th>Aktion</th></tr></thead>
+            <tbody>${data.entries.map((e, i) => `<tr>
+              <td>${e.name || '–'}</td>
+              <td><a href="mailto:${e.email}" style="color:var(--terracotta);text-decoration:none">${e.email}</a></td>
+              <td style="font-size:0.82rem;color:var(--text-light)">${new Date(e.addedAt).toLocaleDateString('de-DE')}</td>
+              <td>
+                <button class="btn btn-success btn-small" onclick="promoteFromWaitlist('${courseId}','${e.email}','${e.name?.replace(/'/g,"\\'")||''}')">✓ Einschreiben</button>
+                <button class="btn btn-danger btn-small" onclick="removeWaitlist('${courseId}','${encodeURIComponent(e.email)}')">✕</button>
+              </td>
+            </tr>`).join('')}</tbody>
+          </table>
+        </div>
+      </div>`).join('');
+  } catch(e) { console.warn('Warteliste:', e.message); }
+}
+
+async function removeWaitlist(courseId, email) {
+  try {
+    await api(`/api/admin/waitlist/${courseId}/${email}`, 'DELETE');
+    toast('Von Warteliste entfernt.', 'ok');
+    loadWaitlist();
+  } catch(e) { toast('Fehler: ' + e.message, 'err'); }
+}
+
+function promoteFromWaitlist(courseId, email, name) {
+  toast(`Bitte buche ${name} (${email}) manuell im Kurs ein und entferne sie dann von der Warteliste.`, 'inf');
+}
+
+// ── TOAST ─────────────────────────────────────────────────────────────
+function toast(msg, type = 'inf') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className   = `toast ${type}`;
+  setTimeout(() => t.classList.add('show'), 10);
+  setTimeout(() => t.classList.remove('show'), 4000);
+}
+
+// Close overlays on background click
+['course-overlay','confirm-overlay'].forEach(id => {
+  document.getElementById(id).addEventListener('click', e => {
+    if (e.target === document.getElementById(id)) {
+      document.getElementById(id).classList.remove('open');
+    }
+  });
+});
+</script>
+</body>
+</html>
