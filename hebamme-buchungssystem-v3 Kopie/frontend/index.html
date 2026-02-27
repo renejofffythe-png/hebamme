@@ -1461,6 +1461,93 @@ footer {
   .hero-leaf-1, .hero-leaf-2, .hero-leaf-3, .hero-leaf-4 { display: none; }
   .hero-stem, .hero-dots-svg, .hero-blob-1, .hero-blob-2 { display: none; }
   .hero-left::before { display: none; }
+  /* Hamburger: show on mobile, hide nav-links */
+  .nav-hamburger { display: flex; }
+  .nav-links { display: none; }
+}
+
+/* ── TABLET (768px) ── */
+@media (max-width: 768px) {
+  .courses-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+  .services-grid { grid-template-columns: 1fr; }
+  .about-grid { grid-template-columns: 1fr; }
+  .eeh-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  section { padding: 4rem 1.2rem; }
+}
+
+/* ── SMALL PHONE (480px) ── */
+@media (max-width: 480px) {
+  section { padding: 3rem 1rem; }
+  .hero-left { padding: 5rem 1.2rem 4rem; }
+  .hero-subtitle { font-size: 1rem; }
+  .hero-portrait { width: 120px; height: 120px; }
+  .btn-primary,
+  .btn-secondary { width: 100%; justify-content: center; }
+  .hero-actions { flex-direction: column; gap: 0.8rem; }
+  .section-title { font-size: clamp(1.6rem, 6vw, 2.2rem); }
+  .modal-content { padding: 1.5rem 1.2rem; }
+  .modal-body .form-row { grid-template-columns: 1fr; }
+}
+
+/* ── HAMBURGER MENU ── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+.nav-hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+.nav-links.open {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--white);
+  padding: 1.5rem 2rem;
+  gap: 1rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  z-index: 999;
+}
+
+/* ── CONTACT FORM UTILITY CLASSES ── */
+.form-row-no-bottom { margin-bottom: 0; }
+.form-group-no-bottom { margin-bottom: 0; }
+.form-group-mt { margin-top: 1rem; }
+.input-mt { margin-top: 1rem; }
+.iban-input { margin-top: 0.5rem; }
+.btn-send {
+  margin-top: 1rem;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}
+.footer-tagline {
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+}
+.section-divider-light {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+}
+.payment-info-text {
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  padding: 0.8rem;
+  background: var(--sand);
+  border-radius: 2px;
 }
 </style>
 </head>
@@ -1469,6 +1556,11 @@ footer {
 <!-- NAV -->
 <nav id="nav">
   <a href="#" class="nav-logo">Kristina <span>Schuldeis</span></a>
+  <button class="nav-hamburger" aria-label="Menü öffnen" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
   <ul class="nav-links">
     <li><a href="#ueber">Über mich</a></li>
     <li><a href="#hebamme">Hebamme</a></li>
@@ -1715,7 +1807,7 @@ footer {
   </div>
 </section>
 
-<div class="section-divider" style="background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent)"></div>
+<div class="section-divider section-divider-light"></div>
 
 <!-- KONTAKT -->
 <section id="kontakt">
@@ -1737,13 +1829,13 @@ footer {
         </div>
       </div>
       <div class="contact-form-area reveal reveal-delay-2">
-        <div class="form-row" style="margin-bottom:0">
+        <div class="form-row form-row-no-bottom">
           <input type="text" placeholder="Dein Name" class="form-input" />
           <input type="email" placeholder="Deine E-Mail" class="form-input" />
         </div>
-        <input type="text" placeholder="Worum geht es? (optional)" class="form-input" style="margin-top:1rem" />
-        <textarea placeholder="Deine Nachricht…" rows="5" class="form-input" style="margin-top:1rem"></textarea>
-        <button class="btn-primary" style="margin-top:1rem;border:none;cursor:pointer;width:100%;text-align:center">Nachricht senden</button>
+        <input type="text" placeholder="Worum geht es? (optional)" class="form-input input-mt" />
+        <textarea placeholder="Deine Nachricht…" rows="5" class="form-input input-mt"></textarea>
+        <button class="btn-primary btn-send">Nachricht senden</button>
       </div>
     </div>
   </div>
@@ -1752,7 +1844,7 @@ footer {
 <!-- FOOTER -->
 <footer>
   <span class="footer-name">Kristina Schuldeis</span>
-  <p style="font-size:0.72rem;letter-spacing:0.05em">Hebamme &amp; EEH-Fachberaterin · Wentorf &amp; Reinbek</p>
+  <p class="footer-tagline">Hebamme &amp; EEH-Fachberaterin · Wentorf &amp; Reinbek</p>
   <div class="footer-links">
     <a href="impressum.html">Impressum</a>
     <a href="datenschutz.html">Datenschutz</a>
@@ -1774,25 +1866,25 @@ footer {
       <div class="modal-body">
         <div id="api-error"></div>
         <div class="form-row">
-          <div class="form-group" style="margin-bottom:0">
+          <div class="form-group form-group-no-bottom">
             <label class="form-label">Vorname *</label>
             <input type="text" id="fname" class="form-input" placeholder="Marie" />
           </div>
-          <div class="form-group" style="margin-bottom:0">
+          <div class="form-group form-group-no-bottom">
             <label class="form-label">Nachname *</label>
             <input type="text" id="lname" class="form-input" placeholder="Müller" />
           </div>
         </div>
-        <div class="form-group" style="margin-top:1rem">
+        <div class="form-group form-group-mt">
           <label class="form-label">E-Mail *</label>
           <input type="email" id="email" class="form-input" placeholder="marie@beispiel.de" />
         </div>
         <div class="form-row">
-          <div class="form-group" style="margin-bottom:0">
+          <div class="form-group form-group-no-bottom">
             <label class="form-label">Telefon</label>
             <input type="tel" id="phone" class="form-input" placeholder="0176 …" />
           </div>
-          <div class="form-group" style="margin-bottom:0">
+          <div class="form-group form-group-no-bottom">
             <label class="form-label">Errechneter Termin</label>
             <input type="date" id="due-date" class="form-input" />
           </div>
@@ -1811,13 +1903,13 @@ footer {
           <div id="card-errors"></div>
         </div>
         <div id="payment-paypal" style="display:none">
-          <p style="font-size:0.85rem;color:var(--ink-muted);padding:0.8rem;background:var(--sand);border-radius:2px">Du wirst nach dem Klick zu PayPal weitergeleitet.</p>
+          <p class="payment-info-text">Du wirst nach dem Klick zu PayPal weitergeleitet.</p>
         </div>
         <div id="payment-sepa" style="display:none">
-          <input type="text" id="iban" class="form-input" placeholder="DE89 3704 0044 0532 0130 00" style="margin-top:0.5rem" />
+          <input type="text" id="iban" class="form-input iban-input" placeholder="DE89 3704 0044 0532 0130 00" />
         </div>
         <div id="payment-klarna" style="display:none">
-          <p style="font-size:0.85rem;color:var(--ink-muted);padding:0.8rem;background:var(--sand);border-radius:2px">Zahle jetzt oder in 3 Raten mit Klarna.</p>
+          <p class="payment-info-text">Zahle jetzt oder in 3 Raten mit Klarna.</p>
         </div>
 
         <div class="legal-checks">
@@ -2150,6 +2242,20 @@ if (params.get('booking') === 'success') setTimeout(() => showToast('Buchung erf
 
 initStripe();
 loadCourses();
+
+// Hamburger menu
+const hamburger = document.querySelector('.nav-hamburger');
+const navLinks = document.querySelector('.nav-links');
+if (hamburger && navLinks) {
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', navLinks.classList.contains('open'));
+  });
+  // Close on link click
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => { navLinks.classList.remove('open'); });
+  });
+}
 </script>
 </body>
 </html>
