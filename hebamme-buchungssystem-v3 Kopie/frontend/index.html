@@ -1638,8 +1638,8 @@ function renderCourses() {
     const btn = c.status === 'done'
       ? '<button class="btn-book" disabled>Beendet</button>'
       : isFull
-        ? '<button class="btn-waitlist" onclick="openWaitlist('' + c.id + '','' + c.title.replace(/'/g, "\'") + '')">Warteliste</button>'
-        : '<button class="btn-book" onclick="openBooking('' + c.id + '')">Buchen</button>';
+        ? '<button class="btn-waitlist" onclick="openWaitlist(\'' + c.id + '\', \'' + c.title.replace(/'/g, "\\'") + '\')">Warteliste</button>'
+        : '<button class="btn-book" onclick="openBooking(\'' + c.id + '\')">Buchen</button>';
 
     return '<div class="course-card">' +
       '<div class="course-top ' + topClass + '"></div>' +
