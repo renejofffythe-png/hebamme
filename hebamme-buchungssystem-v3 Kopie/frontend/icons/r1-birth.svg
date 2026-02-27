@@ -1,0 +1,29 @@
+<!-- Richtung 1: birth — Knospe öffnet sich, 3 Blütenblätter aus kurzem Stiel -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+     stroke="#6b7c5c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+
+  <!-- Stiel -->
+  <path d="M12 20 C12 20 12 15.5 12 14"/>
+
+  <!-- Unteres Blütenblatt — geschlossen, oval anliegend -->
+  <path d="M12 14
+           C10.2 13.2 9.2 11.8 9.5 10.2
+           C9.8 8.6 11.2 8.0 12 8.5
+           C12.8 8.0 14.2 8.6 14.5 10.2
+           C14.8 11.8 13.8 13.2 12 14 Z"/>
+
+  <!-- Linkes Blütenblatt — öffnet sich nach links-oben -->
+  <path d="M11.2 11.0
+           C9.8 10.5  7.5 9.8  6.8 7.8
+           C6.2 6.0   7.4 4.8  8.8 5.2
+           C9.8 5.5  11.0 7.0 11.5 9.2
+           C11.7 10.0 11.6 10.6 11.2 11.0"/>
+
+  <!-- Rechtes Blütenblatt — öffnet sich nach rechts-oben -->
+  <path d="M12.8 11.0
+           C14.2 10.5  16.5 9.8  17.2 7.8
+           C17.8 6.0   16.6 4.8  15.2 5.2
+           C14.2 5.5  13.0 7.0 12.5 9.2
+           C12.3 10.0 12.4 10.6 12.8 11.0"/>
+
+</svg>
