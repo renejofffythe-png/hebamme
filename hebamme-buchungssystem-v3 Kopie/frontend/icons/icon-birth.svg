@@ -1,27 +1,26 @@
-<!-- icon-birth: Geburtsvorbereitung — zwei schützende Arme umschließen einen runden Kern -->
-<!-- Metapher: Geborgenheit, Schutz, neues Leben -->
+<!-- icon-birth: Geburtsvorbereitung — schützende Hülle umschließt einen Kern -->
+<!-- Metapher: zwei symmetrische Bögen (Arme/Hände) halten einen zentralen Kreis (Kind) -->
+<!-- Konstruktion: Kern cx=12 cy=12 r=2.5 · Bögen starten/enden auf Kreisrand bei ca. y=9.5 und y=14.5 -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
      stroke="#6b7c5c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
 
-  <!-- Kern — kleiner Kreis, symbolisiert das werdende Kind -->
-  <circle cx="12" cy="11.5" r="2.5"/>
+  <!-- Kern — neues Leben, Mittelpunkt exakt (12, 12) -->
+  <circle cx="12" cy="12" r="2.5"/>
 
-  <!-- Linker Schutzarm — schwingt von unten-links nach oben-links um den Kern -->
-  <path d="M12 19.5
-           C8.5 19.5  5.5 17.0  5.5 13.0
-           C5.5 9.5   7.5 7.0   9.5 6.0"/>
+  <!-- Linker Schutzarm — Bogen von unten (12, 18.5) nach oben (12, 5.5), schwingt links -->
+  <!-- Startpunkt und Endpunkt auf Mittelachse x=12, Amplitude x=5.0 -->
+  <path d="M12 18.5
+           C8.5 18.5  5.0 16.0  5.0 12.0
+           C5.0 8.0   8.5 5.5   12 5.5"/>
 
-  <!-- Rechter Schutzarm — gespiegelt, schwingt von unten-rechts nach oben-rechts -->
-  <path d="M12 19.5
-           C15.5 19.5  18.5 17.0  18.5 13.0
-           C18.5 9.5   16.5 7.0   14.5 6.0"/>
+  <!-- Rechter Schutzarm — exakte Spiegelung des linken an x=12 -->
+  <path d="M12 18.5
+           C15.5 18.5  19.0 16.0  19.0 12.0
+           C19.0 8.0   15.5 5.5   12 5.5"/>
 
-  <!-- Kleines Blatt oben links — botanisches Marken-Element -->
-  <path d="M9.5 6.0
-           C9.0 4.5   10.5 3.5  12 4.5"/>
-
-  <!-- Kleines Blatt oben rechts — gespiegelt -->
-  <path d="M14.5 6.0
-           C15.0 4.5   13.5 3.5  12 4.5"/>
+  <!-- Knospen-Spitze oben — zwei kurze Blattbögen treffen sich exakt bei (12, 4.0) -->
+  <!-- Geben dem Icon die botanische Sprache des Systems -->
+  <path d="M12 5.5 C11.5 5.0  10.5 4.0  12 4.0"/>
+  <path d="M12 5.5 C12.5 5.0  13.5 4.0  12 4.0"/>
 
 </svg>
