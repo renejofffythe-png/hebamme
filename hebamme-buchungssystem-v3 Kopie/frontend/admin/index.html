@@ -162,10 +162,50 @@ tr:hover td { background: #fdfaf6; }
 .confirm-box p  { font-size: 0.88rem; color: var(--text-light); margin-bottom: 1.5rem; line-height: 1.6; }
 .confirm-btns   { display: flex; gap: 0.8rem; justify-content: center; }
 
+.sidebar-toggle {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--forest, #3d5a3e);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  font-size: 0.85rem;
+  font-family: 'Jost', sans-serif;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  transition: background 0.2s;
+}
+.sidebar-toggle:hover { background: #2d4a2e; }
+
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 99;
+}
+.sidebar-overlay.active { display: block; }
+
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+@media (max-width: 768px) {
+  .table-scroll table { min-width: 600px; }
+  td, th { padding: 0.6rem 0.8rem; font-size: 0.8rem; }
+}
+
 @media(max-width: 768px) {
-  .sidebar { transform: translateX(-100%); }
+  .sidebar { transform: translateX(-100%); transition: transform 0.25s ease; }
+  .sidebar.open { transform: translateX(0); }
   .main { margin-left: 0; padding: 1.5rem; }
   .stats-grid { grid-template-columns: 1fr 1fr; }
+  .sidebar-toggle { display: flex; }
+  .form-row { grid-template-columns: 1fr !important; }
+}
+
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+  .stat-value { font-size: 1.6rem; }
 }
 </style>
 </head>
@@ -203,6 +243,14 @@ tr:hover td { background: #fdfaf6; }
 
   <!-- Main -->
   <main class="main">
+    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Seitenleiste öffnen">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+      Menü
+    </button>
 
     <!-- DASHBOARD -->
     <div class="page active" id="page-dashboard">
@@ -223,10 +271,12 @@ tr:hover td { background: #fdfaf6; }
         <h2 style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;color:var(--brown)">Kurs-Auslastung</h2>
       </div>
       <div class="table-wrap">
+        <div class="table-scroll">
         <table>
           <thead><tr><th>Kurs</th><th>Status</th><th>Auslastung</th><th>Plätze</th></tr></thead>
           <tbody id="dashboard-table"><tr><td colspan="4" style="text-align:center;color:var(--text-light);padding:2rem">Wird geladen…</td></tr></tbody>
         </table>
+        </div>
       </div>
     </div>
 
@@ -241,10 +291,12 @@ tr:hover td { background: #fdfaf6; }
         <button class="btn btn-primary" onclick="openCourseDrawer()">+ Neuer Kurs</button>
       </div>
       <div class="table-wrap">
+        <div class="table-scroll">
         <table>
           <thead><tr><th>Kurs</th><th>Datum</th><th>Preis</th><th>Status</th><th>Auslastung</th><th>Aktionen</th></tr></thead>
           <tbody id="courses-table"><tr><td colspan="6" style="text-align:center;color:var(--text-light);padding:2rem">Wird geladen…</td></tr></tbody>
         </table>
+        </div>
       </div>
     </div>
 
@@ -259,10 +311,12 @@ tr:hover td { background: #fdfaf6; }
         <button class="btn btn-outline btn-small" onclick="exportBookings()">⬇ CSV exportieren</button>
       </div>
       <div class="table-wrap">
+        <div class="table-scroll">
         <table>
           <thead><tr><th>Datum</th><th>Name</th><th>E-Mail</th><th>Kurs</th><th>Betrag</th><th>Zahlung</th></tr></thead>
           <tbody id="bookings-table"><tr><td colspan="6" style="text-align:center;color:var(--text-light);padding:2rem">Wird geladen…</td></tr></tbody>
         </table>
+        </div>
       </div>
     </div>
 
@@ -350,6 +404,7 @@ tr:hover td { background: #fdfaf6; }
 </div>
 
 <div class="toast" id="toast"></div>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
 
 <script>
 const API = ''; // leer = gleicher Server
@@ -618,6 +673,7 @@ async function loadWaitlist() {
           ${data.courseTitle} <span style="font-size:0.85rem;color:var(--text-light);font-family:'Jost',sans-serif;font-weight:300">(${data.entries.length} Person${data.entries.length !== 1 ? 'en' : ''})</span>
         </h3>
         <div class="table-wrap">
+          <div class="table-scroll">
           <table>
             <thead><tr><th>Name</th><th>E-Mail</th><th>Eingetragen am</th><th>Aktion</th></tr></thead>
             <tbody>${data.entries.map((e, i) => `<tr>
@@ -630,6 +686,7 @@ async function loadWaitlist() {
               </td>
             </tr>`).join('')}</tbody>
           </table>
+          </div>
         </div>
       </div>`).join('');
   } catch(e) { console.warn('Warteliste:', e.message); }
@@ -664,6 +721,23 @@ function toast(msg, type = 'inf') {
     }
   });
 });
+
+// Sidebar toggle for mobile
+const sidebarToggle = document.getElementById('sidebarToggle');
+const sidebarEl = document.querySelector('.sidebar');
+const sidebarOverlay = document.getElementById('sidebarOverlay');
+if (sidebarToggle && sidebarEl) {
+  sidebarToggle.addEventListener('click', () => {
+    sidebarEl.classList.toggle('open');
+    if (sidebarOverlay) sidebarOverlay.classList.toggle('active');
+  });
+  if (sidebarOverlay) {
+    sidebarOverlay.addEventListener('click', () => {
+      sidebarEl.classList.remove('open');
+      sidebarOverlay.classList.remove('active');
+    });
+  }
+}
 </script>
 </body>
 </html>
