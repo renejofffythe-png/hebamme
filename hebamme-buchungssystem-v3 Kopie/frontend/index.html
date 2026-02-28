@@ -241,7 +241,7 @@ nav.scrolled {
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: 340px 1fr;
+  grid-template-columns: 420px 1fr;
   gap: 4rem;
   align-items: center;
   max-width: 1280px;
@@ -257,21 +257,24 @@ nav.scrolled {
   height: 420px;
   position: relative;
   flex-shrink: 0;
-}
-.photo-fade-wrap::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    ellipse 68% 68% at 50% 46%,
-    transparent 0%,
-    transparent 32%,
-    rgba(246, 240, 232, 0.45) 50%,
-    rgba(244, 237, 228, 0.85) 68%,
-    rgba(243, 236, 226, 1) 82%
+  -webkit-mask-image: radial-gradient(
+    ellipse 72% 72% at 50% 46%,
+    black 30%,
+    rgba(0,0,0,0.6) 50%,
+    rgba(0,0,0,0.1) 68%,
+    transparent 82%
   );
-  pointer-events: none;
-  z-index: 1;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-image: radial-gradient(
+    ellipse 72% 72% at 50% 46%,
+    black 30%,
+    rgba(0,0,0,0.6) 50%,
+    rgba(0,0,0,0.1) 68%,
+    transparent 82%
+  );
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
 }
 .hero-col-photo img {
   width: 100%;
