@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" fill="none" stroke="#7a6045" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round">
+
+  <!-- Main branch: curves from bottom-right to upper-left -->
+  <path d="M 110 135 C 90 110 70 90 55 65 C 40 40 25 25 15 10"/>
+
+  <!-- Leaf 1 at ~(80,105) — swings to lower-left -->
+  <path d="M 80 105 C 70 95 58 90 50 95 C 58 98 70 102 80 108"/>
+
+  <!-- Leaf 2 at ~(60,80) — swings to upper-right -->
+  <path d="M 60 80 C 68 68 80 60 88 64 C 78 68 67 76 60 82"/>
+
+  <!-- Leaf 3 at ~(35,50) — swings to lower-left -->
+  <path d="M 35 50 C 26 40 18 30 15 22 C 22 28 30 40 35 52"/>
+
+  <!-- Blossom dots at branch tip -->
+  <circle cx="22" cy="15" r="2.5" fill="#7a6045" stroke="none"/>
+  <circle cx="32" cy="8" r="1.8" fill="#7a6045" stroke="none"/>
+  <circle cx="14" cy="9" r="1.5" fill="#7a6045" stroke="none"/>
+
+</svg>
