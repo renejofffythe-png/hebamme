@@ -186,14 +186,13 @@
 
 /*
  * Echter "Wachsen-von-links"-Effekt für umhüllende .form-group-Container:
- * Wenn .form-group als Wrapper vorhanden ist, kann ::before auf dem Container
- * die animierte Left-Border darstellen.
+ * Nur im Kontaktformular — .contact-form .form-group — nicht im Buchungsmodal.
  */
-.form-group {
+.contact-form .form-group {
   position: relative;
 }
 
-.form-group::before {
+.contact-form .form-group::before {
   content:    '';
   position:   absolute;
   left:       0;
@@ -208,7 +207,7 @@
   z-index: 1;
 }
 
-.form-group:focus-within::before {
+.contact-form .form-group:focus-within::before {
   clip-path: inset(0 0% 0 0);
 }
 
@@ -548,7 +547,7 @@
   color: var(--olive);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .nav-hamburger { display: flex; }
   .nav-links      { display: none; }
 }
@@ -679,35 +678,6 @@
 }
 
 /*
- * fadeUp / fadeIn — für Hero-Elemente (bereits in index.html referenziert,
- * hier als Referenzquelle falls ausgelagert).
+ * fadeUp / fadeIn / floatShape / floatGently — in index.html definiert (Single Source of Truth).
+ * Hier nicht neu deklarieren, um Kaskaden-Konflikte mit den Hero-Animationen zu vermeiden.
  */
-@keyframes fadeUp {
-  from {
-    opacity:   0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity:   1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-/* Organisches Schweben — für Blob-Shapes und dekorative Elemente */
-@keyframes floatShape {
-  0%   { transform: translate(0, 0)    rotate(0deg);   }
-  33%  { transform: translate(8px, -12px) rotate(1.5deg); }
-  66%  { transform: translate(-6px, 6px)  rotate(-1deg);  }
-  100% { transform: translate(0, 0)    rotate(0deg);   }
-}
-
-@keyframes floatGently {
-  0%   { transform: translateY(0);    }
-  50%  { transform: translateY(-8px); }
-  100% { transform: translateY(0);    }
-}

@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;0,9..144,400;1,9..144,200;1,9..144,300&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="animations.css">
+<link rel="stylesheet" href="components.css">
 <script src="https://js.stripe.com/v3/"></script>
 <style>
 :root {
@@ -1295,7 +1296,7 @@ footer {
   justify-content: center;
   margin-top: 0.8rem;
 }
-.trust-item { font-size: 0.7rem; color: var(--ink-muted); }
+.modal-trust-item { font-size: 0.7rem; color: var(--ink-muted); }
 
 /* Success screen */
 .success-screen { display: none; padding: 4rem; text-align: center; background: var(--card-bg); border-radius: 0 0 var(--radius-modal) var(--radius-modal); }
@@ -1967,9 +1968,9 @@ footer {
           <span class="btn-text">Jetzt buchen &amp; bezahlen</span>
         </button>
         <div class="trust-row">
-          <span class="trust-item">🔒 SSL</span>
-          <span class="trust-item">✅ Stripe</span>
-          <span class="trust-item">📧 Rechnung per E-Mail</span>
+          <span class="modal-trust-item">🔒 SSL</span>
+          <span class="modal-trust-item">✅ Stripe</span>
+          <span class="modal-trust-item">📧 Rechnung per E-Mail</span>
         </div>
       </div>
     </div>
