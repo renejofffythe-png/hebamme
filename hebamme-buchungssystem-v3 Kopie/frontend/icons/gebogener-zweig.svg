@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 140" fill="none" stroke="#6b7c5c" stroke-linecap="round" stroke-linejoin="round">
+
+  <!-- Main branch: gentle S-curve from lower-left to upper-right -->
+  <path d="M 10 130 C 40 118 75 105 105 85 C 135 65 165 45 210 22"
+        stroke-width="1.2"/>
+
+  <!-- Leaf 1 — near lower end, swings down-left from branch ~(35,118) -->
+  <!-- Oval leaf with midrib -->
+  <path d="M 35 118 C 27 108 20 96 24 86 C 28 90 34 104 35 118"
+        fill="rgba(138,156,120,0.15)" stroke-width="0.8"/>
+  <path d="M 35 118 C 30 104 26 91 24 86"
+        stroke-width="0.6"/>
+
+  <!-- Leaf 2 — mid-lower, swings up-right from branch ~(65,102) -->
+  <path d="M 65 102 C 74 90 84 80 92 76 C 86 82 76 94 65 102"
+        fill="rgba(138,156,120,0.15)" stroke-width="0.8"/>
+  <path d="M 65 102 C 76 92 85 82 92 76"
+        stroke-width="0.6"/>
+
+  <!-- Leaf 3 — mid-point, swings down-left from branch ~(100,87) -->
+  <path d="M 100 87 C 89 80 76 76 68 80 C 76 82 90 86 100 90"
+        fill="rgba(138,156,120,0.15)" stroke-width="0.8"/>
+  <path d="M 100 87 C 85 79 74 77 68 80"
+        stroke-width="0.6"/>
+
+  <!-- Leaf 4 — upper-mid, swings up-right from branch ~(145,62) -->
+  <path d="M 145 62 C 154 50 166 41 175 38 C 168 44 156 54 145 65"
+        fill="rgba(138,156,120,0.15)" stroke-width="0.8"/>
+  <path d="M 145 62 C 156 51 167 42 175 38"
+        stroke-width="0.6"/>
+
+  <!-- Leaf 5 — near tip, swings down-left from branch ~(178,42) -->
+  <path d="M 178 42 C 169 35 158 30 150 33 C 157 35 168 40 178 45"
+        fill="rgba(138,156,120,0.15)" stroke-width="0.8"/>
+  <path d="M 178 42 C 164 33 156 31 150 33"
+        stroke-width="0.6"/>
+
+</svg>
