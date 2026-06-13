@@ -595,6 +595,28 @@ body.nav-open .mobile-drawer { transform: translateX(0); }
   box-shadow: var(--shadow); display: block;
 }
 
+/* ---------- Price value band ---------- */
+.price-hero { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 48px; align-items: center; }
+.price-compare {
+  background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg);
+  padding: 32px; box-shadow: var(--shadow);
+}
+.pc-item { margin-bottom: 22px; }
+.pc-top { display: flex; justify-content: space-between; align-items: baseline;
+  font-family: var(--font-head); font-weight: 600; font-size: 14.5px; margin-bottom: 10px; }
+.pc-top .pc-old { color: var(--muted); }
+.pc-top .pc-new { color: var(--accent); }
+.pc-track { height: 18px; background: var(--bg-soft); border-radius: 999px; overflow: hidden; }
+.pc-fill { height: 100%; border-radius: 999px; }
+.pc-fill.old { background: var(--line-strong); }
+.pc-fill.new { background: var(--grad); box-shadow: var(--shadow-accent); }
+.pc-save { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--line); }
+.pc-save strong {
+  display: block; font-family: var(--font-head); font-weight: 700; font-size: 1.5rem; line-height: 1.1;
+  background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.pc-save span { color: var(--muted); font-size: 14px; }
+
 /* ---------- Founders card (hero) ---------- */
 .founders-card {
   background: rgba(255,255,255,0.07);
