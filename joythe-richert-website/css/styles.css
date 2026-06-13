@@ -583,6 +583,18 @@ body.nav-open .mobile-drawer { transform: translateX(0); }
   html { scroll-behavior: auto; }
 }
 
+/* ---------- Portraits ---------- */
+.portrait-badge {
+  width: 76px; height: 76px; border-radius: 16px;
+  object-fit: cover; object-position: center top;
+  box-shadow: var(--shadow-sm); margin-bottom: 20px; display: block;
+}
+.portrait-lg {
+  width: 240px; max-width: 100%; aspect-ratio: 1 / 1;
+  border-radius: var(--radius-lg); object-fit: cover; object-position: center top;
+  box-shadow: var(--shadow); display: block;
+}
+
 /* ---------- Helpers ---------- */
 .mb-0 { margin-bottom: 0; }
 .mt-24 { margin-top: 24px; }
