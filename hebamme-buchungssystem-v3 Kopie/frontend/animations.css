@@ -1,0 +1,683 @@
+/*
+ * animations.css
+ * Kristina Schuldeis – Hebamme & EEH-Fachberaterin
+ *
+ * Animations & Micro-Interactions — Motion Design System
+ * Philosophie: Ruhig, organisch, warme Qualität. Micro-Interaktionen helfen, unterhalten nicht.
+ * Timing: ease-out, 180–260ms. Niemals linear. Niemals über 300ms außer explizite Ausnahmen.
+ *
+ * Inhaltsverzeichnis:
+ *   1.  CSS Custom Properties (Animation-spezifisch)
+ *   2.  Nav-Link Hover — Underline von der Mitte
+ *   3.  Primär-Button — Physisches Drücken
+ *   4.  Card Hover — Rahmen zu Shadow
+ *   5.  Formular-Focus — Border + Hintergrund
+ *   6.  FAQ Accordion — Öffnen & Schließen
+ *   7.  Scroll-Reveal — Section-Elemente erscheinen
+ *   8.  Botanische SVG Fade-in
+ *   9.  Testimonial Cards — Seitlicher Einzug
+ *  10.  Trust-Bar — Zahlen Fade-in
+ *  11.  Skeleton Shimmer — Kurs-Cards Loading
+ *  12.  Mobile Overlay Nav — Slide-in von oben
+ *  13.  prefers-reduced-motion — Alles deaktivieren
+ *  14.  @keyframes — Alle Animationen gesammelt
+ */
+
+
+/* ══════════════════════════════════════════════════════════════
+   1. CSS CUSTOM PROPERTIES — Animation-spezifisch
+   ══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Farb-System (Referenz — bereits in index.html definiert, hier zur Vollständigkeit) */
+  --olive:         #6b7c5c;
+  --olive-light:   #8a9c78;
+  --olive-ghost:   rgba(107, 124, 92, 0.06);
+  --ink:           #2a2318;
+  --sand:          #f5efe6;
+  --sand-mid:      #e8ddd0;
+  --cream-warm:    #faf4ec;
+  --white:         #fdfaf6;
+  --shadow-float:  0 4px 28px rgba(42, 35, 24, 0.07), 0 1px 6px rgba(42, 35, 24, 0.04);
+  --shadow-hover:  0 20px 60px rgba(42, 35, 24, 0.13), 0 6px 20px rgba(42, 35, 24, 0.07);
+
+  /* Timing-Tokens */
+  --dur-fast:    180ms;
+  --dur-base:    220ms;
+  --dur-reveal:  320ms;
+  --dur-slow:    360ms;
+  --dur-accent:  400ms;
+  --ease-out:    cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-in:     cubic-bezier(0.55, 0.06, 0.68, 0.19);
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   2. ANIMATION: NAV-LINK HOVER — Underline wächst von der Mitte
+   ══════════════════════════════════════════════════════════════ */
+
+/*
+ * Strategie: ::after-Pseudoelement mit width: 0, transform-origin: center.
+ * Der Text selbst ändert keine Farbe — nur die Linie erscheint.
+ * Die nav-cta-Klasse (Pill-Button im Nav) wird ausgenommen.
+ */
+.nav-links a {
+  position: relative;
+  text-decoration: none;
+}
+
+.nav-links a:not(.nav-cta)::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--olive);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 200ms ease-out;
+}
+
+.nav-links a:not(.nav-cta):hover::after {
+  transform: scaleX(1);
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   3. ANIMATION: PRIMÄR-BUTTON — Physisches Drücken
+   ══════════════════════════════════════════════════════════════ */
+
+/*
+ * Hover: hebt sich an, Shadow wächst (Schwebegefühl).
+ * Active/Click: kehrt sofort zurück — kein Transition-Delay.
+ * will-change: transform verhindert Layout-Recalculation auf hover.
+ */
+.btn-primary {
+  transition:
+    transform    var(--dur-fast) ease-out,
+    box-shadow   var(--dur-fast) ease-out,
+    background   var(--dur-fast) ease-out;
+  will-change: transform;
+}
+
+.btn-primary:hover {
+  transform:  translateY(-3px);
+  box-shadow: 0 8px 24px rgba(42, 35, 24, 0.18);
+}
+
+.btn-primary:active {
+  transform:  translateY(0);
+  box-shadow: var(--shadow-float);
+  /* Sofortiger Rücksprung — kein ease beim Drücken */
+  transition: none;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   4. ANIMATION: CARD HOVER — Rahmen zu Shadow
+   ══════════════════════════════════════════════════════════════ */
+
+/*
+ * Default-Zustand: 1px-Rahmen in --sand-dark, shadow-float.
+ * Hover: Rahmen wird transparent, Karte hebt sich, shadow-hover tritt ein.
+ * Rahmen und Shadow-Transition sind synchron (gleiche Dauer).
+ */
+.service-card,
+.process-step,
+.course-card {
+  border: 1px solid var(--sand-mid);
+  transition:
+    transform      var(--base, 220ms) ease-out,
+    box-shadow     var(--base, 220ms) ease-out,
+    border-color   var(--base, 220ms) ease-out;
+  will-change: transform;
+}
+
+.service-card:hover,
+.process-step:hover,
+.course-card:hover {
+  transform:    translateY(-6px);
+  box-shadow:   var(--shadow-hover);
+  border-color: transparent;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   5. ANIMATION: FORMULAR-FOCUS — Border + Hintergrundwechsel
+   ══════════════════════════════════════════════════════════════ */
+
+/*
+ * Ansatz: clip-path-Trick für "Wachsen von links".
+ * Ein ::before-Pseudoelement trägt die olive Border und wird per clip-path
+ * von rechts nach links aufgedeckt. Gleichzeitig wechselt der Hintergrund.
+ *
+ * Fallback-Kompatibilität: clip-path ist in allen modernen Browsern unterstützt.
+ * Für ältere Browser: graceful degradation auf opacity-fade (kein @supports nötig,
+ * da clip-path bei Nicht-Support einfach ignoriert wird und die Base-Border greift).
+ */
+.form-input {
+  position: relative;
+  background:    var(--white);
+  border:        1px solid rgba(212, 196, 176, 0.7);
+  border-radius: var(--radius-input, 12px);
+  outline:       none;
+  transition:
+    background   200ms ease-out,
+    box-shadow   200ms ease-out,
+    border-color 200ms ease-out;
+}
+
+/* Olive-Border-Overlay via ::after, clip-path animiert von rechts → links */
+.form-input {
+  /* Wrapper muss position: relative haben — sichergestellt durch index.html */
+}
+
+/* Wir setzen border-color direkt auf die Komponente und blenden zusätzlich
+   einen Ring ein. Der "Wachsen-von-links"-Effekt wird über box-shadow-inset
+   mit clip-path am Input selbst realisiert, da ::after auf <input> nicht greift. */
+.form-input:focus {
+  background:   var(--cream-warm);
+  border-color: var(--olive);
+  box-shadow:
+    0 0 0 3px rgba(107, 124, 92, 0.10),
+    inset 2px 0 0 var(--olive);
+}
+
+/*
+ * Echter "Wachsen-von-links"-Effekt für umhüllende .form-group-Container:
+ * Nur im Kontaktformular — .contact-form .form-group — nicht im Buchungsmodal.
+ */
+.contact-form .form-group {
+  position: relative;
+}
+
+.contact-form .form-group::before {
+  content:    '';
+  position:   absolute;
+  left:       0;
+  top:        1.85rem; /* unterhalb des Labels */
+  bottom:     0;
+  width:      2px;
+  background: var(--olive);
+  clip-path:  inset(0 100% 0 0);
+  transition: clip-path 200ms ease-out;
+  border-radius: 0 0 0 var(--radius-input, 12px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.contact-form .form-group:focus-within::before {
+  clip-path: inset(0 0% 0 0);
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   6. ANIMATION: FAQ ACCORDION — Sanftes Öffnen & Schließen
+   ══════════════════════════════════════════════════════════════ */
+
+/*
+ * max-height-Transition: Öffnen ease-out 260ms, Schließen ease-in 200ms.
+ * Hintergrund: --olive-ghost beim Öffnen.
+ * Pfeil-Icon: rotiert 180° beim Öffnen.
+ * Padding der Antwort: synchron mit max-height.
+ *
+ * WICHTIG: max-height muss einen ausreichend hohen Zielwert haben.
+ * 800px deckt die meisten FAQ-Antworten sicher ab.
+ */
+
+.faq-item {
+  border-bottom: 1px solid rgba(212, 196, 176, 0.5);
+  transition: background var(--dur-base) ease-out;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.faq-item:first-child {
+  border-top: 1px solid rgba(212, 196, 176, 0.5);
+}
+
+.faq-item--open {
+  background: var(--olive-ghost);
+}
+
+.faq-question {
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  width:           100%;
+  padding:         1.4rem 1.6rem;
+  background:      transparent;
+  border:          none;
+  cursor:          pointer;
+  text-align:      left;
+  font-family:     inherit;
+  font-size:       0.95rem;
+  color:           var(--ink);
+  font-weight:     400;
+  gap:             1rem;
+}
+
+.faq-question:hover {
+  color: var(--olive);
+}
+
+.faq-icon {
+  flex-shrink:  0;
+  width:        18px;
+  height:       18px;
+  display:      flex;
+  align-items:  center;
+  justify-content: center;
+  color:        var(--olive);
+  transition:   transform 260ms ease-out;
+  /* SVG oder Text-Zeichen "›" / "+" */
+}
+
+.faq-item--open .faq-icon {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height:  0;
+  overflow:    hidden;
+  padding:     0 1.6rem;
+
+  /* Schließen: ease-in, etwas kürzer */
+  transition:
+    max-height 200ms var(--ease-in),
+    padding    200ms var(--ease-in);
+}
+
+.faq-item--open .faq-answer {
+  max-height: 800px;
+  padding:    0 1.6rem 1.4rem;
+
+  /* Öffnen: ease-out, spürbar weich */
+  transition:
+    max-height 260ms ease-out,
+    padding    260ms ease-out;
+}
+
+.faq-answer p,
+.faq-answer ul {
+  font-size:   0.9rem;
+  line-height: 1.8;
+  color:       var(--ink-soft, #5a4e3e);
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   7. ANIMATION: SCROLL-REVEAL — Section-Elemente erscheinen
+   ══════════════════════════════════════════════════════════════ */
+
+/*
+ * Startzustand: unsichtbar, leicht nach unten verschoben.
+ * .visible-Klasse wird per IntersectionObserver gesetzt (siehe JS-Block unten).
+ * Gestaffelte Delays via Modifier-Klassen.
+ */
+.reveal-element {
+  opacity:    0;
+  transform:  translateY(16px);
+  transition:
+    opacity   var(--dur-reveal) ease-out,
+    transform var(--dur-reveal) ease-out;
+}
+
+.reveal-element.visible {
+  opacity:   1;
+  transform: translateY(0);
+}
+
+/* Delay-Staffelung für Kinder-Gruppen */
+.reveal-delay-1 { transition-delay:  80ms; }
+.reveal-delay-2 { transition-delay: 160ms; }
+.reveal-delay-3 { transition-delay: 240ms; }
+.reveal-delay-4 { transition-delay: 320ms; }
+
+
+/* ══════════════════════════════════════════════════════════════
+   8. ANIMATION: BOTANISCHE SVG FADE-IN
+   ══════════════════════════════════════════════════════════════ */
+
+/*
+ * Kein Slide-Effekt — nur opacity.
+ * Ziel-Opacity wird als CSS-Variable pro Element gesetzt (default: 0.22).
+ * Beispiel-HTML: <img class="botanical-deco" style="--deco-opacity: 0.18" ...>
+ */
+.botanical-deco {
+  opacity:    0;
+  transition: opacity var(--dur-accent) ease-out;
+  will-change: opacity;
+}
+
+.botanical-deco.visible {
+  opacity: var(--deco-opacity, 0.22);
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   9. ANIMATION: TESTIMONIAL CARDS — Seitlicher Einzug
+   ══════════════════════════════════════════════════════════════ */
+
+/*
+ * Links-Testimonials gleiten von links, rechts von rechts.
+ * Delay von 120ms zwischen den Cards.
+ * .visible-Klasse via IntersectionObserver (gleicher Observer wie Scroll-Reveal).
+ */
+.testimonial--left {
+  opacity:    0;
+  transform:  translateX(-24px);
+  transition:
+    opacity   var(--dur-slow) ease-out,
+    transform var(--dur-slow) ease-out;
+}
+
+.testimonial--right {
+  opacity:    0;
+  transform:  translateX(24px);
+  transition:
+    opacity   var(--dur-slow) ease-out,
+    transform var(--dur-slow) ease-out;
+  transition-delay: 120ms;
+}
+
+.testimonial--left.visible,
+.testimonial--right.visible {
+  opacity:   1;
+  transform: translateX(0);
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   10. ANIMATION: TRUST-BAR — Zahlen Fade-in
+   ══════════════════════════════════════════════════════════════ */
+
+/*
+ * Einfaches opacity-Fade ohne Counter-Up-Effekt.
+ * Zahlen stehen sofort lesbar da — kein numerisches Hochzählen.
+ */
+.trust-value {
+  opacity:    0;
+  transition: opacity 300ms ease-out;
+}
+
+.trust-value.visible {
+  opacity: 1;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   11. ANIMATION: SKELETON SHIMMER — Kurs-Cards Loading
+   ══════════════════════════════════════════════════════════════ */
+
+/*
+ * Shimmer wandert von links nach rechts.
+ * Basis: --sand-mid (#e8ddd0), Höhepunkt: --sand (#f5efe6).
+ * 1.4s-Zyklus — ruhig, kein Flimmern.
+ * background-size: 400% damit der Gradient-Peak langsam durchzieht.
+ */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--sand-mid)   0%,
+    var(--sand-mid)  25%,
+    var(--sand)      50%,
+    var(--sand-mid)  75%,
+    var(--sand-mid) 100%
+  );
+  background-size: 400% 100%;
+  animation: skeletonShimmer 1.4s ease-in-out infinite;
+  border-radius: var(--radius-card, 22px);
+}
+
+.skeleton-card {
+  height: 260px;
+}
+
+/* Skeleton-Zeilen innerhalb einer Card */
+.skeleton-line {
+  height:        14px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.skeleton-line--short { width: 55%; }
+.skeleton-line--mid   { width: 75%; }
+.skeleton-line--full  { width: 100%; }
+
+
+/* ══════════════════════════════════════════════════════════════
+   12. ANIMATION: MOBILE OVERLAY NAV — Slide-in von oben
+   ══════════════════════════════════════════════════════════════ */
+
+/*
+ * Startzustand: unsichtbar, leicht nach oben versetzt.
+ * visibility: hidden verhindert Tab-Focus auf versteckten Elementen.
+ * Öffnen: ease-out 240ms. Schließen: ease-in 180ms, dann visibility: hidden.
+ *
+ * Tipp: visibility-Transition mit delay beim Schließen sorgt dafür,
+ * dass das Element erst nach dem opacity-Fade aus dem Tab-Fokus fällt.
+ */
+.nav-overlay {
+  position:   fixed;
+  inset:      0;
+  z-index:    200;
+  background: rgba(253, 250, 246, 0.97);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  display:         flex;
+  flex-direction:  column;
+  align-items:     center;
+  justify-content: center;
+  gap:             2.4rem;
+
+  /* Startzustand — geschlossen */
+  visibility: hidden;
+  opacity:    0;
+  transform:  translateY(-10px);
+
+  /* Schließen: ease-in, visibility mit Delay */
+  transition:
+    opacity    180ms var(--ease-in),
+    transform  180ms var(--ease-in),
+    visibility   0ms linear 180ms; /* visibility erst nach opacity-Ende */
+}
+
+.nav-overlay--open {
+  visibility: visible;
+  opacity:    1;
+  transform:  translateY(0);
+
+  /* Öffnen: ease-out */
+  transition:
+    opacity    240ms ease-out,
+    transform  240ms ease-out,
+    visibility   0ms linear; /* sofort sichtbar beim Öffnen */
+}
+
+/* Nav-Links im Overlay */
+.nav-overlay .nav-overlay-link {
+  font-family:     'Fraunces', serif;
+  font-size:       clamp(1.8rem, 5vw, 2.6rem);
+  font-weight:     200;
+  font-style:      italic;
+  color:           var(--ink);
+  text-decoration: none;
+  letter-spacing:  0.02em;
+  transition:      color 180ms ease-out;
+}
+
+.nav-overlay .nav-overlay-link:hover {
+  color: var(--olive);
+}
+
+/* Close-Button im Overlay */
+.nav-overlay-close {
+  position:   absolute;
+  top:        1.6rem;
+  right:      1.8rem;
+  background: none;
+  border:     none;
+  cursor:     pointer;
+  color:      var(--ink-muted, #8a7a68);
+  font-size:  1.4rem;
+  line-height: 1;
+  padding:    0.4rem;
+  transition: color 180ms ease-out;
+}
+
+.nav-overlay-close:hover {
+  color: var(--ink);
+}
+
+/* Hamburger-Button */
+.nav-hamburger {
+  display:    none;
+  background: none;
+  border:     none;
+  cursor:     pointer;
+  padding:    0.4rem;
+  color:      var(--ink);
+  transition: color 180ms ease-out;
+}
+
+.nav-hamburger:hover {
+  color: var(--olive);
+}
+
+@media (max-width: 900px) {
+  .nav-hamburger { display: flex; }
+  .nav-links      { display: none; }
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   13. PREFERS-REDUCED-MOTION — Alles deaktivieren
+   ══════════════════════════════════════════════════════════════ */
+
+/*
+ * Vollständige Deaktivierung aller Animationen und Transitionen.
+ * Reveal-Elemente werden sofort sichtbar gesetzt.
+ * Skeleton-Shimmer stoppt (kein flackernder Hintergrund).
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration:   0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration:  0.01ms !important;
+    scroll-behavior:      auto  !important;
+  }
+
+  /* Reveal-Elemente sofort sichtbar */
+  .reveal-element {
+    opacity:   1;
+    transform: none;
+  }
+
+  .reveal-element.visible {
+    opacity:   1;
+    transform: none;
+  }
+
+  /* Botanische Dekorationen sofort auf Ziel-Opacity */
+  .botanical-deco {
+    opacity: var(--deco-opacity, 0.22);
+  }
+
+  .botanical-deco.visible {
+    opacity: var(--deco-opacity, 0.22);
+  }
+
+  /* Testimonials sofort sichtbar */
+  .testimonial--left,
+  .testimonial--right {
+    opacity:   1;
+    transform: none;
+  }
+
+  /* Trust-Werte sofort sichtbar */
+  .trust-value {
+    opacity: 1;
+  }
+
+  .trust-value.visible {
+    opacity: 1;
+  }
+
+  /* Skeleton ohne Shimmer-Animation */
+  .skeleton {
+    animation: none;
+    background: var(--sand-mid);
+  }
+
+  /* Nav-Overlay sofort ohne Fade */
+  .nav-overlay {
+    transition: none;
+  }
+
+  /* FAQ ohne max-height-Transition */
+  .faq-answer {
+    transition: none;
+  }
+
+  .faq-icon {
+    transition: none;
+  }
+
+  /* Nav-Underline ohne Transition */
+  .nav-links a:not(.nav-cta)::after {
+    transition: none;
+  }
+
+  /* Button ohne physisches Drücken */
+  .btn-primary {
+    transition: none;
+  }
+
+  .btn-primary:hover {
+    transform: none;
+  }
+
+  .btn-primary:active {
+    transform: none;
+  }
+
+  /* Card-Hover ohne Animation */
+  .service-card,
+  .process-step,
+  .course-card {
+    transition: none;
+  }
+
+  .service-card:hover,
+  .process-step:hover,
+  .course-card:hover {
+    transform: none;
+  }
+
+  /* Formular ohne clip-path-Animation */
+  .form-group::before {
+    transition: none;
+    clip-path:  none;
+  }
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   14. @KEYFRAMES — Alle Animationen gesammelt
+   ══════════════════════════════════════════════════════════════ */
+
+/* Skeleton Shimmer — von links nach rechts */
+@keyframes skeletonShimmer {
+  0%   { background-position: 100%   0; }
+  100% { background-position: -100%  0; }
+}
+
+/*
+ * fadeUp / fadeIn / floatShape / floatGently — in index.html definiert (Single Source of Truth).
+ * Hier nicht neu deklarieren, um Kaskaden-Konflikte mit den Hero-Animationen zu vermeiden.
+ */

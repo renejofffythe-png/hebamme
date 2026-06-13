@@ -1,0 +1,1075 @@
+/*
+ * ============================================================
+ *  Hebamme Kristina Schuldeis — Komponenten & Sections CSS
+ *  Erweiterung zum bestehenden Variablen-System in index.html
+ * ============================================================
+ */
+
+/* ── NEUE CSS-VARIABLEN (CD-Ergänzung) ── */
+:root {
+  --sage: #b8c9a8;
+  --cream-warm: #faf4ec;
+  --olive-ghost: rgba(107, 124, 92, 0.06);
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   ── TRUST-BAR / ZAHLEN ──
+   ══════════════════════════════════════════════════════════════ */
+
+.trust-bar {
+  background: var(--sage);
+  border-top: 1px solid rgba(138, 156, 120, 0.30);
+  border-bottom: 1px solid rgba(138, 156, 120, 0.30);
+  padding: 2.8rem 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.trust-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.5rem 2rem;
+  position: relative;
+}
+
+.trust-divider {
+  width: 1px;
+  height: 40px;
+  background: var(--olive);
+  opacity: 0.4;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.trust-value {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 4rem;
+  line-height: 1.1;
+  color: var(--olive-dark);
+  display: block;
+}
+
+.trust-label {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 0.6875rem; /* 11px */
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-soft);
+  margin-top: 0.35rem;
+  display: block;
+}
+
+/* Trust-Bar Responsive */
+@media (max-width: 900px) {
+  .trust-bar {
+    padding: 2.2rem 2rem;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+
+  .trust-item {
+    padding: 0.5rem 1.2rem;
+  }
+
+  .trust-value {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .trust-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    padding: 2rem 1.5rem;
+    gap: 0;
+  }
+
+  .trust-divider {
+    display: none;
+  }
+
+  .trust-item {
+    padding: 1.2rem 1rem;
+    border-bottom: 1px solid rgba(138, 156, 120, 0.25);
+  }
+
+  /* Letzten zwei Items keine untere Linie */
+  .trust-item:nth-child(n+4) {
+    border-bottom: none;
+  }
+
+  /* Vertikale Trennlinie durch Border-Right auf linker Spalte */
+  .trust-item:nth-child(odd) {
+    border-right: 1px solid rgba(138, 156, 120, 0.25);
+  }
+
+  .trust-value {
+    font-size: 2.8rem;
+  }
+
+  .trust-label {
+    font-size: 0.625rem;
+    letter-spacing: 0.1em;
+  }
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   ── PROZESS "WIE LÄUFT DAS AB?" ──
+   ══════════════════════════════════════════════════════════════ */
+
+.process-section {
+  background: var(--white);
+  padding: 8rem 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.process-section .section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+  align-items: stretch;
+  margin-top: 4rem;
+}
+
+.process-step {
+  background: var(--cream-warm);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--sand-dark);
+  padding: 2.4rem 2rem 2.2rem;
+  position: relative;
+  transition:
+    border-color 0.32s ease,
+    box-shadow 0.32s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.32s cubic-bezier(0.22, 0.61, 0.36, 1);
+  margin: 0 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.process-step:hover {
+  border-color: transparent;
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
+}
+
+.process-connector {
+  display: none; /* wird via Pseudo-Element realisiert */
+}
+
+/* Gepunktete Verbindungslinie zwischen Karten (Desktop) */
+.process-grid::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: calc(0.9rem + 22px + 2.4rem + 1.5rem); /* linkskante erster Karte + num-width + padding */
+  right: calc(0.9rem + 22px + 2.4rem + 1.5rem);
+  height: 1px;
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--olive-light) 0px,
+    var(--olive-light) 4px,
+    transparent 4px,
+    transparent 10px
+  );
+  pointer-events: none;
+  z-index: 0;
+  transform: translateY(-50%);
+}
+
+.process-num {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 3rem;
+  color: var(--olive);
+  line-height: 1;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.process-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 1.25rem;
+  color: var(--ink);
+  line-height: 1.3;
+  margin-bottom: 0.2rem;
+}
+
+.process-text {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: 0.9375rem; /* 15px */
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+/* Prozess Responsive */
+@media (max-width: 900px) {
+  .process-section {
+    padding: 5rem 1.5rem;
+  }
+
+  .process-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .process-grid::before {
+    display: none;
+  }
+
+  .process-step {
+    margin: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .process-section {
+    padding: 3.5rem 1rem;
+  }
+
+  .process-step {
+    padding: 2rem 1.6rem;
+  }
+
+  .process-num {
+    font-size: 2.4rem;
+  }
+
+  .process-title {
+    font-size: 1.1rem;
+  }
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   ── TESTIMONIALS ──
+   ══════════════════════════════════════════════════════════════ */
+
+.testimonials-section {
+  background: var(--white);
+  padding: 8rem 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonials-section .section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonials-intro {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.75rem;
+  color: var(--ink-soft);
+  text-align: center;
+  margin-bottom: 4rem;
+  line-height: 1.45;
+}
+
+.testimonial {
+  max-width: 580px;
+  padding: 2.8rem 0 2.4rem;
+  position: relative;
+}
+
+.testimonial--left {
+  margin-right: auto;
+  margin-left: 0;
+}
+
+.testimonial--right {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.testimonial-mark {
+  position: absolute;
+  top: 0.8rem;
+  left: -0.6rem;
+  font-family: 'Fraunces', serif;
+  font-weight: 200;
+  font-size: 5.625rem; /* 90px */
+  line-height: 1;
+  color: var(--olive-light);
+  opacity: 0.28;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+.testimonial-quote {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.375rem; /* 22px */
+  color: var(--ink);
+  line-height: 1.65;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1.2rem;
+}
+
+.testimonial-author {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 0.8125rem; /* 13px */
+  color: var(--ink-muted);
+  letter-spacing: 0.03em;
+}
+
+.testimonial-author::before {
+  content: '— ';
+}
+
+/* Testimonials Responsive */
+@media (max-width: 900px) {
+  .testimonials-section {
+    padding: 5rem 1.5rem;
+  }
+
+  .testimonials-intro {
+    font-size: 1.4rem;
+    margin-bottom: 3rem;
+  }
+
+  .testimonial {
+    max-width: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .testimonial-quote {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .testimonials-section {
+    padding: 3.5rem 1rem;
+  }
+
+  .testimonials-intro {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .testimonial {
+    padding: 2rem 0;
+  }
+
+  .testimonial-quote {
+    font-size: 1.1rem;
+  }
+
+  .testimonial-mark {
+    font-size: 4rem;
+    opacity: 0.18;
+  }
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   ── FAQ ACCORDION ──
+   ══════════════════════════════════════════════════════════════ */
+
+.faq-section {
+  background: var(--sand);
+  padding: 8rem 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.faq-section .section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.faq-list {
+  max-width: 720px;
+  margin: 3.5rem auto 0;
+  list-style: none;
+}
+
+.faq-item {
+  border-top: 1px solid var(--sand-dark);
+  transition: background 0.25s ease;
+}
+
+.faq-item:last-child {
+  border-bottom: 1px solid var(--sand-dark);
+}
+
+.faq-item--open {
+  background: var(--olive-ghost);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.4rem 1.2rem 1.4rem 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 1.0625rem; /* 17px */
+  color: var(--ink);
+  transition: color 0.2s;
+}
+
+.faq-question:hover {
+  color: var(--olive-dark);
+}
+
+.faq-item--open .faq-question {
+  color: var(--olive-dark);
+}
+
+.faq-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: var(--olive);
+  transition: transform 0.28s cubic-bezier(0.22, 0.61, 0.36, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* SVG-Pfeil dreht sich beim Öffnen */
+.faq-item--open .faq-icon {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  padding-left: 2rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.38s cubic-bezier(0.22, 0.61, 0.36, 1),
+              padding 0.38s cubic-bezier(0.22, 0.61, 0.36, 1);
+  padding-bottom: 0;
+}
+
+.faq-item--open .faq-answer {
+  max-height: 600px;
+  padding-bottom: 1.6rem;
+}
+
+/* FAQ Responsive */
+@media (max-width: 900px) {
+  .faq-section {
+    padding: 5rem 1.5rem;
+  }
+
+  .faq-list {
+    margin-top: 2.5rem;
+  }
+
+  .faq-question {
+    font-size: 1rem;
+    padding: 1.2rem 0.8rem 1.2rem 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .faq-section {
+    padding: 3.5rem 1rem;
+  }
+
+  .faq-question {
+    font-size: 0.9375rem;
+    padding: 1.1rem 0.5rem 1.1rem 0;
+  }
+
+  .faq-answer {
+    padding-left: 1.2rem;
+    font-size: 0.9375rem;
+  }
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   ── FOOTER (neu) ──
+   ══════════════════════════════════════════════════════════════ */
+
+.footer-new {
+  background: var(--ink);
+  padding: 5rem 6rem 0;
+}
+
+.footer-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 5rem;
+  padding-bottom: 4rem;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Spalte 1: Name & Tagline */
+.footer-brand-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 1.375rem; /* 22px */
+  color: var(--sand);
+  margin-bottom: 0.7rem;
+  line-height: 1.25;
+}
+
+.footer-brand-tagline {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: 0.875rem; /* 14px */
+  color: var(--ink-muted);
+  line-height: 1.65;
+}
+
+/* Spalten 2 & 3: Überschriften & Links */
+.footer-col-title {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 0.6875rem; /* 11px */
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-muted);
+  margin-bottom: 1.2rem;
+  display: block;
+}
+
+.footer-links-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.footer-links-list a {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: 0.875rem; /* 14px */
+  color: var(--sand-mid);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  display: inline-block;
+}
+
+.footer-links-list a:hover {
+  color: var(--olive-light);
+}
+
+/* Trennlinie & Copyright */
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  border-top: 1px solid var(--ink-soft);
+  padding: 1.8rem 0 2rem;
+  text-align: center;
+}
+
+.footer-bottom p {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: 0.75rem; /* 12px */
+  color: var(--ink-muted);
+  letter-spacing: 0.04em;
+}
+
+/* Footer Responsive */
+@media (max-width: 900px) {
+  .footer-new {
+    padding: 4rem 2rem 0;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  /* Spalte 1 erstreckt sich über beide Spalten */
+  .footer-col:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-new {
+    padding: 3rem 1.5rem 0;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .footer-col:first-child {
+    grid-column: auto;
+  }
+
+  .footer-brand-name {
+    font-size: 1.2rem;
+  }
+
+  .footer-bottom {
+    padding: 1.5rem 0 1.8rem;
+  }
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   ── SERVICE CARDS (überarbeitet) ──
+   ══════════════════════════════════════════════════════════════ */
+
+/* Bestehende .service-card Regel überschreiben/erweitern */
+.service-card {
+  background: var(--cream-warm);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--sand-dark);
+  box-shadow: none;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  transition:
+    border-color 0.32s ease,
+    box-shadow 0.38s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.38s cubic-bezier(0.22, 0.61, 0.36, 1);
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Rand verschwindet bei Hover, Shadow erscheint */
+.service-card:hover {
+  border-color: transparent;
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-6px);
+}
+
+/* Decorative ::after Blase aus altem Design entfernen */
+.service-card::after {
+  display: none;
+}
+
+/* Illustrations-Header-Bereich */
+.service-card-header {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 2rem;
+  border-bottom: 1px solid var(--sand-mid);
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Illustration-Slot */
+.service-card-illus {
+  width: 60px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.service-card-illus svg,
+.service-card-illus img {
+  width: 60px;
+  height: 80px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Kategorie-Label */
+.service-cat-label {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 0.6875rem; /* 11px */
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-muted);
+  margin-left: auto;
+  align-self: center;
+}
+
+/* Card-Body */
+.service-card-body {
+  padding: 2rem 2rem 2.2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* Karten-Titel — Klasse .service-name erweitern */
+.service-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 1.25rem; /* 20px */
+  color: var(--ink);
+  line-height: 1.3;
+  margin-bottom: 0;
+}
+
+/* Beschreibung */
+.service-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: 0.875rem; /* 14px */
+  color: var(--ink-soft);
+  line-height: 1.7;
+  flex: 1;
+}
+
+/* Unterzeile */
+.service-subline {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: 0.8125rem; /* 13px */
+  color: var(--ink-muted);
+  margin-top: 0.2rem;
+}
+
+/* Service Cards Responsive */
+@media (max-width: 900px) {
+  .service-card:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .service-card-header {
+    height: 70px;
+    padding: 0 1.5rem;
+  }
+
+  .service-card-body {
+    padding: 1.6rem 1.5rem 1.8rem;
+  }
+
+  .service-name {
+    font-size: 1.1rem;
+  }
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   ── KURS-CARDS (überarbeitet) ──
+   ══════════════════════════════════════════════════════════════ */
+
+/* Bestehende .course-card erweitern */
+.course-card {
+  background: var(--white);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  border: 1px solid var(--sand-dark);
+  box-shadow: none;
+  transition:
+    border-color 0.32s ease,
+    box-shadow 0.38s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.38s cubic-bezier(0.22, 0.61, 0.36, 1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.course-card:hover {
+  border-color: transparent;
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-6px);
+}
+
+/* Datums-Block */
+.course-date-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1;
+  gap: 0.1rem;
+}
+
+.course-date-month {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: 0.6875rem; /* 11px */
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+  display: block;
+}
+
+.course-date-day {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 2.25rem; /* 36px */
+  color: var(--olive);
+  line-height: 1.1;
+  display: block;
+}
+
+.course-date-year {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: 0.6875rem; /* 11px */
+  color: var(--ink-muted);
+  display: block;
+}
+
+/* "Ausgebucht"-Overlay — kein roter Badge */
+.course-status-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--sand);
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 2;
+  border-radius: var(--radius-card);
+}
+
+/* "AUSGEBUCHT"-Label mittig oben */
+.course-status-overlay + .course-status-label,
+.course-status-label {
+  position: absolute;
+  top: 0.9rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 0.6875rem; /* 11px */
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-muted);
+  z-index: 3;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Outline-CTA-Button in Karte */
+.btn-outline {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--olive);
+  background: transparent;
+  border: 1px solid var(--olive);
+  padding: 0.5rem 1.2rem;
+  border-radius: 100px;
+  cursor: pointer;
+  transition:
+    background 0.18s ease,
+    color 0.18s ease,
+    box-shadow 0.18s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.btn-outline:hover {
+  background: var(--olive);
+  color: var(--white);
+  box-shadow: 0 4px 14px rgba(107, 124, 92, 0.28);
+}
+
+.btn-outline:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Kurs-Cards Responsive */
+@media (max-width: 900px) {
+  .course-card:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .course-date-day {
+    font-size: 1.875rem;
+  }
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   ── NAV — MOBILE OVERLAY ──
+   ══════════════════════════════════════════════════════════════ */
+
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--sand);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  /* Initial-Zustand: unsichtbar, nicht klickbar */
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition:
+    opacity 0.32s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.32s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.nav-overlay--open {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+.nav-overlay-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.nav-overlay-links a {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 2.25rem; /* 36px */
+  color: var(--ink);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  display: block;
+  line-height: 1.3;
+}
+
+.nav-overlay-links a:hover {
+  color: var(--olive);
+}
+
+/* Close-Button */
+.nav-overlay-close {
+  position: absolute;
+  top: 1.4rem;
+  right: 1.6rem;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  transition: color 0.2s;
+  padding: 0;
+}
+
+.nav-overlay-close:hover {
+  color: var(--olive);
+}
+
+.nav-overlay-close svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+/* Nav-Overlay ist nur auf Mobile relevant */
+@media (min-width: 901px) {
+  .nav-overlay {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  /* Overlay-Links etwas kleiner auf kleinen Screens */
+}
+
+@media (max-width: 600px) {
+  .nav-overlay-links a {
+    font-size: 1.875rem; /* 30px */
+  }
+
+  .nav-overlay-close {
+    top: 1.2rem;
+    right: 1.2rem;
+  }
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   ── CREDENTIAL-TAGS (überarbeitet) ──
+   ══════════════════════════════════════════════════════════════ */
+
+/* Vollständige Neudeklaration — überschreibt alte Regel */
+.credential-tag {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 0.75rem; /* 12px */
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--olive-dark);
+  background: var(--cream-warm);
+  border: 1px solid var(--olive);
+  border-radius: 22px;
+  padding: 0.4rem 1rem;
+  line-height: 1.4;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.credential-tag:hover {
+  background: rgba(107, 124, 92, 0.08);
+}
+
+/* Responsive: Tags auf Mobile etwas kleiner */
+@media (max-width: 600px) {
+  .credential-tag {
+    font-size: 0.6875rem;
+    padding: 0.35rem 0.8rem;
+  }
+}

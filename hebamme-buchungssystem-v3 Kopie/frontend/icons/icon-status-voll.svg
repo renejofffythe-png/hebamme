@@ -1,0 +1,10 @@
+<!-- icon-status-voll: Ausgebucht — Vollkreis gefüllt, ink-muted -->
+<!-- Metapher: voller Kreis = kein Raum mehr, geschlossen, eindeutig -->
+<!-- Kein stroke nötig: fill übernimmt die visuelle Präsenz vollständig -->
+<!-- fill="none" auf svg-Ebene nicht gesetzt, da das Element selbst fill hat -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+
+  <!-- Vollkreis — cx/cy exakt (12, 12), r=6.5, filled ink-muted -->
+  <circle cx="12" cy="12" r="6.5" fill="#8a7a68" stroke="none"/>
+
+</svg>

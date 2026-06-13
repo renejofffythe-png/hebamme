@@ -1,0 +1,18 @@
+<!-- icon-status-bald: Demnächst / bald ausgebucht — Halbmond D-Form, earth -->
+<!-- Metapher: halber Mond = halb voll, Spannung zwischen offen und geschlossen -->
+<!-- Konstruktion: gerade Kante links auf x=12 (Durchmesser y: 5.5→18.5) + Halbkreisbogen rechts -->
+<!-- Radius 6.5, Mittelpunkt (12, 12) → Bogen-Apex bei x=18.5 -->
+<!-- Bezier-Approximation: CP-Abstand ca. 3.5 vom Endpunkt -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+     stroke="#7a6045" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+
+  <!-- Gerade Kante links — Durchmesser, exakt auf x=12 -->
+  <line x1="12" y1="5.5" x2="12" y2="18.5"/>
+
+  <!-- Halbkreisbogen rechts — startet (12, 5.5), endet (12, 18.5) -->
+  <!-- Kontrollpunkte: obere Hälfte CP1=(15.5, 5.5) CP2=(18.5, 8.5), untere CP1=(18.5, 15.5) CP2=(15.5, 18.5) -->
+  <path d="M12 5.5
+           C15.5 5.5  18.5 8.5  18.5 12.0
+           C18.5 15.5  15.5 18.5  12 18.5"/>
+
+</svg>

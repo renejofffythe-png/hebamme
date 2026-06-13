@@ -1,0 +1,17 @@
+<!-- Richtung 2: datum — Kreis mit feiner horizontaler Mittellinie und zwei Markierungen oben/unten -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+     stroke="#8a7a68" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+
+  <!-- Hauptkreis -->
+  <circle cx="12" cy="12" r="7.5"/>
+
+  <!-- Horizontale Mittellinie -->
+  <line x1="6.5" y1="12" x2="17.5" y2="12"/>
+
+  <!-- Markierung oben — Zeitpunkt-Andeutung -->
+  <line x1="12" y1="4.5" x2="12" y2="6.5"/>
+
+  <!-- Markierung unten -->
+  <line x1="12" y1="17.5" x2="12" y2="19.5"/>
+
+</svg>

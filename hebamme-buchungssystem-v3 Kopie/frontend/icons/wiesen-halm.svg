@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 180" fill="none" stroke="#6b7c5c" stroke-linecap="round" stroke-linejoin="round">
+
+  <!-- Main grass stem: gently S-curved from base upward -->
+  <path d="M 12 178 C 11 155 13.5 135 11 115 C 8.5 95 13 75 11.5 55 C 10 35 13 18 12 4"
+        stroke-width="1"/>
+
+  <!-- Leaf 1 — left side, at ~50% height (around y=100) -->
+  <!-- Narrow, tapered leaf curving away from stem -->
+  <path d="M 11 100 C 7 93 2 86 1 78 C 4 82 8 91 11 98"
+        stroke-width="0.7"/>
+
+  <!-- Leaf 2 — right side, at ~65% height (around y=70) -->
+  <path d="M 11.5 70 C 16 63 21 56 22 48 C 19 53 14.5 62 11.5 68"
+        stroke-width="0.7"/>
+
+</svg>

@@ -1,0 +1,17 @@
+<!-- icon-status-beendet: Kurs beendet — abnehmender Halbmond (öffnet nach links), ink-muted -->
+<!-- Metapher: abnehmender Mond = Abschluss, Stille, natürliches Ende — ohne Verbotskonnotation -->
+<!-- Konstruktion: Spiegelbild von icon-status-bald — gerade Kante rechts (x=12), Bogen links -->
+<!-- Radius 6.5, Mittelpunkt (12, 12) → Bogen-Apex bei x=5.5 -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+     stroke="#8a7a68" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+
+  <!-- Gerade Kante rechts — Durchmesser, exakt auf x=12 -->
+  <line x1="12" y1="5.5" x2="12" y2="18.5"/>
+
+  <!-- Halbkreisbogen links — startet (12, 5.5), endet (12, 18.5), schwingt nach links -->
+  <!-- Kontrollpunkte gespiegelt: obere Hälfte CP1=(8.5, 5.5) CP2=(5.5, 8.5), untere CP1=(5.5, 15.5) CP2=(8.5, 18.5) -->
+  <path d="M12 5.5
+           C8.5 5.5  5.5 8.5  5.5 12.0
+           C5.5 15.5  8.5 18.5  12 18.5"/>
+
+</svg>

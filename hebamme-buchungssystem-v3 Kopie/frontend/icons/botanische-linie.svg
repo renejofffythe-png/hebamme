@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 30" fill="none" stroke="#4a5940" stroke-linecap="round" stroke-linejoin="round">
+
+  <!-- Main branch line: gently undulating from left to right, ~±3px amplitude -->
+  <path d="M 0 15 C 30 12 60 17 100 14 C 140 11 180 17 220 15 C 260 13 300 17 340 14 C 380 11 420 16 460 13 C 475 12 490 14 500 15"
+        stroke-width="1"/>
+
+  <!-- Side branch 1 — at x~90, goes upper-right with small leaf tip -->
+  <path d="M 90 14 C 95 10 100 6 105 4"
+        stroke-width="1"/>
+  <!-- Small leaf at tip of branch 1 -->
+  <path d="M 105 4 C 108 1 112 1 113 4 C 111 6 107 6 105 4"
+        stroke-width="0.8"/>
+
+  <!-- Side branch 2 — at x~210, goes lower-right with dot tip -->
+  <path d="M 210 15 C 215 19 220 23 226 25"
+        stroke-width="1"/>
+  <circle cx="226" cy="25" r="1.8" stroke-width="0.8"/>
+
+  <!-- Side branch 3 — at x~360, goes upper-left with small leaf -->
+  <path d="M 360 14 C 354 10 348 6 342 3"
+        stroke-width="1"/>
+  <!-- Small leaf at tip of branch 3 -->
+  <path d="M 342 3 C 339 0 335 1 334 4 C 336 6 340 6 342 3"
+        stroke-width="0.8"/>
+
+</svg>

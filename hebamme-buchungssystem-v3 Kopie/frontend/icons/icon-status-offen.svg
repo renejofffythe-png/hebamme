@@ -1,0 +1,17 @@
+<!-- icon-status-offen: Plätze frei — zunehmende Mondsichel, öffnet nach rechts, olive -->
+<!-- Metapher: Sichel = Raum/Wachstum, einladend, Platz vorhanden -->
+<!-- Konstruktion: geschlossener Pfad aus äußerem Bogen (r=6, Mitte 12/12) + innerem Gegenbogen (r=3.5, Mitte 9.5/12) -->
+<!-- Beide Spitzen exakt bei (12, 6.0) oben und (12, 18.0) unten — auf Mittelachse x=12 -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+     stroke="#6b7c5c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+
+  <!-- Sichel: geschlossener Pfad -->
+  <!-- Äußerer Bogen: von (12,6) im Uhrzeigersinn nach (12,18) — weiter Bogen über x=18 -->
+  <!-- Innerer Gegenbogen: von (12,18) zurück nach (12,6) — enger Bogen über x=15.5 -->
+  <path d="M12 6.0
+           C15.5 6.0  18.0 8.5  18.0 12.0
+           C18.0 15.5  15.5 18.0  12 18.0
+           C14.0 15.5  15.5 13.5  15.5 12.0
+           C15.5 10.5  14.0 8.5   12 6.0 Z"/>
+
+</svg>
