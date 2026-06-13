@@ -75,11 +75,13 @@
             <div class="form-card" style="color:var(--ink)">
               <h3 style="font-size:1.4rem;margin-bottom:6px">In 3 Fragen zum Check</h3>
               <p class="muted" style="font-size:14.5px;margin-bottom:24px">Wir melden uns innerhalb von 48 Stunden.</p>
-              <form data-demo>
+              <form name="website-check" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="website-check" />
+                <p hidden><label>Nicht ausfüllen: <input name="bot-field" /></label></p>
                 <div class="form-fields">
-                  <div class="field"><label>Ihre Website-URL <span class="req">*</span></label><input type="url" required placeholder="https://ihre-website.de" /></div>
+                  <div class="field"><label>Ihre Website-URL <span class="req">*</span></label><input type="url" name="website-url" required placeholder="https://ihre-website.de" /></div>
                   <div class="field"><label>Was möchten Sie erreichen? <span class="req">*</span></label>
-                    <select required>
+                    <select name="ziel" required>
                       <option value="" disabled selected>Bitte wählen …</option>
                       <option>Mehr Anfragen / Leads generieren</option>
                       <option>Professioneller wirken</option>
@@ -89,12 +91,12 @@
                       <option>Bin mir noch nicht sicher</option>
                     </select>
                   </div>
-                  <div class="field"><label>Ihre größte Herausforderung? <span class="req">*</span></label><textarea required placeholder="Kurz in Ihren Worten – ein, zwei Sätze genügen." style="min-height:90px"></textarea></div>
+                  <div class="field"><label>Ihre größte Herausforderung? <span class="req">*</span></label><textarea name="herausforderung" required placeholder="Kurz in Ihren Worten – ein, zwei Sätze genügen." style="min-height:90px"></textarea></div>
                   <div class="field-row">
-                    <div class="field"><label>Name <span class="req">*</span></label><input type="text" required placeholder="Vor- und Nachname" /></div>
-                    <div class="field"><label>E-Mail <span class="req">*</span></label><input type="email" required placeholder="ihre@email.de" /></div>
+                    <div class="field"><label>Name <span class="req">*</span></label><input type="text" name="name" required placeholder="Vor- und Nachname" /></div>
+                    <div class="field"><label>E-Mail <span class="req">*</span></label><input type="email" name="email" required placeholder="ihre@email.de" /></div>
                   </div>
-                  <label class="consent" style="margin-bottom:18px"><input type="checkbox" required /> Ich stimme der <a href="kontakt.html">Datenschutzerklärung</a> zu. Meine Daten werden ausschließlich zur Bearbeitung der Anfrage verwendet.</label>
+                  <label class="consent" style="margin-bottom:18px"><input type="checkbox" name="datenschutz" required /> Ich stimme der <a href="kontakt.html">Datenschutzerklärung</a> zu. Meine Daten werden ausschließlich zur Bearbeitung der Anfrage verwendet.</label>
                   <button type="submit" class="btn btn-primary btn-lg btn-block">Kostenlosen Check anfordern <span class="arrow">→</span></button>
                   <p class="form-note">100 % kostenlos · unverbindlich · keine Verkaufsschleife</p>
                 </div>

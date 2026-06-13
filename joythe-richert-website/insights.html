@@ -132,13 +132,15 @@
             <h2 style="font-size:1.8rem">Praxis-Tipps &amp; Case Studies, quartalsweise</h2>
             <p class="muted mt-24">Kein Spam, keine Verkaufsschleife – nur Wissen, das Ihnen weiterhilft. Jederzeit abbestellbar.</p>
           </div>
-          <form data-demo>
+          <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="newsletter" />
+            <p hidden><label>Nicht ausfüllen: <input name="bot-field" /></label></p>
             <div class="form-fields">
               <div class="field-row">
-                <div class="field"><label>E-Mail <span class="req">*</span></label><input type="email" required placeholder="ihre@email.de" /></div>
+                <div class="field"><label>E-Mail <span class="req">*</span></label><input type="email" name="email" required placeholder="ihre@email.de" /></div>
                 <div class="field"><label>&nbsp;</label><button type="submit" class="btn btn-primary btn-block">Abonnieren <span class="arrow">→</span></button></div>
               </div>
-              <label class="consent"><input type="checkbox" required /> Ich möchte den Newsletter erhalten und stimme der <a href="kontakt.html">Datenschutzerklärung</a> zu.</label>
+              <label class="consent"><input type="checkbox" name="datenschutz" required /> Ich möchte den Newsletter erhalten und stimme der <a href="kontakt.html">Datenschutzerklärung</a> zu.</label>
             </div>
             <div class="form-success">✓ Fast geschafft! Bitte bestätigen Sie Ihre Anmeldung über die E-Mail, die wir Ihnen gerade geschickt haben.</div>
           </form>
