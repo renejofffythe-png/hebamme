@@ -396,6 +396,12 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate
 .cta-band h2 { color: #fff; max-width: 660px; margin-inline: auto; }
 .cta-band p { color: rgba(255,255,255,0.78); max-width: 560px; margin: 18px auto 0; }
 .cta-band .hero-cta { justify-content: center; margin-top: 32px; }
+.cta-faces { display: flex; justify-content: center; margin-bottom: 22px; }
+.cta-faces img {
+  width: 62px; height: 62px; border-radius: 50%; object-fit: cover; object-position: center top;
+  border: 3px solid #18243d; box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+.cta-faces img:nth-child(2) { margin-left: -16px; }
 
 /* ---------- Testimonial ---------- */
 .quote-card {
