@@ -1,0 +1,31 @@
+# Netlify-Konfiguration für die Joythe & Richert Website.
+# Die Seite liegt im Unterordner joythe-richert-website (Monorepo) und hat
+# keinen Build-Step – Netlify deployt die statischen Dateien direkt.
+
+[build]
+  publish = "joythe-richert-website"
+
+# Sicherheits-Header für alle Seiten
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# Langes Caching für statische Assets (Dateinamen sind stabil)
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

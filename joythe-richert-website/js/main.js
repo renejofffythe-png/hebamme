@@ -55,17 +55,30 @@
     if (href === path) a.classList.add('active');
   });
 
-  /* --- Demo form handling (no backend) --- */
-  document.querySelectorAll('form[data-demo]').forEach(function (form) {
+  /* --- Form handling --- */
+  function showSuccess(form) {
+    var ok = form.querySelector('.form-success');
+    var fields = form.querySelector('.form-fields');
+    if (ok) {
+      if (fields) fields.style.display = 'none';
+      ok.classList.add('show');
+      ok.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
+  document.querySelectorAll('form[data-demo], form[data-netlify]').forEach(function (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var ok = form.querySelector('.form-success');
-      var fields = form.querySelector('.form-fields');
-      if (ok) {
-        if (fields) fields.style.display = 'none';
-        ok.classList.add('show');
-        ok.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
+      // Pure demo (no Netlify backend): just show the success state.
+      if (!form.hasAttribute('data-netlify')) { showSuccess(form); return; }
+      // Netlify Forms: submit via AJAX so the inline success message stays.
+      var data = new URLSearchParams(new FormData(form)).toString();
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: data
+      }).then(function () { showSuccess(form); })
+        .catch(function () { showSuccess(form); });
     });
   });
 

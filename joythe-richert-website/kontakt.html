@@ -71,15 +71,17 @@
             <div class="form-card">
               <h2 style="font-size:1.6rem;margin-bottom:6px">Nachricht senden</h2>
               <p class="muted" style="font-size:14.5px;margin-bottom:24px">Wir antworten innerhalb von 48 Stunden mit einem konkreten nächsten Schritt.</p>
-              <form data-demo>
+              <form name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="kontakt" />
+                <p hidden><label>Nicht ausfüllen: <input name="bot-field" /></label></p>
                 <div class="form-fields">
                   <div class="field-row">
-                    <div class="field"><label>Name <span class="req">*</span></label><input type="text" required placeholder="Vor- und Nachname" /></div>
-                    <div class="field"><label>Unternehmen</label><input type="text" placeholder="Firmenname" /></div>
+                    <div class="field"><label>Name <span class="req">*</span></label><input type="text" name="name" required placeholder="Vor- und Nachname" /></div>
+                    <div class="field"><label>Unternehmen</label><input type="text" name="unternehmen" placeholder="Firmenname" /></div>
                   </div>
-                  <div class="field"><label>E-Mail <span class="req">*</span></label><input type="email" required placeholder="ihre@email.de" /></div>
-                  <div class="field"><label>Ihr Anliegen <span class="req">*</span></label><textarea required placeholder="Worum geht es? Ein paar Sätze genügen."></textarea></div>
-                  <label class="consent" style="margin-bottom:18px"><input type="checkbox" required /> Ich stimme der <a href="#datenschutz">Datenschutzerklärung</a> zu.</label>
+                  <div class="field"><label>E-Mail <span class="req">*</span></label><input type="email" name="email" required placeholder="ihre@email.de" /></div>
+                  <div class="field"><label>Ihr Anliegen <span class="req">*</span></label><textarea name="anliegen" required placeholder="Worum geht es? Ein paar Sätze genügen."></textarea></div>
+                  <label class="consent" style="margin-bottom:18px"><input type="checkbox" name="datenschutz" required /> Ich stimme der <a href="#datenschutz">Datenschutzerklärung</a> zu.</label>
                   <button type="submit" class="btn btn-primary btn-lg btn-block">Nachricht senden <span class="arrow">→</span></button>
                   <p class="form-note">Max. 4 Felder · keine Verkaufsschleife · Antwort in 48&nbsp;h</p>
                 </div>
