@@ -66,12 +66,18 @@
     }
   }
 
-  document.querySelectorAll('form[data-demo], form[data-netlify]').forEach(function (form) {
+  // Netlify forms are identified by their hidden "form-name" input — this
+  // survives Netlify's deploy-time HTML processing (which strips the
+  // data-netlify attribute, so we must NOT rely on that as a selector).
+  var handled = [];
+  document.querySelectorAll('input[name="form-name"]').forEach(function (inp) {
+    var form = inp.form;
+    if (!form || handled.indexOf(form) !== -1) return;
+    handled.push(form);
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      // Pure demo (no Netlify backend): just show the success state.
-      if (!form.hasAttribute('data-netlify')) { showSuccess(form); return; }
-      // Netlify Forms: submit via AJAX so the inline success message stays.
+      // POST to "/" — the path Netlify reliably processes for form
+      // submissions — so the inline success message can stay (no reload).
       var data = new URLSearchParams(new FormData(form)).toString();
       fetch('/', {
         method: 'POST',
@@ -80,6 +86,12 @@
       }).then(function () { showSuccess(form); })
         .catch(function () { showSuccess(form); });
     });
+  });
+
+  // Pure demo forms with no Netlify backend (none currently) — just show success.
+  document.querySelectorAll('form[data-demo]').forEach(function (form) {
+    if (handled.indexOf(form) !== -1) return;
+    form.addEventListener('submit', function (e) { e.preventDefault(); showSuccess(form); });
   });
 
   /* --- Animated counters --- */
