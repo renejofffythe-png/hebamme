@@ -14,18 +14,21 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(), microphone=(), camera=()"
 
-# Langes Caching für statische Assets (Dateinamen sind stabil)
+# CSS/JS: KEIN immutable-Caching, da die Dateinamen stabil sind (kein
+# Content-Hashing). Sonst behalten Browser alte Versionen nach einem Update.
+# Netlify liefert ETags – Revalidierung ist billig (304 wenn unverändert).
 [[headers]]
   for = "/css/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 [[headers]]
   for = "/js/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=0, must-revalidate"
 
+# Bilder ändern sich praktisch nie – moderates Caching ist ok.
 [[headers]]
   for = "/img/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=86400"
