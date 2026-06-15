@@ -1,0 +1,20 @@
+# Netlify-Konfiguration für die Agnes Beauty Lounge Website.
+# Statische Seite ohne Build-Step – Netlify deployt die Dateien direkt.
+
+[build]
+  publish = "agnes-beauty-lounge"
+
+# Sicherheits-Header für alle Seiten
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# Bilder ändern sich praktisch nie – moderates Caching ist ok.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
