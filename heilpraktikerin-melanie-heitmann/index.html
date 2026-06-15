@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heilpraktikerin Melanie Heitmann – Naturheilkunde in Wentorf bei Hamburg</title>
+<meta name="description" content="Ganzheitliche Naturheilkunde in Wentorf bei Hamburg. Heilpraktikerin Melanie Heitmann begleitet Sie bei Frauenheilkunde, Magen-Darm-Beschwerden, Erschöpfung und Schmerzen – ursachenorientiert, persönlich und auf Augenhöhe. Kostenloses Kennenlerngespräch.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://heilpraktikerin-melanieheitmann.de/">
+
+<!-- Social -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Heilpraktikerin Melanie Heitmann – Naturheilkunde in Wentorf">
+<meta property="og:description" content="Ganzheitliche Begleitung für Körper, Geist und Seele. Persönlich, ursachenorientiert, in Wentorf bei Hamburg.">
+<meta property="og:locale" content="de_DE">
+<meta property="og:image" content="https://heilpraktikerin-melanieheitmann.de/assets/melanie-portrait.jpg">
+
+<link rel="icon" href="assets/logo-mark.png">
+<link rel="apple-touch-icon" href="assets/logo-mark.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+
+<!-- Local Business structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "name": "Heilpraktikerin Melanie Heitmann",
+  "image": "https://heilpraktikerin-melanieheitmann.de/assets/melanie-portrait.jpg",
+  "description": "Ganzheitliche Naturheilkunde und Heilpraktiker-Praxis in Wentorf bei Hamburg.",
+  "url": "https://heilpraktikerin-melanieheitmann.de/",
+  "telephone": "+4915560140481",
+  "email": "info@heilpraktikerin-melanieheitmann.de",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Hamburger Landstraße 32",
+    "postalCode": "21465",
+    "addressLocality": "Wentorf bei Hamburg",
+    "addressCountry": "DE"
+  },
+  "priceRange": "€€",
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+    "description": "Termine nach Vereinbarung, telefonisch erreichbar Mo–Fr"
+  }
+}
+</script>
+
+<style>
+:root{
+  --cream:#FBF7F1;
+  --cream-2:#F4EBDD;
+  --card:#FFFFFF;
+  --ink:#322A22;
+  --ink-soft:#4E443A;
+  --muted:#8A7C6D;
+  --line:#EADFCE;
+  --line-soft:#F0E7D9;
+  --blush:#F4D9C9;
+  --blush-soft:#FBEBE0;
+  --terra:#BE6E45;
+  --terra-dark:#A65B36;
+  --mauve:#B294AE;
+  --mauve-soft:#EBDFE8;
+  --sage:#8C9479;
+  --radius:20px;
+  --radius-sm:14px;
+  --shadow:0 18px 50px -28px rgba(80,55,35,.45);
+  --shadow-soft:0 12px 36px -24px rgba(80,55,35,.4);
+  --maxw:1180px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  color:var(--ink);background:var(--cream);line-height:1.72;
+  font-size:17px;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+
+h1,h2,h3,h4{font-family:'Fraunces',Georgia,serif;font-weight:500;line-height:1.1;color:var(--ink);letter-spacing:-.01em}
+h2{font-size:clamp(30px,4vw,46px);font-weight:500}
+h3{font-size:22px;font-weight:500}
+.eyebrow{
+  font-family:'DM Sans',sans-serif;font-weight:600;font-size:13px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--terra);display:inline-flex;align-items:center;gap:10px;
+}
+.eyebrow::before{content:"";width:26px;height:1.5px;background:var(--terra);opacity:.7;display:inline-block}
+.eyebrow.center::after{content:"";width:26px;height:1.5px;background:var(--terra);opacity:.7;display:inline-block}
+.lead{font-size:19px;color:var(--ink-soft);line-height:1.75}
+.muted{color:var(--muted)}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:'DM Sans',sans-serif;font-weight:600;font-size:16px;
+  padding:15px 28px;border-radius:100px;cursor:pointer;border:1.5px solid transparent;
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .25s,color .25s,border-color .25s;
+  white-space:nowrap;
+}
+.btn svg{width:18px;height:18px;transition:transform .35s var(--ease)}
+.btn-primary{background:var(--terra);color:#fff;box-shadow:0 14px 30px -14px rgba(190,110,69,.75)}
+.btn-primary:hover{background:var(--terra-dark);transform:translateY(-2px);box-shadow:0 20px 38px -14px rgba(190,110,69,.85)}
+.btn-primary:hover svg{transform:translateX(3px)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--terra);color:var(--terra);transform:translateY(-2px)}
+.btn-light{background:#fff;color:var(--ink);box-shadow:var(--shadow-soft)}
+.btn-light:hover{transform:translateY(-2px);color:var(--terra)}
+
+/* ---------- Header ---------- */
+.site-header{
+  position:fixed;top:0;left:0;right:0;z-index:60;
+  transition:background .4s var(--ease),box-shadow .4s var(--ease),padding .4s var(--ease);
+  padding:18px 0;
+}
+.site-header.scrolled{background:rgba(251,247,241,.88);backdrop-filter:saturate(140%) blur(14px);box-shadow:0 1px 0 var(--line-soft);padding:11px 0}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:13px}
+.brand img{width:46px;height:46px;transition:width .4s var(--ease),height .4s var(--ease)}
+.scrolled .brand img{width:40px;height:40px}
+.brand-text{display:flex;flex-direction:column;line-height:1.05}
+.brand-name{font-family:'Fraunces',serif;font-size:20px;font-weight:500;color:var(--ink)}
+.brand-role{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.nav{display:flex;align-items:center;gap:34px}
+.nav a.navlink{font-size:15.5px;font-weight:500;color:var(--ink-soft);position:relative;padding:4px 0}
+.nav a.navlink::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1.5px;background:var(--terra);transition:width .35s var(--ease)}
+.nav a.navlink:hover{color:var(--ink)}
+.nav a.navlink:hover::after{width:100%}
+.nav .btn{padding:11px 22px;font-size:15px}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
+.burger span{width:24px;height:2px;background:var(--ink);border-radius:2px;transition:.3s var(--ease)}
+
+/* ---------- Decorative botanicals ---------- */
+.sprig{position:absolute;pointer-events:none;z-index:0}
+.sprig path,.sprig circle{stroke:var(--terra);fill:none;stroke-width:1.2;vector-effect:non-scaling-stroke}
+.blob{position:absolute;border-radius:50%;filter:blur(2px);pointer-events:none;z-index:0}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;padding:150px 0 90px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:
+   radial-gradient(60% 55% at 78% 18%,var(--blush-soft) 0%,transparent 60%),
+   radial-gradient(50% 50% at 8% 90%,var(--mauve-soft) 0%,transparent 60%);
+   z-index:0}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+.hero-eyebrow{margin-bottom:22px}
+.hero h1{font-size:clamp(40px,5.6vw,68px);line-height:1.04;font-weight:500;margin-bottom:24px;letter-spacing:-.02em}
+.hero h1 em{font-style:italic;color:var(--terra);font-weight:400}
+.hero p.lead{max-width:520px;margin-bottom:34px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:34px}
+.hero-trust{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+.trust-chip{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--ink-soft);font-weight:500}
+.trust-chip svg{width:17px;height:17px;color:var(--sage);flex-shrink:0}
+
+.hero-portrait{position:relative;justify-self:center}
+.portrait-frame{
+  position:relative;z-index:2;width:min(420px,82vw);border-radius:26px;overflow:hidden;
+  box-shadow:var(--shadow);border:6px solid #fff;
+}
+.portrait-frame img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-portrait .blob{width:300px;height:300px;background:var(--blush);opacity:.55;top:-26px;right:-30px}
+.hero-portrait .blob.two{width:200px;height:200px;background:var(--mauve-soft);opacity:.7;bottom:-24px;left:-34px}
+.badge-card{
+  position:absolute;z-index:3;background:#fff;border-radius:16px;padding:13px 17px;
+  box-shadow:var(--shadow-soft);display:flex;align-items:center;gap:11px;
+}
+.badge-card.bc-1{bottom:24px;left:-38px}
+.badge-card .ic{width:38px;height:38px;border-radius:11px;background:var(--blush-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.badge-card .ic svg{width:20px;height:20px;color:var(--terra)}
+.badge-card b{font-family:'Fraunces',serif;font-size:15px;font-weight:600;display:block;line-height:1.2}
+.badge-card small{font-size:12.5px;color:var(--muted)}
+
+/* ---------- Section base ---------- */
+section{position:relative}
+.section{padding:90px 0}
+.section-head{max-width:680px;margin:0 auto 56px;text-align:center}
+.section-head.left{margin-left:0;text-align:left}
+.section-head .eyebrow{margin-bottom:18px}
+.section-head p{margin-top:18px;color:var(--ink-soft);font-size:18px}
+
+/* ---------- Quote band ---------- */
+.quote-band{background:var(--cream-2);padding:74px 0;position:relative;overflow:hidden}
+.quote-inner{max-width:840px;margin:0 auto;text-align:center;position:relative;z-index:2}
+.quote-inner .mark{font-family:'Fraunces',serif;font-size:80px;line-height:0;color:var(--blush);display:block;height:34px}
+.quote-inner blockquote{font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:clamp(23px,3vw,31px);line-height:1.4;color:var(--ink);margin:8px 0 22px}
+.quote-inner cite{font-style:normal;font-weight:600;font-size:14px;letter-spacing:.05em;color:var(--terra)}
+
+/* ---------- Help cards ---------- */
+.help-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+.help-card{
+  background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius);
+  padding:36px 34px;position:relative;overflow:hidden;
+  transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .4s;
+}
+.help-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--blush)}
+.help-card .hc-ic{width:54px;height:54px;border-radius:15px;display:flex;align-items:center;justify-content:center;margin-bottom:22px}
+.help-card .hc-ic svg{width:28px;height:28px}
+.hc-frauen .hc-ic{background:var(--mauve-soft)} .hc-frauen .hc-ic svg{color:var(--mauve)}
+.hc-darm .hc-ic{background:var(--blush-soft)} .hc-darm .hc-ic svg{color:var(--terra)}
+.hc-stress .hc-ic{background:#E9EDE2} .hc-stress .hc-ic svg{color:var(--sage)}
+.hc-schmerz .hc-ic{background:var(--blush-soft)} .hc-schmerz .hc-ic svg{color:var(--terra-dark)}
+.help-card h3{margin-bottom:14px}
+.help-card ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.help-card li{position:relative;padding-left:22px;font-size:15.5px;color:var(--ink-soft);line-height:1.55}
+.help-card li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:var(--blush);border:1.5px solid var(--terra)}
+
+/* ---------- About ---------- */
+.about{background:var(--cream-2);overflow:hidden}
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
+.about-photo{position:relative;justify-self:center}
+.about-photo .frame{width:min(380px,80vw);border-radius:24px;overflow:hidden;border:6px solid #fff;box-shadow:var(--shadow);position:relative;z-index:2}
+.about-photo .blob{width:280px;height:280px;background:var(--mauve-soft);opacity:.6;bottom:-30px;right:-30px}
+.about-text h2{margin-bottom:22px}
+.about-text p{margin-bottom:16px;color:var(--ink-soft)}
+.about-text .sign{font-family:'Fraunces',serif;font-style:italic;font-size:22px;color:var(--terra);margin-top:6px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 4px}
+.chip{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:100px;padding:8px 16px;font-size:14px;font-weight:500;color:var(--ink-soft)}
+.chip svg{width:15px;height:15px;color:var(--sage)}
+
+/* ---------- Process ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;counter-reset:step}
+.step{position:relative;padding:38px 30px 34px;background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius);transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.step:hover{transform:translateY(-4px);box-shadow:var(--shadow-soft)}
+.step .num{font-family:'Fraunces',serif;font-size:40px;color:var(--blush);font-weight:600;line-height:1;margin-bottom:14px}
+.step h3{margin-bottom:10px;font-size:20px}
+.step p{font-size:15.5px;color:var(--muted);line-height:1.6}
+.step .badge-free{display:inline-block;margin-top:14px;font-size:12.5px;font-weight:600;letter-spacing:.04em;color:var(--sage);background:#E9EDE2;padding:5px 12px;border-radius:100px}
+
+/* ---------- Packages ---------- */
+.packages{background:var(--cream-2)}
+.pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+.pkg{
+  background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius);
+  padding:34px 30px;display:flex;flex-direction:column;position:relative;
+  transition:transform .4s var(--ease),box-shadow .4s var(--ease);
+}
+.pkg:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.pkg.featured{border-color:var(--terra);box-shadow:var(--shadow);transform:scale(1.025)}
+.pkg.featured:hover{transform:scale(1.025) translateY(-6px)}
+.pkg-tag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--terra);color:#fff;font-size:12px;font-weight:600;letter-spacing:.05em;padding:6px 16px;border-radius:100px;box-shadow:0 8px 18px -8px rgba(190,110,69,.8)}
+.pkg .pkg-name{font-family:'Fraunces',serif;font-size:24px;font-weight:500;margin-bottom:6px}
+.pkg .pkg-color{width:34px;height:4px;border-radius:4px;margin-bottom:18px}
+.pkg-c1{background:var(--blush)} .pkg-c2{background:var(--mauve)} .pkg-c3{background:var(--terra)}
+.pkg .pkg-desc{font-size:14.5px;color:var(--muted);margin-bottom:22px;min-height:66px}
+.pkg .price-row{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
+.pkg .price{font-family:'Fraunces',serif;font-size:34px;font-weight:600;color:var(--ink)}
+.pkg .price-old{font-size:16px;color:var(--muted);text-decoration:line-through}
+.pkg .save{font-size:13px;color:var(--sage);font-weight:600;margin-bottom:22px}
+.pkg ul{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:26px;flex:1}
+.pkg li{position:relative;padding-left:28px;font-size:15px;color:var(--ink-soft);line-height:1.5}
+.pkg li svg{position:absolute;left:0;top:3px;width:18px;height:18px;color:var(--terra)}
+.pkg .btn{width:100%}
+
+/* ---------- Honorar ---------- */
+.honorar-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:30px;align-items:start}
+.fee-list{background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius);padding:14px 34px}
+.fee-row{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:22px 0;border-bottom:1px solid var(--line-soft)}
+.fee-row:last-child{border-bottom:0}
+.fee-row .fl h4{font-family:'Fraunces',serif;font-size:19px;font-weight:500;margin-bottom:3px}
+.fee-row .fl p{font-size:14px;color:var(--muted);line-height:1.5;max-width:430px}
+.fee-row .fp{font-family:'Fraunces',serif;font-size:24px;font-weight:600;color:var(--terra);white-space:nowrap}
+.fee-row .fp small{font-size:13px;color:var(--muted);font-weight:400;font-family:'DM Sans',sans-serif}
+.fee-note{font-size:13px;color:var(--muted);margin-top:18px;line-height:1.6}
+.massage-card{background:linear-gradient(160deg,var(--blush-soft),#fff);border:1px solid var(--blush);border-radius:var(--radius);padding:32px 30px;position:relative;overflow:hidden}
+.massage-card .hc-ic{width:50px;height:50px;border-radius:14px;background:#fff;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.massage-card .hc-ic svg{width:26px;height:26px;color:var(--terra)}
+.massage-card h3{margin-bottom:10px}
+.massage-card p{font-size:15px;color:var(--ink-soft);margin-bottom:20px}
+.massage-prices{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.massage-prices .mp{display:flex;justify-content:space-between;font-size:15.5px;padding:11px 16px;background:#fff;border-radius:12px;border:1px solid var(--line-soft)}
+.massage-prices .mp b{font-family:'Fraunces',serif;color:var(--terra)}
+.massage-card .hint{font-size:13.5px;color:var(--muted)}
+
+/* ---------- FAQ ---------- */
+.faq{max-width:820px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--line);overflow:hidden}
+.faq-q{width:100%;text-align:left;background:none;border:0;cursor:pointer;padding:24px 44px 24px 0;position:relative;font-family:'Fraunces',serif;font-size:20px;font-weight:500;color:var(--ink);display:block}
+.faq-q .plus{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:24px;height:24px}
+.faq-q .plus::before,.faq-q .plus::after{content:"";position:absolute;background:var(--terra);border-radius:2px;transition:transform .35s var(--ease),opacity .3s}
+.faq-q .plus::before{top:11px;left:3px;width:18px;height:2px}
+.faq-q .plus::after{left:11px;top:3px;width:2px;height:18px}
+.faq-item.open .plus::after{transform:rotate(90deg);opacity:0}
+.faq-a{max-height:0;opacity:0;transition:max-height .45s var(--ease),opacity .35s,padding .35s}
+.faq-a p{padding-bottom:0;color:var(--ink-soft);font-size:16px;line-height:1.7}
+.faq-item.open .faq-a{max-height:340px;opacity:1;padding-bottom:24px}
+
+/* ---------- Contact ---------- */
+.contact{background:var(--cream-2);overflow:hidden}
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:50px;align-items:start}
+.contact-info h2{margin-bottom:20px}
+.contact-info .lead{margin-bottom:30px;max-width:440px}
+.cinfo-list{display:flex;flex-direction:column;gap:6px;margin-bottom:30px}
+.cinfo{display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--line-soft)}
+.cinfo .ic{width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cinfo .ic svg{width:20px;height:20px;color:var(--terra)}
+.cinfo .ct{font-size:13px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;font-weight:600;margin-bottom:2px}
+.cinfo a,.cinfo span{font-size:16.5px;color:var(--ink);font-weight:500}
+.cinfo a:hover{color:var(--terra)}
+.call-out{background:#fff;border:1px solid var(--blush);border-radius:var(--radius-sm);padding:20px 22px;display:flex;gap:14px;align-items:center}
+.call-out .ic{width:46px;height:46px;border-radius:12px;background:var(--blush-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.call-out .ic svg{width:24px;height:24px;color:var(--terra)}
+.call-out b{font-family:'Fraunces',serif;font-size:17px;display:block;line-height:1.25;margin-bottom:2px}
+.call-out small{font-size:13.5px;color:var(--muted)}
+
+.form-card{background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius);padding:34px 34px 30px;box-shadow:var(--shadow-soft)}
+.form-card h3{margin-bottom:6px}
+.form-card .fc-sub{font-size:14.5px;color:var(--muted);margin-bottom:24px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{margin-bottom:16px;display:flex;flex-direction:column}
+.field label{font-size:13.5px;font-weight:600;color:var(--ink-soft);margin-bottom:7px}
+.field input,.field textarea{
+  font-family:'DM Sans',sans-serif;font-size:16px;color:var(--ink);
+  padding:13px 15px;border:1.5px solid var(--line);border-radius:12px;background:var(--cream);
+  transition:border-color .25s,background .25s;width:100%;
+}
+.field textarea{min-height:120px;resize:vertical}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--terra);background:#fff}
+.form-card .btn{width:100%;margin-top:6px}
+.form-note{font-size:13px;color:var(--muted);margin-top:14px;text-align:center;line-height:1.5}
+.form-note a{color:var(--terra);text-decoration:underline}
+
+/* ---------- Footer ---------- */
+.site-footer{background:#2C2820;color:#C8BEB0;padding:64px 0 28px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.1)}
+.footer-brand img{width:54px;margin-bottom:16px;filter:brightness(0) invert(1);opacity:.92}
+.footer-brand .fb-name{font-family:'Fraunces',serif;font-size:21px;color:#fff;margin-bottom:8px}
+.footer-brand p{font-size:14.5px;color:#A99E8E;max-width:300px;line-height:1.7}
+.footer-col h4{font-family:'DM Sans',sans-serif;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#9A8F7E;font-weight:600;margin-bottom:18px}
+.footer-col a,.footer-col p{display:block;font-size:15px;color:#C8BEB0;margin-bottom:11px;transition:color .25s}
+.footer-col a:hover{color:#fff}
+.footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:24px;font-size:13.5px;color:#8C8273}
+.footer-bottom a{color:#8C8273}.footer-bottom a:hover{color:#fff}
+
+/* ---------- Reveal animation ---------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+/* ---------- Responsive ---------- */
+@media(max-width:980px){
+  .hero-grid{grid-template-columns:1fr;gap:48px}
+  .hero-portrait{order:-1}
+  .about-grid{grid-template-columns:1fr;gap:44px}
+  .about-photo{order:-1}
+  .honorar-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr;gap:38px}
+  .steps{grid-template-columns:1fr;max-width:460px;margin:0 auto}
+  .pkg-grid{grid-template-columns:1fr;max-width:440px;margin:0 auto}
+  .pkg.featured{transform:none}.pkg.featured:hover{transform:translateY(-6px)}
+}
+@media(max-width:860px){
+  .nav{position:fixed;inset:0 0 0 auto;width:min(320px,84vw);background:var(--cream);
+    flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:6px;
+    padding:96px 30px 30px;transform:translateX(100%);transition:transform .45s var(--ease);
+    box-shadow:-20px 0 60px -30px rgba(0,0,0,.4);z-index:55}
+  .nav.open{transform:none}
+  .nav a.navlink{font-size:19px;font-family:'Fraunces',serif;padding:10px 0;width:100%;border-bottom:1px solid var(--line-soft)}
+  .nav .btn{margin-top:16px;width:100%}
+  .burger{display:flex;z-index:56}
+  .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  body.nav-lock{overflow:hidden}
+}
+@media(max-width:680px){
+  body{font-size:16px}
+  .section{padding:64px 0}
+  .help-grid{grid-template-columns:1fr}
+  .hero{padding:124px 0 70px}
+  .footer-grid{grid-template-columns:1fr;gap:34px}
+  .f-row{grid-template-columns:1fr}
+  .badge-card.bc-1{left:0;bottom:14px}
+  .fee-row{flex-direction:column;gap:6px}
+  .wrap{padding:0 20px}
+}
+.scroll-top{position:fixed;right:22px;bottom:22px;width:48px;height:48px;border-radius:50%;background:var(--terra);color:#fff;border:0;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;pointer-events:none;transform:translateY(12px);transition:.35s var(--ease);z-index:50;box-shadow:0 12px 26px -10px rgba(190,110,69,.8)}
+.scroll-top.show{opacity:1;pointer-events:auto;transform:none}
+.scroll-top svg{width:20px;height:20px}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="header">
+  <div class="wrap header-inner">
+    <a href="#top" class="brand" aria-label="Startseite">
+      <img src="assets/logo-mark.png" alt="Logo Melanie Heitmann">
+      <span class="brand-text">
+        <span class="brand-name">Melanie Heitmann</span>
+        <span class="brand-role">Heilpraktikerin</span>
+      </span>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#hilfe" class="navlink">Womit ich helfe</a>
+      <a href="#ueber" class="navlink">Über mich</a>
+      <a href="#begleitung" class="navlink">Begleitung</a>
+      <a href="#honorar" class="navlink">Honorar</a>
+      <a href="#kontakt" class="navlink">Kontakt</a>
+      <a href="#kontakt" class="btn btn-primary">Kennenlerngespräch</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<a id="top"></a>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <!-- decorative sprig -->
+  <svg class="sprig" style="top:90px;left:-30px;width:120px;height:200px;opacity:.5" viewBox="0 0 120 200" aria-hidden="true">
+    <path d="M60 200 C60 150 60 90 64 40"/>
+    <path d="M62 150 C40 140 22 150 14 132 C32 126 52 132 62 150 Z"/>
+    <path d="M63 116 C84 108 100 116 106 100 C90 92 72 98 63 116 Z"/>
+    <path d="M64 82 C46 74 30 82 24 66 C40 60 56 66 64 82 Z"/>
+  </svg>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow hero-eyebrow reveal">Naturheilkunde · Wentorf bei Hamburg</span>
+      <h1 class="reveal d1">Zurück zu Ihrem <em>Gleichgewicht</em> – Körper, Geist&nbsp;und Seele.</h1>
+      <p class="lead reveal d2">Schön, dass Sie hier sind. Als Heilpraktikerin suche ich mit Ihnen nicht nur nach Symptomen, sondern vor allem nach der <strong>Ursache</strong> – ganzheitlich, in Ruhe und ganz auf Sie abgestimmt.</p>
+      <div class="hero-cta reveal d2">
+        <a href="#kontakt" class="btn btn-primary">
+          Kostenloses Kennenlerngespräch
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#hilfe" class="btn btn-ghost">Womit ich helfe</a>
+      </div>
+      <div class="hero-trust reveal d3">
+        <span class="trust-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Ausgebildet an der HAFN Hamburg</span>
+        <span class="trust-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2-6.3-4.6L5.7 21l2.3-7.2-6-4.4h7.6z"/></svg>Ganzheitliche Anamnese</span>
+        <span class="trust-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Mitten in Wentorf</span>
+      </div>
+    </div>
+    <div class="hero-portrait reveal d2">
+      <span class="blob"></span>
+      <span class="blob two"></span>
+      <div class="portrait-frame">
+        <img src="assets/melanie-portrait.jpg" alt="Melanie Heitmann, Heilpraktikerin in Wentorf bei Hamburg" width="592" height="956">
+      </div>
+      <div class="badge-card bc-1">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+        <span><b>15 Min. kostenlos</b><small>Kennenlerntelefonat</small></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUOTE ============ -->
+<section class="quote-band">
+  <svg class="sprig" style="top:20px;right:30px;width:90px;height:140px;opacity:.4" viewBox="0 0 90 140" aria-hidden="true">
+    <path d="M45 140 C45 100 45 50 48 14"/>
+    <path d="M47 104 C28 96 14 104 9 90 C24 84 39 90 47 104 Z"/>
+    <path d="M48 74 C66 66 80 74 85 60 C70 54 56 60 48 74 Z"/>
+  </svg>
+  <div class="wrap quote-inner reveal">
+    <span class="mark">”</span>
+    <blockquote>Die Naturheilkunde behandelt nicht nur Symptome, sondern fragt vor allem nach dem „Warum“. Der Therapie liegt damit ein ganzheitliches, vernetztes Denken zugrunde.</blockquote>
+    <cite>— Martin Keymer</cite>
+  </div>
+</section>
+
+<!-- ============ HILFE ============ -->
+<section class="section" id="hilfe">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow center">Womit ich helfe</span>
+      <h2>Vielleicht erkennen Sie<br>sich hier wieder</h2>
+      <p>Beschwerden haben selten nur eine Ursache. Diese vier Bereiche begleite ich besonders häufig – ganzheitlich und mit Blick auf das große Ganze.</p>
+    </div>
+    <div class="help-grid">
+      <div class="help-card hc-frauen reveal">
+        <span class="hc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="5"/><path d="M12 13v8M9 18h6"/></svg></span>
+        <h3>Ganzheitliche Frauenheilkunde</h3>
+        <ul>
+          <li>Leiden Sie an PMS oder einem unregelmäßigen Zyklus?</li>
+          <li>Kennen Sie nur eine schmerzhafte Periode?</li>
+          <li>Ist Schlaf für Sie Fluch und Segen zugleich?</li>
+          <li>Stehen die Wechseljahre vor der Tür?</li>
+        </ul>
+      </div>
+      <div class="help-card hc-darm reveal d1">
+        <span class="hc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 3v4a4 4 0 0 0 8 0V3M7 11c0 4 3 4 3 7a3 3 0 0 1-6 0M17 11c0 4-3 4-3 7a3 3 0 0 0 6 0"/></svg></span>
+        <h3>Magen-Darm-Beschwerden</h3>
+        <ul>
+          <li>Fühlen Sie sich oft aufgebläht?</li>
+          <li>Vertragen Sie einige Nahrungsmittel nicht?</li>
+          <li>Können Sie nur schwer auf Toilette gehen?</li>
+          <li>Oder ist das Gegenteil der Fall?</li>
+        </ul>
+      </div>
+      <div class="help-card hc-stress reveal">
+        <span class="hc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3a4 4 0 0 0-4 4c0 1.5-1 2-1.5 3.5A4 4 0 0 0 9 17h6a4 4 0 0 0 2.5-6.5C17 9 16 8.5 16 7a4 4 0 0 0-4-4z"/><path d="M9 21h6"/></svg></span>
+        <h3>Erschöpfung &amp; Stress</h3>
+        <ul>
+          <li>Fühlen Sie sich erschöpft, ausgelaugt und müde?</li>
+          <li>Sind Sie ständig gestresst?</li>
+          <li>Spüren Sie innere Unruhe – können sich aber zu nichts aufraffen?</li>
+        </ul>
+      </div>
+      <div class="help-card hc-schmerz reveal d1">
+        <span class="hc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></span>
+        <h3>Schmerzen &amp; Entzündungen</h3>
+        <ul>
+          <li>Sind Schmerzen Ihre täglichen Begleiter?</li>
+          <li>Macht Ihnen Ihr Rücken Probleme?</li>
+          <li>Leiden Sie an Kopfschmerzen?</li>
+          <li>Oder schmerzen alle Gelenke?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ÜBER MICH ============ -->
+<section class="section about" id="ueber">
+  <div class="wrap about-grid">
+    <div class="about-photo reveal">
+      <span class="blob"></span>
+      <div class="frame"><img src="assets/melanie-portrait.jpg" alt="Heilpraktikerin Melanie Heitmann" width="592" height="956"></div>
+    </div>
+    <div class="about-text reveal d1">
+      <span class="eyebrow">Über mich</span>
+      <h2>Ein Mensch, der Ihnen wirklich zuhört</h2>
+      <p>Mein Name ist Melanie Heitmann. Ich bin verheiratet und lebe mit meinem Mann und unseren zwei Kindern in der Nähe von Hamburg. Vor meiner Zeit als Heilpraktikerin habe ich interkulturelle Pädagogik studiert und an der Universität Hamburg gearbeitet.</p>
+      <p>Mein Herz schlug jedoch schon immer für die Naturheilkunde. Durch meine eigene Krankengeschichte kam ich 2011 mit naturheilkundlichen Therapien in Berührung – und je tiefer ich eintauchte, desto stärker wurde mein Wunsch, andere Menschen auf ihrem Heilungsweg zu begleiten.</p>
+      <p>Durch eine gründliche Anamnese, klinische Untersuchungen und weitere Diagnoseverfahren gehen wir der Ursache Ihrer Beschwerden gemeinsam auf den Grund. Für Ihr Wohlbefinden wähle ich passende Therapieverfahren sorgsam aus und stelle sie zu einem ganzheitlichen Konzept zusammen.</p>
+      <div class="chips">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>Ausbildung HAFN Hamburg</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M3 20l9-9 4 4M16 8l3-3 2 2-3 3z"/></svg>Studium interkulturelle Pädagogik</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg>Laufende Fortbildung</span>
+      </div>
+      <p class="sign">Ich freue mich darauf, mit Ihnen zu arbeiten.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABLAUF ============ -->
+<section class="section" id="ablauf">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow center">So arbeiten wir zusammen</span>
+      <h2>Ihr Weg in drei Schritten</h2>
+      <p>Jeder Heilungsweg ist einzigartig. Damit Sie wissen, was Sie erwartet, hier der typische Ablauf.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="num">01</div>
+        <h3>Kennenlernen</h3>
+        <p>Wir starten mit einem unverbindlichen Telefonat. Sie schildern Ihr Anliegen, ich erkläre, wie ich arbeiten kann – ganz ohne Druck.</p>
+        <span class="badge-free">15 Minuten · kostenlos</span>
+      </div>
+      <div class="step reveal d1">
+        <div class="num">02</div>
+        <h3>Anamnese &amp; Diagnostik</h3>
+        <p>Beim Ersttermin nehme ich mir 90–120 Minuten Zeit für ein ausführliches Gespräch, kläre Sie über Diagnoseverfahren auf und untersuche bei Bedarf.</p>
+      </div>
+      <div class="step reveal d2">
+        <div class="num">03</div>
+        <h3>Ihr Therapieplan</h3>
+        <p>Auf Basis von Anamnese und Befunden erstelle ich einen individuellen, ganzheitlichen Behandlungsplan – und begleite Sie Schritt für Schritt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BEGLEITUNG / PAKETE ============ -->
+<section class="section packages" id="begleitung">
+  <svg class="sprig" style="top:60px;left:20px;width:80px;height:130px;opacity:.35" viewBox="0 0 80 130" aria-hidden="true">
+    <path d="M40 130 C40 95 40 50 43 14"/>
+    <path d="M42 96 C24 88 12 96 8 82 C22 76 35 82 42 96 Z"/>
+    <path d="M43 66 C60 58 73 66 78 52 C63 46 50 52 43 66 Z"/>
+  </svg>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow center">Begleitung</span>
+      <h2>Wenn Sie mehr als einen Termin möchten</h2>
+      <p>Drei Formen der Begleitung, die sich in Intensität und Tiefe unterscheiden – für Orientierung, Sicherheit und ganzheitliche Unterstützung.</p>
+    </div>
+    <div class="pkg-grid">
+      <div class="pkg reveal">
+        <div class="pkg-color pkg-c1"></div>
+        <div class="pkg-name">Klarheit</div>
+        <p class="pkg-desc">Ihr Einstieg: Sie möchten wissen, was Ihr Körper braucht und wo Sie ansetzen können.</p>
+        <div class="price-row"><span class="price">318&nbsp;€</span><span class="price-old">359&nbsp;€</span></div>
+        <div class="save">Sie sparen 41&nbsp;€</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Umfassende Anamnese (ca. 2&nbsp;Std.)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Individueller Therapieplan</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Folgetermin zur Besprechung (60–90&nbsp;Min.)</li>
+        </ul>
+        <a href="#kontakt" class="btn btn-ghost">Anfragen</a>
+      </div>
+
+      <div class="pkg featured reveal d1">
+        <span class="pkg-tag">Beliebteste Wahl</span>
+        <div class="pkg-color pkg-c2"></div>
+        <div class="pkg-name">Unterstützung</div>
+        <p class="pkg-desc">Veränderung braucht Zeit und Begleitung. Drei Monate stehe ich Ihnen zur Seite.</p>
+        <div class="price-row"><span class="price">498&nbsp;€</span><span class="price-old">539&nbsp;€</span></div>
+        <div class="save">Sie sparen 41&nbsp;€</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Umfassende Anamnese (ca. 2&nbsp;Std.)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Individueller Therapieplan</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Folgetermin (60–90&nbsp;Min.)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>3 Monate Begleitung (E-Mail / WhatsApp / Telefon)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Abschlussgespräch (60–90&nbsp;Min.)</li>
+        </ul>
+        <a href="#kontakt" class="btn btn-primary">Anfragen</a>
+      </div>
+
+      <div class="pkg reveal d2">
+        <div class="pkg-color pkg-c3"></div>
+        <div class="pkg-name">Ganzheit</div>
+        <p class="pkg-desc">Körper, Geist und Seele verbunden – mit Ernährungsplan und Körperarbeit in die Balance.</p>
+        <div class="price-row"><span class="price">898&nbsp;€</span><span class="price-old">972&nbsp;€</span></div>
+        <div class="save">Sie sparen 74&nbsp;€</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Alles aus „Unterstützung“</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Individueller Ernährungsplan</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>4 Termine Körper- &amp; Energiearbeit</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Akupunktur, Reiki oder Massage</li>
+        </ul>
+        <a href="#kontakt" class="btn btn-ghost">Anfragen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HONORAR ============ -->
+<section class="section" id="honorar">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow center">Einzeltermine &amp; Honorar</span>
+      <h2>Transparent, fair und nachvollziehbar</h2>
+      <p>Manche Anliegen lassen sich gut in einzelnen Terminen begleiten. Wenn Sie sich (noch) nicht für ein Paket entscheiden möchten, gilt Folgendes.</p>
+    </div>
+    <div class="honorar-grid">
+      <div class="fee-list reveal">
+        <div class="fee-row">
+          <div class="fl">
+            <h4>Ersttermin</h4>
+            <p>Ausführliches Anamnesegespräch, Aufklärung über Diagnoseverfahren und bei Bedarf kurze körperliche Untersuchung. Dauer i.&nbsp;d.&nbsp;R. 90–120&nbsp;Minuten.</p>
+          </div>
+          <div class="fp">170&nbsp;€</div>
+        </div>
+        <div class="fee-row">
+          <div class="fl">
+            <h4>Behandlungsplan</h4>
+            <p>Auswertung von Anamnese und Laborwerten sowie Erstellung eines umfangreichen, ganzheitlichen Behandlungsplans.</p>
+          </div>
+          <div class="fp">100&nbsp;€</div>
+        </div>
+        <div class="fee-row">
+          <div class="fl">
+            <h4>Folgetermine</h4>
+            <p>Zeitlich individuell – berechnet je angefangene Viertelstunde.</p>
+          </div>
+          <div class="fp">22&nbsp;€<small> / 15&nbsp;Min.</small></div>
+        </div>
+        <p class="fee-note">Kosten für eventuelle Laborparameter werden direkt über das Labor abgerechnet und sind nicht im Honorar enthalten. Meine heilkundliche Tätigkeit ist gemäß §&nbsp;4 Nr.&nbsp;14 UStG von der Umsatzsteuer befreit – die genannten Beträge sind Endpreise.</p>
+      </div>
+      <div class="massage-card reveal d1">
+        <span class="hc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></span>
+        <h3>Massage &amp; Reiki</h3>
+        <p>Eine Auszeit vom Alltag: Stress hinter sich lassen, neue Energie tanken, einfach mal durchatmen. Auch als Geschenk – fragen Sie nach einem Gutschein.</p>
+        <div class="massage-prices">
+          <div class="mp"><span>60 Minuten</span><b>70&nbsp;€</b></div>
+          <div class="mp"><span>90 Minuten</span><b>98&nbsp;€</b></div>
+        </div>
+        <p class="hint">Termin direkt anfragen oder mir für einen Gutschein schreiben.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section" id="faq" style="background:var(--cream-2)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow center">Häufige Fragen</span>
+      <h2>Gut zu wissen</h2>
+    </div>
+    <div class="faq reveal">
+      <div class="faq-item">
+        <button class="faq-q">Übernimmt meine Krankenkasse die Kosten?<span class="plus"></span></button>
+        <div class="faq-a"><p>Gesetzliche Krankenkassen übernehmen Heilpraktikerbehandlungen in der Regel nicht – einige zumindest anteilig. Private Versicherungen erstatten nicht immer vollständig, da sich die erstattungsfähigen Beträge am Gebührenverzeichnis für Heilpraktiker (GebüH) orientieren, das seit den 1980er-Jahren nicht aktualisiert wurde. Bitte informieren Sie sich vor Behandlungsbeginn bei Ihrer Versicherung über eine mögliche Kostenerstattung.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Wie läuft der erste Termin ab?<span class="plus"></span></button>
+        <div class="faq-a"><p>Der Ersttermin dauert in der Regel 90–120 Minuten. Wir nehmen uns Zeit für ein ausführliches Anamnesegespräch, ich kläre Sie über mögliche Diagnoseverfahren auf, und bei Bedarf findet eine kurze körperliche Untersuchung statt. Auf dieser Grundlage entsteht anschließend Ihr individueller Behandlungsplan.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Wie bekomme ich einen Termin?<span class="plus"></span></button>
+        <div class="faq-a"><p>Am einfachsten über das kostenlose 15-minütige Kennenlerntelefonat für Neupatientinnen und -patienten. Natürlich können Sie auch direkt einen Termin buchen, mich per E-Mail oder Telefon erreichen oder das Kontaktformular nutzen. Termine finden nach Vereinbarung statt.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Was kostet die Begleitung insgesamt?<span class="plus"></span></button>
+        <div class="faq-a"><p>Einzeltermine rechne ich transparent nach Aufwand ab (Ersttermin 170&nbsp;€, Behandlungsplan 100&nbsp;€, Folgetermine 22&nbsp;€ je angefangene Viertelstunde). Wenn Sie eine längere Begleitung wünschen, sparen Sie mit einem der drei Pakete „Klarheit“, „Unterstützung“ oder „Ganzheit“.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KONTAKT ============ -->
+<section class="section contact" id="kontakt">
+  <div class="wrap contact-grid">
+    <div class="contact-info reveal">
+      <span class="eyebrow">Kontakt &amp; Termin</span>
+      <h2>Lassen Sie uns sprechen</h2>
+      <p class="lead">Damit wir uns kennenlernen können, biete ich für Neupatientinnen und -patienten ein kostenloses 15-minütiges Telefonat an. Schreiben Sie mir einfach – oder rufen Sie an.</p>
+      <div class="cinfo-list">
+        <div class="cinfo">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <div><div class="ct">Praxis</div><span>Hamburger Landstraße 32<br>21465 Wentorf bei Hamburg</span></div>
+        </div>
+        <div class="cinfo">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+          <div><div class="ct">Telefon</div><a href="tel:+4915560140481">+49 155 60140481</a></div>
+        </div>
+        <div class="cinfo">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+          <div><div class="ct">E-Mail</div><a href="mailto:info@heilpraktikerin-melanieheitmann.de">info@heilpraktikerin-melanieheitmann.de</a></div>
+        </div>
+        <div class="cinfo">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+          <div><div class="ct">Erreichbarkeit</div><span>Telefonisch Mo–Fr · Termine nach Vereinbarung</span></div>
+        </div>
+      </div>
+      <div class="call-out">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+        <div><b>Lieber direkt anrufen?</b><small>Kostenloses Kennenlerntelefonat · 15 Minuten</small></div>
+      </div>
+    </div>
+
+    <div class="form-card reveal d1">
+      <h3>Schreiben Sie mir</h3>
+      <p class="fc-sub">Ich melde mich persönlich bei Ihnen zurück.</p>
+      <!-- Netlify Forms: data-netlify aktiviert die Erfassung. E-Mail-Benachrichtigung
+           im Netlify-Dashboard unter Forms > Settings > Notifications an
+           info@heilpraktikerin-melanieheitmann.de einrichten. Honeypot gegen Spam. -->
+      <form name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/danke.html">
+        <input type="hidden" name="form-name" value="kontakt">
+        <p style="display:none"><label>Bitte leer lassen: <input name="bot-field"></label></p>
+        <div class="f-row">
+          <div class="field"><label for="vorname">Vorname *</label><input id="vorname" name="vorname" required></div>
+          <div class="field"><label for="nachname">Nachname *</label><input id="nachname" name="nachname" required></div>
+        </div>
+        <div class="f-row">
+          <div class="field"><label for="email">E-Mail *</label><input id="email" name="email" type="email" required></div>
+          <div class="field"><label for="telefon">Telefon</label><input id="telefon" name="telefon" type="tel"></div>
+        </div>
+        <div class="field"><label for="nachricht">Ihre Nachricht</label><textarea id="nachricht" name="nachricht" placeholder="Worum geht es? Was wünschen Sie sich?"></textarea></div>
+        <button type="submit" class="btn btn-primary">
+          Nachricht senden
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>
+        </button>
+        <p class="form-note">Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten gemäß <a href="datenschutz.html">Datenschutzerklärung</a> zu.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="Logo Melanie Heitmann">
+        <div class="fb-name">Melanie Heitmann</div>
+        <p>Ganzheitliche Naturheilkunde in Wentorf bei Hamburg – mit Zeit, Ruhe und dem Blick auf die Ursache.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <a href="#hilfe">Womit ich helfe</a>
+        <a href="#ueber">Über mich</a>
+        <a href="#begleitung">Begleitung</a>
+        <a href="#honorar">Honorar</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <p>Hamburger Landstraße 32<br>21465 Wentorf bei Hamburg</p>
+        <a href="tel:+4915560140481">+49 155 60140481</a>
+        <a href="mailto:info@heilpraktikerin-melanieheitmann.de">E-Mail schreiben</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Melanie Heitmann · Heilpraktikerin</span>
+      <span>
+        <a href="impressum.html">Impressum</a> &nbsp;·&nbsp;
+        <a href="datenschutz.html">Datenschutz</a> &nbsp;·&nbsp;
+        <a href="datenschutz-soziale-medien.html">Datenschutz soziale Medien</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<button class="scroll-top" id="scrollTop" aria-label="Nach oben">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+(function(){
+  // Header scroll state + scroll-to-top
+  var header=document.getElementById('header'), st=document.getElementById('scrollTop');
+  function onScroll(){
+    var y=window.scrollY;
+    header.classList.toggle('scrolled', y>30);
+    st.classList.toggle('show', y>700);
+  }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  st.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+
+  // Mobile nav
+  var burger=document.getElementById('burger'), nav=document.getElementById('nav');
+  function closeNav(){nav.classList.remove('open');burger.classList.remove('open');document.body.classList.remove('nav-lock');burger.setAttribute('aria-expanded','false');}
+  burger.addEventListener('click',function(){
+    var open=nav.classList.toggle('open');
+    burger.classList.toggle('open',open);
+    document.body.classList.toggle('nav-lock',open);
+    burger.setAttribute('aria-expanded',open);
+  });
+  nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeNav);});
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(function(q){
+    q.addEventListener('click',function(){
+      var item=q.parentElement, open=item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(i){if(i!==item)i.classList.remove('open');});
+      item.classList.toggle('open',!open);
+    });
+  });
+
+  // Reveal on scroll
+  var els=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+    },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(el){io.observe(el);});
+  } else { els.forEach(function(el){el.classList.add('in');}); }
+})();
+</script>
+</body>
+</html>
