@@ -243,10 +243,23 @@ section{position:relative}
 /* ---------- About ---------- */
 .about{background:var(--paper-2);overflow:hidden}
 .about-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:60px;align-items:center}
-.about-photo{position:relative;justify-self:center}
-.about-photo .frame{width:min(400px,82vw);border-radius:24px;overflow:hidden;border:6px solid #fff;box-shadow:var(--shadow);position:relative;z-index:2;aspect-ratio:4/5;background:var(--teal-tint)}
-.about-photo .frame img{width:100%;height:100%;object-fit:cover}
-.about-photo .blob{width:280px;height:280px;background:var(--coral-soft);opacity:.55;bottom:-30px;right:-30px}
+.about-visual{position:relative;justify-self:center;width:min(400px,82vw)}
+.about-visual .blob{width:280px;height:280px;background:var(--coral-soft);opacity:.55;bottom:-30px;right:-30px}
+.av-panel{position:relative;z-index:2;border-radius:24px;overflow:hidden;aspect-ratio:4/5;border:6px solid #fff;box-shadow:var(--shadow);background:linear-gradient(158deg,#37908A 0%,var(--teal-dark) 96%);display:flex;align-items:center;justify-content:center}
+.av-panel .av-waves{position:absolute;inset:0;width:100%;height:100%}
+.av-panel .av-waves path{stroke:#fff;opacity:.14;fill:none;stroke-width:1.4;vector-effect:non-scaling-stroke}
+.av-panel::after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.06);top:-70px;left:-60px}
+.av-mono{position:relative;z-index:2;text-align:center;color:#fff;padding:24px}
+.av-mono .ini{font-family:'Newsreader',serif;font-size:104px;line-height:.86;font-weight:500;letter-spacing:.01em;display:block}
+.av-mono .dots{display:flex;gap:10px;justify-content:center;margin:20px 0 18px}
+.av-mono .dots span{width:12px;height:12px;border-radius:50%;display:block}
+.av-mono .cap{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:rgba(255,255,255,.82)}
+.av-mono .cap b{display:block;font-family:'Newsreader',serif;font-size:17px;letter-spacing:.01em;text-transform:none;font-weight:500;color:#fff;margin-bottom:7px}
+.av-badge{position:absolute;z-index:3;bottom:18px;left:-30px;background:#fff;border-radius:16px;padding:13px 17px;box-shadow:var(--shadow-soft);display:flex;align-items:center;gap:11px}
+.av-badge .ic{width:38px;height:38px;border-radius:11px;background:var(--coral-tint);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.av-badge .ic svg{width:20px;height:20px;color:var(--coral-dark)}
+.av-badge b{font-family:'Newsreader',serif;font-size:15px;font-weight:600;display:block;line-height:1.2}
+.av-badge small{font-size:12.5px;color:var(--muted)}
 .about-text h2{margin-bottom:22px}
 .about-text p{margin-bottom:16px;color:var(--ink-soft)}
 .about-text .sign{font-family:'Newsreader',serif;font-style:italic;font-size:22px;color:var(--teal);margin-top:6px}
@@ -332,7 +345,7 @@ section{position:relative}
   .disc-grid{grid-template-columns:1fr}
   .values-grid{grid-template-columns:1fr;max-width:460px;margin:0 auto}
   .about-grid{grid-template-columns:1fr;gap:44px}
-  .about-photo{order:-1}
+  .about-visual{order:-1}
   .steps{grid-template-columns:1fr 1fr}
   .contact-grid{grid-template-columns:1fr;gap:38px}
 }
@@ -544,10 +557,23 @@ section{position:relative}
 <!-- ============ ÜBER / PRAXIS ============ -->
 <section class="section about" id="praxis">
   <div class="wrap about-grid">
-    <div class="about-photo reveal">
+    <div class="about-visual reveal">
       <span class="blob"></span>
-      <div class="frame">
-        <img src="assets/therapie-feinmotorik.jpg" alt="Therapiematerial in der Praxis Carmen Wetzel in Geesthacht">
+      <div class="av-panel">
+        <svg class="av-waves" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M-10 250 C40 226 70 286 120 262 C170 238 200 298 250 274 C285 257 310 270 310 270"/>
+          <path d="M-10 286 C40 262 70 322 120 298 C170 274 200 334 250 310 C285 293 310 306 310 306"/>
+          <path d="M-10 322 C40 298 70 358 120 334 C170 310 200 370 250 346 C285 329 310 342 310 342"/>
+        </svg>
+        <div class="av-mono">
+          <span class="ini">CW</span>
+          <span class="dots"><span style="background:#E9B85C"></span><span style="background:#E08A5E"></span><span style="background:#fff"></span></span>
+          <span class="cap"><b>Carmen Wetzel</b>Geesthacht · an der Elbe</span>
+        </div>
+      </div>
+      <div class="av-badge">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/><path d="M9 9v.01M9 12v.01M9 15v.01M9 18v.01"/></svg></span>
+        <span><b>Unter einem Dach</b><small>Logopädie &amp; Ergotherapie</small></span>
       </div>
     </div>
     <div class="about-text">
