@@ -126,17 +126,17 @@ ist überall nötig, aber bewusst entscheiden statt vergessen:
   Radien/Schatten als Variablen, Anker-`scroll-margin-top` gegen den Sticky-Header,
   gebrandete `::selection`-Farbe.
 - **Hintergrund lebendig statt plain (wichtig):** keine durchgehend platten
-  Farbflächen. Mehrschichtig arbeiten — (1) feine Papier-/Körnungs-Textur als
-  fixe Overlay-Ebene (SVG-`feTurbulence`, Opazität ~0.03–0.05, hinter dem
-  Inhalt); (2) weiche `radial-gradient`-Washes in Sektions-Ecken (Marken-Tints,
-  niedrige Deckung) statt flacher `background-color`; (3) **markenpassende
-  Illustrationen** als dezente Deko, die an Sektionsrändern hervorlugen
-  (z. B. botanische Linien-Zweige bei Natur/Medizin) — als wiederverwendbares
-  SVG-`symbol` + `<use>`, eingefärbt per `currentColor`, Opazität ~0.08–0.14,
-  `aria-hidden`, hinter dem Text (`.wrap{position:relative;z-index:2}`),
-  Sektion `overflow:hidden` zum Beschneiden. Auch dunkle Sektionen bekommen eine
-  helle Variante. Subtil halten — Atmosphäre, kein Muster-Teppich; auf
-  Kontrast/Lesbarkeit prüfen und kein horizontaler Overflow auf Mobile.
+  Farbflächen. **Standard-Mittel = Textur + Verläufe** (meist ausreichend):
+  (1) feine Papier-/Körnungs-Textur als fixe Overlay-Ebene (SVG-`feTurbulence`,
+  Opazität ~0.03–0.05, hinter dem Inhalt); (2) weiche `radial-gradient`-Washes
+  in Sektions-Ecken (Marken-Tints, niedrige Deckung) statt flacher
+  `background-color`. **Illustrationen nur optional** und sparsam — viele
+  bevorzugen ein ruhiges, textur-/verlaufsbasiertes Bild ohne dekorative
+  Grafiken. Wenn Illustrationen, dann markenpassend (z. B. botanische
+  Linien-Zweige), als wiederverwendbares SVG-`symbol` + `<use>`, `aria-hidden`,
+  hinter dem Text (`.wrap{z-index:2}`), Sektion `overflow:hidden` — und **im
+  Zweifel weglassen bzw. kurz zur Wahl stellen** statt ungefragt setzen. Immer
+  subtil, Kontrast/Lesbarkeit prüfen, kein horizontaler Overflow auf Mobile.
 - **Head/Sonstiges:** `theme-color`, `format-detection` (keine Auto-Telefonlinks
   in Datumsangaben), sinnvoller Favicon/`apple-touch-icon`.
 
