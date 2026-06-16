@@ -1,0 +1,183 @@
+# Website-Relaunch — Brief-Vorlage (URL genügt)
+
+> **Verwendung:** Diesen Text an Claude geben und **nur eine URL** ergänzen.
+> Alles Weitere (Ziel, Zielgruppe, Scope, Marke, Tonalität) recherchiert und
+> **antizipiert** Claude selbst, dokumentiert die Annahmen und arbeitet darauf
+> weiter — ohne zurückzufragen. Nur bei wirklich riskanten, schwer umkehrbaren
+> Punkten wird kurz geflaggt statt geraten (siehe „Fakten-Schranke").
+
+**URL:** `<HIER URL EINFÜGEN>`
+
+---
+
+## 🚨 Grundregel: Bestandsseite = Inhaltsarchiv, nicht Vorlage
+
+Die bestehende Website ist **ausschließlich Quelle für Inhalte**:
+fachliche Inhalte, Leistungen, Preise, Kontaktdaten, Unternehmensinfos, Bilder/Medien,
+Referenzen, rechtlich relevante Inhalte — **und echte Markenwerte** (siehe unten).
+
+**Ignoriere als Vorlage:** Layout, Seitenstruktur, Navigation, Menüführung,
+Komponenten, visuelle Hierarchien, Conversion-Elemente, Interaktionsmuster,
+technische Umsetzung. Übernimm keine Gestaltung, nur weil sie schon da ist.
+
+Baue die neue Seite so, **als würdest du heute bei Null beginnen** und hättest nur
+die Inhalte des Unternehmens erhalten. Das Ergebnis soll wie ein **vollständig neuer,
+hochwertiger Markenauftritt** wirken — nicht wie eine modernisierte Altversion.
+
+**Wichtige Unterscheidung — Markenwert ≠ Template-Styling:**
+Logo, Unternehmensname, geschützte Wort-/Bildmarken und etablierte Markenfarben sind
+**Markenwerte und bleiben erhalten** (ggf. behutsam veredelt). Nur das *austauschbare
+Baukasten-Styling* der Altseite wird verworfen. Im Zweifel: Markenwert bewahren.
+
+---
+
+## Schritt 1 — Recherche & Extraktion
+
+1. Seite vollständig erfassen: alle Texte, Leistungen, **Preise**, Kontaktdaten,
+   Öffnungszeiten, rechtliche Aussagen, Referenzen/Bewertungen.
+2. **Alle echten Bilder** extrahieren (höchste verfügbare Auflösung), inkl. Logo.
+   Inhaber-/Team-/Räumlichkeiten-Fotos identifizieren.
+3. Branche, Standort und Wettbewerbsumfeld einordnen.
+
+## Schritt 2 — Annahmen ableiten & dokumentieren (statt fragen)
+
+Leite aus der Recherche eigenständig ab und **schreibe sie als „Annahmen-Block" an
+den Anfang deiner Antwort**. Dann arbeite ohne Rückfrage darauf weiter:
+
+- **Branche & Segment** (z. B. Praxis, Kanzlei, Handwerk, Beauty, Gastro)
+- **Zielgruppe / Persona** (wer bucht/kauft, Mindset, Gerät)
+- **Primäres Conversion-Ziel** (genau eines: Termin buchen / Anruf / Formular /
+  Kauf) + sekundäre Aktionen
+- **USP & Positionierung** (warum dieser Anbieter)
+- **Tonalität** (Du/Sie aus der Bestandsseite ableiten; im Zweifel Sie bei
+  Kanzlei/Medizin, Du bei Beauty/Lifestyle)
+- **Markenidentität:** Palette aus Logo + echten Fotos ableiten, 2 Schriften
+  (Display + Text), Designprinzip in einem Satz
+- **Seitenarchitektur & Scope:** One-Pager vs. Multipage begründet festlegen;
+  Pflichtsektionen, Rechtsseiten, Conversion-Pfade selbst definieren
+
+> Annahmen sind Arbeitsgrundlage, keine Wahrheit. Klar kennzeichnen, damit der
+> Auftraggeber gezielt korrigieren kann — aber **nicht auf Bestätigung warten**.
+
+---
+
+## 🔒 Fakten-Schranke (kritisch — nicht verhandelbar)
+
+- **Nichts erfinden.** Keine erfundenen Bewertungen, Statistiken, Auszeichnungen,
+  Jahreszahlen, Mitarbeiterzahlen, Zertifikate.
+- **Preise, Maße, Fristen, Kontaktdaten** exakt aus der Quelle übernehmen.
+- **Rechtliche/medizinische/werbliche Aussagen** sinnerhaltend, ohne neue
+  Heilversprechen (z. B. Heilmittelwerbegesetz, Preisangabenverordnung, USt-Hinweise).
+- **Eigennamen** (Inhaber, Firmierung) exakt aus der Quelle — Abweichungen im
+  Briefing als „bitte vor Go-Live bestätigen" flaggen, nicht stillschweigend ändern.
+- Fehlt eine Info (z. B. kein Inhaberfoto, kein Preis): **Lücke melden**, nicht mit
+  Stock/Platzhalter kaschieren.
+
+---
+
+## Bildsprache
+
+- Echte Bilder vor Stock. Inhaber/Team/Räume **prominent** zur Vertrauensbildung.
+- **Portrait-Framing:** Personen präsent und vollständig, einheitliche, dezent
+  abgerundete Ecken. **Keine** Edge-Fades, keine ausgefransten Verläufe, keine
+  Bogen-/Arch-Masken, die Haare oder Gesicht beschneiden.
+- Niedrig aufgelöste, verwässerte oder verzerrte Bilder nicht groß einsetzen.
+- **Kein Bild doppelt prominent einsetzen.** Dasselbe Foto in Hero *und*
+  Über-mich (o. ä.) wirkt wie ein Platzhalter. Gibt es nur **ein** echtes Foto:
+  einmal prominent verwenden (Hero) und den zweiten Slot mit einem **gestalteten
+  Marken-/Persönlich-Panel** füllen — z. B. handschriftliche Signatur, Leitsatz
+  und 2–3 belegte persönliche Details — statt das Gesicht zu wiederholen oder
+  Stock einzusetzen. Lücke lieber melden als kaschieren.
+- Jedes inhaltliche Bild bekommt einen sinnvollen `alt`-Text.
+
+---
+
+## Design & Markenwirkung
+
+Premium, individuell, charakterstark — kein Template-Look. Großzügiger Weißraum,
+klare Typo-Hierarchie und Rhythmus, bewusste Blickführung, subtile (reduzierte)
+Animationen, konsistentes Designsystem (CSS-Variablen). Persönlich und menschlich,
+warm und vertrauenswürdig. Hero emotional und inhabergetrieben, wenn ein gutes
+Portrait vorhanden ist.
+
+## Information Architecture & Conversion
+
+Eigene IA definieren (nicht die alte ungeprüft übernehmen — aber wenn die alte
+Struktur nachweislich passt, darf sie begründet bestehen bleiben). Inhalte nach
+Nutzerrelevanz priorisieren und kürzen/zusammenführen/entfernen. **Genau ein**
+primärer CTA, durchgängig sichtbar (Header sticky + pro Sektion + mobile Aktionsleiste).
+
+---
+
+## Technik & Qualität (prüfbare Kriterien)
+
+- **Mobile-First**, responsiv bis ~360px; sticky mobile Aktionsleiste.
+- **Core Web Vitals:** Bilder dimensioniert (`width`/`height`), kein CLS,
+  Lazy-Loading wo sinnvoll, keine Render-Blocker.
+- **Bilder auf Anzeigegröße optimieren** (Pflicht-Check vor Abschluss): Kein Bild
+  ausliefern, das deutlich größer ist als seine maximale Darstellung. Faustregel:
+  Pixelbreite ≈ 2× der größten CSS-Anzeigebreite (Retina), JPEG-Qualität ~78–82.
+  Original-Kamera-/Upload-Auflösungen (mehrere MB / >2000px) **runterskalieren**.
+  Tatsächliche vs. genutzte Größe prüfen (`naturalWidth` vs. gerenderte Breite,
+  Dateigröße in KB) und **ungenutzte Bildvarianten löschen** (keine toten Assets
+  im `assets/`-Ordner committen).
+- **Barrierefreiheit Richtung WCAG AA:** semantisches HTML, Kontrast ≥ 4.5:1,
+  Fokus-States, Tastaturbedienbarkeit, `alt`-Texte, `prefers-reduced-motion`.
+- **SEO:** sprechende Title/Meta-Description, OG-Tags, eine `h1`, saubere
+  Überschriftenhierarchie, `robots.txt`, `sitemap.xml`, LocalBusiness/Organization
+  **JSON-LD** aus den echten Daten.
+- **SEO-Equity sichern:** bestehende URLs/Rankings berücksichtigen — bei geänderten
+  Pfaden 301-Redirects vorschlagen, rankenden Content nicht ersatzlos streichen.
+
+## Tech-Stack & Deployment (an dieses Repo angepasst)
+
+- Statische Site, **kein Build-Step**, eigener Unterordner (`<projekt-slug>/`).
+- Pro Projekt **eigene** `netlify.toml` mit `publish = "."` und `command = ""`
+  (Netlify-Site mit Base directory = Projektordner). **Nicht** den Ordnernamen als
+  `publish` setzen — das ist relativ zum Base und schlägt fehl.
+- Konventionen aus bestehenden Schwester-Projekten übernehmen (Struktur, Fonts via
+  Google Fonts, `assets/`, Rechtsseiten, `danke.html` für Netlify-Forms-Honeypot).
+
+## Recht / Compliance (DE)
+
+Impressum (echte Daten), Datenschutz & ggf. AGB — fehlende Rechtstexte als geprüfte
+**Platzhalter mit Warnhinweis** anlegen, nicht erfinden. Segmentspezifische Vorgaben
+beachten (z. B. Heilmittelwerbung, Preisangaben).
+
+---
+
+## Ablauf & Verifikation (autonom, selbst getaktet)
+
+1. **Annahmen-Block** ausgeben, dann sofort bauen — nicht auf Freigabe warten.
+2. Im Preview-Server starten und **verifizieren**: Konsole (keine Errors), Netzwerk
+   (keine 404s), Desktop **und** Mobile, Reveal/Interaktionen, alle Links/Anker.
+3. Bei Problemen: Quelle lesen → fixen → erneut prüfen.
+4. **Beweis liefern:** Screenshots (Desktop + Mobile) der zentralen Sektionen.
+
+## Output
+
+1. **Annahmen-Block** (alles aus Schritt 2, klar als Annahme markiert)
+2. Kurze IST-Analyse + die wichtigsten Entscheidungen (warum diese IA/Hero/CTA)
+3. Fertige, verifizierte Website im Projektordner
+4. **„Vor Go-Live bestätigen"-Liste:** Name/Firmierung, Preise, Rechtstexte,
+   echte Buchungs-/Tool-URLs, fehlende Assets
+5. Roadmap (mittel- und langfristig)
+6. **Akquise-Übergabe-Block** (siehe unten)
+
+---
+
+## Akquise-Übergabe-Block (optional, am Ende ausgeben)
+
+Die Mail selbst gehört **nicht** hierher (sie braucht den live deployten Link,
+Absender und Paket — das kommt nach dem Deploy). Gib stattdessen nur die **Fakten**
+aus, die eine spätere Akquise-Mail braucht. Verwende dafür `prompts/akquise-mail.md`.
+
+```
+### Akquise-Übergabe
+- Inhaber/Firmierung: <Name> (Konfidenz: hoch / mittel / „bitte bestätigen")
+- Segment & Zielgruppe: <…>
+- Stärkster Aufhänger (genau einer): <der überzeugendste Fund aus der Recherche>
+- Hebel / Lücke: <z. B. keine Online-Buchung → Telefon/WhatsApp kostet Solo-Zeit; No-Shows>
+- Tonalität: Du / Sie
+- Offene Bestätigungen vor Versand: <Name, Preise, …>
+```
