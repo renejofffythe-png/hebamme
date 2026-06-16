@@ -100,6 +100,37 @@ Animationen, konsistentes Designsystem (CSS-Variablen). Persönlich und menschli
 warm und vertrauenswürdig. Hero emotional und inhabergetrieben, wenn ein gutes
 Portrait vorhanden ist.
 
+## Feinschliff / Liebe fürs Detail (eigener Polish-Pass vor Abschluss)
+
+Premium entsteht in den Details. Nach dem Grundbau **einen dedizierten
+Feinschliff-Durchgang** machen und folgende Checkliste abarbeiten — nicht alles
+ist überall nötig, aber bewusst entscheiden statt vergessen:
+
+- **Mikro-Typografie:** geschützte Leerzeichen (`&nbsp;`) zwischen Zahl und
+  Einheit (`120&nbsp;€`, `18:30&nbsp;Uhr`, `90&nbsp;Min`, `2&nbsp;Std.`);
+  Tabellenziffern (`font-variant-numeric:tabular-nums`) für Preislisten; echte
+  Anführungszeichen („…"), Gedankenstriche (–/—); Witwen/Waisen in Headlines
+  vermeiden.
+- **Fokus & A11y-Politur:** sichtbare, gebrandete `:focus-visible`-Ringe;
+  Skip-Link („Zum Inhalt springen"); `aria-current` auf der aktiven Nav;
+  Tastatur: Menü schließt mit `Escape` und beim Resize auf Desktop;
+  `autocomplete`/`inputmode` an Formularfeldern; Body-Scroll-Lock bei offenem
+  Mobile-Menü.
+- **Navigation:** Scroll-Spy, der die aktuelle Sektion hervorhebt (animierter
+  Unterstrich o. ä.); sticky Header mit dezentem Schatten ab Scroll.
+- **Mikro-Interaktionen (subtil, nie verspielt-überladen):** CTA-Pfeil nudge,
+  Card-Hover (Lift + feiner Top-Akzent + Icon-Tilt), Akzentbalken an Listenzeilen,
+  gestaffelte Reveal-Kaskade (`transition-delay` je `nth-child`). **Alles** unter
+  `prefers-reduced-motion: reduce` global entschärfen.
+- **Komposition:** weiche Hintergrund-Blobs/Formen zur Balance, konsistente
+  Radien/Schatten als Variablen, Anker-`scroll-margin-top` gegen den Sticky-Header,
+  gebrandete `::selection`-Farbe.
+- **Head/Sonstiges:** `theme-color`, `format-detection` (keine Auto-Telefonlinks
+  in Datumsangaben), sinnvoller Favicon/`apple-touch-icon`.
+
+> Verifizieren: Konsole sauber, Desktop + Mobile, Tab-Reihenfolge & Fokus
+> sichtbar, Reduced-Motion greift, Scroll-Spy schaltet korrekt.
+
 ## Information Architecture & Conversion
 
 Eigene IA definieren (nicht die alte ungeprüft übernehmen — aber wenn die alte
