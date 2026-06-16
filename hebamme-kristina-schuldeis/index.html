@@ -80,19 +80,10 @@ section[id]{scroll-margin-top:94px}
 .skip:focus{top:0}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
 
-/* ── TEXTUR & BOTANIK ── */
+/* ── TEXTUR & VERLÄUFE ── */
 .wrap{position:relative;z-index:2}
 body::after{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px}
-section{position:relative;overflow:hidden}
-.deco{position:absolute;z-index:0;pointer-events:none;color:var(--sage);opacity:.13;width:120px;aspect-ratio:120/300;height:auto}
-.deco.lg{width:300px;opacity:.08}
-.deco.sm{width:88px}
-.deco.clay{color:var(--clay)}
-.deco.light{color:#fff;opacity:.08}
-.deco-tr{top:-10px;right:-30px;transform:rotate(165deg)}
-.deco-br{bottom:-30px;right:-26px;transform:rotate(150deg) scaleX(-1)}
-.deco-bl{bottom:-34px;left:-30px;transform:rotate(200deg)}
-.deco-tl{top:-12px;left:-30px;transform:rotate(-18deg) scaleX(-1)}
+section{position:relative}
 
 /* ── HEADER ── */
 header.site{position:sticky;top:0;z-index:60;background:rgba(251,246,238,.86);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:.3s}
@@ -289,26 +280,6 @@ footer.site a:hover{color:#fff}
 
 <a class="skip" href="#hauptinhalt">Zum Inhalt springen</a>
 
-<!-- Botanik-Sprite (Eukalyptus-Zweig) für dezente Sektions-Dekoration -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <symbol id="sprig" viewBox="0 0 120 300">
-    <g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
-      <path d="M60 298 C56 240 50 188 60 128 C65 86 60 44 61 6"/>
-      <ellipse cx="38" cy="250" rx="17" ry="9.5" transform="rotate(-28 38 250)"/>
-      <ellipse cx="83" cy="224" rx="17" ry="9.5" transform="rotate(28 83 224)"/>
-      <ellipse cx="36" cy="200" rx="16" ry="9" transform="rotate(-30 36 200)"/>
-      <ellipse cx="84" cy="175" rx="16" ry="9" transform="rotate(30 84 175)"/>
-      <ellipse cx="40" cy="152" rx="14" ry="8.5" transform="rotate(-32 40 152)"/>
-      <ellipse cx="80" cy="129" rx="14" ry="8.5" transform="rotate(32 80 129)"/>
-      <ellipse cx="44" cy="107" rx="12" ry="7.5" transform="rotate(-34 44 107)"/>
-      <ellipse cx="76" cy="85" rx="12" ry="7.5" transform="rotate(34 76 85)"/>
-      <ellipse cx="49" cy="64" rx="10" ry="6.5" transform="rotate(-36 49 64)"/>
-      <ellipse cx="71" cy="45" rx="10" ry="6.5" transform="rotate(36 71 45)"/>
-      <ellipse cx="60" cy="24" rx="7.5" ry="10" transform="rotate(6 60 24)"/>
-    </g>
-  </symbol>
-</svg>
-
 <!-- HEADER -->
 <header class="site" id="top">
   <div class="nav">
@@ -369,7 +340,6 @@ footer.site a:hover{color:#fff}
 
 <!-- ÜBER MICH -->
 <section id="ueber">
-  <svg class="deco deco-br" aria-hidden="true"><use href="#sprig"/></svg>
   <div class="wrap about-grid">
     <aside class="about-aside reveal">
       <span class="qmark" aria-hidden="true">&ldquo;</span>
@@ -399,8 +369,6 @@ footer.site a:hover{color:#fff}
 
 <!-- ANGEBOT -->
 <section id="angebot">
-  <svg class="deco lg deco-tr" aria-hidden="true"><use href="#sprig"/></svg>
-  <svg class="deco sm deco-bl clay" aria-hidden="true"><use href="#sprig"/></svg>
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Mein Angebot</span>
@@ -461,8 +429,6 @@ footer.site a:hover{color:#fff}
 
 <!-- EEH FEATURE -->
 <section id="eeh">
-  <svg class="deco lg light deco-bl" aria-hidden="true"><use href="#sprig"/></svg>
-  <svg class="deco light deco-tr" aria-hidden="true"><use href="#sprig"/></svg>
   <div class="wrap eeh-grid">
     <div class="reveal">
       <span class="eyebrow">Emotionelle Erste Hilfe</span>
@@ -485,7 +451,6 @@ footer.site a:hover{color:#fff}
 
 <!-- TERMINE -->
 <section id="termine">
-  <svg class="deco deco-bl" aria-hidden="true"><use href="#sprig"/></svg>
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Aktuelle Termine</span>
@@ -535,7 +500,6 @@ footer.site a:hover{color:#fff}
 
 <!-- ABLAUF -->
 <section id="ablauf">
-  <svg class="deco sm deco-tr clay" aria-hidden="true"><use href="#sprig"/></svg>
   <div class="wrap">
     <div class="section-head center reveal">
       <span class="eyebrow">So begleite ich dich</span>
@@ -560,8 +524,6 @@ footer.site a:hover{color:#fff}
 
 <!-- KONTAKT -->
 <section id="kontakt">
-  <svg class="deco deco-tr" aria-hidden="true"><use href="#sprig"/></svg>
-  <svg class="deco sm deco-bl" aria-hidden="true"><use href="#sprig"/></svg>
   <div class="wrap contact-grid">
     <div class="contact-info reveal">
       <span class="eyebrow">Kontakt</span>
