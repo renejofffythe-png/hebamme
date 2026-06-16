@@ -6,6 +6,8 @@
 <title>Kristina Schuldeis – Hebamme in Wentorf &amp; Reinbek · Geburtsvorbereitung, Rückbildung &amp; EEH</title>
 <meta name="description" content="Hebamme Kristina Schuldeis begleitet Familien in Wentorf und Reinbek: Geburtsvorbereitung, Rückbildung mit & ohne Baby, Beikost und Emotionelle Erste Hilfe (EEH). Natürlich, zugewandt und auf Augenhöhe.">
 <meta name="robots" content="index, follow">
+<meta name="theme-color" content="#FBF6EE">
+<meta name="format-detection" content="telephone=no">
 <link rel="canonical" href="https://www.hebamme-wentorf.de/">
 
 <!-- Social -->
@@ -65,6 +67,18 @@ h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:500;line-height:1.12;l
 .btn-primary:hover{background:var(--clay-deep);transform:translateY(-2px)}
 .btn-ghost{background:transparent;color:var(--sage-deep);border-color:var(--sage-soft)}
 .btn-ghost:hover{background:var(--sage-tint);border-color:var(--sage)}
+.btn svg{transition:transform .25s ease}
+.btn-primary:hover svg{transform:translateX(3px)}
+.btn:active{transform:translateY(0) scale(.985)}
+
+/* ── DETAILS / POLISH ── */
+::selection{background:var(--sage-tint);color:var(--sage-deep)}
+:focus-visible{outline:2.5px solid var(--sage);outline-offset:3px;border-radius:5px}
+.btn:focus-visible{outline-offset:4px}
+section[id]{scroll-margin-top:94px}
+.skip{position:absolute;left:16px;top:-64px;z-index:200;background:var(--clay);color:#fff;padding:11px 18px;border-radius:0 0 12px 12px;font-weight:600;font-size:15px;transition:top .22s ease}
+.skip:focus{top:0}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
 
 /* ── HEADER ── */
 header.site{position:sticky;top:0;z-index:60;background:rgba(251,246,238,.86);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:.3s}
@@ -76,8 +90,11 @@ header.site.scrolled{border-bottom-color:var(--line);box-shadow:0 8px 30px -24px
 .brand .bn{font-family:'Fraunces',serif;font-size:19px;font-weight:500;color:var(--ink)}
 .brand .br{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600}
 .nav-links{display:flex;align-items:center;gap:30px}
-.nav-links a.nl{font-size:15.5px;font-weight:500;color:var(--ink-soft);transition:.2s}
+.nav-links a.nl{position:relative;font-size:15.5px;font-weight:500;color:var(--ink-soft);transition:color .2s}
+.nav-links a.nl::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:2px;border-radius:2px;background:var(--sage);transform:scaleX(0);transform-origin:left;transition:transform .26s ease}
 .nav-links a.nl:hover{color:var(--sage-deep)}
+.nav-links a.nl:hover::after,.nav-links a.nl.active::after{transform:scaleX(1)}
+.nav-links a.nl.active{color:var(--sage-deep)}
 .nav-cta{padding:11px 22px;font-size:15px}
 .burger{display:none;background:none;border:none;cursor:pointer;padding:8px;color:var(--ink)}
 .burger svg{width:26px;height:26px}
@@ -85,6 +102,7 @@ header.site.scrolled{border-bottom-color:var(--line);box-shadow:0 8px 30px -24px
 /* ── HERO ── */
 .hero{position:relative;padding:64px 0 76px;overflow:hidden}
 .hero::before{content:"";position:absolute;top:-120px;right:-160px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,var(--sage-tint),transparent 68%);z-index:0}
+.hero::after{content:"";position:absolute;bottom:-180px;left:-140px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,var(--blush),transparent 70%);opacity:.6;z-index:0}
 .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
 .hero h1{font-size:clamp(40px,5.6vw,68px);margin-bottom:22px}
 .hero h1 em{font-style:italic;color:var(--sage-deep)}
@@ -95,7 +113,8 @@ header.site.scrolled{border-bottom-color:var(--line);box-shadow:0 8px 30px -24px
 .hero-figure{position:relative}
 .hero-figure .photo{position:relative;border-radius:26px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:5/5.4}
 .hero-figure .photo img{width:100%;height:100%;object-fit:cover;object-position:50% 22%}
-.hero-figure .quote{position:absolute;left:-26px;bottom:30px;max-width:280px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 22px;box-shadow:var(--shadow)}
+.hero-figure .quote{position:absolute;left:-26px;bottom:30px;max-width:280px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 22px;box-shadow:var(--shadow);animation:floaty 7s ease-in-out infinite}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
 .hero-figure .quote p{font-family:'Fraunces',serif;font-style:italic;font-size:17.5px;line-height:1.4;color:var(--ink)}
 .hero-figure .quote span{display:block;margin-top:6px;font-family:'Caveat',cursive;font-size:25px;line-height:1;color:var(--sage-deep);font-weight:600;font-style:normal}
 
@@ -125,9 +144,12 @@ section{padding:88px 0}
 
 /* ── ANGEBOT ── */
 .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
-.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:34px 32px;transition:.3s;position:relative;overflow:hidden}
-.card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#dccfb6}
-.card .ic{width:54px;height:54px;border-radius:15px;background:var(--sage-tint);color:var(--sage-deep);display:grid;place-items:center;margin-bottom:20px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:34px 32px;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--sage),var(--clay));transform:scaleX(0);transform-origin:left;transition:transform .4s ease}
+.card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:#dccfb6}
+.card:hover::before{transform:scaleX(1)}
+.card .ic{width:54px;height:54px;border-radius:15px;background:var(--sage-tint);color:var(--sage-deep);display:grid;place-items:center;margin-bottom:20px;transition:transform .3s ease,background .3s ease}
+.card:hover .ic{background:#e0e7d8;transform:scale(1.07) rotate(-3deg)}
 .card .ic svg{width:28px;height:28px}
 .card h3{font-size:24px;margin-bottom:10px}
 .card .meta{font-size:13.5px;font-weight:600;letter-spacing:.04em;color:var(--clay-deep);text-transform:uppercase;margin-bottom:14px}
@@ -150,12 +172,14 @@ section{padding:88px 0}
 
 /* ── TERMINE ── */
 .terms{display:flex;flex-direction:column;gap:14px}
-.term{display:grid;grid-template-columns:1fr auto auto;gap:24px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);padding:22px 26px;transition:.25s}
-.term:hover{border-color:#dccfb6;box-shadow:0 14px 36px -26px rgba(46,42,34,.5)}
+.term{position:relative;display:grid;grid-template-columns:1fr auto auto;gap:24px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);padding:22px 26px;overflow:hidden;transition:border-color .25s ease,box-shadow .25s ease,transform .25s ease}
+.term::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--clay);transform:scaleY(0);transform-origin:center;transition:transform .28s ease}
+.term:hover{border-color:#dccfb6;box-shadow:0 14px 36px -26px rgba(46,42,34,.5);transform:translateX(2px)}
+.term:hover::before{transform:scaleY(1)}
 .term .tt{font-family:'Fraunces',serif;font-size:20px;color:var(--ink);margin-bottom:4px}
 .term .td{font-size:14.5px;color:var(--muted)}
 .term .badge{font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:5px 12px;border-radius:100px;background:var(--sage-tint);color:var(--sage-deep);white-space:nowrap}
-.term .price{font-family:'Fraunces',serif;font-size:21px;color:var(--clay-deep);white-space:nowrap}
+.term .price{font-family:'Fraunces',serif;font-size:21px;color:var(--clay-deep);white-space:nowrap;font-variant-numeric:tabular-nums}
 .term .price small{font-family:'DM Sans',sans-serif;font-size:12px;color:var(--muted);display:block;font-weight:600;letter-spacing:.03em}
 .terms-note{margin-top:22px;font-size:14.5px;color:var(--muted);max-width:60em}
 
@@ -208,6 +232,12 @@ footer.site a:hover{color:#fff}
 /* ── REVEAL ── */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
+.cards .card:nth-child(2),.steps .step:nth-child(2),.terms .term:nth-child(2){transition-delay:.07s}
+.cards .card:nth-child(3),.steps .step:nth-child(3),.terms .term:nth-child(3){transition-delay:.14s}
+.cards .card:nth-child(4),.terms .term:nth-child(4){transition-delay:.21s}
+.terms .term:nth-child(5){transition-delay:.28s}
+.terms .term:nth-child(6){transition-delay:.35s}
+.terms .term:nth-child(7){transition-delay:.42s}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 
 /* ── RESPONSIVE ── */
@@ -240,6 +270,8 @@ footer.site a:hover{color:#fff}
 </style>
 </head>
 <body>
+
+<a class="skip" href="#hauptinhalt">Zum Inhalt springen</a>
 
 <!-- HEADER -->
 <header class="site" id="top">
@@ -275,7 +307,7 @@ footer.site a:hover{color:#fff}
 </div>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="hauptinhalt">
   <div class="wrap hero-grid">
     <div class="hero-copy reveal">
       <span class="place"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Wentorf bei Hamburg &amp; Reinbek</span>
@@ -351,7 +383,7 @@ footer.site a:hover{color:#fff}
 
       <article class="card reveal">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 18c2-5 5-7 8-7s6 2 8 7"/><circle cx="12" cy="6" r="3"/></svg></div>
-        <span class="meta">7 Termine · je 90 Min · Baby willkommen</span>
+        <span class="meta">7 Termine · je 90&nbsp;Min · Baby willkommen</span>
         <h3>Rückbildung mit &amp; ohne Baby</h3>
         <p>An sieben Terminen erspürst du deinen Körper wieder ganzheitlich und kräftigst Rücken, Bauch und Beckenboden.</p>
         <ul>
@@ -422,37 +454,37 @@ footer.site a:hover{color:#fff}
       <div class="term reveal">
         <div><div class="tt">Keine Angst vor Babytränen 1/26</div><div class="td">Start 11. Juni 2026 · Emotionelle Erste Hilfe</div></div>
         <span class="badge">EEH</span>
-        <div class="price">50 €</div>
+        <div class="price">50&nbsp;€</div>
       </div>
       <div class="term reveal">
-        <div><div class="tt">Geburtsvorbereitung 4/26</div><div class="td">18.08.–06.10.2026, jeweils 18:30 Uhr · fällt aus am 29.09.</div></div>
+        <div><div class="tt">Geburtsvorbereitung 4/26</div><div class="td">18.08.–06.10.2026, jeweils 18:30&nbsp;Uhr · fällt aus am 29.09.</div></div>
         <span class="badge">Geburtsvorbereitung</span>
-        <div class="price">120 €</div>
+        <div class="price">120&nbsp;€</div>
       </div>
       <div class="term reveal">
-        <div><div class="tt">Geburtsvorbereitung 5/26</div><div class="td">27.10.–08.12.2026, jeweils 18:30 Uhr</div></div>
+        <div><div class="tt">Geburtsvorbereitung 5/26</div><div class="td">27.10.–08.12.2026, jeweils 18:30&nbsp;Uhr</div></div>
         <span class="badge">Geburtsvorbereitung</span>
-        <div class="price">120 €</div>
+        <div class="price">120&nbsp;€</div>
       </div>
       <div class="term reveal">
-        <div><div class="tt">Geburtsvorbereitung für Mehrgebärende 2/26</div><div class="td">25.08.–22.09.2026, 9:00–11:30 Uhr</div></div>
+        <div><div class="tt">Geburtsvorbereitung für Mehrgebärende 2/26</div><div class="td">25.08.–22.09.2026, 9:00–11:30&nbsp;Uhr</div></div>
         <span class="badge">Mehrgebärende</span>
         <div class="price">auf Anfrage</div>
       </div>
       <div class="term reveal">
-        <div><div class="tt">Geburtsvorbereitung für Mehrgebärende 3/26</div><div class="td">28.10.–02.12.2026, 9:00–11:00 Uhr · 6 × 2 Std.</div></div>
+        <div><div class="tt">Geburtsvorbereitung für Mehrgebärende 3/26</div><div class="td">28.10.–02.12.2026, 9:00–11:00&nbsp;Uhr · 6&nbsp;×&nbsp;2&nbsp;Std.</div></div>
         <span class="badge">Mehrgebärende</span>
         <div class="price">auf Anfrage</div>
       </div>
       <div class="term reveal">
-        <div><div class="tt">Rückbildung mit / ohne Baby 05/26</div><div class="td">19.08.–30.09.2026, 9:30–11:00 Uhr</div></div>
+        <div><div class="tt">Rückbildung mit / ohne Baby 05/26</div><div class="td">19.08.–30.09.2026, 9:30–11:00&nbsp;Uhr</div></div>
         <span class="badge">Rückbildung</span>
-        <div class="price">15 €<small>pro Termin*</small></div>
+        <div class="price">15&nbsp;€<small>pro Termin*</small></div>
       </div>
       <div class="term reveal">
-        <div><div class="tt">Rückbildung mit / ohne Baby 06/26</div><div class="td">19.08.–30.09.2026, 11:15 Uhr</div></div>
+        <div><div class="tt">Rückbildung mit / ohne Baby 06/26</div><div class="td">19.08.–30.09.2026, 11:15&nbsp;Uhr</div></div>
         <span class="badge">Rückbildung</span>
-        <div class="price">15 €<small>pro Termin*</small></div>
+        <div class="price">15&nbsp;€<small>pro Termin*</small></div>
       </div>
     </div>
     <p class="terms-note">* Rückbildungsgymnastik ist für gesetzlich Versicherte in der Regel über die Krankenkasse abrechenbar. Genaue Konditionen klären wir gern bei deiner Anfrage. Du hast einen Wunschtermin gefunden? <a href="#kontakt">Schreib mir kurz</a> – ich halte dir deinen Platz frei.</p>
@@ -505,11 +537,11 @@ footer.site a:hover{color:#fff}
       <p class="hp"><label>Bitte nicht ausfüllen: <input name="bot-field"></label></p>
       <div class="field">
         <label for="name">Dein Name</label>
-        <input id="name" name="name" type="text" required placeholder="Vor- und Nachname">
+        <input id="name" name="name" type="text" required autocomplete="name" placeholder="Vor- und Nachname">
       </div>
       <div class="field">
         <label for="email">E-Mail</label>
-        <input id="email" name="email" type="email" required placeholder="du@beispiel.de">
+        <input id="email" name="email" type="email" required autocomplete="email" inputmode="email" placeholder="du@beispiel.de">
       </div>
       <div class="field">
         <label for="kurs">Welcher Kurs interessiert dich?</label>
@@ -577,17 +609,32 @@ footer.site a:hover{color:#fff}
 </div>
 
 <script>
-// header shadow on scroll
 const head=document.querySelector('header.site');
-addEventListener('scroll',()=>head.classList.toggle('scrolled',scrollY>10),{passive:true});
 
 // mobile menu
 const panel=document.getElementById('mpanel'),burger=document.getElementById('burger');
-const openM=()=>{panel.classList.add('open');burger.setAttribute('aria-expanded','true')};
-const closeM=()=>{panel.classList.remove('open');burger.setAttribute('aria-expanded','false')};
+const openM=()=>{panel.classList.add('open');burger.setAttribute('aria-expanded','true');document.body.style.overflow='hidden'};
+const closeM=()=>{panel.classList.remove('open');burger.setAttribute('aria-expanded','false');document.body.style.overflow=''};
 burger.addEventListener('click',openM);
 document.getElementById('closex').addEventListener('click',closeM);
 panel.addEventListener('click',e=>{if(e.target===panel||e.target.tagName==='A')closeM()});
+addEventListener('keydown',e=>{if(e.key==='Escape')closeM()});
+addEventListener('resize',()=>{if(innerWidth>980)closeM()});
+
+// scroll-spy: active nav link
+const spyLinks=[...document.querySelectorAll('.nav-links a.nl')];
+const spyTargets=spyLinks.map(a=>document.querySelector(a.getAttribute('href')));
+let ticking=false;
+function onScroll(){
+  head.classList.toggle('scrolled',scrollY>10);
+  const y=scrollY+innerHeight*0.32;
+  let idx=-1;
+  spyTargets.forEach((sec,i)=>{if(sec&&sec.offsetTop<=y)idx=i});
+  spyLinks.forEach((a,i)=>{a.classList.toggle('active',i===idx);i===idx?a.setAttribute('aria-current','true'):a.removeAttribute('aria-current')});
+  ticking=false;
+}
+addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(onScroll);ticking=true}},{passive:true});
+onScroll();
 
 // reveal on scroll
 const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
