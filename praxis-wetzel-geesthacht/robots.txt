@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.praxen-gemeinschaft-wetzel-an-der-elbe.de/sitemap.xml
