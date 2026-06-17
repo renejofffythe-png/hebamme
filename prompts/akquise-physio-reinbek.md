@@ -31,12 +31,12 @@ Und falls kein Bedarf: auch völlig in Ordnung.
 
 Herzliche Grüße
 René Joythe
-[Telefon] · freelancer.rene.joythe@googlemail.com
+0176 62067210 · freelancer.rene.joythe@googlemail.com
 
 ---
 
 ## Vor Versand (offen)
 - **Preis einsetzen:** Vorschlag für eine einseitige Premium-Site einer Solo-Praxis: **890–1.290 € einmalig**, Pflege optional **ab ~39 €/Monat**. (Template-Beispiel war 1.890 € — für diese kleine Solo-Praxis eher zu hoch.) Echten Preis bitte René setzen.
 - **Absender-Konto bestätigen** (Draft landet dort).
-- **Telefonnummer** in der Signatur ergänzen.
+- ~~Telefonnummer in der Signatur ergänzen.~~ ✅ 0176 62067210
 - Name „Marianne Jokisch" = hohe Konfidenz (Eigenbezeichnung der Seite).
