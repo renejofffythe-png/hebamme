@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aktiwell – Zentrum für Fitness und Therapie in Hamburg-Bergedorf</title>
+<meta name="description" content="Aktiwell in Hamburg-Bergedorf: Physiotherapie, Osteopathie, robotische Gangtherapie, medizinisches Fitnesstraining, Kurse & Wellness – seit über 30 Jahren persönlich geführt. Alle Kassen.">
+<meta name="theme-color" content="#353B8F">
+<meta name="format-detection" content="telephone=no">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.aktiwell.com/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="business.business">
+<meta property="og:title" content="Aktiwell – Zentrum für Fitness und Therapie in Hamburg-Bergedorf">
+<meta property="og:description" content="Physiotherapie, Osteopathie, robotische Gangtherapie, medizinisches Fitnesstraining & Wellness – auf über 1.000 m² in Bergedorf. Seit über 30 Jahren.">
+<meta property="og:locale" content="de_DE">
+<meta property="og:url" content="https://www.aktiwell.com/">
+<meta property="og:image" content="https://www.aktiwell.com/assets/gebaeude.jpg">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23353B8F'/%3E%3Ctext x='50' y='70' font-family='Arial,sans-serif' font-weight='700' font-size='58' fill='%23FBBB21' text-anchor='middle'%3Ea%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23353B8F'/%3E%3Ctext x='50' y='70' font-family='Arial,sans-serif' font-weight='700' font-size='58' fill='%23FBBB21' text-anchor='middle'%3Ea%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["MedicalBusiness", "HealthClub"],
+  "name": "Aktiwell – Zentrum für Fitness und Therapie",
+  "url": "https://www.aktiwell.com/",
+  "image": "https://www.aktiwell.com/assets/gebaeude.jpg",
+  "telephone": "+49-40-7217064",
+  "faxNumber": "+49-40-7249786",
+  "email": "info@aktiwell.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Brookkehre 21",
+    "postalCode": "21029",
+    "addressLocality": "Hamburg",
+    "addressRegion": "Hamburg",
+    "addressCountry": "DE"
+  },
+  "areaServed": "Hamburg-Bergedorf",
+  "medicalSpecialty": ["Physiotherapy", "Osteopathic"],
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "20:00", "description": "Therapie" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "21:00", "description": "Fitnessstudio" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "14:00", "description": "Fitnessstudio" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "10:00", "closes": "14:00", "description": "Fitnessstudio (Winter)" }
+  ]
+}
+</script>
+
+<style>
+:root{
+  --blue:#353B8F;        /* Markenblau */
+  --blue-deep:#272C6E;
+  --blue-700:#2E3479;
+  --yellow:#FBBB21;      /* Markengelb */
+  --yellow-deep:#E2A406;
+  --ink:#1C1E33;
+  --ink-soft:#3F4253;
+  --muted:#6E7186;
+  --paper:#FAFAFC;
+  --paper-2:#F2F3F9;
+  --tint:#EBEDF8;        /* blasser Blauton */
+  --tint-warm:#FFF6E2;   /* blasser Gelbton */
+  --line:#E4E5EF;
+  --line-soft:#EEEFF6;
+  --white:#fff;
+  --radius:18px;
+  --radius-lg:26px;
+  --shadow-sm:0 2px 10px rgba(28,30,51,.05);
+  --shadow:0 14px 40px -16px rgba(40,44,110,.28);
+  --shadow-lg:0 30px 70px -28px rgba(40,44,110,.40);
+  --maxw:1180px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  color:var(--ink);background:var(--paper);line-height:1.7;font-size:17px;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:'Sora',sans-serif;line-height:1.12;letter-spacing:-.02em;color:var(--ink);font-weight:600}
+p{color:var(--ink-soft)}
+a{color:var(--blue);text-decoration:none}
+img{display:block;max-width:100%}
+::selection{background:var(--yellow);color:var(--ink)}
+:focus-visible{outline:3px solid var(--yellow-deep);outline-offset:3px;border-radius:6px}
+
+/* lebendiger Hintergrund: feine Körnung als fixe Overlay-Ebene */
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:2}
+.tight{max-width:880px}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:16px;
+  padding:14px 26px;border-radius:100px;border:1.5px solid transparent;cursor:pointer;
+  transition:transform .25s var(--ease),background .25s,box-shadow .25s,color .25s;text-align:center;white-space:nowrap}
+.btn svg{width:18px;height:18px;transition:transform .25s var(--ease)}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:var(--shadow)}
+.btn-primary:hover{background:var(--blue-deep);transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+.btn-primary:hover svg{transform:translateX(3px)}
+.btn-accent{background:var(--yellow);color:var(--ink);box-shadow:0 12px 30px -12px rgba(226,164,6,.6)}
+.btn-accent:hover{background:var(--yellow-deep);transform:translateY(-2px)}
+.btn-ghost{background:#fff;color:var(--blue);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--blue);transform:translateY(-2px)}
+.btn-lg{padding:17px 32px;font-size:17px}
+
+/* ---------- Header ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(250,250,252,.82);backdrop-filter:saturate(180%) blur(14px);
+  border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s,background .3s}
+header.scrolled{border-color:var(--line);box-shadow:0 6px 26px -18px rgba(40,44,110,.5)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:76px;max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:2}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+.brand .logo-img{height:38px;width:auto}
+.brand .bt{display:flex;flex-direction:column;line-height:1.05}
+.brand .bn{font-family:'Sora',sans-serif;font-weight:700;font-size:21px;color:var(--blue);letter-spacing:-.02em}
+.brand .br{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.navlinks{display:flex;align-items:center;gap:30px}
+.navlinks a.nl{font-size:15px;font-weight:500;color:var(--ink-soft);position:relative;padding:6px 0;transition:color .2s}
+.navlinks a.nl::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;background:var(--yellow);border-radius:2px;transition:right .3s var(--ease)}
+.navlinks a.nl:hover{color:var(--blue)}
+.navlinks a.nl:hover::after,.navlinks a.nl[aria-current="true"]::after{right:0}
+.navlinks a.nl[aria-current="true"]{color:var(--blue);font-weight:600}
+.nav-cta{display:flex;align-items:center;gap:14px}
+.nav-tel{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--blue);font-size:15px}
+.nav-tel svg{width:17px;height:17px;color:var(--yellow-deep)}
+.burger{display:none;flex-direction:column;gap:5px;width:46px;height:46px;border:1px solid var(--line);border-radius:12px;background:#fff;cursor:pointer;align-items:center;justify-content:center}
+.burger span{width:20px;height:2px;background:var(--blue);border-radius:2px;transition:.3s}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;padding:60px 0 84px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(60% 70% at 88% 8%, rgba(251,187,33,.16), transparent 60%),
+    radial-gradient(70% 80% at 6% 90%, rgba(53,59,143,.10), transparent 60%);}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;background:var(--tint);color:var(--blue);
+  font-weight:600;font-size:13.5px;letter-spacing:.02em;padding:7px 15px;border-radius:100px;margin-bottom:22px}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 4px rgba(251,187,33,.22)}
+.hero h1{font-size:clamp(38px,5.2vw,62px);font-weight:700;margin-bottom:20px}
+.hero h1 .hl{color:var(--blue);position:relative;white-space:nowrap}
+.hero h1 .hl::after{content:"";position:absolute;left:-2px;right:-2px;bottom:.08em;height:.30em;background:var(--yellow);opacity:.5;z-index:-1;border-radius:3px}
+.hero .lead{font-size:19px;color:var(--ink-soft);max-width:520px;margin-bottom:32px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:30px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:22px}
+.hero-meta .m{display:flex;align-items:center;gap:9px;font-size:14.5px;font-weight:500;color:var(--ink-soft)}
+.hero-meta .m svg{width:18px;height:18px;color:var(--blue);flex-shrink:0}
+.hero-figure{position:relative}
+.hero-figure .photo{position:relative;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:5/6;background:var(--tint)}
+.hero-figure .photo img{width:100%;height:100%;object-fit:cover}
+.hero-badge{position:absolute;left:-22px;bottom:26px;background:#fff;border-radius:18px;padding:16px 20px;
+  box-shadow:var(--shadow);display:flex;align-items:center;gap:14px;border:1px solid var(--line-soft);max-width:260px}
+.hero-badge .hb-num{font-family:'Sora',sans-serif;font-weight:700;font-size:30px;color:var(--blue);line-height:1}
+.hero-badge .hb-txt{font-size:13px;color:var(--muted);line-height:1.4}
+.hero-badge .hb-txt strong{display:block;color:var(--ink);font-size:14px;font-weight:600}
+
+/* ---------- Trust bar ---------- */
+.trust{background:var(--blue);color:#fff;position:relative;overflow:hidden}
+.trust::before{content:"";position:absolute;inset:0;opacity:.5;
+  background:radial-gradient(50% 120% at 85% 0%, rgba(251,187,33,.18), transparent 60%)}
+.trust .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding-top:34px;padding-bottom:34px}
+.trust .t{display:flex;flex-direction:column;gap:3px}
+.trust .t .tn{font-family:'Sora',sans-serif;font-weight:700;font-size:30px;color:var(--yellow);line-height:1}
+.trust .t .tl{font-size:14px;color:#D7D9F0;font-weight:500}
+
+/* ---------- Sections ---------- */
+section{position:relative}
+.sec{padding:96px 0}
+.sec-head{max-width:720px;margin-bottom:52px}
+.sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.kicker{display:inline-block;font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--yellow-deep);margin-bottom:14px}
+.sec-head h2{font-size:clamp(30px,3.6vw,44px);margin-bottom:16px}
+.sec-head p{font-size:18px;color:var(--muted)}
+
+/* Leistungen Überblick – 3 Säulen */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.pillar{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:34px 30px;
+  position:relative;overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s,border-color .35s}
+.pillar::before{content:"";position:absolute;left:0;top:0;right:0;height:4px;background:var(--yellow);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.pillar:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:transparent}
+.pillar:hover::before{transform:scaleX(1)}
+.pillar .pi{width:56px;height:56px;border-radius:16px;background:var(--tint);display:grid;place-items:center;margin-bottom:20px;transition:transform .35s var(--ease)}
+.pillar:hover .pi{transform:rotate(-6deg) scale(1.05)}
+.pillar .pi svg{width:28px;height:28px;color:var(--blue)}
+.pillar h3{font-size:22px;margin-bottom:10px}
+.pillar p{font-size:15.5px;margin-bottom:16px}
+.pillar ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:6px}
+.pillar li{display:flex;gap:10px;font-size:14.5px;color:var(--ink-soft);align-items:flex-start}
+.pillar li svg{width:17px;height:17px;color:var(--yellow-deep);flex-shrink:0;margin-top:3px}
+
+/* Split-Layout */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.split.rev .split-media{order:2}
+.split-media{position:relative;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/3;background:var(--tint)}
+.split-media.portrait{aspect-ratio:3/4}
+.split-media img{width:100%;height:100%;object-fit:cover}
+.split-body h3{font-size:clamp(26px,3vw,34px);margin-bottom:18px}
+.split-body .lead{font-size:18px;color:var(--ink-soft);margin-bottom:24px}
+
+/* Therapie-Leistungsliste */
+.therapy-list{display:flex;flex-direction:column;gap:4px}
+.t-row{display:flex;gap:16px;padding:18px 0;border-top:1px solid var(--line);position:relative}
+.t-row:first-child{border-top:none}
+.t-row::before{content:"";position:absolute;left:-24px;top:18px;bottom:18px;width:3px;background:var(--yellow);border-radius:3px;transform:scaleY(0);transform-origin:top;transition:transform .3s var(--ease)}
+.t-row:hover::before{transform:scaleY(1)}
+.t-row .tr-ic{width:42px;height:42px;border-radius:12px;background:var(--tint-warm);display:grid;place-items:center;flex-shrink:0}
+.t-row .tr-ic svg{width:21px;height:21px;color:var(--yellow-deep)}
+.t-row h4{font-size:17.5px;margin-bottom:3px}
+.t-row .tag{font-size:12px;font-weight:600;color:var(--blue);background:var(--tint);padding:2px 9px;border-radius:100px;margin-left:8px;letter-spacing:.02em}
+.t-row p{font-size:14.5px;color:var(--muted);margin:0}
+
+/* Lyra Highlight */
+.lyra{background:linear-gradient(135deg,var(--blue) 0%,var(--blue-deep) 100%);color:#fff;border-radius:var(--radius-lg);
+  overflow:hidden;position:relative}
+.lyra::before{content:"";position:absolute;inset:0;opacity:.6;
+  background:radial-gradient(50% 80% at 90% 10%, rgba(251,187,33,.22), transparent 55%)}
+.lyra-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:0;align-items:stretch;position:relative;z-index:2}
+.lyra-body{padding:52px 52px}
+.lyra-body .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(251,187,33,.18);color:var(--yellow);
+  font-weight:600;font-size:13px;padding:6px 14px;border-radius:100px;margin-bottom:18px;letter-spacing:.03em}
+.lyra-body h3{color:#fff;font-size:clamp(26px,3vw,34px);margin-bottom:14px}
+.lyra-body p{color:#D7D9F0;font-size:16.5px;margin-bottom:24px}
+.lyra-stats{display:flex;gap:34px;flex-wrap:wrap;margin-bottom:26px}
+.lyra-stats .ls .n{font-family:'Sora',sans-serif;font-weight:700;font-size:32px;color:var(--yellow);line-height:1}
+.lyra-stats .ls .l{font-size:13.5px;color:#C9CCEC}
+.lyra-media{position:relative;min-height:340px;background:#1a1d3a}
+.lyra-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.lyra-cond{font-size:14px;color:#C9CCEC}
+.lyra-cond strong{color:#fff;font-weight:600}
+
+/* Fitness Feature-Grid */
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:8px}
+.feat{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px;transition:transform .3s var(--ease),box-shadow .3s}
+.feat:hover{transform:translateY(-4px);box-shadow:var(--shadow-sm)}
+.feat .fi{width:46px;height:46px;border-radius:13px;background:var(--tint);display:grid;place-items:center;margin-bottom:16px}
+.feat .fi svg{width:23px;height:23px;color:var(--blue)}
+.feat h4{font-size:17px;margin-bottom:8px}
+.feat p{font-size:14.5px;color:var(--muted);margin:0}
+
+/* Kurse Chips */
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.chip{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);
+  padding:9px 16px;border-radius:100px;font-size:14.5px;font-weight:500;color:var(--ink-soft);transition:.25s}
+.chip:hover{border-color:var(--yellow);background:var(--tint-warm);color:var(--ink);transform:translateY(-2px)}
+.chip svg{width:15px;height:15px;color:var(--yellow-deep)}
+
+/* Galerie */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:180px;gap:14px}
+.gallery a{border-radius:16px;overflow:hidden;position:relative;background:var(--tint)}
+.gallery a img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.gallery a:hover img{transform:scale(1.06)}
+.gallery .tall{grid-row:span 2}
+.gallery .wide{grid-column:span 2}
+
+/* Kontakt */
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:start}
+.info-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:32px;box-shadow:var(--shadow-sm)}
+.info-card + .info-card{margin-top:20px}
+.info-row{display:flex;gap:15px;padding:14px 0;border-top:1px solid var(--line-soft)}
+.info-row:first-of-type{border-top:none;padding-top:0}
+.info-row .ic{width:42px;height:42px;border-radius:12px;background:var(--tint);display:grid;place-items:center;flex-shrink:0}
+.info-row .ic svg{width:20px;height:20px;color:var(--blue)}
+.info-row .il{font-size:13px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
+.info-row .iv{font-size:16px;color:var(--ink);font-weight:500}
+.info-row .iv a{color:var(--ink)}
+.info-row .iv a:hover{color:var(--blue)}
+.hours-table{width:100%;border-collapse:collapse;font-size:15px}
+.hours-table th{text-align:left;font-weight:600;color:var(--blue);font-size:13px;text-transform:uppercase;letter-spacing:.05em;padding:0 0 8px}
+.hours-table td{padding:6px 0;border-top:1px solid var(--line-soft);color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.hours-table td:last-child{text-align:right;font-weight:500;color:var(--ink)}
+.map-link{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-weight:600;color:var(--blue);font-size:15px}
+.map-link svg{width:17px;height:17px}
+.map-link:hover{color:var(--blue-deep)}
+
+/* Formular */
+.form-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:36px;box-shadow:var(--shadow)}
+.form-card h3{font-size:24px;margin-bottom:6px}
+.form-card .fp{font-size:15px;color:var(--muted);margin-bottom:24px}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:14px;font-weight:600;color:var(--ink);margin-bottom:7px}
+.field input,.field select,.field textarea{width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:12px;
+  font-family:inherit;font-size:15.5px;color:var(--ink);background:var(--paper);transition:border-color .2s,box-shadow .2s}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px rgba(53,59,143,.1);background:#fff}
+.field textarea{resize:vertical;min-height:120px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.consent{display:flex;gap:11px;align-items:flex-start;margin:6px 0 22px}
+.consent input{width:19px;height:19px;margin-top:3px;flex-shrink:0;accent-color:var(--blue)}
+.consent label{font-size:13.5px;color:var(--muted);font-weight:400;line-height:1.5}
+.consent a{color:var(--blue);text-decoration:underline}
+.hp{position:absolute;left:-9999px}
+.form-note{font-size:13px;color:var(--muted);margin-top:14px;text-align:center}
+
+/* Über uns */
+.about-card{background:var(--tint);border-radius:var(--radius-lg);padding:30px 32px;margin-top:24px}
+.about-card .sig{font-family:'Sora',sans-serif;font-size:20px;color:var(--blue);font-weight:600;margin-bottom:4px}
+.about-card .sigrole{font-size:14px;color:var(--muted)}
+.verbaende{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.verb{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);
+  padding:9px 15px;border-radius:12px;font-size:13.5px;font-weight:600;color:var(--ink-soft)}
+.verb svg{width:16px;height:16px;color:var(--yellow-deep)}
+
+/* CTA-Band */
+.cta-band{background:linear-gradient(135deg,var(--blue),var(--blue-deep));color:#fff;border-radius:var(--radius-lg);
+  padding:56px;text-align:center;position:relative;overflow:hidden}
+.cta-band::before{content:"";position:absolute;inset:0;opacity:.6;
+  background:radial-gradient(45% 90% at 50% 0%, rgba(251,187,33,.2), transparent 60%)}
+.cta-band > *{position:relative;z-index:2}
+.cta-band h2{color:#fff;font-size:clamp(28px,3.4vw,40px);margin-bottom:14px}
+.cta-band p{color:#D7D9F0;font-size:18px;max-width:560px;margin:0 auto 28px}
+.cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* Footer */
+footer{background:#16182B;color:#A7AAC4;padding:64px 0 110px;margin-top:0;position:relative;z-index:2}
+@media(min-width:861px){footer{padding-bottom:64px}}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.08)}
+.foot-brand .logo-img{height:34px;margin-bottom:16px;filter:brightness(0) invert(1);opacity:.95}
+.foot-brand p{color:#8C8FAE;font-size:14.5px;max-width:320px}
+.foot-col h4{color:#fff;font-size:14px;font-weight:600;margin-bottom:16px;letter-spacing:.02em}
+.foot-col a{display:block;color:#A7AAC4;font-size:14.5px;padding:5px 0;transition:color .2s}
+.foot-col a:hover{color:var(--yellow)}
+.foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:26px;font-size:13.5px;color:#71748F}
+.foot-bottom a{color:#A7AAC4}
+.foot-bottom a:hover{color:#fff}
+.foot-social{display:flex;gap:10px}
+.foot-social a{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.06);display:grid;place-items:center;transition:.25s}
+.foot-social a:hover{background:var(--yellow);transform:translateY(-2px)}
+.foot-social svg{width:18px;height:18px;color:#fff}
+.foot-social a:hover svg{color:var(--ink)}
+
+/* Mobile Action Bar */
+.mobile-bar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(255,255,255,.95);
+  backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:11px 14px;gap:10px}
+.mobile-bar .btn{flex:1;justify-content:center;padding:13px 16px;font-size:15px}
+
+/* Skip link */
+.skip{position:absolute;left:14px;top:-60px;background:var(--blue);color:#fff;padding:10px 18px;border-radius:10px;
+  z-index:100;font-weight:600;transition:top .25s;font-size:15px}
+.skip:focus{top:14px}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.stagger > *{opacity:0;transform:translateY(22px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.stagger.in > *{opacity:1;transform:none}
+.stagger.in > *:nth-child(1){transition-delay:.05s}
+.stagger.in > *:nth-child(2){transition-delay:.13s}
+.stagger.in > *:nth-child(3){transition-delay:.21s}
+.stagger.in > *:nth-child(4){transition-delay:.29s}
+.stagger.in > *:nth-child(5){transition-delay:.37s}
+.stagger.in > *:nth-child(6){transition-delay:.45s}
+
+[id]{scroll-margin-top:96px}
+
+/* ---------- Responsive ---------- */
+@media(max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:44px}
+  .hero-figure{max-width:440px;margin:0 auto}
+  .split{grid-template-columns:1fr;gap:36px}
+  .split.rev .split-media{order:0}
+  .lyra-grid{grid-template-columns:1fr}
+  .lyra-media{min-height:260px;order:-1}
+  .contact-grid{grid-template-columns:1fr;gap:32px}
+  .pillars{grid-template-columns:1fr}
+  .feat-grid{grid-template-columns:1fr 1fr}
+  .trust .wrap{grid-template-columns:1fr 1fr;gap:28px}
+}
+@media(max-width:860px){
+  .navlinks,.nav-tel{display:none}
+  .burger{display:flex}
+  .navlinks.mobile{display:flex;position:fixed;top:76px;left:0;right:0;flex-direction:column;align-items:stretch;
+    gap:0;background:#fff;border-bottom:1px solid var(--line);padding:8px 0 18px;box-shadow:var(--shadow);
+    transform:translateY(-12px);opacity:0;pointer-events:none;transition:.28s var(--ease);z-index:49}
+  .navlinks.mobile.show{transform:none;opacity:1;pointer-events:auto}
+  .navlinks.mobile a.nl{padding:14px 28px;font-size:17px;border-bottom:1px solid var(--line-soft)}
+  .navlinks.mobile a.nl::after{display:none}
+  .navlinks.mobile .btn{margin:14px 24px 0;justify-content:center}
+  .mobile-bar{display:flex}
+  body.menu-open{overflow:hidden}
+}
+@media(max-width:680px){
+  body{font-size:16.5px}
+  .sec{padding:66px 0}
+  .lyra-body{padding:36px 28px}
+  .cta-band{padding:40px 26px}
+  .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:140px}
+  .gallery .wide{grid-column:span 2}
+  .feat-grid{grid-template-columns:1fr}
+  .row2{grid-template-columns:1fr}
+  .trust .wrap{grid-template-columns:1fr 1fr}
+  .hero-badge{left:50%;transform:translateX(-50%);bottom:-24px}
+  .hero-figure{margin-bottom:40px}
+  .foot-grid{grid-template-columns:1fr;gap:30px}
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important;transition:none !important;scroll-behavior:auto !important}
+  .reveal,.stagger > *{opacity:1 !important;transform:none !important}
+}
+</style>
+</head>
+<body>
+
+<a href="#leistungen" class="skip">Zum Inhalt springen</a>
+
+<header id="top">
+  <div class="nav">
+    <a href="#top" class="brand" aria-label="Aktiwell Startseite">
+      <img src="assets/logo.svg" alt="Aktiwell" class="logo-img" width="76" height="38">
+    </a>
+    <nav class="navlinks" id="navlinks" aria-label="Hauptnavigation">
+      <a href="#leistungen" class="nl">Leistungen</a>
+      <a href="#therapie" class="nl">Therapie</a>
+      <a href="#fitness" class="nl">Fitness &amp; Kurse</a>
+      <a href="#ueber-uns" class="nl">Über uns</a>
+      <a href="#kontakt" class="nl">Kontakt</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:+49407217064" class="nav-tel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>(040) 721&nbsp;70&nbsp;64</a>
+      <a href="#kontakt" class="btn btn-primary">Termin anfragen</a>
+      <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navlinks"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" aria-labelledby="hero-h">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow"><span class="dot"></span>Hamburg-Bergedorf · seit über 30 Jahren</span>
+      <h1 id="hero-h">Ihr Zentrum für <span class="hl">Fitness&nbsp;&amp;&nbsp;Therapie</span> in Bergedorf</h1>
+      <p class="lead">Physiotherapie, Osteopathie und modernes Gesundheitstraining unter einem Dach – auf über&nbsp;1.000&nbsp;m². Persönlich, interdisziplinär und mit Zeit für Sie.</p>
+      <div class="hero-actions">
+        <a href="tel:+49407217064" class="btn btn-primary btn-lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Anrufen &amp; Termin sichern</a>
+        <a href="#leistungen" class="btn btn-ghost btn-lg">Leistungen ansehen</a>
+      </div>
+      <div class="hero-meta">
+        <span class="m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Alle Kassen &amp; Privat</span>
+        <span class="m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Robotische Gangtherapie (Lyra)</span>
+        <span class="m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 2"/></svg>Direkt am Haus parken</span>
+      </div>
+    </div>
+    <div class="hero-figure reveal">
+      <div class="photo">
+        <img src="assets/inhaber-portrait.jpg" alt="Sabine und Maximilian Graf von Hatzfeldt, Inhaber von Aktiwell in Hamburg-Bergedorf" width="600" height="720" fetchpriority="high">
+      </div>
+      <div class="hero-badge">
+        <span class="hb-num">30+</span>
+        <span class="hb-txt"><strong>Jahre Erfahrung</strong>inhabergeführt in Bergedorf</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust" aria-label="Aktiwell in Zahlen">
+  <div class="wrap stagger">
+    <div class="t"><span class="tn">1.000&nbsp;m²</span><span class="tl">Therapie, Training &amp; Wellness</span></div>
+    <div class="t"><span class="tn">30+ Jahre</span><span class="tl">Etabliert in Hamburg-Bergedorf</span></div>
+    <div class="t"><span class="tn">Alle Kassen</span><span class="tl">Rezept &amp; Selbstzahler willkommen</span></div>
+    <div class="t"><span class="tn">Lyra</span><span class="tl">Robotische Gangrehabilitation</span></div>
+  </div>
+</section>
+
+<!-- LEISTUNGEN ÜBERBLICK -->
+<section class="sec" id="leistungen" aria-labelledby="leist-h">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="kicker">Unser Angebot</span>
+      <h2 id="leist-h">Drei Bereiche, ein gemeinsames Ziel: Ihre Gesundheit</h2>
+      <p>Vom ärztlichen Rezept bis zum eigenständigen Training – bei Aktiwell greifen Therapie, Bewegung und Ernährung nahtlos ineinander.</p>
+    </div>
+    <div class="pillars stagger">
+      <article class="pillar">
+        <div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h4l2-7 4 14 2-7h6"/></svg></div>
+        <h3>Physiotherapie &amp; Osteopathie</h3>
+        <p>Natürliche Heilverfahren bei Schmerzen, eingeschränkter Beweglichkeit und nach Operationen.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Krankengymnastik &amp; KG am Gerät</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Manuelle Therapie &amp; Osteopathie</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Robotische Gangtherapie (Lyra)</li>
+        </ul>
+        <a href="#therapie" class="btn btn-ghost" style="margin-top:14px">Mehr erfahren</a>
+      </article>
+      <article class="pillar">
+        <div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.5 6.5h11M6.5 17.5h11M4 9v6M20 9v6M7 8v8M17 8v8"/></svg></div>
+        <h3>Fitnessstudio, Kurse &amp; Wellness</h3>
+        <p>Medizinisches Training an modernen Geräten, ein breites Kursprogramm und echte Erholung.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Gerätetraining mit Kraftanpassung</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Rücken, Yoga, Pilates &amp; mehr</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Massage &amp; finnische Sauna</li>
+        </ul>
+        <a href="#fitness" class="btn btn-ghost" style="margin-top:14px">Mehr erfahren</a>
+      </article>
+      <article class="pillar">
+        <div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+        <h3>Ernährung &amp; Stoffwechsel</h3>
+        <p>Individuelle Begleitung mit Stoffwechselanalyse – für mehr Energie und ein gesundes Gewicht.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Stoffwechselanalyse</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Persönliche Ernährungsberatung</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Alltagstaugliche Strategien</li>
+        </ul>
+        <a href="#kontakt" class="btn btn-ghost" style="margin-top:14px">Beratung anfragen</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- THERAPIE -->
+<section class="sec" id="therapie" style="background:var(--paper-2)" aria-labelledby="ther-h">
+  <div class="wrap split">
+    <div class="split-media portrait reveal">
+      <img src="assets/therapie-kabine.jpg" alt="Helle Behandlungskabine bei Aktiwell mit Therapieliege und Sprossenwand" width="600" height="800" loading="lazy">
+    </div>
+    <div class="split-body">
+      <span class="kicker">Therapie &amp; Osteopathie</span>
+      <h3 id="ther-h">Behandlung, die an der Ursache ansetzt</h3>
+      <p class="lead">Unsere erfahrenen Therapeutinnen und Therapeuten nehmen sich Zeit – mit präzisen Techniken und einem Blick auf den ganzen Körper.</p>
+      <div class="therapy-list">
+        <div class="t-row">
+          <div class="tr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h4l2-7 4 14 2-7h6"/></svg></div>
+          <div><h4>Physiotherapie / Krankengymnastik<span class="tag">KG</span></h4><p>Natürliches Heilverfahren: aktive und passive Bewegungstherapie sowie gezielte Wärme- und Kälteanwendung gegen Schmerzen und für mehr Beweglichkeit.</p></div>
+        </div>
+        <div class="t-row">
+          <div class="tr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.5 6.5h11M4 9v6M20 9v6M7 8v8M17 8v8"/></svg></div>
+          <div><h4>Krankengymnastik am Gerät<span class="tag">KGG</span></h4><p>Computergestütztes Gerätetraining zum gezielten Muskelaufbau an Wirbelsäule und Extremitäten – ideal nach Fehl- und Überbelastung.</p></div>
+        </div>
+        <div class="t-row">
+          <div class="tr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11a3 3 0 1 0 6 0 3 3 0 0 0-6 0z"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3"/></svg></div>
+          <div><h4>Manuelle Therapie<span class="tag">MT</span></h4><p>Spezialisierte Technik mit viel Feingefühl an Gelenken, Wirbelsäule und Extremitäten. Präzise Druck- und Zugbewegungen lösen schmerzhafte Blockaden.</p></div>
+        </div>
+        <div class="t-row">
+          <div class="tr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-5.2-9-10a5 5 0 0 1 9-2 5 5 0 0 1 9 2c-2 4.8-9 10-9 10z"/></svg></div>
+          <div><h4>Osteopathie</h4><p>Ganzheitliche Behandlung mit den Händen: Spannungen und Bewegungseinschränkungen werden ertastet und sanft gelöst – Mitglied im VWOD.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LYRA HIGHLIGHT -->
+<section class="sec" style="background:var(--paper-2);padding-top:0" aria-labelledby="lyra-h">
+  <div class="wrap">
+    <div class="lyra reveal">
+      <div class="lyra-grid">
+        <div class="lyra-body">
+          <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>Innovatives Therapieangebot</span>
+          <h3 id="lyra-h">Lyra – robotische Gangtherapie</h3>
+          <p>Der Lyra-Gangtrainer ermöglicht hochintensives Gehtraining mit der 10-&nbsp;bis 20-fachen Wiederholungszahl gegenüber konventioneller Therapie – sicher geführt und individuell dosiert.</p>
+          <div class="lyra-stats">
+            <div class="ls"><span class="n">100–2.000</span><span class="l">Schritte pro Einheit</span></div>
+            <div class="ls"><span class="n">10–20×</span><span class="l">mehr Wiederholungen</span></div>
+          </div>
+          <p class="lyra-cond"><strong>Geeignet u.&nbsp;a. bei:</strong> Schlaganfall, Multipler Sklerose, Parkinson, nach Wirbelsäulenverletzungen und in der Reha nach Operationen.</p>
+        </div>
+        <div class="lyra-media">
+          <img src="assets/lyra-gangtherapie.jpg" alt="Lyra Gangtrainer für robotische Gangtherapie bei Aktiwell" width="800" height="600" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FITNESS -->
+<section class="sec" id="fitness" aria-labelledby="fit-h">
+  <div class="wrap">
+    <div class="split rev" style="margin-bottom:56px">
+      <div class="split-media reveal">
+        <img src="assets/fitness-geraete.jpg" alt="Modernes medizinisches Fitnessstudio bei Aktiwell mit computergestützten Trainingsgeräten" width="800" height="600" loading="lazy">
+      </div>
+      <div class="split-body">
+        <span class="kicker">Fitnessstudio, Kurse &amp; Wellness</span>
+        <h3 id="fit-h">Trainieren auf höchstem Niveau – medizinisch begleitet</h3>
+        <p class="lead">An modernen Geräten (u.&nbsp;a. Schnell &amp; Yolii) trainieren Sie mit automatischer Kraftanpassung – flexibel von der 10er-Karte bis zur Jahresmitgliedschaft, ohne lange Bindung.</p>
+        <div class="feat-grid">
+          <div class="feat">
+            <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.5 6.5h11M4 9v6M20 9v6M7 8v8M17 8v8"/></svg></div>
+            <h4>Gerätetraining</h4><p>Computergestützte Geräte mit gleichmäßigem Trainingsreiz.</p>
+          </div>
+          <div class="feat">
+            <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h2M19 12h2M7 8v8M17 8v8M11 6v12M14 9v6"/></svg></div>
+            <h4>VibraFit</h4><p>Vibrationstraining für Kraft, Beweglichkeit &amp; Knochendichte.</p>
+          </div>
+          <div class="feat">
+            <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 7v5l3 2"/></svg></div>
+            <h4>Beckenboden</h4><p>Pelvictrainer mit direktem Feedback zur Muskelanspannung.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec-head reveal" style="margin-bottom:24px">
+      <span class="kicker">Kursprogramm</span>
+      <h2 style="font-size:clamp(26px,3vw,34px)">Kurse für Rücken, Kraft und innere Ruhe</h2>
+      <p style="font-size:16.5px">Viele Präventionskurse werden von den Krankenkassen mit bis zu&nbsp;80&nbsp;% bezuschusst.</p>
+    </div>
+    <div class="chips reveal">
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Präventives Rückentraining</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Wirbelsäulengymnastik</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Hatha-Yoga</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Pilates</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Langhantel-Training</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Functional Training</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Indoor Cycling</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>MBSR Stressbewältigung</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Massage &amp; finnische Sauna</span>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="sec" style="background:var(--paper-2)" aria-labelledby="gal-h">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="kicker">Einblicke</span>
+      <h2 id="gal-h">Ein Ort zum Wohlfühlen</h2>
+      <p>Über 1.000&nbsp;m² für Therapie, Training und Erholung – mitten in Bergedorf.</p>
+    </div>
+    <div class="gallery reveal">
+      <a class="wide" href="assets/gebaeude.jpg" target="_blank" rel="noopener"><img src="assets/gebaeude.jpg" alt="Außenansicht des Aktiwell-Gebäudes in Hamburg-Bergedorf" width="800" height="600" loading="lazy"></a>
+      <a href="assets/kurse-bikes.jpg" target="_blank" rel="noopener"><img src="assets/kurse-bikes.jpg" alt="Indoor-Cycling-Raum bei Aktiwell" width="800" height="600" loading="lazy"></a>
+      <a class="tall" href="assets/yoga.jpg" target="_blank" rel="noopener"><img src="assets/yoga.jpg" alt="Kursraum für Yoga und Pilates bei Aktiwell" width="800" height="600" loading="lazy"></a>
+      <a href="assets/sauna.jpg" target="_blank" rel="noopener"><img src="assets/sauna.jpg" alt="Finnische Sauna im Wellnessbereich von Aktiwell" width="800" height="600" loading="lazy"></a>
+      <a href="assets/terrasse.jpg" target="_blank" rel="noopener"><img src="assets/terrasse.jpg" alt="Terrasse zum Erholen bei Aktiwell" width="800" height="600" loading="lazy"></a>
+      <a href="assets/warteraum.jpg" target="_blank" rel="noopener"><img src="assets/warteraum.jpg" alt="Einladender Empfangs- und Warteraum bei Aktiwell" width="800" height="600" loading="lazy"></a>
+    </div>
+  </div>
+</section>
+
+<!-- ÜBER UNS -->
+<section class="sec" id="ueber-uns" aria-labelledby="about-h">
+  <div class="wrap split">
+    <div class="split-media reveal">
+      <img src="assets/gebaeude.jpg" alt="Das Aktiwell-Gebäude mit Logo am Eingang in Hamburg-Bergedorf" width="800" height="600" loading="lazy">
+    </div>
+    <div class="split-body">
+      <span class="kicker">Über uns</span>
+      <h3 id="about-h">Ganzheitliche Betreuung – mit Herz und Erfahrung</h3>
+      <p class="lead">Aktiwell ist seit über 30&nbsp;Jahren das Zentrum für Fitness und Therapie in Hamburg-Bergedorf. Unter einem Dach arbeiten Physiotherapeut:innen, Osteopath:innen und Trainer:innen Hand in Hand – damit Therapie und Training perfekt ineinandergreifen.</p>
+      <p>Unser Anspruch: Sie nicht nur zu behandeln, sondern Sie auf dem Weg zu dauerhafter Gesundheit zu begleiten – persönlich, kompetent und mit Zeit für Ihre Anliegen.</p>
+      <div class="about-card">
+        <div class="sig">Sabine &amp; Maximilian Graf von Hatzfeldt</div>
+        <div class="sigrole">Inhaber · Physiotherapeut, Osteopath &amp; Heilpraktiker</div>
+      </div>
+      <div class="verbaende">
+        <span class="verb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1-6.3-4.6L5.7 21l2.3-7.1-6-4.5h7.6z"/></svg>VPT</span>
+        <span class="verb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1-6.3-4.6L5.7 21l2.3-7.1-6-4.5h7.6z"/></svg>VWOD – Osteopathie</span>
+        <span class="verb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1-6.3-4.6L5.7 21l2.3-7.1-6-4.5h7.6z"/></svg>MBSR / MBCT</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section class="sec" id="kontakt" style="background:var(--paper-2)" aria-labelledby="kon-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Kontakt &amp; Anfahrt</span>
+      <h2 id="kon-h">Vereinbaren Sie Ihren Termin</h2>
+      <p>Rufen Sie uns an oder schreiben Sie uns – wir melden uns zeitnah persönlich bei Ihnen zurück.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="info-card">
+          <div class="info-row">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div><div class="il">Telefon</div><div class="iv"><a href="tel:+49407217064">(040) 721&nbsp;70&nbsp;64</a></div></div>
+          </div>
+          <div class="info-row">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg></div>
+            <div><div class="il">E-Mail</div><div class="iv"><a href="mailto:info@aktiwell.com">info@aktiwell.com</a></div></div>
+          </div>
+          <div class="info-row">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><div class="il">Adresse</div><div class="iv">Brookkehre 21<br>21029 Hamburg-Bergedorf</div></div>
+          </div>
+          <div class="info-row">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+            <div><div class="il">Fax</div><div class="iv">(040) 724&nbsp;97&nbsp;86</div></div>
+          </div>
+          <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Brookkehre+21,+21029+Hamburg" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Route planen (Google&nbsp;Maps) – direkt am Haus parken</a>
+        </div>
+        <div class="info-card">
+          <table class="hours-table">
+            <thead><tr><th colspan="2">Öffnungszeiten</th></tr></thead>
+            <tbody>
+              <tr><td>Therapie · Mo&nbsp;–&nbsp;Fr</td><td>8:00&nbsp;–&nbsp;20:00&nbsp;Uhr</td></tr>
+              <tr><td>Fitness · Mo&nbsp;–&nbsp;Fr</td><td>8:00&nbsp;–&nbsp;21:00&nbsp;Uhr</td></tr>
+              <tr><td>Fitness · Samstag</td><td>9:00&nbsp;–&nbsp;14:00&nbsp;Uhr</td></tr>
+              <tr><td>Fitness · Sonntag*</td><td>10:00&nbsp;–&nbsp;14:00&nbsp;Uhr</td></tr>
+            </tbody>
+          </table>
+          <p style="font-size:13px;color:var(--muted);margin-top:12px">Therapie auch nach Vereinbarung. *Sonntag: Winter-Öffnungszeit.</p>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <form class="form-card" name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/danke.html">
+          <h3>Termin- &amp; Kontaktanfrage</h3>
+          <p class="fp">Wir rufen Sie gern zurück. Pflichtfelder sind mit&nbsp;* markiert.</p>
+          <input type="hidden" name="form-name" value="kontakt">
+          <p class="hp"><label>Bitte nicht ausfüllen: <input name="bot-field"></label></p>
+          <div class="row2">
+            <div class="field">
+              <label for="name">Name *</label>
+              <input id="name" name="name" type="text" required autocomplete="name" placeholder="Ihr Name">
+            </div>
+            <div class="field">
+              <label for="phone">Telefon</label>
+              <input id="phone" name="telefon" type="tel" autocomplete="tel" inputmode="tel" placeholder="Für den Rückruf">
+            </div>
+          </div>
+          <div class="field">
+            <label for="email">E-Mail *</label>
+            <input id="email" name="email" type="email" required autocomplete="email" inputmode="email" placeholder="ihre@email.de">
+          </div>
+          <div class="field">
+            <label for="anliegen">Ihr Anliegen</label>
+            <select id="anliegen" name="anliegen">
+              <option value="">Bitte wählen …</option>
+              <option>Physiotherapie / Krankengymnastik</option>
+              <option>Manuelle Therapie</option>
+              <option>Osteopathie</option>
+              <option>Lyra Gangtherapie</option>
+              <option>Fitnessstudio / Mitgliedschaft</option>
+              <option>Kurse</option>
+              <option>Ernährung &amp; Stoffwechsel</option>
+              <option>Wellness (Massage / Sauna)</option>
+              <option>Sonstiges</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="nachricht">Nachricht *</label>
+            <textarea id="nachricht" name="nachricht" required placeholder="Wie können wir Ihnen helfen?"></textarea>
+          </div>
+          <div class="consent">
+            <input id="ds" name="datenschutz" type="checkbox" required>
+            <label for="ds">Ich habe die <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a> gelesen und bin mit der Verarbeitung meiner Angaben zur Bearbeitung der Anfrage einverstanden.</label>
+          </div>
+          <button type="submit" class="btn btn-accent btn-lg" style="width:100%;justify-content:center">Anfrage absenden</button>
+          <p class="form-note">Oder direkt anrufen: <a href="tel:+49407217064">(040) 721&nbsp;70&nbsp;64</a></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <h2>Bereit für den ersten Schritt?</h2>
+      <p>Ob mit Rezept oder aus eigenem Antrieb – wir finden gemeinsam den passenden Weg für Ihre Gesundheit.</p>
+      <div class="cta-actions">
+        <a href="tel:+49407217064" class="btn btn-accent btn-lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>(040) 721&nbsp;70&nbsp;64</a>
+        <a href="#kontakt" class="btn btn-ghost btn-lg" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.4)">Nachricht schreiben</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="assets/logo.svg" alt="Aktiwell" class="logo-img" width="80" height="34">
+        <p>Aktiwell – Zentrum für Fitness und Therapie. Physiotherapie, Osteopathie, Training &amp; Wellness auf über 1.000&nbsp;m² in Hamburg-Bergedorf.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Angebot</h4>
+        <a href="#therapie">Physiotherapie</a>
+        <a href="#therapie">Osteopathie</a>
+        <a href="#therapie">Lyra Gangtherapie</a>
+        <a href="#fitness">Fitness &amp; Kurse</a>
+        <a href="#leistungen">Ernährung &amp; Stoffwechsel</a>
+      </div>
+      <div class="foot-col">
+        <h4>Kontakt</h4>
+        <a href="tel:+49407217064">(040) 721 70 64</a>
+        <a href="mailto:info@aktiwell.com">info@aktiwell.com</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Brookkehre+21,+21029+Hamburg" target="_blank" rel="noopener">Brookkehre 21, 21029 Hamburg</a>
+        <a href="#kontakt">Öffnungszeiten</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year">2026</span> Aktiwell – Zentrum für Fitness und Therapie</span>
+      <div class="foot-social">
+        <a href="https://www.instagram.com/aktiwell_bergedorf/" target="_blank" rel="noopener" aria-label="Aktiwell auf Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://de-de.facebook.com/pages/category/Gym-Physical-Fitness-Center/Aktiwell-Zentrum-f%C3%BCr-Fitness-und-Therapie-272335010157832/" target="_blank" rel="noopener" aria-label="Aktiwell auf Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+      </div>
+      <span><a href="impressum.html">Impressum</a> &nbsp;·&nbsp; <a href="datenschutz.html">Datenschutz</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- Mobile Action Bar -->
+<div class="mobile-bar">
+  <a href="tel:+49407217064" class="btn btn-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Anrufen</a>
+  <a href="#kontakt" class="btn btn-accent">Termin anfragen</a>
+</div>
+
+<script>
+(function(){
+  var header=document.getElementById('header')||document.querySelector('header');
+  var burger=document.getElementById('burger');
+  var nav=document.getElementById('navlinks');
+  var body=document.body;
+
+  // Sticky shadow
+  function onScroll(){ if(window.scrollY>8) header.classList.add('scrolled'); else header.classList.remove('scrolled'); }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  // Mobile menu
+  function closeMenu(){ nav.classList.remove('mobile','show'); burger.classList.remove('open'); burger.setAttribute('aria-expanded','false'); body.classList.remove('menu-open'); }
+  function openMenu(){ nav.classList.add('mobile','show'); burger.classList.add('open'); burger.setAttribute('aria-expanded','true'); body.classList.add('menu-open'); }
+  burger.addEventListener('click',function(){ burger.classList.contains('open')?closeMenu():openMenu(); });
+  nav.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',closeMenu); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeMenu(); });
+  window.addEventListener('resize',function(){ if(window.innerWidth>860) closeMenu(); });
+
+  // Reveal on scroll
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+  },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal,.stagger').forEach(function(el){ io.observe(el); });
+
+  // Scroll-spy
+  var sections=['leistungen','therapie','fitness','ueber-uns','kontakt'];
+  var links={}; document.querySelectorAll('.navlinks a.nl').forEach(function(a){ var h=a.getAttribute('href').slice(1); links[h]=a; });
+  var spy=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){
+        Object.values(links).forEach(function(l){ l.removeAttribute('aria-current'); });
+        var id=en.target.id; if(links[id]) links[id].setAttribute('aria-current','true');
+      }
+    });
+  },{rootMargin:'-45% 0px -50% 0px'});
+  sections.forEach(function(id){ var el=document.getElementById(id); if(el) spy.observe(el); });
+
+  document.getElementById('year').textContent=new Date().getFullYear();
+})();
+</script>
+
+</body>
+</html>
