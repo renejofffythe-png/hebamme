@@ -53,6 +53,12 @@ den Anfang deiner Antwort**. Dann arbeite ohne Rückfrage darauf weiter:
   Kanzlei/Medizin, Du bei Beauty/Lifestyle)
 - **Markenidentität:** Palette aus Logo + echten Fotos ableiten, 2 Schriften
   (Display + Text), Designprinzip in einem Satz
+- **Art-Direction-Konzept (Pflicht):** ein Leitkonzept in **einem Satz**, das das
+  *Layout* prägt — nicht nur Farben. Dazu ein **wiederkehrendes Marken-/Bildmotiv**
+  ableiten (z. B. die „Weg nach Hause"-Linie bei Reinbek, botanische Linienführung,
+  eine Welle), das als roter Faden durch die ganze Seite läuft. Dieses Konzept
+  steuert Hero, Sektions­layouts und Übergänge — zwei Projekte dürfen sich danach
+  nicht „gleich anfühlen".
 - **Seitenarchitektur & Scope:** One-Pager vs. Multipage begründet festlegen;
   Pflichtsektionen, Rechtsseiten, Conversion-Pfade selbst definieren
 
@@ -77,6 +83,15 @@ den Anfang deiner Antwort**. Dann arbeite ohne Rückfrage darauf weiter:
 
 ## Bildsprache
 
+- **Bildkonzept ist Pflicht, nicht Deko.** Jede Seite braucht eine bewusste Bildwelt:
+  entweder **echte Fotos** (vom Kunden bzw. über einen Foto-Connector) **oder** eine
+  **bespoke, markeneigene SVG-Illustration/Motivwelt**. „Nur Icons + Verläufe" reicht
+  nicht und ist genau der langweilige Default, der vermieden werden soll.
+- **Freie Bildquellen:** bespoke SVG (stärkster freier Hebel) und unDraw / Open Peeps
+  (frei, ohne Attribution, in Markenfarbe umfärbbar) brauchen keinen Zugang. Für echte
+  Atmosphären-Fotos einen **kostenlosen Unsplash-/Pexels-API-Key** nutzen, abgelegt in
+  einer **nicht getrackten** Datei (z. B. `.env.local`). Stock bleibt rein
+  atmosphärisch — **nie** als Fake der echten Person/Praxis (Fakten-Schranke).
 - Echte Bilder vor Stock. Inhaber/Team/Räume **prominent** zur Vertrauensbildung.
 - **Portrait-Framing:** Personen präsent und vollständig, einheitliche, dezent
   abgerundete Ecken. **Keine** Edge-Fades, keine ausgefransten Verläufe, keine
@@ -99,6 +114,23 @@ klare Typo-Hierarchie und Rhythmus, bewusste Blickführung, subtile (reduzierte)
 Animationen, konsistentes Designsystem (CSS-Variablen). Persönlich und menschlich,
 warm und vertrauenswürdig. Hero emotional und inhabergetrieben, wenn ein gutes
 Portrait vorhanden ist.
+
+**🚫 Anti-Schablone (Pflicht, sonst wirken alle Seiten gleich):** Nicht das immer
+gleiche Baukasten-Set abspulen (Eyebrow → zentrierte Headline → 3er-Karten-Raster
+→ Zitatband → 4 gleiche Prozess-Karten → FAQ → Kontakt+Karte → dunkler Footer).
+Setze pro Projekt mind. **3 eigenständige „Signature"-Elemente** um, die es so nur
+hier gibt, getrieben vom Art-Direction-Konzept:
+- eine **bespoke SVG-Illustration/Szene** im Hero statt generischem Gradient-/Bild-Panel;
+- ein **durchlaufendes Marken-Leitmotiv** als verbindendes Element (z. B. eine
+  Wege-/Wellenlinie, die Sektionen verbindet — auch der Prozess kann *entlang* davon
+  liegen statt als Kartenreihe);
+- **editoriale Layouts** (Asymmetrie, große kursive Ziffern, alternierende Reihen,
+  überlappende Elemente) statt gleichförmiger Karten-Raster;
+- **charaktervolle Typo** (deutlicher Größenkontrast, kursive Akzente, optional eine
+  Handschrift-Akzentschrift für Leitsatz/Signatur);
+- **geschwungene/organische Sektionsübergänge** statt nur flacher Kanten.
+Faustregel: Würde diese Seite neben den Schwester-Projekten liegen, müsste man sie
+sofort als eigene Marke erkennen.
 
 ## Feinschliff / Liebe fürs Detail (eigener Polish-Pass vor Abschluss)
 
@@ -130,13 +162,15 @@ ist überall nötig, aber bewusst entscheiden statt vergessen:
   (1) feine Papier-/Körnungs-Textur als fixe Overlay-Ebene (SVG-`feTurbulence`,
   Opazität ~0.03–0.05, hinter dem Inhalt); (2) weiche `radial-gradient`-Washes
   in Sektions-Ecken (Marken-Tints, niedrige Deckung) statt flacher
-  `background-color`. **Illustrationen nur optional** und sparsam — viele
-  bevorzugen ein ruhiges, textur-/verlaufsbasiertes Bild ohne dekorative
-  Grafiken. Wenn Illustrationen, dann markenpassend (z. B. botanische
-  Linien-Zweige), als wiederverwendbares SVG-`symbol` + `<use>`, `aria-hidden`,
-  hinter dem Text (`.wrap{z-index:2}`), Sektion `overflow:hidden` — und **im
-  Zweifel weglassen bzw. kurz zur Wahl stellen** statt ungefragt setzen. Immer
-  subtil, Kontrast/Lesbarkeit prüfen, kein horizontaler Overflow auf Mobile.
+  `background-color`. (3) **Eine bespoke Illustration/Motivwelt gehört zum
+  Pflicht-Bildkonzept** (siehe „Anti-Schablone" & „Bildsprache") — nicht mehr
+  „textur-only" als Default. Markeneigen ableiten (z. B. „Weg nach Hause"-Linie,
+  botanische Linienführung), als wiederverwendbares SVG (`symbol` + `<use>` für
+  Wiederholungen), `aria-hidden` bei rein dekorativen Teilen / sinnvolles `role`
+  + `aria-label` bei tragenden Szenen, hinter dem Text (`.wrap{z-index:2}`),
+  Sektion `overflow:hidden`. Eine **tragende** Illustration (Hero/Szene) darf groß
+  sein; rein dekorative Akzente bleiben subtil. Immer Kontrast/Lesbarkeit prüfen,
+  kein horizontaler Overflow auf Mobile.
 - **Head/Sonstiges:** `theme-color`, `format-detection` (keine Auto-Telefonlinks
   in Datumsangaben), sinnvoller Favicon/`apple-touch-icon`.
 
