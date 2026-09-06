@@ -32,6 +32,11 @@ html, body {
   outline: var(--b-bold) solid var(--c-focus);
   outline-offset: 2px;
 }
+/* Auf Papier hätte Kalkweiß nur 1,05:1 Kontrast. */
+.paper :focus-visible,
+.poster :focus-visible {
+  outline-color: var(--c-brown);
+}
 .sr-only {
   position: absolute; width: 1px; height: 1px;
   padding: 0; margin: -1px; overflow: hidden;
@@ -106,7 +111,7 @@ html, body {
   flex: 1;
   min-height: 0;
   display: flex;
-  align-items: stretch;
+  align-items: center;
   padding: var(--s-2) var(--s-4) var(--s-4);
 }
 
@@ -115,7 +120,8 @@ html, body {
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 0;
+  max-height: 100%;
+  min-height: min(100%, 400px);
   padding: var(--s-6) var(--s-5);
   transform: rotate(var(--tilt, -.4deg));
   box-shadow: var(--sh-print-d);
@@ -123,15 +129,15 @@ html, body {
 .poster__meta { color: var(--c-ink-muted); margin: 0 0 var(--s-3); flex: none; }
 .poster__gap { flex: 1 1 auto; min-height: 0; }
 .poster__word {
-  font-size: calc(clamp(38px, 14vw, 68px) * var(--fit, 1));
+  font-size: max(18px, calc(clamp(38px, 14vw, 68px) * var(--fit, 1)));
   color: var(--c-ink);
   margin: 0;
   flex: none;
   hyphens: auto;
   overflow-wrap: break-word;
 }
-.poster__word--long { font-size: calc(clamp(26px, 9vw, 44px) * var(--fit, 1)); }
-.poster__word--xlong { font-size: calc(clamp(21px, 6.6vw, 32px) * var(--fit, 1)); line-height: 1.02; }
+.poster__word--long { font-size: max(18px, calc(clamp(26px, 9vw, 44px) * var(--fit, 1))); }
+.poster__word--xlong { font-size: max(18px, calc(clamp(21px, 6.6vw, 32px) * var(--fit, 1))); line-height: 1.02; }
 
 /* Kein Kasten, sondern eine Schreiblinie auf dem Papier. */
 .field { position: relative; margin-top: var(--s-2); flex: none; }
@@ -175,7 +181,6 @@ html, body {
   border-bottom: var(--b-base) solid var(--c-bad-ink);
   box-shadow: 0 5px 0 -2px var(--c-bad-ink);
 }
-.field--locked .field__input { opacity: .7; }
 
 /* Geisterspur im Korrekturmodus: erster Buchstabe, Rest als Punkte. */
 .ghost {
@@ -187,17 +192,6 @@ html, body {
   overflow-x: auto;
 }
 .ghost__solution { color: var(--c-ink); font-size: 26px; letter-spacing: .04em; }
-
-/* Klebestreifen mit der Lösung, wächst über die Plakatkante. */
-.solution-tape {
-  margin-top: var(--s-4);
-  padding: var(--s-3) var(--s-4);
-  background: var(--c-signal);
-  color: var(--c-bg);
-  transform-origin: left;
-  animation: tape-grow var(--t-base) var(--ease-slide) both;
-}
-@keyframes tape-grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 
 /* ----------------------------------------------- Schichtkante + Stapel-Chip */
 
@@ -231,17 +225,20 @@ html, body {
 /* ------------------------------------------------------- Kopfleiste, Badges */
 
 .topbar {
-  display: flex; align-items: center; gap: var(--s-3);
+  display: flex; align-items: center; gap: var(--s-2);
   min-height: 44px; padding: 0 var(--s-4);
+  flex-wrap: nowrap;
 }
+.topbar .t-meta { white-space: nowrap; }
 .round-badge {
   padding: 5px var(--s-3);
+  white-space: nowrap;
+  flex: none;
   background: var(--c-brown); color: var(--c-signal);
   transform: rotate(-2deg);
   box-shadow: 3px 3px 0 rgba(0, 0, 0, .5);
   font-size: 14px;
 }
-.round-badge--stamp { animation: stamp-in var(--t-fast) var(--ease-stamp); }
 
 .logo-slot {
   display: grid; place-items: center;
@@ -332,9 +329,12 @@ html, body {
 @keyframes enter-up { from { transform: translateY(18px) rotate(var(--tilt, -.4deg)); opacity: 0; } }
 
 @media (prefers-reduced-motion: reduce) {
-  .shake, .thunk, .stamp, .round-badge--stamp, .stack-chip--pulse { animation: none; }
+  .shake, .thunk, .stamp, .stack-chip--pulse,
+  .feedback--in, .score--bump { animation: none; }
   .enter-up { animation: fade-in 100ms linear both; }
   .field__marker { transition: none; }
+  .btn { transition: none; }
+  .btn--primary:active, .btn--secondary:active { transform: none; }
   @keyframes fade-in { from { opacity: 0; } }
 }
 
@@ -390,3 +390,112 @@ html, body {
   flex: 1; height: 1px; align-self: center;
   background: repeating-linear-gradient(90deg, var(--c-ink-muted) 0 2px, transparent 2px 5px);
 }
+
+/* ------------------------------------------ Punktestand, Serie, Rettung */
+
+.score {
+  font-family: var(--font-display); font-weight: 800; font-size: 22px;
+  font-variant-numeric: tabular-nums; letter-spacing: .01em;
+  color: var(--c-signal); line-height: 1;
+}
+.score--bump { animation: score-bump 220ms var(--ease-stamp); }
+@keyframes score-bump { 40% { transform: translateY(-3px) scale(1.12); } }
+
+.combo {
+  padding: 2px var(--s-2);
+  border: var(--b-base) solid var(--c-signal);
+  color: var(--c-signal);
+  font: 700 12px/1.3 var(--font-text); letter-spacing: .06em;
+  font-variant-numeric: tabular-nums;
+}
+
+.banner-points {
+  font-family: var(--font-display); font-weight: 800; font-size: 20px;
+  font-variant-numeric: tabular-nums; letter-spacing: .01em;
+}
+
+/* Der Rettungs-Stempel ist der einzige, der die Signalfarbe trägt. */
+.stamp--final {
+  font-size: 26px;
+  padding: var(--s-2) var(--s-4);
+  border-width: var(--b-heavy);
+  background: rgba(90, 42, 29, .07);
+  animation: stamp-final 420ms var(--ease-stamp);
+}
+@keyframes stamp-final {
+  from { transform: scale(1.9) rotate(var(--stamp-rot, -6deg)); opacity: 0; }
+}
+
+.closing {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 26px;
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: var(--c-brown);
+}
+
+.receipt-note {
+  font-size: 11px; line-height: 1.35; color: var(--c-ink-muted);
+  font-style: italic;
+}
+
+.stamp--rescue {
+  border-color: var(--c-ok-ink);
+  color: var(--c-ok-ink);
+  font-size: 17px;
+  background: rgba(63, 207, 78, .14);
+}
+
+/* Zone über dem Feld: Geisterspur im Korrekturmodus. */
+.hint-zone { flex: none; }
+.poster--tight .poster__meta,
+.poster--tight .example,
+.poster--tight .t-ipa { display: none; }
+.poster--tight { padding: var(--s-4) var(--s-5); }
+.poster--tight .chip { min-height: 26px; font-size: 10px; padding: 0 var(--s-2); }
+.poster--tight .poster__gap { min-height: 0; flex: 0 1 auto; }
+.hint-zone:empty { display: none; }
+
+/* Beispielsatz aus dem Buch — nur im Fehlermoment, als Kontext. */
+.example {
+  margin: var(--s-3) 0 0;
+  padding-left: var(--s-3);
+  border-left: var(--b-bold) solid var(--c-paper-line);
+  color: var(--c-ink-muted);
+  font-size: 13px; line-height: 1.4; font-style: italic;
+}
+
+/* Auf Desktop läuft sonst alles über die volle Fensterbreite. */
+#app > .screen,
+#app > .screen--play { max-width: 560px; margin: 0 auto; width: 100%; }
+
+/* Rekordzeile auf dem Startscreen */
+.wall-word {
+  position: relative;
+  overflow: hidden;
+  pointer-events: none;
+  min-height: 60px;
+}
+.wall-word span {
+  position: absolute;
+  right: -14%;
+  bottom: -6%;
+  font-family: var(--font-stencil);
+  font-weight: 900;
+  font-size: clamp(96px, 40vw, 180px);
+  line-height: .8;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  color: var(--c-bg-2);
+  user-select: none;
+}
+
+.records { display: flex; gap: var(--s-4); flex-wrap: wrap; }
+.record { display: flex; flex-direction: column; gap: 2px; }
+.record__value {
+  font-family: var(--font-display); font-weight: 800; font-size: 24px;
+  font-variant-numeric: tabular-nums; color: var(--c-chalk);
+}
+.record__label { font: 500 10px/1.2 var(--font-text); letter-spacing: .12em; text-transform: uppercase; color: var(--c-chalk-muted); }

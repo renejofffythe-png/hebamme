@@ -7,10 +7,12 @@ import type { Session } from '../state';
  */
 export function roundEndScreen(session: Session, onNext: () => void): HTMLElement {
   const s = session.waveSummary();
-  const nextRound = s.open.length > 0 && !session.hasNextWave;
   const isWave = session.hasNextWave;
+  const nextRound = !isWave && s.openTotal.length > 0;
+  // In der Welle zeigen wir, was hier offen blieb; vor der nächsten Runde alles.
+  const listIds = isWave ? s.open : s.openTotal;
 
-  const openList = s.open
+  const openList = listIds
     .map((id) => session.wordById(id))
     .filter((w): w is NonNullable<typeof w> => !!w)
     .slice(0, 8);
@@ -18,7 +20,7 @@ export function roundEndScreen(session: Session, onNext: () => void): HTMLElemen
   const btn = el('button', { class: 'btn btn--primary', type: 'button' }, [
     isWave
       ? `Weiter — Welle ${session.waveIndex + 2} von ${session.waveCount}`
-      : `Runde ${session.round + 1} — ${s.open.length} ${s.open.length === 1 ? 'Wort' : 'Wörter'}`,
+      : `Runde ${session.round + 1} — ${s.openTotal.length} ${s.openTotal.length === 1 ? 'Wort' : 'Wörter'}`,
   ]);
   btn.addEventListener('click', onNext);
 
@@ -36,11 +38,11 @@ export function roundEndScreen(session: Session, onNext: () => void): HTMLElemen
     ]),
     nextRound && firstTime
       ? el('p', { class: 't-body', 'style:color': 'var(--c-chalk-muted)', 'style:margin': '0' }, [
-          `Runde ${session.round + 1}: nur die ${s.open.length}, die dich erwischt haben.`,
+          `Runde ${session.round + 1}: nur die ${s.openTotal.length}, die dich erwischt haben.`,
         ])
-      : session.round >= 2 && s.open.length <= 5 && s.open.length > 0
+      : session.round >= 2 && s.openTotal.length <= 5 && s.openTotal.length > 0
         ? el('p', { class: 't-body', 'style:color': 'var(--c-chalk-muted)', 'style:margin': '0' }, [
-            `Noch ${s.open.length}. Das ist die Zielgerade.`,
+            `Noch ${s.openTotal.length}. Das ist die Zielgerade.`,
           ])
         : null,
 

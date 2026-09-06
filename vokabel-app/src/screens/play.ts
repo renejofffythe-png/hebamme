@@ -24,7 +24,14 @@ const STAMP_ROTS = ['-9deg', '-5deg', '4deg', '7deg', '-2deg'];
 const STAMPS = ['SITZT', 'SAUBER', 'JA', 'GEHT KLAR', 'ECHT JETZT', 'PERFEKT', 'WEITER', 'HAST DU'];
 const WRONG_LINES = ['Noch nicht.', 'Andere Baustelle.', 'Kommt gleich wieder.'];
 
+/** Hebt die Stelle hervor, an der es hakte: "co**u**ntryside". */
+function markDiff(solution: string, index: number): string {
+  if (index < 0 || index >= solution.length) return solution;
+  return `${solution.slice(0, index)} ▸${solution.slice(index)}`;
+}
+
 const T_CORRECT = 260;
+const T_RESCUE = 460;
 const T_UNLOCK = 120;
 const T_NEAR = 1100;
 const T_WRONG = 500;
@@ -54,9 +61,11 @@ export class PlayScreen {
   private ipaEl: HTMLElement;
   private fieldEl: HTMLElement;
   private extraEl: HTMLElement;
+  private hintEl: HTMLElement;
+  private scoreEl: HTMLElement;
+  private comboEl: HTMLElement;
   private bannerEl: HTMLElement;
   private railEl: HTMLElement;
-  private countEl: HTMLElement;
   private chipEl: HTMLElement;
   private badgeEl: HTMLElement;
   private solvedEl: HTMLElement;
@@ -64,6 +73,7 @@ export class PlayScreen {
 
   /** Nur im Korrekturmodus gesetzt: die Lösung, die abgetippt werden muss. */
   private target = '';
+  private lastEmptyEnter = 0;
   private seenRules = { firstMiss: false };
 
   constructor(session: Session, handlers: PlayHandlers, soundToggle: HTMLElement) {
@@ -89,10 +99,12 @@ export class PlayScreen {
 
     this.badgeEl = el('span', { class: 'round-badge t-stencil', text: `RUNDE ${session.round}` });
     this.solvedEl = el('span', { class: 't-meta rail__count' });
-    this.countEl = el('span', { class: 't-meta rail__count' });
     this.chipEl = el('span', { class: 'stack-chip', hidden: true });
     this.railEl = el('div', { class: 'rail__segments', role: 'progressbar' });
 
+    this.scoreEl = el('span', { class: 'score' });
+    this.comboEl = el('span', { class: 'combo', hidden: true });
+    this.hintEl = el('div', { class: 'hint-zone' });
     this.metaEl = el('p', { class: 't-meta poster__meta' });
     this.wordEl = el('h1', { class: 't-display poster__word misprint' });
     this.ipaEl = el('p', { class: 't-ipa', hidden: true });
@@ -115,6 +127,7 @@ export class PlayScreen {
         this.wordEl,
         this.ipaEl,
         el('div', { class: 'poster__gap', 'aria-hidden': 'true' }),
+        this.hintEl,
         el('div', { class: 'row', 'style:justify-content': 'flex-end' }, [this.skipBtn]),
         this.fieldEl,
         this.extraEl,
@@ -125,14 +138,14 @@ export class PlayScreen {
 
     this.root = el('section', { class: 'screen screen--play' }, [
       el('header', { class: 'topbar' }, [
-        el('div', { class: 'logo-slot logo-slot--sm' }),
         this.badgeEl,
         this.solvedEl,
         el('div', { class: 'spacer' }),
+        this.comboEl,
+        this.scoreEl,
         soundToggle,
       ]),
       el('div', { class: 'rail', 'style:padding': '0 var(--s-4) var(--s-2)' }, [
-        this.countEl,
         this.railEl,
         this.chipEl,
       ]),
@@ -154,6 +167,19 @@ export class PlayScreen {
         return;
       }
       e.preventDefault();
+
+      // Im Korrekturmodus entscheidet der Textabgleich, nicht Enter. Ohne
+      // diesen Guard bewertete Enter hier die nächste, nie gezeigte Vokabel.
+      if (this.phase === 'correcting') return;
+
+      // Während der Erfolgsanimation kürzt Enter sie ab, statt blind zu werten.
+      if (this.phase === 'judging') {
+        if (this.locked) return;
+        window.clearTimeout(this.timer);
+        this.next();
+        return;
+      }
+
       if (this.locked) return; // doppeltes Enter
       this.locked = true;
       this.submit();
@@ -187,6 +213,11 @@ export class PlayScreen {
     this.input.focus();
   }
 
+  /** Nachmessen, sobald das Plakat im DOM hängt oder sich die Höhe ändert. */
+  refit(): void {
+    this.fitWord();
+  }
+
   // -------------------------------------------------------------- Bewertung
 
   private submit(): void {
@@ -199,13 +230,21 @@ export class PlayScreen {
 
     if (raw.trim() === '') {
       this.locked = false;
-      this.banner('empty', 'Tipp was — oder „weiß ich nicht".');
+      const now = performance.now();
+      if (now - this.lastEmptyEnter < 3000) {
+        this.lastEmptyEnter = 0;
+        this.locked = true;
+        this.judge('wrong', '', true);
+        return;
+      }
+      this.lastEmptyEnter = now;
+      this.banner('empty', 'Tipp was — oder zweimal Enter, wenn du nicht weißt.');
       return;
     }
 
     audio.submit();
     const g = grade(raw, word, this.session.deck);
-    this.judge(g.verdict, raw, false, g.solution, g.viaAlternative);
+    this.judge(g.verdict, raw, false, g.solution, g.viaAlternative, g.diffIndex);
   }
 
   private judge(
@@ -214,6 +253,7 @@ export class PlayScreen {
     gaveUp = false,
     solution?: string,
     viaAlt?: string | null,
+    diffIndex = -1,
   ): void {
     const word = this.session.current;
     if (!word) return;
@@ -224,21 +264,31 @@ export class PlayScreen {
     this.showIpa(word);
 
     if (verdict === 'correct') {
-      audio.correct(result.combo);
+      // Eine gerettete Vokabel ist der Moment, in dem gelernt wurde. Sie
+      // bekommt eigenen Stempel, eigenen Text und einen volleren Klang.
+      audio.correct(result.isRescue ? Math.max(result.combo, 7) : result.combo);
       this.fieldEl.className = 'field field--correct';
-      this.stamp(word.id);
+      this.stamp(word.id, result.isRescue);
       this.posterEl.classList.add('thunk');
-      const alt = viaAlt ? ` auch: ${word.en[0]}` : '';
-      this.banner('correct', `${pick(STAMPS, word.id)}.${alt}`);
-      announce(`Richtig. ${result.points} Punkte.`);
-      this.after(T_CORRECT, T_UNLOCK);
+
+      if (result.isRescue) {
+        this.banner('correct', `Gerettet. +${result.points}`);
+        announce(`Gerettet. ${result.points} Punkte.`);
+      } else {
+        const alt = viaAlt ? ` auch: ${word.en[0]}` : '';
+        this.banner('correct', `${pick(STAMPS, word.id)}.${alt}`, undefined, `+${result.points}`);
+        announce(`Richtig. ${result.points} Punkte.`);
+      }
+      this.bumpScore();
+      this.after(result.isRescue ? T_RESCUE : T_CORRECT, T_UNLOCK);
       return;
     }
 
     if (verdict === 'near') {
       audio.nearMiss();
       this.fieldEl.className = 'field field--near';
-      this.banner('near', `Fast. Es heißt: ${sol}`, typed);
+      this.banner('near', `Fast — ${markDiff(sol, diffIndex)}`, typed, `+${result.points}`);
+      this.bumpScore();
       announce(`Fast richtig. Korrekt ist: ${sol}.`);
       this.markMissed();
       this.after(T_NEAR, T_NEAR);
@@ -246,10 +296,11 @@ export class PlayScreen {
     }
 
     // wrong
-    audio.wrong();
-    this.fieldEl.className = 'field field--wrong';
+    if (gaveUp) audio.submit();
+    else audio.wrong();
+    this.fieldEl.className = gaveUp ? 'field' : 'field field--wrong';
     if (!gaveUp) this.posterEl.classList.add('shake');
-    this.banner('wrong', gaveUp ? 'Kein Problem. Einmal abtippen.' : pick(WRONG_LINES, word.id), typed);
+    this.banner(gaveUp ? 'near' : 'wrong', gaveUp ? 'Kein Problem. Einmal abtippen.' : pick(WRONG_LINES, word.id), typed);
     announce(`Leider falsch. Richtig ist: ${sol}. Bitte einmal abtippen.`);
     this.markMissed();
 
@@ -285,11 +336,21 @@ export class PlayScreen {
 
     const reveal = el('p', { class: 'ghost ghost__solution', text: solution });
     const peek = el('button', { class: 'chip', type: 'button' }, ["Zeig's mir"]);
-    this.extraEl.replaceChildren(reveal, el('div', { class: 'row', 'style:margin-top': 'var(--s-2)' }, [peek]));
+    this.hintEl.replaceChildren(reveal, el('div', { class: 'row', 'style:margin-top': 'var(--s-2)' }, [peek]));
 
+    // Der Beispielsatz aus dem Buch liegt ungenutzt in den Daten und gehört
+    // genau hierhin: er macht aus Abtippen ein Verstehen.
+    const word = this.session.current;
+    this.extraEl.replaceChildren();
+    if (word?.example) {
+      this.extraEl.append(el('p', { class: 'example' }, [word.example]));
+    }
+
+    this.input.value = '';
     this.input.placeholder = 'abtippen';
     this.input.setAttribute('enterkeyhint', 'done');
     this.fieldEl.className = 'field';
+    this.fitWord();
     this.input.focus();
 
     const ghost = () => {
@@ -319,12 +380,13 @@ export class PlayScreen {
     announce('Abgetippt. Weiter.');
     this.input.placeholder = 'hier tippen';
     this.input.setAttribute('enterkeyhint', 'go');
-    this.after(420, 420);
+    this.after(420, 420, true);
   }
 
   // ------------------------------------------------------------- Darstellung
 
-  private after(total: number, unlockAt: number): void {
+  private after(total: number, unlockAt: number, clearField = false): void {
+    if (clearField) this.input.value = '';
     window.setTimeout(() => { this.locked = false; }, unlockAt);
     this.timer = window.setTimeout(() => this.next(), total);
   }
@@ -332,8 +394,8 @@ export class PlayScreen {
   private next(): void {
     this.phase = 'idle';
     this.locked = false;
-    this.input.value = '';
     this.extraEl.replaceChildren();
+    this.hintEl.replaceChildren();
     this.fieldEl.className = 'field';
     this.posterEl.classList.remove('shake', 'thunk');
     this.posterEl.querySelector('.stamp')?.remove();
@@ -363,6 +425,9 @@ export class PlayScreen {
     this.badgeEl.textContent = `RUNDE ${this.session.round}`;
     this.banner('empty', 'Englisch tippen, dann Enter.');
     this.renderRail();
+    this.scoreEl.textContent = String(this.session.score);
+    this.comboEl.hidden = this.session.combo < 3;
+    this.comboEl.textContent = `${this.session.combo}×`;
     this.fitWord();
   }
 
@@ -374,9 +439,20 @@ export class PlayScreen {
    */
   private fitWord(): void {
     const poster = this.posterEl;
+    if (poster.clientHeight === 0) return; // noch nicht im DOM — später erneut
+
+    poster.classList.remove('poster--tight');
+    const fits = () => poster.scrollHeight <= poster.clientHeight;
+
     for (const step of [1, 0.88, 0.76, 0.64, 0.54, 0.46]) {
       this.wordEl.style.setProperty('--fit', String(step));
-      if (poster.scrollHeight <= poster.clientHeight) return;
+      if (fits()) return;
+    }
+    // Immer noch zu eng: Dekoration weg, bevor die Schrift unlesbar wird.
+    poster.classList.add('poster--tight');
+    for (const step of [0.64, 0.54, 0.46, 0.4]) {
+      this.wordEl.style.setProperty('--fit', String(step));
+      if (fits()) return;
     }
   }
 
@@ -391,23 +467,35 @@ export class PlayScreen {
   private renderRail(): void {
     const wave = this.session.wave;
     const cursor = this.session.cursor;
-    const segs = wave.map((_, i) =>
-      el('span', { class: `rail__seg${i < cursor ? ' rail__seg--ok' : i === cursor ? ' rail__seg--current' : ''}` }),
-    );
+    const segs = wave.map((id, i) => {
+      let mod = '';
+      if (i === cursor) mod = ' rail__seg--current';
+      else if (i < cursor) {
+        const v = this.session.verdictOf(id);
+        mod = v === 'correct' ? ' rail__seg--ok' : v === 'near' ? ' rail__seg--near' : ' rail__seg--bad';
+      }
+      return el('span', { class: `rail__seg${mod}` });
+    });
     this.railEl.replaceChildren(...segs);
+    this.railEl.setAttribute('aria-label', 'Fortschritt in dieser Runde');
+    this.railEl.setAttribute('aria-valuemin', '0');
     this.railEl.setAttribute('aria-valuenow', String(cursor));
     this.railEl.setAttribute('aria-valuemax', String(wave.length));
     this.railEl.setAttribute('aria-valuetext', `${cursor} von ${wave.length} in dieser Runde`);
 
-    this.countEl.textContent = `${String(cursor).padStart(2, '0')}/${wave.length}`;
-    this.solvedEl.textContent = `sitzt ${this.session.solvedCount}/${this.session.totalCount}`;
+    this.solvedEl.textContent = `${this.session.solvedCount}/${this.session.totalCount}`;
     if (this.session.pendingCount > 0) {
       this.chipEl.hidden = false;
       this.chipEl.textContent = `Runde ${this.session.round + 1}: ${this.session.pendingCount}`;
     }
   }
 
-  private banner(kind: 'empty' | 'correct' | 'near' | 'wrong', text: string, typed?: string): void {
+  private banner(
+    kind: 'empty' | 'correct' | 'near' | 'wrong',
+    text: string,
+    typed?: string,
+    points?: string,
+  ): void {
     const glyph = kind === 'correct' ? 'check' : kind === 'near' ? 'tilde' : kind === 'wrong' ? 'cross' : null;
     this.bannerEl.className = `feedback feedback--${kind}${kind === 'empty' ? '' : ' feedback--in'}`;
 
@@ -421,14 +509,36 @@ export class PlayScreen {
     if (typed) {
       nodes.push(el('span', { 'style:opacity': '.75', 'style:font-weight': '500' }, [`du: ${typed}`]));
     }
+    if (points) {
+      nodes.push(el('span', { class: 'spacer' }));
+      nodes.push(el('span', { class: 'banner-points' }, [points]));
+    }
     this.bannerEl.replaceChildren(...nodes);
   }
 
-  private stamp(seed: string): void {
-    const s = el('span', { class: 'stamp', 'style:--stamp-rot': pick(STAMP_ROTS, seed), 'aria-hidden': 'true' }, [
-      pick(STAMPS, seed),
-    ]);
+  private stamp(seed: string, rescue = false): void {
+    const s = el(
+      'span',
+      {
+        class: rescue ? 'stamp stamp--rescue' : 'stamp',
+        'style:--stamp-rot': rescue ? '-11deg' : pick(STAMP_ROTS, seed),
+        'aria-hidden': 'true',
+      },
+      [rescue ? 'GERETTET' : pick(STAMPS, seed)],
+    );
     this.posterEl.append(s);
+  }
+
+  /** Punktestand und Serie sichtbar machen — sonst existiert das Spiel nicht. */
+  private bumpScore(): void {
+    this.scoreEl.textContent = String(this.session.score);
+    this.scoreEl.classList.remove('score--bump');
+    void this.scoreEl.offsetWidth;
+    this.scoreEl.classList.add('score--bump');
+
+    const c = this.session.combo;
+    this.comboEl.hidden = c < 3;
+    this.comboEl.textContent = `${c}×`;
   }
 
   destroy(): void {

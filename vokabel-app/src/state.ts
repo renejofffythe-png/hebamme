@@ -16,6 +16,8 @@ const WAVE_TARGET = 13;
 
 export interface Persisted {
   setId: string;
+  /** Wie viele Wörter diese Session umfasst — bei Teilsessions < set.words.length. */
+  poolSize: number;
   round: number;
   waves: string[][];
   waveIndex: number;
@@ -31,6 +33,10 @@ export interface Persisted {
   missedIn: Record<string, number>;
   /** Wort-ID -> wie oft insgesamt danebengegangen. */
   misses: Record<string, number>;
+  /** Letzte Bewertung je Wort — färbt die Fortschrittskette. */
+  verdicts: Record<string, Verdict>;
+  /** Punkte je Wort der laufenden Welle — Basis für den Perfekt-Bonus. */
+  waveScore: Record<string, number>;
   startedAt: number;
   updatedAt: number;
 }
@@ -95,6 +101,7 @@ export class Session {
     const now = Date.now();
     return new Session(set, {
       setId: set.id,
+      poolSize: pool.length,
       round: 1,
       waves: splitIntoWaves(pool),
       waveIndex: 0,
@@ -108,6 +115,8 @@ export class Session {
       nearMisses: 0,
       missedIn: {},
       misses: {},
+      verdicts: {},
+      waveScore: {},
       startedAt: now,
       updatedAt: now,
     });
@@ -124,6 +133,7 @@ export class Session {
         localStorage.removeItem(STORAGE_KEY);
         return null;
       }
+      if (typeof s.poolSize !== 'number' || !s.verdicts || !s.waveScore) return null;
       const known = new Set(set.words.map((w) => w.id));
       if (s.waves.flat().some((id) => !known.has(id))) return null;
       return new Session(set, s);
@@ -173,7 +183,7 @@ export class Session {
     return this.s.solved.length;
   }
   get totalCount(): number {
-    return this.set.words.length;
+    return this.s.poolSize;
   }
   get pendingCount(): number {
     return this.s.nextRound.length;
@@ -231,6 +241,7 @@ export class Session {
       return { verdict, points: 0, combo: this.s.combo, isRescue: false, streakMilestone: null };
     }
 
+    this.s.verdicts[id] = verdict;
     const missedRound = this.s.missedIn[id];
     const isRescue = verdict === 'correct' && missedRound !== undefined && missedRound < this.s.round;
 
@@ -255,6 +266,7 @@ export class Session {
     const base = verdict === 'correct' ? (isRescue ? 250 : 100) : verdict === 'near' ? 50 : 0;
     const points = Math.round(base * comboMultiplier(this.s.combo));
     this.s.score += points;
+    this.s.waveScore[id] = points;
 
     const milestone =
       verdict === 'correct' && MILESTONES.includes(this.s.combo) ? this.s.combo : null;
@@ -265,13 +277,38 @@ export class Session {
     return { verdict, points, combo: this.s.combo, isRescue, streakMilestone: milestone };
   }
 
+  /** Bewertung eines Wortes — für die Fortschrittskette. */
+  verdictOf(id: string): Verdict | null {
+    return this.s.verdicts[id] ?? null;
+  }
+
+  /** Wellenabschluss +250, perfekte Welle zusätzlich die halbe Wellensumme. */
+  closeWave(): { bonus: number; perfect: boolean } {
+    const perfect = this.wavePerfect();
+    const waveScore = this.wave.reduce((sum, id) => sum + (this.s.waveScore[id] ?? 0), 0);
+    const bonus = 250 + (perfect ? Math.round(waveScore * 0.5) : 0);
+    this.s.score += bonus;
+    this.save();
+    return { bonus, perfect };
+  }
+
+  /** Session-Abschluss: +500 und 100 je geretteter Vokabel. */
+  closeSession(): number {
+    const bonus = 500 + 100 * this.s.rescues;
+    this.s.score += bonus;
+    this.save();
+    return bonus;
+  }
+
   get waveFinished(): boolean {
     return this.s.cursor >= this.wave.length;
   }
 
   /** Hat die gerade beendete Welle keinen einzigen Fehler gesehen? */
   wavePerfect(): boolean {
-    return this.wave.every((id) => this.s.missedIn[id] === undefined);
+    // Gegen die Bewertung dieser Runde prüfen, nicht gegen missedIn — das
+    // bleibt über Runden gefüllt und machte perfekte Runden ab Runde 2 unmöglich.
+    return this.wave.every((id) => this.s.verdicts[id] === 'correct');
   }
 
   get hasNextWave(): boolean {
@@ -287,6 +324,7 @@ export class Session {
     if (!this.hasNextWave) return;
     this.s.waveIndex += 1;
     this.s.cursor = 0;
+    this.s.waveScore = {};
     this.save();
   }
 
@@ -298,15 +336,18 @@ export class Session {
     this.s.waveIndex = 0;
     this.s.cursor = 0;
     this.s.nextRound = [];
+    this.s.waveScore = {};
     this.save();
   }
 
-  /** Bilanz einer abgeschlossenen Welle bzw. Runde. */
-  waveSummary(): { solved: number; total: number; open: string[] } {
-    return {
-      solved: this.wave.filter((id) => this.s.solved.includes(id)).length,
-      total: this.wave.length,
-      open: [...this.s.nextRound],
-    };
+  /**
+   * Bilanz einer abgeschlossenen Welle. `open` sind die Wörter DIESER Welle,
+   * `openTotal` alle, die in die nächste Runde gehen — sonst widerspricht die
+   * Überschrift der Liste darunter.
+   */
+  waveSummary(): { solved: number; total: number; open: string[]; openTotal: string[] } {
+    const wave = [...this.wave];
+    const open = wave.filter((id) => this.s.nextRound.includes(id));
+    return { solved: wave.length - open.length, total: wave.length, open, openTotal: [...this.s.nextRound] };
   }
 }

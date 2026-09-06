@@ -12,6 +12,7 @@ import { briefingScreen } from './screens/briefing';
 import { roundEndScreen } from './screens/roundEnd';
 import { sessionEndScreen } from './screens/sessionEnd';
 import { soundToggle } from './ui';
+import { loadRecords, saveRecords } from './records';
 import { announce } from './dom';
 import type { WordSet } from './types';
 
@@ -35,6 +36,7 @@ function goStart(): void {
   show(
     startScreen(
       set,
+      loadRecords(set.id),
       saved ? { round: saved.round, open: saved.wave.length - saved.cursor } : null,
       (fresh) => {
         if (fresh) {
@@ -69,12 +71,15 @@ function goPlay(): void {
   }
   show(play.root);
   play.focusInput();     // synchron, noch im Gesture-Kontext des Briefing-Taps
+  // Erst jetzt hat das Plakat eine Höhe. Vorher misst fitWord() an einem
+  // losgelösten Knoten und lässt das Wort ungeskaliert.
+  play.refit();
   audio.roundStart();
 }
 
 function goWaveEnd(): void {
   const s = session!;
-  const perfect = s.wavePerfect();
+  const { perfect } = s.closeWave();
   if (perfect) audio.perfectRound();
   else audio.roundComplete();
 
@@ -92,14 +97,27 @@ function goWaveEnd(): void {
 
 function goFinish(): void {
   const s = session!;
+  s.closeWave();
+  s.closeSession();
   audio.sessionComplete();
   Session.clearSaved();
-  announce(`Geschafft. ${s.totalCount} von ${s.totalCount}. ${s.round} Runden gebraucht.`);
+
+  const { records, beaten } = saveRecords(set.id, {
+    score: s.score,
+    rounds: s.round,
+    streak: s.bestCombo,
+  });
+  announce(
+    `Geschafft. ${s.totalCount} von ${s.totalCount}. ` +
+      `${s.round} ${s.round === 1 ? 'Runde' : 'Runden'} gebraucht.`,
+  );
 
   show(
     sessionEndScreen(
       s,
-      (onlyShaky) => {
+      records,
+      beaten,
+      (onlyShaky: boolean) => {
         const ids = onlyShaky ? s.shaky.map((w) => w.id) : undefined;
         session = Session.start(set, ids);
         play?.destroy();
@@ -113,7 +131,7 @@ function goFinish(): void {
 
 // --------------------------------------------------------------------- Start
 
-installViewport();
+installViewport(() => play?.refit());
 goStart();
 
 // Android-Zurück verlässt nicht die Session, sondern führt zum Startscreen.

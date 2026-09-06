@@ -6,18 +6,22 @@
  * und `position: fixed; bottom: 0` landet unter der Tastatur. Einzige
  * verlässliche Quelle ist die VisualViewport-API.
  */
-export function installViewport(): void {
+export function installViewport(onResize?: () => void): void {
   const vv = window.visualViewport;
   const root = document.documentElement;
   let frame = 0;
 
   const apply = () => {
     frame = 0;
-    const h = vv ? vv.height : window.innerHeight;
+    // Die API meldet gelegentlich 0 (versteckter Tab, Rotation). Ungeprüft
+    // übernommen kollabiert das ganze Layout.
+    const raw = vv ? vv.height : window.innerHeight;
+    const h = Math.max(240, raw || window.innerHeight || 240);
     const top = vv ? vv.offsetTop : 0;
     root.style.setProperty('--app-h', `${h}px`);
     const app = document.getElementById('app');
     if (app) app.style.transform = top ? `translateY(${top}px)` : '';
+    onResize?.();
   };
 
   const schedule = () => {

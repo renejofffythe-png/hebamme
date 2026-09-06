@@ -36,7 +36,7 @@
     },
     {
       "id": "to-will",
-      "de": "werden (Hilfsverb für die Zukunft)",
+      "de": "werden (Zukunft)",
       "en": [
         "will"
       ],
@@ -66,7 +66,7 @@
     },
     {
       "id": "living-history-show",
-      "de": "Show, in der historischer Alltag nachgespielt wird",
+      "de": "Show mit nachgespielter Geschichte",
       "en": [
         "living history show"
       ],
@@ -604,7 +604,7 @@
     },
     {
       "id": "connection",
-      "de": "Verbindung (Zug-/Reiseverbindung)",
+      "de": "Verbindung (Reise)",
       "en": [
         "connection"
       ],
@@ -698,7 +698,7 @@
     },
     {
       "id": "outward",
-      "de": "abfahrend (Zug, der den Bahnhof verlässt)",
+      "de": "abfahrend (Zug)",
       "en": [
         "outward"
       ],
@@ -714,7 +714,7 @@
     },
     {
       "id": "inward",
-      "de": "ankommend (Zug, der im Bahnhof eintrifft)",
+      "de": "ankommend (Zug)",
       "en": [
         "inward"
       ],

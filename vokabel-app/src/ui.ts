@@ -24,10 +24,6 @@ export function soundToggle(): HTMLElement {
   return btn;
 }
 
-export function logoSlot(size: 'sm' | 'lg'): HTMLElement {
-  return el('div', { class: `logo-slot logo-slot--${size}` });
-}
-
 export function glyph(name: Parameters<typeof icon>[0], cls = ''): SVGSVGElement {
   const g = icon(name);
   if (cls) g.classList.add(cls);

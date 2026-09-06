@@ -83,6 +83,10 @@ Abtippen aus dem Kurzzeitgedächtnis statt Abschreiben.
 Kein Limit, keine Bestrafung. Kein Enter nötig — sobald der Text stimmt, geht es weiter.
 Zeichenweiser Live-Abgleich in Monospace, **ohne** Tastenanschläge zu blockieren.
 
+### Anzeige der Fehlstelle
+Bei „Fast" markiert der Banner die Stelle, an der es hakte: `windsurfi▸ng`.
+`Grade.diffIndex` liefert den Index.
+
 ### Ventile
 - **„weiß ich nicht"-Chip** — immer sichtbar, führt in den Korrekturpfad ohne Rot
   und ohne harten Sound. Ehrliches Nichtwissen darf nicht teurer sein als Raten.
@@ -113,7 +117,17 @@ gelernt wurde. Wer alles sofort kann, bekommt weniger als wer Fehler macht und s
 schließt. Damit ist der Fehler entwertet und die Rundenmechanik wird zur Belohnung
 statt zur Strafe.
 
-**Rekorde (Selbstvergleich, pro Unit):** HÖCHSTE PUNKTZAHL · WENIGSTE RUNDEN · LÄNGSTE SERIE.
+**Rekorde (Selbstvergleich, pro Unit):** HÖCHSTE PUNKTZAHL · WENIGSTE RUNDEN ·
+LÄNGSTE SERIE · SESSIONS (kumulativ, verfällt nie). Persistiert in
+`ueberklebt.records.<setId>`, angezeigt auf Start- und Erfolgs-Screen.
+
+**Sichtbarkeit ist Teil der Mechanik, nicht Deko.** Punktestand und Serie stehen
+in der Kopfleiste des Spielscreens und zählen bei jeder Antwort hoch; der
+Punktezuwachs steht im Feedback-Banner. Eine gerettete Vokabel bekommt einen
+eigenen Stempel („GERETTET"), einen eigenen Banner-Text und einen volleren
+Klang. Ohne diesen sichtbaren Unterschied ist Runde 2 sinnlich identisch mit
+Runde 1 — und damit Nachsitzen statt Fortschritt. Das ist die Stelle, an der
+das ganze Konzept steht oder fällt.
 
 **Bewusst weggelassen** — jeweils mit Grund:
 - **Täglicher Verfalls-Streak** → erzeugt Sessions, die nur den Zähler retten, und
@@ -160,13 +174,23 @@ Unlock-Punkt für Tastatur und Audio.
 `spellcheck=false` `autocomplete=off` + randomisierter `name` `enterkeyhint=go`
 `data-1p-ignore` `data-lpignore`
 
+### Höhenanpassung
+`fitWord()` misst nach jedem Wortwechsel, nach dem Einhängen ins DOM und bei
+jeder Viewport-Änderung (Tastatur auf/zu). Reihenfolge: erst die Luft (Flexbox),
+dann die Wortgröße in sechs Stufen, dann `poster--tight` (Meta-Zeile,
+Lautschrift und Beispielsatz verschwinden), dann noch vier Stufen.
+**Untergrenze 18px, im CSS als `max(18px, …)` festgenagelt** — lieber
+Dekoration opfern als Lesbarkeit. Das Eingabefeld schrumpft nie.
+
 ### Fortschritt: Schichtkante und Stapel
 Ein Segment pro Vokabel **der aktuellen Runde/Welle**, immer über die volle Breite.
 Runde 1 mit 13 Wörtern = 13 feine Striche; Runde 3 mit 4 Wörtern = 4 fette Blöcke.
 **Die Schrittweite wächst sichtbar, je weiter man kommt** — Zielgeraden-Effekt aus
 reiner Geometrie, kein Motivationstext nötig.
 
-Falsche Vokabeln lösen sich sichtbar aus der Kette und fliegen in den Stapel-Chip.
+Die Segmente zeigen die tatsächliche Bewertung: grün für Treffer, bernsteinfarben
+schraffiert für „Fast", rot schraffiert für Fehler. Falsche Vokabeln fliegen in
+den Stapel-Chip.
 Der heißt **„Runde 2: 4"**, niemals „Fehler: 4", und ist bernstein, nicht rot.
 
 Dazu ein Zähler „sitzt 12/24", der **nur steigt und nie fällt**. Runden-Chip zeigt
