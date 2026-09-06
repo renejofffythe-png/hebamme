@@ -1,0 +1,392 @@
+/* ---------------------------------------------------------------- Grundlage */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;              /* der Spielscreen scrollt nie */
+  overscroll-behavior: none;
+  background: var(--c-bg);
+  color: var(--c-chalk);
+  font-family: var(--font-text);
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Höhe kommt aus der VisualViewport-API (siehe viewport.ts).
+   dvh nur als Fallback davor — auf iOS folgt es dem Layout-Viewport und
+   schrumpft beim Öffnen der Tastatur nicht zuverlässig. */
+#app {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100dvh;
+  height: var(--app-h);
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+:focus-visible {
+  outline: var(--b-bold) solid var(--c-focus);
+  outline-offset: 2px;
+}
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* ------------------------------------------------------------------ Schrift */
+
+.t-display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: .9;
+  letter-spacing: .005em;
+  text-transform: uppercase;
+}
+.t-h1 { font-family: var(--font-display); font-weight: 800; font-size: 32px; line-height: .95; letter-spacing: .02em; text-transform: uppercase; }
+.t-h2 { font-family: var(--font-text); font-weight: 700; font-size: 13px; line-height: 1.2; letter-spacing: .14em; text-transform: uppercase; }
+.t-body { font-size: 16px; line-height: 1.5; }
+.t-meta {
+  font-weight: 500; font-size: 12px; line-height: 1.35;
+  letter-spacing: .12em; text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+}
+.t-ipa { font-family: var(--font-ipa); font-size: 15px; line-height: 1.3; letter-spacing: .02em; color: var(--c-ink-muted); }
+.t-stencil { font-family: var(--font-stencil); font-weight: 900; letter-spacing: .06em; text-transform: uppercase; }
+.t-num { font-family: var(--font-display); font-weight: 800; font-size: 88px; line-height: .85; letter-spacing: -.01em; font-variant-numeric: tabular-nums; }
+
+/* ------------------------------------------------------------------ Buttons */
+
+.btn {
+  display: flex; align-items: center; justify-content: center;
+  width: 100%; min-height: 56px; padding: 0 var(--s-5);
+  border: 0; border-radius: var(--r-0);
+  font-family: var(--font-text); font-weight: 700; font-size: 16px;
+  letter-spacing: .1em; text-transform: uppercase;
+  cursor: pointer;
+  transition: transform var(--t-instant) linear, box-shadow var(--t-instant) linear;
+}
+.btn--primary { background: var(--c-signal); color: var(--c-bg); box-shadow: var(--sh-print-d); }
+.btn--primary:active { transform: translate(5px, 5px); box-shadow: none; }
+.btn--secondary {
+  background: transparent; color: var(--c-chalk);
+  border: var(--b-base) solid var(--c-chalk); box-shadow: none;
+  transition: background var(--t-fast) linear, color var(--t-fast) linear;
+}
+.btn--secondary:active { transform: translate(2px, 2px); }
+.btn--secondary:focus-visible { outline-color: var(--c-signal); }
+.btn:disabled {
+  background: transparent; color: var(--c-chalk-muted);
+  border: var(--b-base) solid var(--c-border-strong);
+  box-shadow: none; cursor: default;
+}
+@media (hover: hover) {
+  .btn--primary:hover { transform: translate(-1px, -1px); box-shadow: 6px 6px 0 #000; }
+  .btn--secondary:hover { background: var(--c-chalk); color: var(--c-bg); }
+}
+
+/* Kleiner Chip (weiß ich nicht / war richtig / Zeig's mir) */
+.chip {
+  display: inline-flex; align-items: center; gap: var(--s-2);
+  min-height: 32px; padding: 0 var(--s-3);
+  background: transparent; color: var(--c-ink-muted);
+  border: var(--b-base) solid var(--c-paper-line); border-radius: var(--r-0);
+  font: 500 12px/1 var(--font-text); letter-spacing: .1em; text-transform: uppercase;
+  cursor: pointer;
+}
+.chip:active { transform: translate(1px, 1px); }
+
+/* ------------------------------------------------------- Das Plakat + Feld */
+
+.stage {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: stretch;
+  padding: var(--s-2) var(--s-4) var(--s-4);
+}
+
+.poster {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 0;
+  padding: var(--s-6) var(--s-5);
+  transform: rotate(var(--tilt, -.4deg));
+  box-shadow: var(--sh-print-d);
+}
+.poster__meta { color: var(--c-ink-muted); margin: 0 0 var(--s-3); flex: none; }
+.poster__gap { flex: 1 1 auto; min-height: 0; }
+.poster__word {
+  font-size: calc(clamp(38px, 14vw, 68px) * var(--fit, 1));
+  color: var(--c-ink);
+  margin: 0;
+  flex: none;
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+.poster__word--long { font-size: calc(clamp(26px, 9vw, 44px) * var(--fit, 1)); }
+.poster__word--xlong { font-size: calc(clamp(21px, 6.6vw, 32px) * var(--fit, 1)); line-height: 1.02; }
+
+/* Kein Kasten, sondern eine Schreiblinie auf dem Papier. */
+.field { position: relative; margin-top: var(--s-2); flex: none; }
+.field__input {
+  display: block; width: 100%;
+  padding: 0 0 10px;
+  background: transparent; color: var(--c-ink);
+  border: 0; border-bottom: var(--b-bold) solid var(--c-ink-muted);
+  border-radius: 0;
+  font: 600 24px/1.2 var(--font-text);   /* nie < 16px: sonst zoomt iOS rein */
+  caret-color: var(--c-brown);
+  -webkit-appearance: none; appearance: none;
+}
+.field__input::placeholder { color: var(--c-ink-muted); opacity: .7; }
+.field__input:focus { outline: none; border-bottom-color: var(--c-brown); }
+
+/* Textmarker wächst hinter der Zeile, wenn das Feld Fokus hat. */
+.field__marker {
+  position: absolute; left: 0; bottom: 13px;
+  height: 6px; width: 100%;
+  background: rgba(255, 209, 0, .5);
+  mix-blend-mode: multiply;
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 140ms var(--ease-slide);
+  pointer-events: none;
+}
+.field--focus .field__marker { transform: scaleX(1); }
+
+/* Auswertung: Farbe + Linienform, damit sie auch in Graustufen unterscheidbar ist. */
+.field--correct .field__input { border-bottom: var(--b-heavy) solid var(--c-ok-ink); }
+.field--near .field__input {
+  border-bottom: 0;
+  box-shadow: inset 0 -5px 0 -0px transparent;
+  background-image: repeating-linear-gradient(90deg, var(--c-signal) 0 8px, transparent 8px 13px);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 5px;
+  padding-bottom: 10px;
+}
+.field--wrong .field__input {
+  border-bottom: var(--b-base) solid var(--c-bad-ink);
+  box-shadow: 0 5px 0 -2px var(--c-bad-ink);
+}
+.field--locked .field__input { opacity: .7; }
+
+/* Geisterspur im Korrekturmodus: erster Buchstabe, Rest als Punkte. */
+.ghost {
+  margin-top: var(--s-3);
+  font: 600 22px/1.3 var(--font-mono);
+  color: var(--c-ink-muted);
+  letter-spacing: .12em;
+  white-space: pre;
+  overflow-x: auto;
+}
+.ghost__solution { color: var(--c-ink); font-size: 26px; letter-spacing: .04em; }
+
+/* Klebestreifen mit der Lösung, wächst über die Plakatkante. */
+.solution-tape {
+  margin-top: var(--s-4);
+  padding: var(--s-3) var(--s-4);
+  background: var(--c-signal);
+  color: var(--c-bg);
+  transform-origin: left;
+  animation: tape-grow var(--t-base) var(--ease-slide) both;
+}
+@keyframes tape-grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* ----------------------------------------------- Schichtkante + Stapel-Chip */
+
+.rail { display: flex; align-items: center; gap: var(--s-3); }
+.rail__segments { display: flex; flex: 1; gap: 2px; height: 10px; }
+.rail__seg { flex: 1; border: var(--b-base) solid var(--c-border-strong); background: transparent; }
+.rail__seg--current { background: var(--c-chalk); border-color: var(--c-chalk); height: 14px; margin-top: -2px; }
+.rail__seg--ok { background: var(--c-ok); border-color: var(--c-ok); }
+.rail__seg--near {
+  border-color: var(--c-near);
+  background: repeating-linear-gradient(45deg, var(--c-near) 0 3px, transparent 3px 6px);
+}
+.rail__seg--bad {
+  border-color: var(--c-bad);
+  background: repeating-linear-gradient(0deg, var(--c-bad) 0 2px, transparent 2px 5px);
+}
+.rail__count { color: var(--c-chalk-muted); }
+
+/* Heißt "Runde 2: 4", niemals "Fehler: 4". Bernstein, nicht rot. */
+.stack-chip {
+  padding: 3px var(--s-2);
+  border: var(--b-base) solid var(--c-near);
+  color: var(--c-near);
+  font: 500 11px/1.4 var(--font-text);
+  letter-spacing: .1em; text-transform: uppercase;
+  white-space: nowrap;
+}
+.stack-chip--pulse { animation: chip-pulse 240ms var(--ease-stamp); }
+@keyframes chip-pulse { 50% { transform: scale(1.18); background: var(--c-near); color: var(--c-bg); } }
+
+/* ------------------------------------------------------- Kopfleiste, Badges */
+
+.topbar {
+  display: flex; align-items: center; gap: var(--s-3);
+  min-height: 44px; padding: 0 var(--s-4);
+}
+.round-badge {
+  padding: 5px var(--s-3);
+  background: var(--c-brown); color: var(--c-signal);
+  transform: rotate(-2deg);
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, .5);
+  font-size: 14px;
+}
+.round-badge--stamp { animation: stamp-in var(--t-fast) var(--ease-stamp); }
+
+.logo-slot {
+  display: grid; place-items: center;
+  border: var(--b-base) dashed var(--c-border-strong);
+  color: var(--c-chalk-muted);
+  transform: rotate(-3deg);
+  font: 500 9px/1 var(--font-text); letter-spacing: .12em;
+}
+.logo-slot--sm { width: 28px; height: 28px; }
+.logo-slot--lg { width: 96px; height: 96px; font-size: 12px; }
+.logo-slot:has(> *) { border: 0; }              /* echtes Logo: Rahmen weg */
+.logo-slot:has(> *)::after { content: none; }
+.logo-slot > * { max-width: 100%; height: auto; display: block; }
+.logo-slot:not(:has(> *))::after { content: 'LOGO'; }
+
+/* Sound-Kippschalter: die einzige Rundung der App, weil er physisch ist. */
+.toggle {
+  display: inline-flex; align-items: center; gap: var(--s-2);
+  min-width: 44px; min-height: 44px;
+  background: none; border: 0; padding: 0;
+  color: var(--c-chalk-muted); cursor: pointer;
+}
+.toggle__track {
+  position: relative; width: 40px; height: 24px;
+  border: var(--b-base) solid var(--c-border-strong); border-radius: var(--r-pill);
+  background: transparent;
+  transition: background var(--t-fast) linear, border-color var(--t-fast) linear;
+}
+.toggle__knob {
+  position: absolute; top: 2px; left: 2px;
+  width: 16px; height: 16px; border-radius: var(--r-pill);
+  background: var(--c-chalk-muted);
+  transition: transform var(--t-fast) var(--ease-stamp), background var(--t-fast) linear;
+}
+.toggle[aria-checked='true'] .toggle__track { background: var(--c-signal); border-color: var(--c-signal); }
+.toggle[aria-checked='true'] .toggle__knob { transform: translateX(16px); background: var(--c-bg); }
+.toggle__label { font: 500 11px/1 var(--font-text); letter-spacing: .1em; text-transform: uppercase; }
+
+/* --------------------------------------------------------- Feedback-Banner */
+
+/* Der Platz ist immer reserviert, damit beim Auswerten nichts springt. */
+.feedback {
+  display: flex; align-items: center; gap: var(--s-3);
+  min-height: 52px; padding: 0 var(--s-4);
+  font-weight: 700; font-size: 15px;
+}
+.feedback--empty { color: var(--c-chalk-muted); font-weight: 500; }
+.feedback--correct { background: var(--c-ok); color: var(--c-bg); }
+.feedback--near { background: var(--c-near); color: var(--c-bg); }
+.feedback--wrong { background: var(--c-bad); color: var(--c-ink); }
+.feedback--in { animation: banner-in var(--t-fast) var(--ease-stamp); }
+.feedback__glyph { flex: none; width: 20px; height: 20px; }
+
+@keyframes banner-in { from { transform: translateY(12px); opacity: 0; } }
+
+/* -------------------------------------------------------------- Der Stempel */
+
+.stamp {
+  position: absolute; top: var(--s-5); right: var(--s-5);
+  padding: var(--s-1) var(--s-3);
+  border: var(--b-bold) solid var(--c-brown);
+  color: var(--c-brown);
+  font-family: var(--font-stencil); font-weight: 900; font-size: 20px;
+  letter-spacing: .06em; text-transform: uppercase;
+  transform: rotate(var(--stamp-rot, -7deg));
+  animation: stamp-in var(--t-fast) var(--ease-stamp);
+  pointer-events: none;
+}
+@keyframes stamp-in {
+  from { transform: scale(1.35) rotate(var(--stamp-rot, -7deg)); opacity: 0; }
+  to   { transform: scale(1) rotate(var(--stamp-rot, -7deg)); opacity: 1; }
+}
+
+/* Nur das Plakat wackelt, nie der ganze Screen. Kein Vollbild-Rotblitz. */
+.shake { animation: shake 200ms linear; }
+@keyframes shake {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(var(--tilt, -.4deg)); }
+  20% { transform: translate3d(-7px, 0, 0) rotate(var(--tilt, -.4deg)); }
+  40% { transform: translate3d(6px, 0, 0) rotate(var(--tilt, -.4deg)); }
+  60% { transform: translate3d(-4px, 0, 0) rotate(var(--tilt, -.4deg)); }
+  80% { transform: translate3d(2px, 0, 0) rotate(var(--tilt, -.4deg)); }
+}
+
+.thunk { animation: thunk 90ms linear; }
+@keyframes thunk { 50% { transform: translateY(2px) rotate(var(--tilt, -.4deg)); } }
+
+.enter-up { animation: enter-up var(--t-base) var(--ease-slide) both; }
+@keyframes enter-up { from { transform: translateY(18px) rotate(var(--tilt, -.4deg)); opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .shake, .thunk, .stamp, .round-badge--stamp, .stack-chip--pulse { animation: none; }
+  .enter-up { animation: fade-in 100ms linear both; }
+  .field__marker { transition: none; }
+  @keyframes fade-in { from { opacity: 0; } }
+}
+
+/* ----------------------------------------------------------------- Screens */
+
+/* Nur der Spielscreen ist ein festes Ein-Screen-Layout. Alle anderen dürfen
+   scrollen — sonst ist auf kleinen Geräten der Button nicht erreichbar. */
+.screen {
+  display: flex; flex-direction: column; flex: 1; min-height: 0;
+  padding: var(--s-6) var(--s-4) var(--s-4); gap: var(--s-4);
+  overflow-y: auto; -webkit-overflow-scrolling: touch;
+}
+.screen--play { padding: 0; gap: 0; overflow: hidden; }
+/* Bei wenig Höhe schrumpft zuerst die Luft, dann die Dekoration. */
+/* Bei wenig Höhe schrumpft zuerst die Dekoration. Die .spacer sind flexibel
+   und geben von selbst nach — sie dürfen hier nicht fixiert werden. */
+@media (max-height: 560px) {
+  .screen { padding-top: var(--s-4); gap: var(--s-3); }
+  .wordmark { font-size: 30px; }
+  .logo-slot--lg { width: 64px; height: 64px; }
+}
+.spacer { flex: 1; min-height: 0; }
+.stack { display: flex; flex-direction: column; gap: var(--s-3); }
+.row { display: flex; align-items: center; gap: var(--s-3); }
+.scroll-y { overflow-y: auto; -webkit-overflow-scrolling: touch; min-height: 0; }
+
+.wordmark {
+  display: inline-block;
+  align-self: flex-start;
+  padding: var(--s-3) var(--s-4);
+  background: var(--c-brown); color: var(--c-chalk);
+  transform: rotate(-1.5deg);
+  box-shadow: 6px 6px 0 #000;
+  font-family: var(--font-stencil); font-weight: 900;
+  font-size: 40px; line-height: .9; letter-spacing: .04em; text-transform: uppercase;
+}
+
+/* Lektionsstreifen auf dem Startscreen */
+.set-strip {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--s-3);
+  width: 100%; padding: var(--s-4);
+  border: var(--b-base) solid var(--c-ink);
+  text-align: left; cursor: pointer;
+  font-family: var(--font-text);
+  transform: rotate(-1deg);
+  box-shadow: var(--sh-lift);
+}
+.set-strip__num { font-family: var(--font-display); font-weight: 800; font-size: 28px; font-variant-numeric: tabular-nums; }
+
+/* Belegzeile mit gepunkteter Führungslinie */
+.receipt-line { display: flex; align-items: baseline; gap: var(--s-2); }
+.receipt-line__lead {
+  flex: 1; height: 1px; align-self: center;
+  background: repeating-linear-gradient(90deg, var(--c-ink-muted) 0 2px, transparent 2px 5px);
+}

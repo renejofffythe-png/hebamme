@@ -1,0 +1,792 @@
+{
+  "id": "unit1",
+  "title": "Unit 1 — Goodbye Greenwich",
+  "source": "Schulbuch S. 168–170",
+  "direction": "de-en",
+  "words": [
+    {
+      "id": "journey",
+      "de": "Reise; Fahrt",
+      "en": [
+        "journey"
+      ],
+      "accept": [
+        "trip"
+      ],
+      "ipa": "ˈdʒɜːni",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": "On our journey through England we met a lot of nice people.",
+      "note": null,
+      "page": 168
+    },
+    {
+      "id": "future",
+      "de": "Zukunft",
+      "en": [
+        "future"
+      ],
+      "accept": [],
+      "ipa": "ˈfjuːtʃə",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": "What will the future be like?",
+      "note": "Fr. future (m)",
+      "page": 168
+    },
+    {
+      "id": "to-will",
+      "de": "werden (Hilfsverb für die Zukunft)",
+      "en": [
+        "will"
+      ],
+      "accept": [],
+      "ipa": "wɪl",
+      "pos": "verb",
+      "hint": "Verb",
+      "example": null,
+      "note": null,
+      "page": 168
+    },
+    {
+      "id": "medieval",
+      "de": "mittelalterlich",
+      "en": [
+        "medieval"
+      ],
+      "accept": [
+        "mediaeval"
+      ],
+      "ipa": "ˌmediˈiːvl",
+      "pos": "adjective",
+      "hint": "Adjektiv",
+      "example": "Is every castle medieval? – No, of course not.",
+      "note": "Fr. médiéval/-e",
+      "page": 168
+    },
+    {
+      "id": "living-history-show",
+      "de": "Show, in der historischer Alltag nachgespielt wird",
+      "en": [
+        "living history show"
+      ],
+      "accept": [],
+      "ipa": "ˌlɪvɪŋ ˈhɪstəri ʃəʊ",
+      "pos": "noun",
+      "hint": "Substantiv · 3 Wörter",
+      "example": null,
+      "note": null,
+      "page": 168
+    },
+    {
+      "id": "pony-trekking",
+      "de": "Ponyreiten im Gelände",
+      "en": [
+        "pony trekking"
+      ],
+      "accept": [
+        "pony-trekking"
+      ],
+      "ipa": "ˈpəʊni ˌtrekɪŋ",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": "You go pony trekking in the country.",
+      "note": null,
+      "page": 168
+    },
+    {
+      "id": "scottish",
+      "de": "schottisch",
+      "en": [
+        "Scottish"
+      ],
+      "accept": [],
+      "ipa": "ˈskɒtɪʃ",
+      "pos": "adjective",
+      "hint": "Adjektiv",
+      "example": "Edinburgh is the Scottish capital.",
+      "note": null,
+      "page": 168
+    },
+    {
+      "id": "to-include",
+      "de": "einschließen; beinhalten",
+      "en": [
+        "include"
+      ],
+      "accept": [
+        "contain"
+      ],
+      "ipa": "ɪnˈkluːd",
+      "pos": "verb",
+      "hint": "Verb",
+      "example": "The trip will be expensive, but the price includes all our meals.",
+      "note": "Lat. includere",
+      "page": 168
+    },
+    {
+      "id": "negative",
+      "de": "negativ; verneint",
+      "en": [
+        "negative"
+      ],
+      "accept": [],
+      "ipa": "ˈnegətɪv",
+      "pos": "adjective",
+      "hint": "Adjektiv",
+      "example": null,
+      "note": "Gegensatz: negative ↔ positive · Fr. négatif/négative",
+      "page": 168
+    },
+    {
+      "id": "landscape",
+      "de": "Landschaft",
+      "en": [
+        "landscape"
+      ],
+      "accept": [],
+      "ipa": "ˈlændskeɪp",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": null,
+      "page": 168
+    },
+    {
+      "id": "sandy",
+      "de": "sandig; Sand-",
+      "en": [
+        "sandy"
+      ],
+      "accept": [],
+      "ipa": "ˈsændi",
+      "pos": "adjective",
+      "hint": "Adjektiv",
+      "example": null,
+      "note": null,
+      "page": 168
+    },
+    {
+      "id": "rocky",
+      "de": "felsig; steinig",
+      "en": [
+        "rocky"
+      ],
+      "accept": [
+        "stony"
+      ],
+      "ipa": "ˈrɒki",
+      "pos": "adjective",
+      "hint": "Adjektiv",
+      "example": "Not every beach is sandy. Many are rocky.",
+      "note": null,
+      "page": 168
+    },
+    {
+      "id": "wide",
+      "de": "breit; weit; ausgedehnt",
+      "en": [
+        "wide"
+      ],
+      "accept": [
+        "broad"
+      ],
+      "ipa": "waɪd",
+      "pos": "adjective",
+      "hint": "Adjektiv",
+      "example": "This table is too wide, we can't get it through the door.",
+      "note": null,
+      "page": 168
+    },
+    {
+      "id": "deep",
+      "de": "tief",
+      "en": [
+        "deep"
+      ],
+      "accept": [],
+      "ipa": "diːp",
+      "pos": "adjective",
+      "hint": "Adjektiv",
+      "example": "You mustn't go into deep water if you can't swim.",
+      "note": null,
+      "page": 168
+    },
+    {
+      "id": "island",
+      "de": "Insel",
+      "en": [
+        "island"
+      ],
+      "accept": [
+        "isle"
+      ],
+      "ipa": "ˈaɪlənd",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": "The British Isles are a group of islands.",
+      "note": null,
+      "page": 168
+    },
+    {
+      "id": "harbour",
+      "de": "Hafen",
+      "en": [
+        "harbour"
+      ],
+      "accept": [
+        "harbor",
+        "port"
+      ],
+      "ipa": "ˈhɑːbə",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": "The weather is bad, so the boats are staying in the harbour.",
+      "note": null,
+      "page": 168
+    },
+    {
+      "id": "hiking",
+      "de": "Wandern",
+      "en": [
+        "hiking"
+      ],
+      "accept": [],
+      "ipa": "ˈhaɪkɪŋ",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": "Wales is great for hiking.",
+      "note": null,
+      "page": 168
+    },
+    {
+      "id": "mountain-biking",
+      "de": "Mountainbikefahren",
+      "en": [
+        "mountain biking"
+      ],
+      "accept": [
+        "mountainbiking",
+        "mountain-biking"
+      ],
+      "ipa": "ˈmaʊntɪn ˌbaɪkɪŋ",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": null,
+      "page": 168
+    },
+    {
+      "id": "windsurfing",
+      "de": "(Wind-)Surfen",
+      "en": [
+        "windsurfing"
+      ],
+      "accept": [
+        "wind surfing",
+        "wind-surfing"
+      ],
+      "ipa": "ˈwɪndsɜːfɪŋ",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "Achtung: Surfen und Windsurfen sind verschiedene Sportarten.",
+      "page": 168
+    },
+    {
+      "id": "palm-tree",
+      "de": "Palme",
+      "en": [
+        "palm tree"
+      ],
+      "accept": [
+        "palm"
+      ],
+      "ipa": "ˈpɑːm ˌtriː",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": null,
+      "page": 168
+    },
+    {
+      "id": "to-grow",
+      "de": "wachsen",
+      "en": [
+        "grow"
+      ],
+      "accept": [],
+      "ipa": "grəʊ; gruː; grəʊn",
+      "pos": "verb",
+      "hint": "Verb",
+      "example": "All kinds of flowers grow in our garden.",
+      "note": "Unregelmäßig: grow – grew – grown",
+      "page": 168
+    },
+    {
+      "id": "to-move-house",
+      "de": "umziehen",
+      "en": [
+        "move house"
+      ],
+      "accept": [
+        "move",
+        "move home"
+      ],
+      "ipa": "muːv haʊs",
+      "pos": "verb",
+      "hint": "Verb · 2 Wörter",
+      "example": "When you move house, you leave your old home and go to live in a new one.",
+      "note": "Lat. movere",
+      "page": 169
+    },
+    {
+      "id": "nowhere",
+      "de": "nirgendwo; nirgendwohin",
+      "en": [
+        "nowhere"
+      ],
+      "accept": [],
+      "ipa": "ˈnəʊweə",
+      "pos": "adverb",
+      "hint": "Adverb",
+      "example": null,
+      "note": "Merkreihe: nowhere → somewhere → everywhere",
+      "page": 169
+    },
+    {
+      "id": "cornish",
+      "de": "aus/in Cornwall",
+      "en": [
+        "Cornish"
+      ],
+      "accept": [],
+      "ipa": "ˈkɔːnɪʃ",
+      "pos": "adjective",
+      "hint": "Adjektiv",
+      "example": "Dave and his parents are going to move to a Cornish town.",
+      "note": null,
+      "page": 170
+    },
+    {
+      "id": "countryside",
+      "de": "Land (ländliche Gegend)",
+      "en": [
+        "countryside"
+      ],
+      "accept": [],
+      "ipa": "ˈkʌntrisaɪd",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "in the countryside = auf dem Land",
+      "page": 170
+    },
+    {
+      "id": "to-miss",
+      "de": "vermissen",
+      "en": [
+        "miss"
+      ],
+      "accept": [],
+      "ipa": "mɪs",
+      "pos": "verb",
+      "hint": "Verb",
+      "example": "I miss you. = Du fehlst mir.",
+      "note": null,
+      "page": 170
+    },
+    {
+      "id": "to-stay",
+      "de": "übernachten",
+      "en": [
+        "stay"
+      ],
+      "accept": [
+        "stay overnight"
+      ],
+      "ipa": "steɪ",
+      "pos": "verb",
+      "hint": "Verb",
+      "example": "We stayed at a really nice hotel.",
+      "note": null,
+      "page": 170
+    },
+    {
+      "id": "not-any-longer",
+      "de": "(nicht) mehr; (nicht) länger",
+      "en": [
+        "any longer"
+      ],
+      "accept": [
+        "not any longer",
+        "no longer",
+        "any more",
+        "anymore"
+      ],
+      "ipa": "nɒt eni ˈlɒŋgə",
+      "pos": "phrase",
+      "hint": "Wendung · 2 Wörter",
+      "example": "I don't like it here; I don't want to stay here any longer.",
+      "note": null,
+      "page": 170
+    },
+    {
+      "id": "all-of-us",
+      "de": "wir alle",
+      "en": [
+        "all of us"
+      ],
+      "accept": [
+        "we all"
+      ],
+      "ipa": "ˈɔːl əv əs",
+      "pos": "phrase",
+      "hint": "Wendung · 3 Wörter",
+      "example": null,
+      "note": null,
+      "page": 170
+    },
+    {
+      "id": "transport",
+      "de": "Verkehrsmittel; Transport",
+      "en": [
+        "transport"
+      ],
+      "accept": [
+        "transportation"
+      ],
+      "ipa": "ˈtrænspɔːt",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": "Transport can be expensive.",
+      "note": "Lat. transportare",
+      "page": 170
+    },
+    {
+      "id": "travel-agents",
+      "de": "Reisebüro",
+      "en": [
+        "travel agent's"
+      ],
+      "accept": [
+        "travel agent",
+        "travel agents",
+        "travel agency"
+      ],
+      "ipa": "ˈtrævl ˌeɪdʒənts",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": "You can buy holidays at the travel agent's.",
+      "note": null,
+      "page": 170
+    },
+    {
+      "id": "ticket",
+      "de": "Fahrschein",
+      "en": [
+        "ticket"
+      ],
+      "accept": [],
+      "ipa": "ˈtɪkɪt",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "Fr. ticket (m)",
+      "page": 170
+    },
+    {
+      "id": "to-depend-on",
+      "de": "abhängen von",
+      "en": [
+        "depend on"
+      ],
+      "accept": [
+        "depend"
+      ],
+      "ipa": "dɪˈpend ɒn",
+      "pos": "verb",
+      "hint": "Verb · 2 Wörter",
+      "example": "The price of the ticket depends on the date.",
+      "note": "Fr. dépendre (de)",
+      "page": 170
+    },
+    {
+      "id": "per",
+      "de": "pro",
+      "en": [
+        "per"
+      ],
+      "accept": [],
+      "ipa": "pɜː; pə",
+      "pos": "preposition",
+      "hint": "Präposition",
+      "example": "The price for the tickets is £5 per person.",
+      "note": null,
+      "page": 170
+    },
+    {
+      "id": "to-promise",
+      "de": "versprechen",
+      "en": [
+        "promise"
+      ],
+      "accept": [],
+      "ipa": "ˈprɒmɪs",
+      "pos": "verb",
+      "hint": "Verb",
+      "example": "Can his parents promise that Dave will like Cornwall?",
+      "note": null,
+      "page": 170
+    },
+    {
+      "id": "to-book",
+      "de": "buchen; reservieren",
+      "en": [
+        "book"
+      ],
+      "accept": [
+        "reserve"
+      ],
+      "ipa": "bʊk",
+      "pos": "verb",
+      "hint": "Verb",
+      "example": "You can book a ticket for a journey, a holiday, a table at a restaurant.",
+      "note": null,
+      "page": 170
+    },
+    {
+      "id": "to-return",
+      "de": "zurückkehren; zurückfahren",
+      "en": [
+        "return"
+      ],
+      "accept": [
+        "go back",
+        "come back"
+      ],
+      "ipa": "rɪˈtɜːn",
+      "pos": "verb",
+      "hint": "Verb",
+      "example": null,
+      "note": "to return = to go or come back · Fr. retourner",
+      "page": 170
+    },
+    {
+      "id": "form",
+      "de": "Formular",
+      "en": [
+        "form"
+      ],
+      "accept": [],
+      "ipa": "fɔːm",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": "You often have to fill in forms on the internet.",
+      "note": null,
+      "page": 170
+    },
+    {
+      "id": "to-click-on",
+      "de": "anklicken",
+      "en": [
+        "click on"
+      ],
+      "accept": [
+        "click"
+      ],
+      "ipa": "ˈklɪk ɒn",
+      "pos": "verb",
+      "hint": "Verb · 2 Wörter",
+      "example": "Click on 'SEND' to send your e-mail.",
+      "note": null,
+      "page": 170
+    },
+    {
+      "id": "connection",
+      "de": "Verbindung (Zug-/Reiseverbindung)",
+      "en": [
+        "connection"
+      ],
+      "accept": [],
+      "ipa": "kəˈnekʃn",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": "What connections are there from Greenwich to St Agnes today?",
+      "note": null,
+      "page": 170
+    },
+    {
+      "id": "one-way-ticket",
+      "de": "einfache Fahrkarte",
+      "en": [
+        "one-way ticket",
+        "single ticket"
+      ],
+      "accept": [
+        "one way ticket"
+      ],
+      "ipa": "ˈwʌnweɪ ˌtɪkɪt",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": "single ticket = one-way ticket — beide gelten",
+      "page": 170
+    },
+    {
+      "id": "return-ticket",
+      "de": "Hin- und Rückfahrkarte",
+      "en": [
+        "return ticket"
+      ],
+      "accept": [
+        "round-trip ticket",
+        "round trip ticket"
+      ],
+      "ipa": "rɪˈtɜːn ˌtɪkɪt",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": "Gegensatz: return ticket ↔ one-way ticket",
+      "page": 170
+    },
+    {
+      "id": "fee",
+      "de": "Gebühr",
+      "en": [
+        "fee"
+      ],
+      "accept": [
+        "charge"
+      ],
+      "ipa": "fiː",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": "Is there an extra fee on the ticket?",
+      "note": null,
+      "page": 170
+    },
+    {
+      "id": "to-depart",
+      "de": "abfahren",
+      "en": [
+        "depart"
+      ],
+      "accept": [
+        "leave"
+      ],
+      "ipa": "dɪˈpɑːt",
+      "pos": "verb",
+      "hint": "Verb",
+      "example": "When does the train depart?",
+      "note": null,
+      "page": 170
+    },
+    {
+      "id": "to-arrive",
+      "de": "ankommen",
+      "en": [
+        "arrive"
+      ],
+      "accept": [],
+      "ipa": "əˈraɪv",
+      "pos": "verb",
+      "hint": "Verb",
+      "example": "And when does the next train arrive?",
+      "note": "Fr. arriver",
+      "page": 170
+    },
+    {
+      "id": "outward",
+      "de": "abfahrend (Zug, der den Bahnhof verlässt)",
+      "en": [
+        "outward"
+      ],
+      "accept": [
+        "outbound"
+      ],
+      "ipa": "ˈaʊtwəd",
+      "pos": "adjective",
+      "hint": "Adjektiv",
+      "example": "Outward trains leave the station.",
+      "note": null,
+      "page": 170
+    },
+    {
+      "id": "inward",
+      "de": "ankommend (Zug, der im Bahnhof eintrifft)",
+      "en": [
+        "inward"
+      ],
+      "accept": [
+        "inbound"
+      ],
+      "ipa": "ˈɪnwəd",
+      "pos": "adjective",
+      "hint": "Adjektiv",
+      "example": "Inward trains arrive at the station.",
+      "note": null,
+      "page": 170
+    },
+    {
+      "id": "fare",
+      "de": "Fahrpreis",
+      "en": [
+        "fare"
+      ],
+      "accept": [],
+      "ipa": "feə",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": "Is there a special fare for groups?",
+      "note": null,
+      "page": 170
+    },
+    {
+      "id": "platform",
+      "de": "Plattform; Bahnsteig",
+      "en": [
+        "platform"
+      ],
+      "accept": [],
+      "ipa": "ˈplætfɔːm",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": null,
+      "page": 170
+    },
+    {
+      "id": "to-get-on",
+      "de": "einsteigen (in den Bus)",
+      "en": [
+        "get on"
+      ],
+      "accept": [
+        "get on the bus"
+      ],
+      "ipa": "ˌget ˈɒn",
+      "pos": "verb",
+      "hint": "Verb · 2 Wörter",
+      "example": null,
+      "note": "Gegensatz: to get on ↔ to get off",
+      "page": 170
+    },
+    {
+      "id": "starting-place",
+      "de": "Startpunkt",
+      "en": [
+        "starting place"
+      ],
+      "accept": [
+        "starting point"
+      ],
+      "ipa": "ˈstɑːtɪŋ pleɪs",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": null,
+      "page": 170
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+/* Design-Tokens. Kontrastwerte geprüft gegen WCAG AA (4.5:1 Text, 3:1 UI). */
+
+:root {
+  color-scheme: dark;
+
+  /* --- Hülle: Wand, Beton, Nacht --- */
+  --c-bg: #131110;            /* Asphaltschwarz, warm */
+  --c-bg-2: #1d1a17;          /* Beton, erhöhte Fläche */
+  --c-chalk: #f4efe6;         /* 16,44:1 auf bg   AAA */
+  --c-chalk-muted: #a79e90;   /*  7,12:1 auf bg   AAA */
+  --c-border-strong: #6b6154; /*  3,10:1 auf bg   AA (UI) */
+  --c-border-soft: #2e2924;   /* rein dekorativ, nie informationstragend */
+
+  /* --- Inhalt: Zeitungspapier --- */
+  --c-paper: #f1e9db;         /* 15,62:1 auf bg */
+  --c-paper-2: #e4dac7;       /* zweites Blatt, Schichtkante */
+  --c-ink: #16110d;           /* 15,55:1 auf paper  AAA */
+  --c-ink-muted: #5f5449;     /*  6,11:1 auf paper  AA+ */
+  --c-paper-line: #8a7d6c;    /*  3,33:1 auf paper  AA (UI) */
+
+  /* --- Druckfarben --- */
+  --c-brown: #5a2a1d;         /* 2. Druckebene, 9,77:1 als Text auf paper */
+  --c-signal: #ffd100;        /* Riso-Gelb, 12,89:1 auf bg. NIE Text auf Papier. */
+
+  /* --- Semantik: je eine Variante für Wand und für Papier --- */
+  --c-ok: #3fcf4e;            /* auf dunkel 9,19:1 */
+  --c-ok-ink: #1b6a25;        /* auf Papier 5,56:1 */
+  --c-near: #ffd100;
+  --c-bad: #ff4b2e;           /* auf dunkel 5,65:1 */
+  --c-bad-ink: #b32410;       /* auf Papier 5,48:1 (c-bad auf Papier wäre 2,77:1) */
+  --c-focus: #f4efe6;
+
+  /* --- Schrift --- */
+  --font-display: 'Big Shoulders Display', 'Arial Narrow', sans-serif;
+  --font-stencil: 'Big Shoulders Stencil Display', 'Big Shoulders Display', sans-serif;
+  --font-text: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-ipa: 'Noto Sans IPA', 'Charis SIL', 'Doulos SIL', system-ui, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'Cascadia Mono', Menlo, monospace;
+
+  /* --- Spacing, 4er-Basis --- */
+  --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px; --s-5: 20px;
+  --s-6: 24px; --s-7: 32px; --s-8: 40px; --s-9: 56px; --s-10: 72px;
+
+  /* --- Form: Radien bewusst null --- */
+  --r-0: 0;
+  --r-pill: 999px;            /* einzige Ausnahme: der Sound-Kippschalter */
+
+  --b-hair: 1px; --b-base: 2px; --b-bold: 3px; --b-heavy: 5px; --b-tape: 6px;
+
+  /* --- Schatten: harter Versatz ohne Blur = zweite Druckfarbe --- */
+  --sh-print: 4px 4px 0 var(--c-ink);
+  --sh-print-d: 5px 5px 0 #000;
+  --sh-lift: 6px 6px 0 var(--c-brown);
+
+  /* --- Bewegung --- */
+  --ease-stamp: cubic-bezier(.2, .9, .25, 1);
+  --ease-slide: cubic-bezier(.16, 1, .3, 1);
+  --ease-snap: cubic-bezier(.5, 0, .75, 0);
+  --t-instant: 60ms; --t-fast: 120ms; --t-base: 180ms;
+  --t-slow: 320ms;   --t-cele: 900ms;
+
+  /* Von main.ts aus der VisualViewport-API gesetzt. */
+  --app-h: 100dvh;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --t-instant: 1ms; --t-fast: 100ms; --t-base: 100ms;
+    --t-slow: 100ms;  --t-cele: 100ms;
+  }
+}

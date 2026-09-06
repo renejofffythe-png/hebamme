@@ -1,0 +1,111 @@
+/* Druck-Ästhetik: Korn, Halbton, Fehlregister, Papier, Klebeband.
+   Alles rein aus CSS/SVG — keine Bilddateien, keine Icon-Bibliothek. */
+
+/* Ein einziges feTurbulence-SVG als Data-URI, zwei Frequenzen = zwei Materialien. */
+:root {
+  --grain-fine: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  --grain-coarse: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.35' numOctaves='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Beton: zwei Kornlagen über der dunklen Wand. */
+.grain-wall::after,
+.grain-wall::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 90;
+}
+.grain-wall::before {
+  background-image: var(--grain-fine);
+  opacity: .22;
+  mix-blend-mode: overlay;
+}
+.grain-wall::after {
+  background-image: var(--grain-coarse);
+  opacity: .08;
+  mix-blend-mode: overlay;
+}
+
+/* Natriumlicht von oben rechts — der einzige weiche Verlauf der App. */
+.wall-light {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(120% 80% at 82% -6%, rgba(255, 209, 0, .075), transparent 62%);
+}
+
+/* Papier: Korn multipliziert, damit es in die Fläche einsinkt. */
+.paper {
+  position: relative;
+  background: var(--c-paper);
+  color: var(--c-ink);
+  border-radius: var(--r-0);
+}
+.paper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--grain-fine);
+  opacity: .16;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+/* Gerissene Unterkante — feste Polygonkante, deterministisch und billig. */
+.paper--torn {
+  clip-path: polygon(
+    0 0, 100% 0, 100% calc(100% - 7px),
+    96% 100%, 92% calc(100% - 5px), 87% calc(100% - 1px), 83% calc(100% - 8px),
+    78% calc(100% - 3px), 72% 100%, 67% calc(100% - 6px), 61% calc(100% - 2px),
+    55% calc(100% - 9px), 49% calc(100% - 4px), 43% 100%, 38% calc(100% - 5px),
+    32% calc(100% - 1px), 26% calc(100% - 7px), 21% calc(100% - 3px),
+    15% 100%, 9% calc(100% - 6px), 4% calc(100% - 2px), 0 calc(100% - 8px)
+  );
+}
+/* Beleg: oben und unten abgerissen. */
+.paper--stub {
+  clip-path: polygon(
+    0 8px, 5% 2px, 11% 6px, 17% 1px, 24% 7px, 31% 3px, 38% 8px, 45% 2px,
+    52% 6px, 59% 1px, 66% 7px, 73% 3px, 80% 8px, 87% 2px, 94% 6px, 100% 3px,
+    100% calc(100% - 6px), 94% 100%, 87% calc(100% - 4px), 80% calc(100% - 1px),
+    73% calc(100% - 7px), 66% calc(100% - 3px), 59% 100%, 52% calc(100% - 5px),
+    45% calc(100% - 2px), 38% calc(100% - 8px), 31% calc(100% - 4px), 24% 100%,
+    17% calc(100% - 6px), 11% calc(100% - 2px), 5% calc(100% - 7px), 0 calc(100% - 3px)
+  );
+}
+
+/* Klebeband: halbtransparent, multipliziert, mit Tesafilm-Längsstreifen. */
+.tape {
+  position: absolute;
+  width: 68px;
+  height: 24px;
+  background:
+    repeating-linear-gradient(90deg, rgba(255,255,255,.22) 0 3px, transparent 3px 9px),
+    rgba(255, 209, 0, .35);
+  border: 1px solid rgba(0, 0, 0, .12);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+.tape--l { top: -11px; left: 14px; transform: rotate(-12deg); }
+.tape--r { top: -11px; right: 14px; transform: rotate(9deg); }
+
+/* Halbtonraster als Fläche. */
+.halftone {
+  background-image: radial-gradient(circle at 1px 1px, currentColor 1.1px, transparent 1.2px);
+  background-size: 5px 5px;
+}
+
+/* Fehlregister: Versatz immer diagonal, pro Screen immer dieselbe Richtung —
+   wie eine Maschine, die konstant gleich falsch justiert ist. */
+.misprint { text-shadow: 2px -2px 0 var(--c-brown); }
+.misprint--signal { text-shadow: 2px -2px 0 var(--c-signal); }
+
+/* Perforationsrand statt <hr>. */
+.perf {
+  height: var(--b-tape);
+  border: 0;
+  background: repeating-linear-gradient(90deg, var(--c-ink) 0 14px, transparent 14px 22px);
+  opacity: .5;
+}
