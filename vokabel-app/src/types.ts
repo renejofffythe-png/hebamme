@@ -15,7 +15,14 @@ export interface WordSet {
   id: string;
   title: string;
   source: string;
-  direction: 'de-en';
+  /** BCP-47 der Zielsprache — steuert die Sprachausgabe. */
+  lang: string;
+  /** Sprachname für die Oberfläche: "Englisch", "Französisch", … */
+  langLabel: string;
+  /** Historisch; die Richtung ist immer Deutsch → Zielsprache. */
+  direction?: string;
+  /** Zeitpunkt des Imports. Fehlt bei den mitgelieferten Listen. */
+  addedAt?: number;
   words: Word[];
 }
 

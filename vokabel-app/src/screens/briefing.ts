@@ -24,7 +24,7 @@ export function briefingScreen(
     el('p', { class: 't-meta', 'style:color': 'var(--c-chalk-muted)', 'style:margin': '0' }, [set.source]),
     el('h1', { class: 't-h1 misprint', 'style:margin': '0' }, [`${set.title} — ${count} Vokabeln`]),
     el('p', { class: 't-body', 'style:margin': '0', 'style:color': 'var(--c-chalk-muted)' }, [
-      'Deutsch → Englisch · Du tippst die Antwort',
+      `Deutsch → ${set.langLabel} · Du tippst die Antwort`,
     ]),
     el('div', { class: 'spacer' }),
     go,

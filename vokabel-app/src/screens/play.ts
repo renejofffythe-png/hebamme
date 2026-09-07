@@ -1,5 +1,7 @@
 import { el, icon, announce, pick } from '../dom';
 import { audio } from '../audio';
+import { speech } from '../speech';
+import { speakButton } from '../ui';
 import { grade } from '../grading';
 import type { Session } from '../state';
 import type { Word } from '../types';
@@ -59,6 +61,7 @@ export class PlayScreen {
   private metaEl: HTMLElement;
   private wordEl: HTMLElement;
   private ipaEl: HTMLElement;
+  private pronEl: HTMLElement;
   private fieldEl: HTMLElement;
   private extraEl: HTMLElement;
   private hintEl: HTMLElement;
@@ -73,6 +76,8 @@ export class PlayScreen {
 
   /** Nur im Korrekturmodus gesetzt: die Lösung, die abgetippt werden muss. */
   private target = '';
+  /** Was der Lautsprecher gerade sagen würde — erst nach der Bewertung gesetzt. */
+  private spoken: string | null = null;
   private lastEmptyEnter = 0;
   private seenRules = { firstMiss: false };
 
@@ -84,7 +89,7 @@ export class PlayScreen {
       class: 'field__input',
       type: 'text',
       inputmode: 'text',
-      lang: 'en',
+      lang: session.set.lang,
       autocapitalize: 'off',
       autocorrect: 'off',
       spellcheck: 'false',
@@ -93,7 +98,7 @@ export class PlayScreen {
       enterkeyhint: 'go',
       'data-1p-ignore': 'true',
       'data-lpignore': 'true',
-      'aria-label': 'Englische Übersetzung eingeben',
+      'aria-label': `Übersetzung eingeben — ${session.set.langLabel}`,
       placeholder: 'hier tippen',
     });
 
@@ -107,7 +112,13 @@ export class PlayScreen {
     this.hintEl = el('div', { class: 'hint-zone' });
     this.metaEl = el('p', { class: 't-meta poster__meta' });
     this.wordEl = el('h1', { class: 't-display poster__word misprint' });
-    this.ipaEl = el('p', { class: 't-ipa', hidden: true });
+    this.ipaEl = el('p', { class: 't-ipa', 'style:margin': '0' });
+    this.pronEl = el('div', { class: 'pron', hidden: true }, [
+      this.ipaEl,
+      speakButton(() =>
+        this.spoken ? { text: this.spoken, lang: this.session.set.lang } : null,
+      ),
+    ]);
     this.extraEl = el('div');
 
     this.fieldEl = el('div', { class: 'field' }, [
@@ -125,7 +136,7 @@ export class PlayScreen {
         el('span', { class: 'tape tape--r', 'aria-hidden': 'true' }),
         this.metaEl,
         this.wordEl,
-        this.ipaEl,
+        this.pronEl,
         el('div', { class: 'poster__gap', 'aria-hidden': 'true' }),
         this.hintEl,
         el('div', { class: 'row', 'style:justify-content': 'flex-end' }, [this.skipBtn]),
@@ -261,7 +272,9 @@ export class PlayScreen {
 
     const sol = solution ?? word.en[0] ?? '';
     const result = this.session.answer(verdict);
-    this.showIpa(word);
+    this.showPronunciation(word, sol);
+    // Erst jetzt sprechen: vorher wäre die Aussprache die Lösung.
+    if (verdict !== 'wrong') speech.speak(sol, this.session.set.lang);
 
     if (verdict === 'correct') {
       // Eine gerettete Vokabel ist der Moment, in dem gelernt wurde. Sie
@@ -304,7 +317,9 @@ export class PlayScreen {
     announce(`Leider falsch. Richtig ist: ${sol}. Bitte einmal abtippen.`);
     this.markMissed();
 
-    this.timer = window.setTimeout(() => this.startCorrection(sol), T_WRONG);
+    // `word` mitgeben: answer() hat den Cursor schon weitergesetzt, session.current
+    // wäre hier die nächste Vokabel — und ihr Beispielsatz ein Spoiler.
+    this.timer = window.setTimeout(() => this.startCorrection(sol, word), T_WRONG);
   }
 
   private markMissed(): void {
@@ -329,7 +344,7 @@ export class PlayScreen {
    * dem Kurzzeitgedächtnis statt abschreiben. "Zeig's mir" halten macht sie
    * jederzeit wieder sichtbar, damit nie eine Sackgasse entsteht.
    */
-  private startCorrection(solution: string): void {
+  private startCorrection(solution: string, word: Word): void {
     this.phase = 'correcting';
     this.locked = false;
     this.target = solution;
@@ -340,11 +355,12 @@ export class PlayScreen {
 
     // Der Beispielsatz aus dem Buch liegt ungenutzt in den Daten und gehört
     // genau hierhin: er macht aus Abtippen ein Verstehen.
-    const word = this.session.current;
     this.extraEl.replaceChildren();
-    if (word?.example) {
+    if (word.example) {
       this.extraEl.append(el('p', { class: 'example' }, [word.example]));
     }
+
+    speech.speak(solution, this.session.set.lang);
 
     this.input.value = '';
     this.input.placeholder = 'abtippen';
@@ -421,9 +437,10 @@ export class PlayScreen {
     this.wordEl.textContent = word.de;
     this.wordEl.classList.toggle('poster__word--long', word.de.length > 16 && word.de.length <= 26);
     this.wordEl.classList.toggle('poster__word--xlong', word.de.length > 26);
-    this.ipaEl.hidden = true;
+    this.pronEl.hidden = true;
+    this.spoken = null;
     this.badgeEl.textContent = `RUNDE ${this.session.round}`;
-    this.banner('empty', 'Englisch tippen, dann Enter.');
+    this.banner('empty', `${this.session.set.langLabel} tippen, dann Enter.`);
     this.renderRail();
     this.scoreEl.textContent = String(this.session.score);
     this.comboEl.hidden = this.session.combo < 3;
@@ -456,11 +473,19 @@ export class PlayScreen {
     }
   }
 
-  /** Lautschrift erst nach der Auswertung — vorher wäre sie ein Spoiler. */
-  private showIpa(word: Word): void {
-    if (!word.ipa) return;
-    this.ipaEl.textContent = `[${word.ipa}]`;
-    this.ipaEl.hidden = false;
+  /**
+   * Lautschrift und Lautsprecher erst nach der Auswertung — vorher wären sie
+   * ein Spoiler. Ohne Stimme für diese Sprache bleibt es bei der Lautschrift.
+   */
+  private showPronunciation(word: Word, solution: string): void {
+    this.spoken = solution;
+    const canSpeak = speech.available(this.session.set.lang);
+    if (!word.ipa && !canSpeak) return;
+
+    this.ipaEl.textContent = word.ipa ? `[${word.ipa}]` : '';
+    this.ipaEl.hidden = !word.ipa;
+    this.pronEl.hidden = false;
+    this.pronEl.classList.toggle('pron--mute', !canSpeak);
     this.fitWord();
   }
 

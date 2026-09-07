@@ -50,3 +50,12 @@ export function saveRecords(
   }
   return { records, beaten };
 }
+
+/** Beim Löschen einer Liste verschwinden auch ihre Bestwerte. */
+export function clearRecords(setId: string): void {
+  try {
+    localStorage.removeItem(key(setId));
+  } catch {
+    /* private mode */
+  }
+}

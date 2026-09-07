@@ -145,7 +145,11 @@ das ganze Konzept steht oder fällt.
 ## 5. UX
 
 ### Flow
-`Start → Set wählen → Briefing → Spiel → Rundenende → (nächste Runde) → Session-Ende`
+`Bibliothek → Startscreen der Liste → Briefing → Spiel → Rundenende → (nächste Runde) → Session-Ende`
+
+Bei genau einer Liste entfällt die Bibliothek — dann ist der Startscreen der Einstieg,
+erreichbar bleibt sie über „Listen". Ein Auswahlschritt, der nichts zu wählen hat,
+ist ein Tap zu viel.
 
 **Übergänge innerhalb einer Runde laufen automatisch, ohne einen einzigen Pflicht-Tap.**
 Rundenwechsel brauchen einen Tap — psychologisch als Verschnaufmoment, technisch weil
@@ -207,6 +211,8 @@ Die Mechanik wird durch die Animation gelehrt, der Text bestätigt nur das Geseh
 ### Persistenz
 Nach **jeder** beantworteten Vokabel Sessionzustand in `localStorage`
 (Set-ID, Runde, aktueller Pool, nächster Pool, Index, Statistik, Zeitstempel).
+Ein Stand **pro Liste** (`ueberklebt.session.<setId>`) — wer zwischendurch eine
+andere Liste übt, verliert den angefangenen Durchgang nicht.
 Kein `beforeunload`. Sessions älter als 7 Tage werden verworfen.
 Langzeit pro Wort: Anzahl benötigter Runden, letzter Fehlerzeitpunkt →
 speist das Deck **„Wackelkandidaten"**.
@@ -404,7 +410,11 @@ vokabel-app/
 │   ├── state.ts           Sessionzustand, Runden-/Wellenlogik, Persistenz
 │   ├── grading.ts         Normalisierung, Damerau-Levenshtein, drei Zustände
 │   ├── audio.ts           Web-Audio-Engine, Busse, Ducking, alle States
-│   ├── screens/           start · briefing · play · roundEnd · sessionEnd
+│   ├── speech.ts          Aussprache über die Web Speech API (Abschnitt 9)
+│   ├── library.ts         Sammlung der Listen: laden, speichern, löschen, Datum
+│   ├── languages.ts       Zielsprachen (BCP-47 + Anzeigename)
+│   ├── import/parse.ts    Import fremder Listen (Abschnitt 10)
+│   ├── screens/           library · importList · start · briefing · play · roundEnd · sessionEnd
 │   └── styles/            tokens.css · print.css (Korn/Raster) · components.css
 ├── data/                  Vokabelsets als JSON
 ├── assets/logo/           Platzhalter — Logo kommt später
@@ -432,7 +442,82 @@ Datenanforderung, keine UI-Frage.
 
 ---
 
-## 9. Definition of Done
+## 9. Aussprache
+
+Die Betonung ist der halbe Vokabeltest: `ˈrecord` und `reˈcord` unterscheiden sich
+nur darin. Die Lautschrift stand von Anfang an auf dem Plakat — gelesen wird sie
+aber erst, wenn man sie einmal gehört hat.
+
+**Technik:** Web Speech API (`speechSynthesis`), also die Stimmen des Geräts.
+Keine Audiodateien, kein Netzdienst, keine Kosten — dieselbe Haltung wie beim Sound.
+
+**Regeln:**
+1. **Nie vor der Bewertung.** Vorher wäre die Aussprache die Lösung. Gesprochen wird
+   im selben Moment, in dem die Lautschrift erscheint.
+2. **Kein Fallback auf eine falsche Stimme.** Gibt es für die Sprache keine Stimme
+   (Latein, alte Android-Geräte), verschwindet der Lautsprecher, statt Englisch mit
+   deutscher Zunge auszugeben. Falsche Aussprache ist schlechter als keine.
+3. **Zweites Antippen = langsamer** (0,6 statt 0,85). Wer nochmal tippt, hat es nicht
+   verstanden — das ist die einzige sinnvolle Antwort darauf.
+4. **`pointerdown` mit `preventDefault`, nicht `click`.** Sonst nimmt der Lautsprecher
+   dem Eingabefeld den Fokus und iOS klappt die Tastatur zu (eiserne Regel 1).
+5. **Mute mutet alles.** Wer Ruhe will, will keine Teilruhe. Der eigene Schalter
+   „Aussprache" bleibt trotzdem: Sounds nerven im Bus, die Aussprache ist dort mit
+   Kopfhörern besonders nützlich.
+
+**Fallstricke:** iOS gibt `speechSynthesis` nur nach einer echten Nutzergeste frei —
+freigeschaltet wird sie zusammen mit Tastatur und AudioContext im Briefing-Button.
+Chrome liefert die Stimmenliste asynchron nach (`voiceschanged`); wer nur beim ersten
+Rendern prüft, blendet den Schalter dauerhaft aus, obwohl es Stimmen gibt.
+
+---
+
+## 10. Mehrere Listen und Import
+
+Eine Vokabel-App mit genau einer Liste ist eine Demo. Der Alltag ist: jede Woche
+eine neue Seite im Buch.
+
+**Bibliothek.** Listen liegen als Karten an der Wand, **neueste zuerst**, mit Datum
+(„hinzugefügt heute", „hinzugefügt 07.09.2026"). So wird gesucht: nicht nach Titel,
+sondern nach „die von Montag". Angefangene Durchgänge tragen einen Stempel.
+Bestwerte, Sessionstand und Datum hängen an der Liste, nicht an der App.
+
+**Import.** Der gedachte Weg ist der, den es ohnehin schon gibt: Buchseite
+fotografieren, von einem Sprachmodell abtippen lassen, Datei hochladen. Deshalb steht
+der fertige Prompt direkt auf dem Import-Screen — ohne ihn ist die Funktion nur die
+halbe Miete. Erkannt werden vier Formen:
+
+| Form | Beispiel |
+|---|---|
+| Transkription mit Abschnitten | `{ "unit": …, "abschnitte": [ { "seite": 168, "vokabeln": [ … ] } ] }` |
+| flache Liste | `[ { "en": "journey", "de": "Reise", "lautschrift": "[ˈdʒɜːni]" } ]` |
+| fertiges Set | die Form aus `data/unit1.json` |
+| roher Text | `Reise; Fahrt = journey [ˈdʒɜːni] # Beispielsatz` |
+
+**Was der Parser mechanisch ableitet:** Infinitiv-`to`, Stammformen
+(`to grow, grew, grown` → Hinweis „Unregelmäßig"), Klammern (`to move (house)` →
+zusätzlich `move`; `(wind)surfing` → nur `windsurfing`), Lautschrift-Bereinigung,
+Wortart aus der **deutschen** Seite (Großschreibung → Substantiv, Endung `-en` →
+Verb — das funktioniert in jeder Zielsprache).
+
+**Was er nicht tut: Synonyme erfinden.** Die `accept`-Liste der mitgelieferten Sets
+ist redaktionelle Arbeit; automatisch entstünde Halbwissen, das falsche Antworten
+akzeptiert. Für Tippfehler, Bindestriche und BE/AE ist ohnehin die Bewertung
+zuständig (Abschnitt 3), nicht die Liste.
+
+**Vorschau statt Vertrauen:** Erst wenn „42 Vokabeln erkannt" oben steht und die drei
+Beispielzeilen stimmen, wird der Speichern-Knopf aktiv.
+
+**Sprachen.** Jede Liste trägt ihre Zielsprache (BCP-47). Sie steuert die Stimme, die
+Beschriftungen („Deutsch → Französisch") und `lang` am Eingabefeld. Ausgangssprache
+ist immer Deutsch — das steckt in der Mechanik und ist nicht konfigurierbar.
+
+**Speicher.** Alles in `localStorage`, maximal 400 Vokabeln je Liste. Löschen ist
+zweistufig und nimmt Liste, Stand und Bestwerte mit — was weg ist, ist ganz weg.
+
+---
+
+## 11. Definition of Done
 
 Kernmechanik läuft · Falsche landen in der nächsten Runde · Richtige verschwinden ·
 Session endet zuverlässig bei 0 · Korrektur muss abgetippt werden ·

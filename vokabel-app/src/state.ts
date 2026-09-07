@@ -10,7 +10,11 @@ import type { Word, WordSet, Verdict } from './types';
  * ohne Erfolgsmoment vergehen. Die Rundenlogik bleibt davon unberührt.
  */
 
-const STORAGE_KEY = 'ueberklebt.session';
+/** Je Liste ein eigener Stand — eine pausierte Session soll nicht verfallen,
+    nur weil zwischendurch eine andere Liste geübt wurde. */
+const sessionKey = (setId: string) => `ueberklebt.session.${setId}`;
+/** Vor den mehreren Listen gab es genau einen Stand unter diesem Schlüssel. */
+const LEGACY_KEY = 'ueberklebt.session';
 const MAX_AGE_MS = 7 * 24 * 60 * 60 * 1000;
 const WAVE_TARGET = 13;
 
@@ -75,6 +79,16 @@ function shuffle<T>(items: readonly T[]): T[] {
   return a;
 }
 
+/** Löscht den gespeicherten Stand einer Liste (auch den alten Einzel-Slot). */
+export function clearSessionFor(setId: string): void {
+  try {
+    localStorage.removeItem(sessionKey(setId));
+    localStorage.removeItem(LEGACY_KEY);
+  } catch {
+    /* private mode */
+  }
+}
+
 export function comboMultiplier(combo: number): number {
   if (combo >= 12) return 3.0;
   if (combo >= 8) return 2.0;
@@ -125,12 +139,12 @@ export class Session {
   /** Stellt eine unterbrochene Session wieder her, falls sie zum Set passt. */
   static restore(set: WordSet): Session | null {
     try {
-      const raw = localStorage.getItem(STORAGE_KEY);
+      const raw = localStorage.getItem(sessionKey(set.id)) ?? localStorage.getItem(LEGACY_KEY);
       if (!raw) return null;
       const s = JSON.parse(raw) as Persisted;
       if (s.setId !== set.id) return null;
       if (Date.now() - s.updatedAt > MAX_AGE_MS) {
-        localStorage.removeItem(STORAGE_KEY);
+        localStorage.removeItem(sessionKey(set.id));
         return null;
       }
       if (typeof s.poolSize !== 'number' || !s.verdicts || !s.waveScore) return null;
@@ -142,18 +156,14 @@ export class Session {
     }
   }
 
-  static clearSaved(): void {
-    try {
-      localStorage.removeItem(STORAGE_KEY);
-    } catch {
-      /* private mode */
-    }
+  static clearSaved(setId: string): void {
+    clearSessionFor(setId);
   }
 
   private save(): void {
     this.s.updatedAt = Date.now();
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(this.s));
+      localStorage.setItem(sessionKey(this.s.setId), JSON.stringify(this.s));
     } catch {
       /* private mode — die Session läuft trotzdem weiter */
     }

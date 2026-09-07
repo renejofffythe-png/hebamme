@@ -1,13 +1,15 @@
 import { el } from '../dom';
-import { soundToggle } from '../ui';
+import { soundToggle, speechToggle } from '../ui';
 import type { WordSet } from '../types';
 import type { Records } from '../records';
+import { formatDate } from '../library';
 
 export function startScreen(
   set: WordSet,
   records: Records,
   resume: { round: number; open: number } | null,
   onStart: (fresh: boolean) => void,
+  onLibrary: (() => void) | null,
 ): HTMLElement {
   const record = (value: string, label: string) =>
     el('div', { class: 'record' }, [
@@ -46,16 +48,28 @@ export function startScreen(
     actions.push(go);
   }
 
+  const toLibrary = onLibrary
+    ? el('button', { class: 'chip chip--wall', type: 'button' }, ['Listen'])
+    : null;
+  toLibrary?.addEventListener('click', onLibrary!);
+
   return el('section', { class: 'screen' }, [
-    el('div', { class: 'row' }, [el('div', { class: 'spacer' }), soundToggle()]),
+    el('div', { class: 'row' }, [
+      toLibrary,
+      el('div', { class: 'spacer' }),
+      speechToggle(set.lang),
+      soundToggle(),
+    ].filter((n) => n !== null)),
     el('h1', { class: 'wordmark' }, ['Über-', el('br'), 'klebt']),
     el('p', { class: 't-body', 'style:max-width': '28em', 'style:margin': '0' }, [
-      `Deutsch rein, Englisch raus. ${set.words.length} Wörter, danach hast du frei.`,
+      `Deutsch rein, ${set.langLabel} raus. ${set.words.length} Wörter, danach hast du frei.`,
     ]),
 
     el('div', { class: 'set-strip paper', 'style:cursor': 'default', 'style:transform': 'rotate(-1deg)' }, [
       el('span', { class: 'stack', 'style:gap': '2px' }, [
-        el('span', { class: 't-meta', 'style:color': 'var(--c-ink-muted)' }, [set.source]),
+        el('span', { class: 't-meta', 'style:color': 'var(--c-ink-muted)' }, [
+          [set.source, set.addedAt ? formatDate(set.addedAt) : null].filter(Boolean).join(' · '),
+        ]),
         el('span', { 'style:font-weight': '700', 'style:font-size': '17px' }, [set.title]),
       ]),
       el('span', { class: 'set-strip__num' }, [String(set.words.length)]),

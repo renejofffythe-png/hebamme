@@ -2,23 +2,26 @@ import './styles/tokens.css';
 import './styles/print.css';
 import './styles/components.css';
 
-import unit1 from '../data/unit1.json';
 import { installViewport } from './viewport';
 import { audio } from './audio';
+import { speech } from './speech';
 import { Session } from './state';
 import { PlayScreen } from './screens/play';
 import { startScreen } from './screens/start';
 import { briefingScreen } from './screens/briefing';
 import { roundEndScreen } from './screens/roundEnd';
 import { sessionEndScreen } from './screens/sessionEnd';
+import { libraryScreen } from './screens/library';
+import { importScreen } from './screens/importList';
 import { soundToggle } from './ui';
 import { loadRecords, saveRecords } from './records';
 import { announce } from './dom';
+import { deleteSet, getSet, listSets, markPlayed } from './library';
 import type { WordSet } from './types';
 
-const set = unit1 as WordSet;
 const app = document.getElementById('app')!;
 
+let set: WordSet = listSets()[0]!.set;
 let session: Session | null = null;
 let play: PlayScreen | null = null;
 
@@ -28,9 +31,52 @@ function show(node: HTMLElement): void {
 
 // ------------------------------------------------------------------- Screens
 
-function goStart(): void {
+/** Eine einzige Liste braucht keine Bibliothek — dann ist der Start der Start. */
+function goHome(): void {
+  const entries = listSets();
+  if (entries.length === 1) {
+    goStart(entries[0]!.set);
+    return;
+  }
+  goLibrary();
+}
+
+function goLibrary(): void {
   play?.destroy();
   play = null;
+  session = null;
+  show(
+    libraryScreen(listSets(), {
+      onPick: (id) => {
+        const picked = getSet(id);
+        if (picked) goStart(picked);
+      },
+      onAdd: goImport,
+      onDelete: (id) => {
+        deleteSet(id);
+        goHome();
+      },
+    }),
+  );
+}
+
+function goImport(): void {
+  show(
+    importScreen({
+      onSaved: (id) => {
+        const fresh = getSet(id);
+        if (fresh) goStart(fresh);
+        else goLibrary();
+      },
+      onCancel: goLibrary,
+    }),
+  );
+}
+
+function goStart(target: WordSet): void {
+  play?.destroy();
+  play = null;
+  set = target;
   const saved = Session.restore(set);
   session = null;
   show(
@@ -40,13 +86,15 @@ function goStart(): void {
       saved ? { round: saved.round, open: saved.wave.length - saved.cursor } : null,
       (fresh) => {
         if (fresh) {
-          Session.clearSaved();
+          Session.clearSaved(set.id);
           session = Session.start(set);
         } else {
           session = saved ?? Session.start(set);
         }
+        markPlayed(set.id);
         goBriefing();
       },
+      goLibrary,
     ),
   );
 }
@@ -55,8 +103,10 @@ function goBriefing(): void {
   const s = session!;
   show(
     briefingScreen(set, s.round, s.wave.length, () => {
-      // Im synchronen Click-Handler: iOS gibt Tastatur und Audio nur hier frei.
+      // Im synchronen Click-Handler: iOS gibt Tastatur, Audio und Sprachausgabe
+      // nur hier frei.
       audio.unlock();
+      speech.unlock();
       goPlay();
     }),
   );
@@ -100,7 +150,7 @@ function goFinish(): void {
   s.closeWave();
   s.closeSession();
   audio.sessionComplete();
-  Session.clearSaved();
+  Session.clearSaved(set.id);
 
   const { records, beaten } = saveRecords(set.id, {
     score: s.score,
@@ -124,7 +174,7 @@ function goFinish(): void {
         play = null;
         goBriefing();
       },
-      goStart,
+      () => goStart(set),
     ),
   );
 }
@@ -132,11 +182,11 @@ function goFinish(): void {
 // --------------------------------------------------------------------- Start
 
 installViewport(() => play?.refit());
-goStart();
+goHome();
 
 // Android-Zurück verlässt nicht die Session, sondern führt zum Startscreen.
 history.pushState({ screen: 'app' }, '');
 window.addEventListener('popstate', () => {
   history.pushState({ screen: 'app' }, '');
-  if (session) goStart();
+  if (session) goStart(set);
 });

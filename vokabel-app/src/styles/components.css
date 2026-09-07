@@ -275,7 +275,7 @@ html, body {
 }
 .toggle[aria-checked='true'] .toggle__track { background: var(--c-signal); border-color: var(--c-signal); }
 .toggle[aria-checked='true'] .toggle__knob { transform: translateX(16px); background: var(--c-bg); }
-.toggle__label { font: 500 11px/1 var(--font-text); letter-spacing: .1em; text-transform: uppercase; }
+.toggle__label { font: 500 11px/1 var(--font-text); letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; }
 
 /* --------------------------------------------------------- Feedback-Banner */
 
@@ -499,3 +499,107 @@ html, body {
   font-variant-numeric: tabular-nums; color: var(--c-chalk);
 }
 .record__label { font: 500 10px/1.2 var(--font-text); letter-spacing: .12em; text-transform: uppercase; color: var(--c-chalk-muted); }
+
+/* ------------------------------------------------- Aussprache: Lautsprecher */
+
+/* Lautschrift und Lautsprecher stehen zusammen — beide beantworten dieselbe
+   Frage, die eine für die Augen, der andere fürs Ohr. */
+.pron {
+  display: flex; align-items: center; gap: var(--s-3); flex-wrap: wrap;
+  margin-top: var(--s-1);
+}
+.speak {
+  display: inline-flex; align-items: center; gap: var(--s-2);
+  min-height: 30px; padding: 0 var(--s-3);
+  background: transparent; color: var(--c-ink-muted);
+  border: var(--b-base) solid var(--c-paper-line);
+  font: 500 11px/1 var(--font-text); letter-spacing: .1em; text-transform: uppercase;
+  cursor: pointer;
+}
+.speak:active { transform: translate(1px, 1px); background: var(--c-paper-2); }
+.speak__glyph { width: 14px; height: 14px; flex: none; }
+/* Auf dem Beleg (Papier) und im Plakat gleich — nur ohne Stimme kein Knopf. */
+.pron--mute .speak { display: none; }
+
+/* --------------------------------------------------------------- Bibliothek */
+
+.wordmark--sm { font-size: 28px; padding: var(--s-2) var(--s-3); }
+
+/* Jede Liste ein Blatt an der Wand. Der leichte Versatz kommt aus der
+   Reihenfolge, nicht aus Zufall — beim Neuzeichnen springt nichts. */
+.set-card {
+  display: flex; flex-direction: column; gap: var(--s-2);
+  padding: var(--s-4);
+  border: var(--b-base) solid var(--c-ink);
+  box-shadow: var(--sh-lift);
+}
+.set-card:nth-child(odd) { transform: rotate(-.5deg); }
+.set-card:nth-child(even) { transform: rotate(.4deg); }
+.set-card__main {
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 0; margin: 0;
+  background: transparent; border: 0; color: inherit;
+  font-family: var(--font-text); text-align: left; cursor: pointer;
+}
+.set-card__date { color: var(--c-ink-muted); }
+.set-card__title { font-weight: 700; font-size: 19px; line-height: 1.15; }
+.set-card__meta { color: var(--c-ink-muted); }
+.set-card__resume {
+  align-self: flex-start; margin-top: var(--s-2);
+  padding: 2px var(--s-2);
+  background: var(--c-brown); color: var(--c-chalk);
+  font: 600 11px/1.6 var(--font-text); letter-spacing: .08em; text-transform: uppercase;
+}
+.set-card__del { align-self: flex-end; }
+
+/* Chips stehen sonst auf Papier; an der Wand brauchen sie Kalkfarben. */
+.chip--wall { color: var(--c-chalk); border-color: var(--c-border-strong); white-space: nowrap; }
+.chip--on { color: var(--c-bg); background: var(--c-signal); border-color: var(--c-signal); }
+
+/* ------------------------------------------------------------------ Import */
+
+/* 16px Schriftgröße ist Pflicht: darunter zoomt iOS beim Fokussieren rein. */
+.input {
+  width: 100%;
+  min-height: 48px; padding: var(--s-3);
+  background: var(--c-bg-2); color: var(--c-chalk);
+  border: var(--b-base) solid var(--c-border-strong); border-radius: var(--r-0);
+  font: 400 16px/1.4 var(--font-text);
+}
+.input:focus { outline: none; border-color: var(--c-signal); }
+.input--area { min-height: 160px; font-family: var(--font-mono); font-size: 14px; resize: vertical; }
+
+/* Nebeneinander, solange Platz ist — sonst untereinander statt zerquetscht. */
+.row--wrap { flex-wrap: wrap; }
+.btn--inline { width: auto; flex: 0 1 auto; min-height: 44px; padding: 0 var(--s-4); font-size: 14px; }
+
+.preview {
+  display: flex; flex-direction: column; gap: var(--s-2);
+  padding: var(--s-3);
+  border: var(--b-base) dashed var(--c-border-strong);
+}
+.preview__count {
+  margin: 0;
+  font-family: var(--font-display); font-weight: 800; font-size: 22px;
+  letter-spacing: .02em; text-transform: uppercase; color: var(--c-signal);
+}
+.preview__row { display: flex; align-items: baseline; gap: var(--s-2); font-size: 14px; }
+.preview__row .receipt-line__lead { background: repeating-linear-gradient(90deg, var(--c-chalk-muted) 0 2px, transparent 2px 5px); }
+.preview__row .t-ipa { color: var(--c-chalk-muted); }
+.preview__error { margin: 0; color: var(--c-bad); font-size: 14px; line-height: 1.4; }
+.preview__warn { margin: 0; color: var(--c-near); font-size: 13px; line-height: 1.4; }
+
+.help { border-top: var(--b-hair) solid var(--c-border-soft); padding-top: var(--s-3); }
+.help summary {
+  cursor: pointer;
+  font: 500 13px/1.2 var(--font-text); letter-spacing: .14em; text-transform: uppercase;
+  color: var(--c-chalk-muted);
+}
+.help .t-body { color: var(--c-chalk-muted); font-size: 14px; }
+.help__prompt {
+  max-height: 220px; overflow: auto;
+  padding: var(--s-3);
+  background: var(--c-bg-2); border: var(--b-hair) solid var(--c-border-soft);
+  font: 400 12px/1.5 var(--font-mono); color: var(--c-chalk-muted);
+  white-space: pre-wrap; word-break: break-word;
+}
