@@ -1,5 +1,11 @@
 # Transkriptions-Vorlage
 
+> **Bequemer geht es mit dem Skill:** `.claude/skills/vokabel-transkription/` macht
+> dasselbe, ohne dass du einen Prompt kopieren musst — Fotos hochladen, „tipp die
+> Vokabeln ab" schreiben, fertig. Der Skill prüft das Ergebnis zusätzlich mit
+> `scripts/pruefe_liste.py` auf die Fehler, an denen der Import scheitert.
+> Diese Datei bleibt für den Fall, dass du ein anderes Tool (Gemini, ChatGPT) briefst.
+
 Womit die App gefüttert wird: **eine JSON-Datei pro Vokabelliste.** Diese Datei
 entsteht, indem ein Sprachmodell (Gemini, Claude, ChatGPT) die abfotografierte
 Buchseite abtippt. Der Prompt dafür steht unten — er ist derselbe, der im
@@ -51,6 +57,10 @@ die App nicht. Deshalb der Prompt: er verlangt JSON, und zwar ohne Rahmen drumhe
 >   ]
 > }
 > ```
+>
+> **Alle Werte oben sind Beispiele aus einer anderen Seite.** `"unit"`, `"quelle"`,
+> `"seite"` und `"titel"` kommen von den Fotos, die du gerade vor dir hast — übernimm
+> nie die Beispielwerte („Goodbye Greenwich", „Seiten 168–170").
 >
 > Regeln:
 >

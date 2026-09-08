@@ -33,6 +33,8 @@ const PROMPT = `Hier sind Fotos einer Vokabelliste aus einem Schulbuch. Tippe si
   ]
 }
 
+Alle Werte oben sind Beispiele aus einer anderen Seite. "unit", "quelle", "seite" und "titel" kommen von den Fotos, die du gerade vor dir hast — übernimm nie die Beispielwerte.
+
 Regeln:
 1. "en" ist das fremdsprachige Wort genau wie im Buch — mit "to" bei englischen Verben, mit Stammformen ("to grow, grew, grown"), mit Klammern ("to move (house)", "(wind)surfing"). Auch bei anderen Sprachen heißt das Feld "en".
 2. "de" ist die deutsche Bedeutung wie im Buch, mehrere Bedeutungen mit Semikolon: "Reise; Fahrt".

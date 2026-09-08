@@ -1,5 +1,7 @@
-# Claude Code internal files
-.claude/
+# Claude Code internal files — bis auf die Skills, die zum Projekt gehören
+# (der Transkriptions-Skill kennt das Importformat der Vokabel-App).
+.claude/*
+!.claude/skills/
 
 # Environment variables
 .env

@@ -1,0 +1,76 @@
+{
+  "unit": "Unit 1 – Goodbye Greenwich",
+  "quelle": "Schulbuch, Seiten 168–170",
+  "abschnitte": [
+    {
+      "seite": 168,
+      "titel": "Introduction",
+      "vokabeln": [
+        { "nr": "8", "en": "journey", "lautschrift": "['dʒɜːni]", "de": "Reise; Fahrt", "beispiel": "On our journey through England we met a lot of nice people." },
+        { "en": "future", "lautschrift": "['fjuːtʃə]", "de": "Zukunft", "beispiel": "What will the future be like?", "hinweis": "Fr. future (m)" },
+        { "en": "to will", "lautschrift": "[wɪl]", "de": "werden (futurisch)" },
+        { "en": "medieval", "lautschrift": "[ˌmediˈiːvl]", "de": "mittelalterlich", "beispiel": "Is every castle medieval? – No, of course not.", "hinweis": "Fr. médiéval/-e" },
+        { "en": "living history show", "lautschrift": "[ˌlɪvɪŋ ˈhɪstəri ʃəʊ]", "de": "Show, in der historischer Alltag nachgespielt wird" },
+        { "en": "pony trekking", "lautschrift": "['pəʊni ˌtrekɪŋ]", "de": "Ponyreiten im Gelände", "beispiel": "You go pony trekking in the country." },
+        { "en": "Scottish", "lautschrift": "['skɒtɪʃ]", "de": "schottisch", "beispiel": "Edinburgh is the Scottish capital." },
+        { "nr": "1", "en": "to include", "lautschrift": "[ɪnˈkluːd]", "de": "einschließen; beinhalten", "beispiel": "The trip will be expensive, but the price includes all our meals.", "hinweis": "Lat. includere" },
+        { "nr": "2", "en": "negative", "lautschrift": "['negətɪv]", "de": "negativ; verneint", "beispiel": "negative <-> positive", "hinweis": "Fr. négatif/négative" },
+        { "en": "landscape", "lautschrift": "['lændskeɪp]", "de": "Landschaft" },
+        { "nr": "3", "en": "sandy", "lautschrift": "['sændi]", "de": "sandig; Sand-" },
+        { "en": "rocky", "lautschrift": "['rɒki]", "de": "felsig; steinig", "beispiel": "Not every beach is sandy. Many are rocky." },
+        { "en": "wide", "lautschrift": "[waɪd]", "de": "breit; weit; ausgedehnt", "beispiel": "This table is too wide, we can't get it through the door." },
+        { "en": "deep", "lautschrift": "[diːp]", "de": "tief", "beispiel": "You mustn't go into deep water if you can't swim." },
+        { "en": "island", "lautschrift": "['aɪlənd]", "de": "Insel", "beispiel": "The British Isles are a group of islands." },
+        { "en": "harbour", "lautschrift": "['hɑːbə]", "de": "Hafen", "beispiel": "The weather is bad, so the boats are staying in the harbour." },
+        { "en": "hiking", "lautschrift": "['haɪkɪŋ]", "de": "Wandern", "beispiel": "Wales is great for hiking." },
+        { "en": "mountain biking", "lautschrift": "['maʊntɪn ˌbaɪkɪŋ]", "de": "Mountainbikefahren" },
+        { "en": "(wind)surfing", "lautschrift": "['(wɪnd)sɜːfɪŋ]", "de": "(Wind-)Surfen", "hinweis": "! Beachte: Surfen und Windsurfen sind verschiedene Sportarten." },
+        { "en": "palm tree", "lautschrift": "['pɑːm ˌtriː]", "de": "Palme" },
+        { "en": "to grow, grew, grown", "lautschrift": "[grəʊ], [gruː], [grəʊn]", "de": "wachsen", "beispiel": "All kinds of flowers grow in our garden." }
+      ]
+    },
+    {
+      "seite": 169,
+      "titel": "Station 1: Moving to the middle of nowhere",
+      "vokabeln": [
+        { "en": "to move (house)", "lautschrift": "[muːv (haʊs)]", "de": "umziehen", "beispiel": "When you move house, you leave your old home and go to live in a new one.", "hinweis": "Lat. movere" },
+        { "en": "nowhere", "lautschrift": "['nəʊweə]", "de": "nirgendwo; nirgendwohin", "beispiel": "nowhere -> somewhere -> everywhere" }
+      ]
+    },
+    {
+      "seite": 170,
+      "titel": "Station 1 (Fortsetzung)",
+      "vokabeln": [
+        { "en": "Cornish", "lautschrift": "['kɔːnɪʃ]", "de": "aus/in Cornwall", "beispiel": "Dave and his parents are going to move to a Cornish town." },
+        { "en": "countryside", "lautschrift": "['kʌntrisaɪd]", "de": "Land", "hinweis": "in the countryside = auf dem Land" },
+        { "en": "to miss", "lautschrift": "[mɪs]", "de": "vermissen", "beispiel": "I miss you. = Du fehlst mir." },
+        { "en": "to stay", "lautschrift": "[steɪ]", "de": "übernachten", "beispiel": "We stayed at a really nice hotel." },
+        { "en": "(not) any longer", "lautschrift": "[nɒt_eni 'lɒŋgə]", "de": "(nicht) mehr; (nicht) länger", "beispiel": "I don't like it here; I don't want to stay here any longer." },
+        { "en": "all of us", "lautschrift": "['ɔːl_əv_əs]", "de": "wir alle" },
+        { "nr": "1", "en": "transport", "lautschrift": "['trænspɔːt]", "de": "Verkehrsmittel; Transport", "beispiel": "Transport can be expensive.", "hinweis": "Lat. transportare" },
+        { "nr": "3", "en": "travel agent's", "lautschrift": "['trævl ˌeɪdʒənts]", "de": "Reisebüro", "beispiel": "You can buy holidays at the travel agent's." },
+        { "en": "ticket", "lautschrift": "['tɪkɪt]", "de": "Fahrschein", "hinweis": "Fr. ticket (m)" },
+        { "en": "to depend (on)", "lautschrift": "[dɪˈpend_(ɒn)]", "de": "abhängen von", "beispiel": "The price of the ticket depends on the date.", "hinweis": "Fr. dépendre (de)" },
+        { "en": "per", "lautschrift": "[pɜː; pə]", "de": "pro", "beispiel": "The price for the tickets is £5 per person." },
+        { "nr": "5", "en": "to promise", "lautschrift": "['prɒmɪs]", "de": "versprechen", "beispiel": "Can his parents promise that Dave will like Cornwall?" },
+        { "en": "to book", "lautschrift": "[bʊk]", "de": "buchen; reservieren", "beispiel": "You can book a ticket for a journey, a holiday, a table at a restaurant." },
+        { "en": "to return", "lautschrift": "[rɪˈtɜːn]", "de": "zurückkehren; zurückfahren", "beispiel": "to return = to go or come back", "hinweis": "Fr. retourner" },
+        { "en": "form", "lautschrift": "[fɔːm]", "de": "Formular", "beispiel": "You often have to fill in forms on the internet." },
+        { "en": "to click on", "lautschrift": "['klɪk_ɒn]", "de": "anklicken", "beispiel": "Click on 'SEND' to send your e-mail." },
+        { "en": "connection", "lautschrift": "[kəˈnekʃn]", "de": "Verbindung", "beispiel": "What connections are there from Greenwich to St Agnes today?" },
+        { "en": "one-way ticket", "lautschrift": "['wʌnweɪ ˌtɪkɪt]", "de": "einfache Fahrkarte" },
+        { "en": "single ticket", "lautschrift": "['sɪŋgl ˌtɪkɪt]", "de": "einfache Fahrkarte", "hinweis": "single ticket = one-way ticket" },
+        { "en": "return ticket", "lautschrift": "[rɪˈtɜːn ˌtɪkɪt]", "de": "Hin- und Rückfahrkarte", "hinweis": "return ticket <-> one-way ticket" },
+        { "en": "fee", "lautschrift": "[fiː]", "de": "Gebühr", "beispiel": "Is there an extra fee on the ticket?" },
+        { "en": "to depart", "lautschrift": "[dɪˈpɑːt]", "de": "abfahren", "beispiel": "When does the train depart?" },
+        { "en": "to arrive", "lautschrift": "[əˈraɪv]", "de": "ankommen", "beispiel": "And when does the next train arrive?", "hinweis": "Fr. arriver" },
+        { "en": "outward", "lautschrift": "['aʊtwəd]", "de": "abfahrend", "beispiel": "Outward trains leave the station." },
+        { "en": "inward", "lautschrift": "['ɪnwəd]", "de": "ankommend", "beispiel": "Inward trains arrive at the station." },
+        { "en": "fare", "lautschrift": "[feə]", "de": "Fahrpreis", "beispiel": "Is there a special fare for groups?" },
+        { "en": "platform", "lautschrift": "['plætfɔːm]", "de": "Plattform; Bahnsteig" },
+        { "en": "to get on (the bus)", "lautschrift": "[ˌget_'ɒn]", "de": "einsteigen (in den Bus)", "hinweis": "to get on <-> to get off" },
+        { "en": "starting place", "lautschrift": "['stɑːtɪŋ pleɪs]", "de": "Startpunkt" }
+      ]
+    }
+  ]
+}
