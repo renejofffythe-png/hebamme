@@ -30,7 +30,13 @@ export function libraryScreen(
       el('span', { class: 't-meta set-card__date' }, [stamp]),
       el('span', { class: 'set-card__title' }, [set.title]),
       el('span', { class: 't-meta set-card__meta' }, [
-        [`${set.words.length} Wörter`, set.langLabel, set.source].filter(Boolean).join(' · '),
+        [
+          `${set.words.length} ${set.words.length === 1 ? 'Wort' : 'Wörter'}`,
+          set.langLabel,
+          set.source,
+        ]
+          .filter(Boolean)
+          .join(' · '),
       ]),
       saved
         ? el('span', { class: 'set-card__resume' }, [

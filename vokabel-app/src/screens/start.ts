@@ -62,7 +62,9 @@ export function startScreen(
     ].filter((n) => n !== null)),
     el('h1', { class: 'wordmark' }, ['Über-', el('br'), 'klebt']),
     el('p', { class: 't-body', 'style:max-width': '28em', 'style:margin': '0' }, [
-      `Deutsch rein, ${set.langLabel} raus. ${set.words.length} Wörter, danach hast du frei.`,
+      `Deutsch rein, ${set.langLabel} raus. ${set.words.length} ${
+        set.words.length === 1 ? 'Wort' : 'Wörter'
+      }, danach hast du frei.`,
     ]),
 
     el('div', { class: 'set-strip paper', 'style:cursor': 'default', 'style:transform': 'rotate(-1deg)' }, [

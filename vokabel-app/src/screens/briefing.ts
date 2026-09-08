@@ -22,7 +22,9 @@ export function briefingScreen(
     el('div', { class: 'row' }, [el('div', { class: 'spacer' }), soundToggle()]),
     el('div', { class: 'spacer' }),
     el('p', { class: 't-meta', 'style:color': 'var(--c-chalk-muted)', 'style:margin': '0' }, [set.source]),
-    el('h1', { class: 't-h1 misprint', 'style:margin': '0' }, [`${set.title} — ${count} Vokabeln`]),
+    el('h1', { class: 't-h1 misprint', 'style:margin': '0' }, [
+      `${set.title} — ${count} ${count === 1 ? 'Vokabel' : 'Vokabeln'}`,
+    ]),
     el('p', { class: 't-body', 'style:margin': '0', 'style:color': 'var(--c-chalk-muted)' }, [
       `Deutsch → ${set.langLabel} · Du tippst die Antwort`,
     ]),
