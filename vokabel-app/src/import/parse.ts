@@ -363,9 +363,21 @@ function finish(
   return { words, title: ctx.title, source: ctx.source, warnings };
 }
 
+/**
+ * Sprachmodelle verpacken JSON gern in einen Markdown-Zaun, auch wenn der Prompt
+ * das Gegenteil verlangt. Den nimmt der Import stillschweigend ab.
+ */
+function stripFence(text: string): string {
+  if (!text.startsWith('```')) return text;
+  return text
+    .replace(/^```[a-z]*\s*\n?/i, '')
+    .replace(/\n?```\s*$/, '')
+    .trim();
+}
+
 /** Einstiegspunkt: erkennt selbst, ob JSON oder Text vorliegt. */
 export function parseList(input: string, opts: ParseOptions): ParsedList {
-  const text = input.trim();
+  const text = stripFence(input.trim());
   if (!text) throw new ParseError('Da ist nichts drin.');
 
   if (text.startsWith('{') || text.startsWith('[')) {
@@ -386,6 +398,13 @@ export function parseList(input: string, opts: ParseOptions): ParsedList {
 
   const result = parseText(text, opts);
   if (!result.words.length) {
+    // Der häufigste Fehlversuch: die Tabelle, die ein Chatmodell von sich aus
+    // ausgibt. Dann hilft nur ein klarer Hinweis auf den Prompt.
+    if (/^\|?\s*:?-{2,}/m.test(text) && text.includes('|')) {
+      throw new ParseError(
+        'Das ist eine Markdown-Tabelle. Die App liest JSON — lass die Liste mit dem Prompt unten noch einmal ausgeben.',
+      );
+    }
     throw new ParseError(
       'Keine Zeile erkannt. Jede Zeile braucht deutsches Wort, ein Trennzeichen (Tab, | oder =) und die Übersetzung.',
     );

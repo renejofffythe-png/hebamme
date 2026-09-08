@@ -33,7 +33,10 @@ Abschnitten, flache Liste oder fertiges Set) und rohen Text
 (`Reise; Fahrt = journey [ˈdʒɜːni] # Beispielsatz`), in acht Zielsprachen.
 
 Der gedachte Weg: Buchseite fotografieren, von einem Sprachmodell abtippen lassen,
-Datei hochladen. Der passende Prompt steht auf dem Import-Screen zum Kopieren.
+Datei hochladen. Der passende Prompt steht auf dem Import-Screen zum Kopieren und
+ausführlich in [docs/TRANSKRIPTION.md](docs/TRANSKRIPTION.md). Markdown-Tabellen,
+wie ein Chatmodell sie von sich aus ausgibt, liest die App nicht — der Prompt sorgt
+dafür, dass JSON zurückkommt.
 
 Jede Liste bleibt einzeln gespeichert — mit Datum, eigenem Spielstand und eigenen
 Bestwerten. Die Bibliothek sortiert nach Datum, neueste zuerst.

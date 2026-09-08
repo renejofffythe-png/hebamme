@@ -15,23 +15,34 @@ import type { WordSet } from '../types';
  * drei Beispielzeilen stimmen, ist der Speichern-Knopf aktiv.
  */
 
-const PROMPT = `Tippe die Vokabelliste auf diesem Foto vollständig ab und gib sie als JSON zurück — nur das JSON, ohne Erklärung drumherum:
+const PROMPT = `Hier sind Fotos einer Vokabelliste aus einem Schulbuch. Tippe sie vollständig ab und gib ausschließlich JSON zurück — keine Erklärung davor oder danach, keine Markdown-Tabelle.
 
 {
-  "unit": "Unit 2 – Titel der Einheit",
-  "quelle": "Schulbuch, Seiten 171–173",
+  "unit": "Unit 1 – Goodbye Greenwich",
+  "quelle": "Schulbuch, Seiten 168–170",
   "abschnitte": [
     {
-      "seite": 171,
+      "seite": 168,
       "titel": "Introduction",
       "vokabeln": [
-        { "en": "journey", "lautschrift": "[ˈdʒɜːni]", "de": "Reise; Fahrt", "beispiel": "On our journey through England we met a lot of nice people.", "hinweis": "Fr. voyage (m)" }
+        { "en": "journey", "lautschrift": "[ˈdʒɜːni]", "de": "Reise; Fahrt", "beispiel": "On our journey through England we met a lot of nice people." },
+        { "en": "future", "lautschrift": "[ˈfjuːtʃə]", "de": "Zukunft", "beispiel": "What will the future be like?", "hinweis": "Fr. future (m)" },
+        { "en": "to grow, grew, grown", "lautschrift": "[grəʊ], [gruː], [grəʊn]", "de": "wachsen" }
       ]
     }
   ]
 }
 
-Regeln: "en" ist das fremdsprachige Wort genau wie im Buch (mit "to" bei englischen Verben), "de" die deutsche Bedeutung, "lautschrift" die Lautschrift in eckigen Klammern. "beispiel" und "hinweis" nur, wenn sie im Buch stehen. Nichts erfinden, nichts weglassen, Reihenfolge wie im Buch.`;
+Regeln:
+1. "en" ist das fremdsprachige Wort genau wie im Buch — mit "to" bei englischen Verben, mit Stammformen ("to grow, grew, grown"), mit Klammern ("to move (house)", "(wind)surfing"). Auch bei anderen Sprachen heißt das Feld "en".
+2. "de" ist die deutsche Bedeutung wie im Buch, mehrere Bedeutungen mit Semikolon: "Reise; Fahrt".
+3. "lautschrift" in eckigen Klammern mit echten IPA-Zeichen. Steht keine im Buch, Feld weglassen.
+4. "beispiel" nur, wenn das Buch einen Beispielsatz abdruckt — ohne Kursiv-Sternchen, ohne <br>.
+5. "hinweis" für alles Übrige: Herkunft ("Lat. includere"), Merksätze ("! Surfen und Windsurfen sind verschiedene Sportarten"), Gegensätze ("negative ↔ positive"), Gleichsetzungen ("in the countryside = auf dem Land"). Mehreres mit " · " verbinden.
+6. Ein Objekt pro Vokabel; Überschriftenzeilen wie "8 Introduction" sind keine Vokabeln. Randziffern kannst du weglassen.
+7. Pro Buchseite ein Abschnitt mit "seite" (Zahl) und "titel".
+8. Nichts erfinden, nichts weglassen, Reihenfolge wie im Buch. Keine Synonyme ergänzen.
+9. Gültiges JSON: doppelte Anführungszeichen, kein Komma nach dem letzten Eintrag.`;
 
 export function importScreen(handlers: {
   onSaved(id: string): void;
@@ -219,7 +230,9 @@ export function importScreen(handlers: {
     el('summary', {}, ['Woher kommt so eine Datei?']),
     el('p', { class: 't-body' }, [
       'Buchseite fotografieren, das Foto einem Sprachmodell geben und diesen Prompt dazu. ' +
-        'Das Ergebnis als Datei speichern oder direkt hier einfügen.',
+        'Das Ergebnis als Datei speichern oder direkt hier einfügen. ' +
+        'Die Tabelle, die ein Chatmodell von sich aus ausgibt, versteht die App nicht — ' +
+        'der Prompt sorgt dafür, dass JSON zurückkommt.',
     ]),
     el('pre', { class: 'help__prompt' }, [PROMPT]),
     el('div', { class: 'row' }, [copy]),

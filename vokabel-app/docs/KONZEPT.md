@@ -508,6 +508,15 @@ zuständig (Abschnitt 3), nicht die Liste.
 **Vorschau statt Vertrauen:** Erst wenn „42 Vokabeln erkannt" oben steht und die drei
 Beispielzeilen stimmen, wird der Speichern-Knopf aktiv.
 
+**Markdown-Tabellen liest der Import bewusst nicht.** Ein Chatmodell gibt sie von sich
+aus aus, aber sie sind mehrdeutig (welche Spalte ist Deutsch?), verlieren beim
+Kopieren die Zeilenstruktur und tragen Kursiv-Sternchen und `<br>` in die Daten. Statt
+einen Parser für ein wackliges Format zu bauen, brieft die Vorlage
+(`docs/TRANSKRIPTION.md`, identisch im Import-Screen) das Modell auf JSON — dort ist
+jedes Feld benannt. Wer trotzdem eine Tabelle einfügt, bekommt genau diesen Hinweis
+statt einer wirren Fehlermeldung. Einen Markdown-Zaun (```) um das JSON nimmt der
+Import stillschweigend ab.
+
 **Sprachen.** Jede Liste trägt ihre Zielsprache (BCP-47). Sie steuert die Stimme, die
 Beschriftungen („Deutsch → Französisch") und `lang` am Eingabefeld. Ausgangssprache
 ist immer Deutsch — das steckt in der Mechanik und ist nicht konfigurierbar.
