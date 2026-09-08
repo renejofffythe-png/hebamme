@@ -1,9 +1,11 @@
 # Netlify-Konfiguration für die Vokabel-App.
 #
-# Diese Datei gilt NUR für ein Netlify-Projekt, dessen "base directory" auf
-# `vokabel-app` gesetzt ist. Die netlify.toml im Repo-Root gehört zur
-# Joythe-&-Richert-Website und bleibt davon unberührt — beide Projekte
-# deployen aus demselben Repository, aber aus verschiedenen Ordnern.
+# Diese Datei greift NUR, wenn im Netlify-Projekt das Feld "Base directory" auf
+# `vokabel-app` steht. Bleibt das Feld leer — die empfohlene Einstellung —, liest
+# Netlify stattdessen die netlify.toml im Repo-Root; dort erledigt der Abschnitt
+# [context."vokabel-app"] dasselbe. Beide Wege führen zum selben Build, es darf
+# nur nicht halb das eine und halb das andere sein: mit gesetztem Base-Verzeichnis
+# würde der Befehl aus dem Root-Kontext ins Leere greifen (vokabel-app/vokabel-app).
 
 [build]
   command = "npm run build"

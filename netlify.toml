@@ -5,6 +5,23 @@
 [build]
   publish = "joythe-richert-website"
 
+# Die Vokabel-App liegt im selben Repo, aber in vokabel-app/ und mit Build-Step.
+# Dieser Kontext gilt ausschließlich für Deploys des Branch "vokabel-app" — die
+# Joythe-&-Richert-Seite (main) bleibt unberührt.
+#
+# Warum hier und nicht nur in vokabel-app/netlify.toml: Netlify liest zuerst
+# diese Datei im Repo-Wurzelverzeichnis. Ohne gesetztes Base-Verzeichnis würde
+# der Vokabel-App-Site sonst das `publish` der anderen Seite erben und der Build
+# scheitern, bevor die zweite netlify.toml überhaupt drankommt. Mit diesem
+# Kontext läuft das Deployment unabhängig davon, was im Netlify-UI eingetragen
+# ist — vorausgesetzt, das Feld „Base directory" bleibt LEER.
+[context."vokabel-app"]
+  command = "cd vokabel-app && npm ci && npm run build"
+  publish = "vokabel-app/dist"
+
+[context."vokabel-app".environment]
+  NODE_VERSION = "22"
+
 # Sicherheits-Header für alle Seiten
 [[headers]]
   for = "/*"
@@ -32,3 +49,12 @@
   for = "/img/*"
   [headers.values]
     Cache-Control = "public, max-age=86400"
+
+# Nur die Vokabel-App hat einen /assets/-Ordner, und dort hängt an jedem
+# Dateinamen ein Content-Hash – unbegrenztes Caching ist deshalb sicher.
+# (Header lassen sich in netlify.toml nicht pro Kontext setzen; für die
+# Joythe-Seite läuft die Regel ins Leere, weil es dort kein /assets/ gibt.)
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
