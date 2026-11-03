@@ -1,0 +1,206 @@
+{
+  "id": "fr-unite1-tag6",
+  "title": "Französisch Tag 6 — un portable bis une réponse",
+  "source": "Au début / Unité 1 · Tag 6 von 7",
+  "lang": "fr-FR",
+  "langLabel": "Französisch",
+  "direction": "de-fr",
+  "words": [
+    {
+      "id": "un-portable",
+      "de": "ein Handy; ein Mobiltelefon",
+      "en": [
+        "un portable"
+      ],
+      "accept": [],
+      "ipa": "ɛ̃pɔʀtabl",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": null
+    },
+    {
+      "id": "mais",
+      "de": "aber",
+      "en": [
+        "mais"
+      ],
+      "accept": [],
+      "ipa": "mɛ",
+      "pos": "word",
+      "hint": "Vokabel",
+      "example": null,
+      "note": null
+    },
+    {
+      "id": "c-est-qui",
+      "de": "Wer ist das?",
+      "en": [
+        "C'est qui ?"
+      ],
+      "accept": [],
+      "ipa": "sɛki",
+      "pos": "phrase",
+      "hint": "Wendung · 2 Wörter",
+      "example": null,
+      "note": "umgangssprachlich"
+    },
+    {
+      "id": "mamie",
+      "de": "Omi (ugs.)",
+      "en": [
+        "mamie"
+      ],
+      "accept": [],
+      "ipa": "mami",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "umgangssprachlich"
+    },
+    {
+      "id": "super",
+      "de": "toll (ugs.); super (ugs.)",
+      "en": [
+        "super"
+      ],
+      "accept": [],
+      "ipa": "sypɛʀ",
+      "pos": "word",
+      "hint": "Vokabel",
+      "example": null,
+      "note": "umgangssprachlich"
+    },
+    {
+      "id": "j-ai-douze-ans",
+      "de": "Ich bin zwölf (Jahre alt).",
+      "en": [
+        "J'ai douze ans."
+      ],
+      "accept": [],
+      "ipa": "ʒeduzɑ̃",
+      "pos": "phrase",
+      "hint": "Wendung · 3 Wörter",
+      "example": null,
+      "note": null
+    },
+    {
+      "id": "un-frere",
+      "de": "ein Bruder",
+      "en": [
+        "un frère"
+      ],
+      "accept": [],
+      "ipa": "ɛ̃fʀɛʀ",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": null
+    },
+    {
+      "id": "une-s-ur",
+      "de": "eine Schwester",
+      "en": [
+        "une sœur"
+      ],
+      "accept": [],
+      "ipa": "ynsœʀ",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": null
+    },
+    {
+      "id": "il-a-onze-ans-elle-a-onze-ans",
+      "de": "Er / sie ist 11 (Jahre alt).",
+      "en": [
+        "Il a onze ans.",
+        "Elle a onze ans."
+      ],
+      "accept": [],
+      "ipa": "ilaɔ̃zɑ̃; ɛlaɔ̃zɑ̃",
+      "pos": "phrase",
+      "hint": "Wendung · 4 Wörter",
+      "example": null,
+      "note": null
+    },
+    {
+      "id": "aussi",
+      "de": "auch",
+      "en": [
+        "aussi"
+      ],
+      "accept": [],
+      "ipa": "osi",
+      "pos": "word",
+      "hint": "Vokabel",
+      "example": null,
+      "note": null
+    },
+    {
+      "id": "alors",
+      "de": "nun; jetzt; dann",
+      "en": [
+        "alors"
+      ],
+      "accept": [],
+      "ipa": "alɔʀ",
+      "pos": "word",
+      "hint": "Vokabel",
+      "example": null,
+      "note": null
+    },
+    {
+      "id": "deja",
+      "de": "schon",
+      "en": [
+        "déjà"
+      ],
+      "accept": [],
+      "ipa": "deʒa",
+      "pos": "word",
+      "hint": "Vokabel",
+      "example": null,
+      "note": null
+    },
+    {
+      "id": "pour",
+      "de": "für",
+      "en": [
+        "pour"
+      ],
+      "accept": [],
+      "ipa": "puʀ",
+      "pos": "word",
+      "hint": "Vokabel",
+      "example": null,
+      "note": null
+    },
+    {
+      "id": "ce-sont",
+      "de": "das sind",
+      "en": [
+        "ce sont"
+      ],
+      "accept": [],
+      "ipa": "səsɔ̃",
+      "pos": "phrase",
+      "hint": "Wendung · 2 Wörter",
+      "example": null,
+      "note": null
+    },
+    {
+      "id": "une-reponse",
+      "de": "eine Antwort",
+      "en": [
+        "une réponse"
+      ],
+      "accept": [],
+      "ipa": "ynʀepɔ̃s",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": null
+    }
+  ]
+}

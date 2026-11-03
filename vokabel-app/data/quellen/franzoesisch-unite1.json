@@ -1,0 +1,77 @@
+{
+  "unit": "Au début / Unité 1 – Bonjour Paris!",
+  "quelle": "Schulbuch Französisch, Seiten 158–160",
+  "abschnitte": [
+    {
+      "seite": 158,
+      "titel": "Au début",
+      "vokabeln": [
+        { "en": "Bienvenue!", "lautschrift": "[bjɛ̃vny]", "de": "Willkommen!", "hinweis": "Das en in bienvenue wird „durch die Nase“ ausgesprochen [ɛ̃]. Das geht leichter, wenn du dabei lächelst." },
+        { "en": "Bonjour.", "lautschrift": "[bɔ̃ʒuʀ]", "de": "Guten Tag!", "hinweis": "Bonjour: Das j wird [ʒ] ausgesprochen wie in „Journalist“." },
+        { "en": "je m'appelle", "lautschrift": "[ʒəmapɛl]", "de": "ich heiße", "beispiel": "Bonjour! Je m'appelle Célia. – Guten Tag! Ich heiße Célia.", "hinweis": "je m'appelle: [ɛ] wie in bellen" },
+        { "en": "moi", "lautschrift": "[mwa]", "de": "ich (betont)", "hinweis": "Sag mal „Wow!“ Damit bist du schon ganz nah an dem Laut -oi- [wa]." },
+        { "en": "c'est", "lautschrift": "[sɛ]", "de": "das ist", "beispiel": "C'est Hugo. – Das ist Hugo.", "hinweis": "c'est: [ɛ] wie in bellen" },
+        { "en": "Salut! (fam.)", "lautschrift": "[saly]", "de": "Hallo! (ugs.); Grüß dich! (ugs.); Tschüs! (ugs.)", "hinweis": "salut: [y] wie in Tür. Das t am Ende spricht man nicht." },
+        { "en": "et", "lautschrift": "[e]", "de": "und", "hinweis": "et: Das t am Ende spricht man nicht aus. Es bleibt „stumm“ wie bei „Salut“." },
+        { "en": "toi", "lautschrift": "[twa]", "de": "du (betont)", "hinweis": "toi: [w] wie das w bei „Wow!“." },
+        { "en": "comment", "lautschrift": "[kɔmɑ̃]", "de": "wie (Frage)", "hinweis": "Auch der Laut [ɑ̃] in comment wird „durch die Nase“ ausgesprochen." },
+        { "en": "Tu t'appelles comment?", "lautschrift": "[tytapɛlkɔmɑ̃]", "de": "Wie heißt du?", "beispiel": "Moi, je m'appelle Liane. Et toi, tu t'appelles comment? – Ich heiße Liane. Und du, wie heißt du?" },
+        { "en": "Ça va?", "lautschrift": "[sava]", "de": "Wie geht's?", "hinweis": "Das Häkchen unter dem C bedeutet, dass man das c [s] ausspricht. Es klingt, wie wenn eine Schlange zischt. Das Häkchen nennt man „une cédille“." },
+        { "en": "un bisou", "lautschrift": "[ɛ̃bizu]", "de": "ein Küsschen", "hinweis": "Das s spricht man stimmhaft: [z]. Es klingt, wie wenn eine Biene summt." },
+        { "en": "merci", "lautschrift": "[mɛʀsi]", "de": "danke", "beispiel": "Ça va? – Ça va, merci. – Wie geht's? – Es geht mir gut, danke." },
+        { "en": "À bientôt !", "lautschrift": "[abjɛ̃to]", "de": "Bis bald!", "hinweis": "Das t am Ende spricht man nicht, wie bei Salut." },
+        { "en": "oui", "lautschrift": "[wi]", "de": "ja" },
+        { "en": "à plus (fam.)", "lautschrift": "[aplys]", "de": "Bis später!" },
+        { "en": "bien adv.", "lautschrift": "[bjɛ̃]", "de": "gut (Adv.)", "hinweis": "Fällt dir der Nasalvokal [ɛ̃] schwer? Versuche mal, bei der Aussprache zu lächeln." },
+        { "en": "Ça va bien.", "lautschrift": "[savabjɛ̃]", "de": "Es geht (mir) gut." },
+        { "en": "Au revoir!", "lautschrift": "[ɔʀvwaʀ]", "de": "Auf Wiedersehen!", "hinweis": "au revoir: [ɔ] wie in Loch." },
+        { "en": "voilà", "lautschrift": "[vwala]", "de": "da ist / das ist; da sind / das sind", "beispiel": "Voilà Arthur! – Das ist Arthur!", "hinweis": "[wa] wie bei toi und moi." },
+        { "en": "Bonjour les amis!", "lautschrift": "[bɔ̃ʒuʀlezami]", "de": "Guten Tag, Freunde!", "hinweis": "les amis wird gesprochen wie ein Wort: [lezami]." }
+      ]
+    },
+    {
+      "seite": 159,
+      "titel": "Unité 1 – Bonjour Paris!",
+      "vokabeln": [
+        { "en": "Paris", "lautschrift": "[paʀi]", "de": "Hauptstadt Frankreichs", "hinweis": "Im Französischen wird das s von Paris nicht ausgesprochen." },
+        { "en": "la tour Eiffel", "lautschrift": "[latuʀɛfɛl]", "de": "der Eiffelturm" },
+        { "en": "une place", "lautschrift": "[ynplas]", "de": "ein Platz", "hinweis": "Einige englische Wörter kommen aus dem Französischen! englisch: place" },
+        { "en": "un parc", "lautschrift": "[ɛ̃paʀk]", "de": "ein Park", "hinweis": "englisch: park" },
+        { "en": "une station", "lautschrift": "[ynstasjɔ̃]", "de": "eine Station; eine Haltestelle", "hinweis": "Das zweite t in station wird [s] ausgesprochen. · englisch: station" },
+        { "en": "le métro", "lautschrift": "[ləmetʀo]", "de": "die Metro; die U-Bahn", "beispiel": "une station de métro – eine Metro-Station" },
+        { "en": "une rue", "lautschrift": "[ynʀy]", "de": "eine Straße", "beispiel": "une rue à Paris – eine Straße in Paris" },
+        { "en": "un café", "lautschrift": "[ɛ̃kafe]", "de": "ein Café" },
+        { "en": "un quartier", "lautschrift": "[ɛ̃kaʀtje]", "de": "ein Stadtviertel", "hinweis": "Das qu wird im Französischen als [k] ausgesprochen." },
+        { "en": "cool (fam.)", "lautschrift": "[kul]", "de": "cool (ugs.)" },
+        { "en": "Où est …?", "lautschrift": "[uɛ]", "de": "Wo ist …?", "beispiel": "Où est Max? Où est Lola? – Wo ist Max? Wo ist Lola?" },
+        { "en": "on est", "lautschrift": "[ɔ̃nɛ]", "de": "man ist; wir sind (ugs.)", "hinweis": "On heißt „man“. Umgangssprachlich (ugs.) wird es häufig für „wir“ verwendet." },
+        { "en": "là", "lautschrift": "[la]", "de": "da; dort", "beispiel": "On est là, maman! – Wir sind da, Mama!" },
+        { "en": "maman (f.)", "lautschrift": "[mamɑ̃]", "de": "Mama; Mutti", "hinweis": "Das an am Ende von maman wird [ɑ̃] ausgesprochen, wie bei comment." },
+        { "en": "madame …", "lautschrift": "[madam]", "de": "Frau …", "beispiel": "Bonjour madame! – Guten Tag! (zu einer Frau)", "hinweis": "Bonjour madame ist höflicher als ein einfaches Bonjour." },
+        { "en": "Attention!", "lautschrift": "[atɑ̃sjɔ̃]", "de": "Achtung!; Vorsicht!", "hinweis": "attention: [s] wie bei station." },
+        { "en": "Pardon.", "lautschrift": "[paʀdɔ̃]", "de": "Verzeihung.; Entschuldigung.", "hinweis": "Als Frage bedeutet Pardon? auch Wie bitte?" },
+        { "en": "je suis", "lautschrift": "[ʒəsɥi]", "de": "ich bin", "beispiel": "Je suis une amie. – Ich bin eine Freundin." },
+        { "en": "un ami / une amie", "lautschrift": "[ɛ̃nami], [ynami]", "de": "ein Freund / eine Freundin" },
+        { "en": "de / d'", "lautschrift": "[də]", "de": "aus; von", "beispiel": "Je suis une amie d'Elsa. – Ich bin eine Freundin von Elsa.", "hinweis": "! Beginnt das folgende Wort mit einem Vokal (a, e, i, o, u), fällt das e von de weg und wird durch einen Apostroph ersetzt: d'Elsa." },
+        { "en": "un voisin / une voisine", "lautschrift": "[ɛ̃vwazɛ̃], [ynvwazin]", "de": "ein Nachbar / eine Nachbarin", "beispiel": "Safia est une voisine de Max et Lola. – Safia ist eine Nachbarin von Max und Lola." },
+        { "en": "tu es", "lautschrift": "[tyɛ]", "de": "du bist", "beispiel": "Tu es où, Merlin? Ah, tu es là! – Wo bist du, Merlin? Ah, da bist du!" }
+      ]
+    },
+    {
+      "seite": 160,
+      "titel": "Unité 1 – Bonjour Paris!",
+      "vokabeln": [
+        { "en": "un chat", "lautschrift": "[ɛ̃ʃa]", "de": "eine Katze", "hinweis": "Der Laut [ʃ] in chat wird -sch- ausgesprochen wie in schön." },
+        { "en": "il est", "lautschrift": "[ilɛ]", "de": "er ist", "beispiel": "Oh, un chat! Il est sympa! – Oh, eine Katze! Die ist aber nett!" },
+        { "en": "sympa (fam.)", "lautschrift": "[sɛ̃pa]", "de": "nett; toll" },
+        { "en": "on fait un tour (fam.)", "lautschrift": "[ɔ̃fɛɛ̃tuʀ]", "de": "wir drehen eine Runde", "beispiel": "On fait un tour? – Drehen wir eine Runde?", "hinweis": "! Hebst du am Ende des Satzes die Stimme, wird aus einer Aussage eine Frage." },
+        { "en": "Viens!", "lautschrift": "[vjɛ̃]", "de": "Komm! (Aufforderung)", "hinweis": "viens: [ɛ̃] „Nasalvokal“ wie in voisin." },
+        { "en": "d'accord", "lautschrift": "[dakɔʀ]", "de": "einverstanden; o.k.", "beispiel": "Tu es d'accord? – Oui! – Bist du einverstanden? – Ja!" },
+        { "en": "papa", "lautschrift": "[papa]", "de": "Papa" },
+        { "en": "Regarde!", "lautschrift": "[ʀəgaʀd]", "de": "Schau! (Aufforderung); Sieh mal!", "hinweis": "Die Betonung liegt auf dem zweiten -a!" },
+        { "en": "ici", "lautschrift": "[isi]", "de": "hier; hierher" },
+        { "en": "non", "lautschrift": "[nɔ̃]", "de": "nein", "beispiel": "C'est bien ici, non? – Das ist gut hier, nicht wahr?" }
+      ]
+    }
+  ]
+}

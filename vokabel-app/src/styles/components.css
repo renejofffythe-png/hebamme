@@ -603,3 +603,15 @@ html, body {
   font: 400 12px/1.5 var(--font-mono); color: var(--c-chalk-muted);
   white-space: pre-wrap; word-break: break-word;
 }
+
+/* Spracheingabe: der Knopf pulsiert, solange zugehört wird. */
+.chip--mic { min-width: 12ch; }
+.chip--live {
+  border-color: var(--c-brown);
+  color: var(--c-brown);
+  animation: mic-pulse 1.1s ease-in-out infinite;
+}
+@keyframes mic-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}

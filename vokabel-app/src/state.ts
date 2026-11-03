@@ -1,4 +1,5 @@
 import type { Word, WordSet, Verdict } from './types';
+import { record as recordShaky } from './shaky';
 
 /**
  * Sessionzustand: Runden, Wellen, Punkte, Persistenz.
@@ -252,6 +253,8 @@ export class Session {
     }
 
     this.s.verdicts[id] = verdict;
+    // Dauerhaftes Gedächtnis je Wort — daraus entstehen die Wackelkandidaten.
+    recordShaky(this.set.id, id, verdict);
     const missedRound = this.s.missedIn[id];
     const isRescue = verdict === 'correct' && missedRound !== undefined && missedRound < this.s.round;
 

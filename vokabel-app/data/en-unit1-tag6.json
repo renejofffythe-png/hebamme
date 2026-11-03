@@ -1,0 +1,192 @@
+{
+  "id": "en-unit1-tag6",
+  "title": "Englisch Tag 6 — nobody else bis ingredient",
+  "source": "Unit 1 · S. 175 · Tag 6 von 6",
+  "lang": "en-GB",
+  "langLabel": "Englisch",
+  "direction": "de-en",
+  "words": [
+    {
+      "id": "nobody-else",
+      "de": "niemand anderes",
+      "en": [
+        "nobody else"
+      ],
+      "accept": [],
+      "ipa": "ˌnəʊbədi ˈels",
+      "pos": "phrase",
+      "hint": "Wendung · 2 Wörter",
+      "example": "Only you and nobody else should read your diary entries.",
+      "note": null,
+      "page": 175
+    },
+    {
+      "id": "postcard",
+      "de": "Postkarte",
+      "en": [
+        "postcard"
+      ],
+      "accept": [],
+      "ipa": "ˈpəʊstkɑːd",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": "I love it when I get a real postcard and not just photos in an e-mail!",
+      "note": null,
+      "page": 175
+    },
+    {
+      "id": "sailboat",
+      "de": "Segelboot",
+      "en": [
+        "sailboat"
+      ],
+      "accept": [],
+      "ipa": "ˈseɪlbəʊt",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": null,
+      "page": 175
+    },
+    {
+      "id": "to-camp",
+      "de": "campen, zelten",
+      "en": [
+        "camp"
+      ],
+      "accept": [],
+      "ipa": "kæmp",
+      "pos": "verb",
+      "hint": "Verb",
+      "example": null,
+      "note": "to camp → camping",
+      "page": 175
+    },
+    {
+      "id": "cave",
+      "de": "Höhle",
+      "en": [
+        "cave"
+      ],
+      "accept": [],
+      "ipa": "keɪv",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "Fr. caverne (f)",
+      "page": 175
+    },
+    {
+      "id": "to-feed",
+      "de": "füttern; ernähren",
+      "en": [
+        "feed"
+      ],
+      "accept": [],
+      "ipa": "fiːd; fed; fed",
+      "pos": "verb",
+      "hint": "Verb",
+      "example": "Did you feed the dog this morning? People must work to feed their families.",
+      "note": "Unregelmäßig: feed – fed – fed",
+      "page": 175
+    },
+    {
+      "id": "to-milk",
+      "de": "melken",
+      "en": [
+        "milk"
+      ],
+      "accept": [],
+      "ipa": "mɪlk",
+      "pos": "verb",
+      "hint": "Verb",
+      "example": null,
+      "note": null,
+      "page": 175
+    },
+    {
+      "id": "cow",
+      "de": "Kuh",
+      "en": [
+        "cow"
+      ],
+      "accept": [],
+      "ipa": "kaʊ",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": null,
+      "page": 175
+    },
+    {
+      "id": "love",
+      "de": "Liebe",
+      "en": [
+        "love"
+      ],
+      "accept": [],
+      "ipa": "lʌv",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "love → to love",
+      "page": 175
+    },
+    {
+      "id": "to-get-lost",
+      "de": "verloren gehen, sich verirren",
+      "en": [
+        "get lost"
+      ],
+      "accept": [],
+      "ipa": "ˌɡet ˈlɒst",
+      "pos": "verb",
+      "hint": "Verb · 2 Wörter",
+      "example": "In a big city, it's easy to get lost.",
+      "note": null,
+      "page": 175
+    },
+    {
+      "id": "darkness",
+      "de": "Dunkelheit",
+      "en": [
+        "darkness"
+      ],
+      "accept": [],
+      "ipa": "ˈdɑːknəs",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "darkness → dark",
+      "page": 175
+    },
+    {
+      "id": "legend",
+      "de": "Legende; Sage",
+      "en": [
+        "legend"
+      ],
+      "accept": [],
+      "ipa": "ˈledʒənd",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": "An old story – maybe true in parts.",
+      "note": null,
+      "page": 175
+    },
+    {
+      "id": "ingredient",
+      "de": "Zutat",
+      "en": [
+        "ingredient"
+      ],
+      "accept": [],
+      "ipa": "ɪnˈɡriːdiənt",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": "Something is missing in this cake; hm, what ingredient did I forget?",
+      "note": null,
+      "page": 175
+    }
+  ]
+}

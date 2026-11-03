@@ -1,0 +1,206 @@
+{
+  "id": "fr-unite1-tag2",
+  "title": "Französisch Tag 2 — oui bis une rue",
+  "source": "Au début / Unité 1 · S. 158–159 · Tag 2 von 7",
+  "lang": "fr-FR",
+  "langLabel": "Französisch",
+  "direction": "de-fr",
+  "words": [
+    {
+      "id": "oui",
+      "de": "ja",
+      "en": [
+        "oui"
+      ],
+      "accept": [],
+      "ipa": "wi",
+      "pos": "word",
+      "hint": "Vokabel",
+      "example": null,
+      "note": null,
+      "page": 158
+    },
+    {
+      "id": "a-plus",
+      "de": "Bis später!",
+      "en": [
+        "à plus"
+      ],
+      "accept": [],
+      "ipa": "aplys",
+      "pos": "phrase",
+      "hint": "Wendung · 2 Wörter",
+      "example": null,
+      "note": "umgangssprachlich",
+      "page": 158
+    },
+    {
+      "id": "bien",
+      "de": "gut (Adv.)",
+      "en": [
+        "bien"
+      ],
+      "accept": [],
+      "ipa": "bjɛ̃",
+      "pos": "word",
+      "hint": "Vokabel",
+      "example": null,
+      "note": "Adverb · Fällt dir der Nasalvokal [ɛ̃] schwer? Versuche mal, bei der Aussprache zu lächeln.",
+      "page": 158
+    },
+    {
+      "id": "ca-va-bien",
+      "de": "Es geht (mir) gut.",
+      "en": [
+        "Ça va bien."
+      ],
+      "accept": [],
+      "ipa": "savabjɛ̃",
+      "pos": "phrase",
+      "hint": "Wendung · 3 Wörter",
+      "example": null,
+      "note": null,
+      "page": 158
+    },
+    {
+      "id": "au-revoir",
+      "de": "Auf Wiedersehen!",
+      "en": [
+        "Au revoir!"
+      ],
+      "accept": [],
+      "ipa": "ɔʀvwaʀ",
+      "pos": "phrase",
+      "hint": "Wendung · 2 Wörter",
+      "example": null,
+      "note": "au revoir: [ɔ] wie in Loch.",
+      "page": 158
+    },
+    {
+      "id": "voila",
+      "de": "da ist / das ist; da sind / das sind",
+      "en": [
+        "voilà"
+      ],
+      "accept": [],
+      "ipa": "vwala",
+      "pos": "word",
+      "hint": "Vokabel",
+      "example": "Voilà Arthur! – Das ist Arthur!",
+      "note": "[wa] wie bei toi und moi.",
+      "page": 158
+    },
+    {
+      "id": "bonjour-les-amis",
+      "de": "Guten Tag, Freunde!",
+      "en": [
+        "Bonjour les amis!"
+      ],
+      "accept": [],
+      "ipa": "bɔ̃ʒuʀlezami",
+      "pos": "phrase",
+      "hint": "Wendung · 3 Wörter",
+      "example": null,
+      "note": "les amis wird gesprochen wie ein Wort: [lezami].",
+      "page": 158
+    },
+    {
+      "id": "paris",
+      "de": "Hauptstadt Frankreichs",
+      "en": [
+        "Paris"
+      ],
+      "accept": [],
+      "ipa": "paʀi",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "Im Französischen wird das s von Paris nicht ausgesprochen.",
+      "page": 159
+    },
+    {
+      "id": "la-tour-eiffel",
+      "de": "der Eiffelturm",
+      "en": [
+        "la tour Eiffel"
+      ],
+      "accept": [],
+      "ipa": "latuʀɛfɛl",
+      "pos": "noun",
+      "hint": "Substantiv · 3 Wörter",
+      "example": null,
+      "note": null,
+      "page": 159
+    },
+    {
+      "id": "une-place",
+      "de": "ein Platz",
+      "en": [
+        "une place"
+      ],
+      "accept": [],
+      "ipa": "ynplas",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": "Einige englische Wörter kommen aus dem Französischen! englisch: place",
+      "page": 159
+    },
+    {
+      "id": "un-parc",
+      "de": "ein Park",
+      "en": [
+        "un parc"
+      ],
+      "accept": [],
+      "ipa": "ɛ̃paʀk",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": "englisch: park",
+      "page": 159
+    },
+    {
+      "id": "une-station",
+      "de": "eine Station; eine Haltestelle",
+      "en": [
+        "une station"
+      ],
+      "accept": [],
+      "ipa": "ynstasjɔ̃",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": "Das zweite t in station wird [s] ausgesprochen. · englisch: station",
+      "page": 159
+    },
+    {
+      "id": "le-metro",
+      "de": "die Metro; die U-Bahn",
+      "en": [
+        "le métro"
+      ],
+      "accept": [],
+      "ipa": "ləmetʀo",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": "une station de métro – eine Metro-Station",
+      "note": null,
+      "page": 159
+    },
+    {
+      "id": "une-rue",
+      "de": "eine Straße",
+      "en": [
+        "une rue"
+      ],
+      "accept": [],
+      "ipa": "ynʀy",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": "une rue à Paris – eine Straße in Paris",
+      "note": null,
+      "page": 159
+    }
+  ]
+}

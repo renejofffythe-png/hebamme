@@ -1,21 +1,138 @@
 /**
  * Die Sammlung der Vokabellisten.
  *
- * Mitgeliefert ist Unit 1; alles Weitere kommt über den Import und lebt in
- * localStorage. Kein Konto, kein Server — die Listen gehören dem Gerät, auf
+ * Mitgeliefert sind Unit 1 (Englisch, S. 168–170 als eine Liste, S. 172–175 in
+ * Tagesportionen) und Französisch Au début / Unité 1 in Tagesportionen; alles
+ * Weitere kommt über den Import und lebt in localStorage. Kein Konto, kein Server — die Listen gehören dem Gerät, auf
  * dem sie eingetragen wurden.
  */
 
 import unit1 from '../data/unit1.json';
+import frTag1 from '../data/fr-unite1-tag1.json';
+import frTag2 from '../data/fr-unite1-tag2.json';
+import frTag3 from '../data/fr-unite1-tag3.json';
+import frTag4 from '../data/fr-unite1-tag4.json';
+import frTag5 from '../data/fr-unite1-tag5.json';
+import frTag6 from '../data/fr-unite1-tag6.json';
+import frTag7 from '../data/fr-unite1-tag7.json';
+import papaTag1 from '../data/papas-vokabeln-tag1.json';
+import papaTag2 from '../data/papas-vokabeln-tag2.json';
+import papaTag3 from '../data/papas-vokabeln-tag3.json';
+import papaTag4 from '../data/papas-vokabeln-tag4.json';
+import papaTag5 from '../data/papas-vokabeln-tag5.json';
+import papaTag6 from '../data/papas-vokabeln-tag6.json';
+import enTag1 from '../data/en-unit1-tag1.json';
+import enTag2 from '../data/en-unit1-tag2.json';
+import enTag3 from '../data/en-unit1-tag3.json';
+import enTag4 from '../data/en-unit1-tag4.json';
+import enTag5 from '../data/en-unit1-tag5.json';
+import enTag6 from '../data/en-unit1-tag6.json';
 import type { WordSet } from './types';
 import { clearSessionFor } from './state';
 import { clearRecords } from './records';
+import { clearShaky, familyOf, shakyIds } from './shaky';
 
 const INDEX_KEY = 'ueberklebt.sets';
 const setKey = (id: string) => `ueberklebt.set.${id}`;
 const playedKey = (id: string) => `ueberklebt.played.${id}`;
 
-const BUILTIN: readonly WordSet[] = [unit1 as WordSet];
+// Französisch in Portionen von ~15 Vokabeln — eine Liste pro Lerntag.
+// Erzeugt aus den Dateien in data/quellen/.
+const BUILTIN: readonly WordSet[] = [
+  frTag1 as WordSet,
+  frTag2 as WordSet,
+  frTag3 as WordSet,
+  frTag4 as WordSet,
+  frTag5 as WordSet,
+  frTag6 as WordSet,
+  frTag7 as WordSet,
+  papaTag1 as WordSet,
+  papaTag2 as WordSet,
+  papaTag3 as WordSet,
+  papaTag4 as WordSet,
+  papaTag5 as WordSet,
+  papaTag6 as WordSet,
+  unit1 as WordSet,
+  enTag1 as WordSet,
+  enTag2 as WordSet,
+  enTag3 as WordSet,
+  enTag4 as WordSet,
+  enTag5 as WordSet,
+  enTag6 as WordSet,
+];
+
+/**
+ * Wackelkandidaten: eine Liste, die es nur gibt, solange sie Inhalt hat.
+ *
+ * Sie wird bei jedem Blick auf die Sammlung neu aus dem Wortgedächtnis
+ * zusammengesetzt — deshalb steht ein Wort am Tag nach der dritten richtigen
+ * Antwort nicht mehr drin, ohne dass jemand etwas aufräumen müsste.
+ */
+const SIG_KEY = (id: string) => `ueberklebt.shakysig.${id}`;
+
+function shakySetFor(family: string, sets: readonly WordSet[]): WordSet | null {
+  const ids = shakyIds(family);
+  if (!ids.size) return null;
+
+  const words = [];
+  const taken = new Set<string>();
+  for (const set of sets) {
+    for (const w of set.words) {
+      if (!ids.has(w.id) || taken.has(w.id)) continue;
+      taken.add(w.id);
+      words.push(w);
+    }
+  }
+  if (!words.length) return null;
+
+  const first = sets[0]!;
+  // "Papas Vokabeln Tag 3 — …" → "Papas", "Französisch Tag 3 — …" → "Französisch"
+  const base = first.title.split(' Tag ')[0]!.replace(/\s+Vokabeln$/, '');
+  const id = `${family}-wackelkandidaten`;
+
+  // Ändert sich der Inhalt, passt eine pausierte Session nicht mehr dazu.
+  const signature = words.map((w) => w.id).join(',');
+  try {
+    if (localStorage.getItem(SIG_KEY(id)) !== signature) {
+      clearSessionFor(id);
+      localStorage.setItem(SIG_KEY(id), signature);
+    }
+  } catch {
+    /* private mode — dann beginnt die Liste eben neu */
+  }
+
+  return {
+    id,
+    title: `${base} Wackelkandidaten`,
+    source: 'Wörter, die mindestens zweimal daneben waren',
+    lang: first.lang,
+    langLabel: first.langLabel,
+    direction: first.direction,
+    words,
+  };
+}
+
+/** Die mitgelieferten Listen nach Familie: alle "papas-vokabeln-tag*" zusammen. */
+function families(): Map<string, WordSet[]> {
+  const out = new Map<string, WordSet[]>();
+  for (const set of BUILTIN) {
+    const fam = familyOf(set.id);
+    if (fam === set.id) continue; // Einzelliste ohne Tagesportionen
+    const list = out.get(fam) ?? [];
+    list.push(set);
+    out.set(fam, list);
+  }
+  return out;
+}
+
+function shakySets(): WordSet[] {
+  const out: WordSet[] = [];
+  for (const [fam, sets] of families()) {
+    const set = shakySetFor(fam, sets);
+    if (set) out.push(set);
+  }
+  return out;
+}
 
 export interface LibraryEntry {
   set: WordSet;
@@ -76,6 +193,13 @@ export function listSets(): LibraryEntry[] {
   }
   imported.sort((a, b) => (b.addedAt ?? 0) - (a.addedAt ?? 0));
 
+  const shaky: LibraryEntry[] = shakySets().map((set) => ({
+    set,
+    builtin: true,
+    addedAt: null,
+    lastPlayedAt: readPlayed(set.id),
+  }));
+
   const builtin: LibraryEntry[] = BUILTIN.map((set) => ({
     set,
     builtin: true,
@@ -83,15 +207,19 @@ export function listSets(): LibraryEntry[] {
     lastPlayedAt: readPlayed(set.id),
   }));
 
-  return [...imported, ...builtin];
+  return [...shaky, ...imported, ...builtin];
 }
 
 export function getSet(id: string): WordSet | null {
-  return BUILTIN.find((s) => s.id === id) ?? readSet(id);
+  return (
+    BUILTIN.find((s) => s.id === id) ??
+    (id.endsWith('-wackelkandidaten') ? shakySets().find((s) => s.id === id) ?? null : null) ??
+    readSet(id)
+  );
 }
 
 export function isBuiltin(id: string): boolean {
-  return BUILTIN.some((s) => s.id === id);
+  return BUILTIN.some((s) => s.id === id) || id.endsWith('-wackelkandidaten');
 }
 
 /** Freie ID aus dem Titel — sie taucht in keiner URL auf, muss aber eindeutig sein. */
@@ -140,6 +268,7 @@ export function deleteSet(id: string): void {
   }
   clearSessionFor(id);
   clearRecords(id);
+  clearShaky(id);
 }
 
 /** Merkt sich, wann zuletzt gespielt wurde — die Bibliothek sortiert danach. */

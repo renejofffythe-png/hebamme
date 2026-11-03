@@ -1,0 +1,206 @@
+{
+  "id": "en-unit1-tag1",
+  "title": "Englisch Tag 1 — tourist board bis walking trail",
+  "source": "Unit 1 · S. 172 · Tag 1 von 6",
+  "lang": "en-GB",
+  "langLabel": "Englisch",
+  "direction": "de-en",
+  "words": [
+    {
+      "id": "tourist-board",
+      "de": "Touristeninformation",
+      "en": [
+        "tourist board"
+      ],
+      "accept": [],
+      "ipa": "ˈtʊərɪst bɔːd",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": "At a tourist board you can get information about a country or region.",
+      "note": null,
+      "page": 172
+    },
+    {
+      "id": "dear-sir-or-madam",
+      "de": "Sehr geehrte Dame, sehr geehrter Herr",
+      "en": [
+        "Dear Sir or Madam"
+      ],
+      "accept": [],
+      "ipa": "dɪə ˌsɜːr‿ɔː ˈmædəm",
+      "pos": "phrase",
+      "hint": "Wendung · 4 Wörter",
+      "example": "You begin a formal letter like this.",
+      "note": null,
+      "page": 172
+    },
+    {
+      "id": "grammar-school",
+      "de": "Gymnasium",
+      "en": [
+        "grammar school"
+      ],
+      "accept": [],
+      "ipa": "ˈɡræmə skuːl",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": "A school (in Britain) that is similar to the German 'Gymnasium'.",
+      "note": null,
+      "page": 172
+    },
+    {
+      "id": "best-wishes",
+      "de": "Viele Grüße; Herzliche Grüße",
+      "en": [
+        "Best wishes"
+      ],
+      "accept": [],
+      "ipa": "ˌbest ˈwɪʃɪz",
+      "pos": "phrase",
+      "hint": "Wendung · 2 Wörter",
+      "example": "You can finish a formal letter like this.",
+      "note": null,
+      "page": 172
+    },
+    {
+      "id": "to-send-off",
+      "de": "abschicken",
+      "en": [
+        "send off"
+      ],
+      "accept": [],
+      "ipa": "ˌsend ˈɒf",
+      "pos": "verb",
+      "hint": "Verb · 2 Wörter",
+      "example": "Before you send off your e-mail, read it again.",
+      "note": null,
+      "page": 172
+    },
+    {
+      "id": "yourselves",
+      "de": "ihr/euch/Sie/sich (selbst); selber",
+      "en": [
+        "yourselves"
+      ],
+      "accept": [],
+      "ipa": "jɔːˈselvz",
+      "pos": "word",
+      "hint": "Pronomen",
+      "example": "Did you enjoy yourselves? – Oh yes, the party was really great.",
+      "note": null,
+      "page": 172
+    },
+    {
+      "id": "in-the-far-west",
+      "de": "im äußersten Westen",
+      "en": [
+        "in the far west"
+      ],
+      "accept": [],
+      "ipa": "ɪn ðə fɑː ˈwest",
+      "pos": "phrase",
+      "hint": "Wendung · 4 Wörter",
+      "example": "Cornwall is in the far west of Great Britain.",
+      "note": null,
+      "page": 172
+    },
+    {
+      "id": "coastline",
+      "de": "Küste; Küstenverlauf",
+      "en": [
+        "coastline"
+      ],
+      "accept": [],
+      "ipa": "ˈkəʊstlaɪn",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": "Cornwall's coastline is almost 300 miles long.",
+      "note": null,
+      "page": 172
+    },
+    {
+      "id": "fishing",
+      "de": "Angeln; Fischen; Fischerei",
+      "en": [
+        "fishing"
+      ],
+      "accept": [],
+      "ipa": "ˈfɪʃɪŋ",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "fishing → a fish",
+      "page": 172
+    },
+    {
+      "id": "to-get-to-know",
+      "de": "kennenlernen",
+      "en": [
+        "get to know"
+      ],
+      "accept": [],
+      "ipa": "ˌɡet tə ˈnəʊ",
+      "pos": "verb",
+      "hint": "Verb · 3 Wörter",
+      "example": "I would like to get to know your friends.",
+      "note": null,
+      "page": 172
+    },
+    {
+      "id": "wild",
+      "de": "wild",
+      "en": [
+        "wild"
+      ],
+      "accept": [],
+      "ipa": "waɪld",
+      "pos": "adjective",
+      "hint": "Adjektiv",
+      "example": "pets – farm animals – wild animals",
+      "note": null,
+      "page": 172
+    },
+    {
+      "id": "prehistoric",
+      "de": "vorgeschichtlich",
+      "en": [
+        "prehistoric"
+      ],
+      "accept": [],
+      "ipa": "ˌpriːhɪˈstɒrɪk",
+      "pos": "adjective",
+      "hint": "Adjektiv",
+      "example": null,
+      "note": null,
+      "page": 172
+    },
+    {
+      "id": "monument",
+      "de": "Monument; Denkmal",
+      "en": [
+        "monument"
+      ],
+      "accept": [],
+      "ipa": "ˈmɒnjəmənt",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": "In Cornwall you can visit lots of prehistoric monuments.",
+      "note": "Lat. monumentum (nt)",
+      "page": 172
+    },
+    {
+      "id": "walking-trail",
+      "de": "Wanderweg",
+      "en": [
+        "walking trail"
+      ],
+      "accept": [],
+      "ipa": "ˈwɔːkɪŋ treɪl",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": "On walking trails you can only go on foot.",
+      "note": null,
+      "page": 172
+    }
+  ]
+}

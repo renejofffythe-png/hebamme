@@ -1,0 +1,164 @@
+{
+  "id": "fr-unite1-tag4",
+  "title": "Französisch Tag 4 — tu es bis non",
+  "source": "Au début / Unité 1 · S. 159–160 · Tag 4 von 7",
+  "lang": "fr-FR",
+  "langLabel": "Französisch",
+  "direction": "de-fr",
+  "words": [
+    {
+      "id": "tu-es",
+      "de": "du bist",
+      "en": [
+        "tu es"
+      ],
+      "accept": [],
+      "ipa": "tyɛ",
+      "pos": "phrase",
+      "hint": "Wendung · 2 Wörter",
+      "example": "Tu es où, Merlin? Ah, tu es là! – Wo bist du, Merlin? Ah, da bist du!",
+      "note": null,
+      "page": 159
+    },
+    {
+      "id": "un-chat",
+      "de": "eine Katze",
+      "en": [
+        "un chat"
+      ],
+      "accept": [],
+      "ipa": "ɛ̃ʃa",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": "Der Laut [ʃ] in chat wird -sch- ausgesprochen wie in schön.",
+      "page": 160
+    },
+    {
+      "id": "il-est",
+      "de": "er ist",
+      "en": [
+        "il est"
+      ],
+      "accept": [],
+      "ipa": "ilɛ",
+      "pos": "phrase",
+      "hint": "Wendung · 2 Wörter",
+      "example": "Oh, un chat! Il est sympa! – Oh, eine Katze! Die ist aber nett!",
+      "note": null,
+      "page": 160
+    },
+    {
+      "id": "sympa",
+      "de": "nett; toll",
+      "en": [
+        "sympa"
+      ],
+      "accept": [],
+      "ipa": "sɛ̃pa",
+      "pos": "word",
+      "hint": "Vokabel",
+      "example": null,
+      "note": "umgangssprachlich",
+      "page": 160
+    },
+    {
+      "id": "on-fait-un-tour",
+      "de": "wir drehen eine Runde",
+      "en": [
+        "on fait un tour"
+      ],
+      "accept": [],
+      "ipa": "ɔ̃fɛɛ̃tuʀ",
+      "pos": "phrase",
+      "hint": "Wendung · 4 Wörter",
+      "example": "On fait un tour? – Drehen wir eine Runde?",
+      "note": "umgangssprachlich · ! Hebst du am Ende des Satzes die Stimme, wird aus einer Aussage eine Frage.",
+      "page": 160
+    },
+    {
+      "id": "viens",
+      "de": "Komm! (Aufforderung)",
+      "en": [
+        "Viens!"
+      ],
+      "accept": [],
+      "ipa": "vjɛ̃",
+      "pos": "phrase",
+      "hint": "Wendung",
+      "example": null,
+      "note": "viens: [ɛ̃] „Nasalvokal“ wie in voisin.",
+      "page": 160
+    },
+    {
+      "id": "d-accord",
+      "de": "einverstanden; o.k.",
+      "en": [
+        "d'accord"
+      ],
+      "accept": [],
+      "ipa": "dakɔʀ",
+      "pos": "word",
+      "hint": "Vokabel",
+      "example": "Tu es d'accord? – Oui! – Bist du einverstanden? – Ja!",
+      "note": null,
+      "page": 160
+    },
+    {
+      "id": "papa",
+      "de": "Papa",
+      "en": [
+        "papa"
+      ],
+      "accept": [],
+      "ipa": "papa",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": null,
+      "page": 160
+    },
+    {
+      "id": "regarde",
+      "de": "Schau! (Aufforderung); Sieh mal!",
+      "en": [
+        "Regarde!"
+      ],
+      "accept": [],
+      "ipa": "ʀəgaʀd",
+      "pos": "phrase",
+      "hint": "Wendung",
+      "example": null,
+      "note": "Die Betonung liegt auf dem zweiten -a!",
+      "page": 160
+    },
+    {
+      "id": "ici",
+      "de": "hier; hierher",
+      "en": [
+        "ici"
+      ],
+      "accept": [],
+      "ipa": "isi",
+      "pos": "word",
+      "hint": "Vokabel",
+      "example": null,
+      "note": null,
+      "page": 160
+    },
+    {
+      "id": "non",
+      "de": "nein",
+      "en": [
+        "non"
+      ],
+      "accept": [],
+      "ipa": "nɔ̃",
+      "pos": "word",
+      "hint": "Vokabel",
+      "example": "C'est bien ici, non? – Das ist gut hier, nicht wahr?",
+      "note": null,
+      "page": 160
+    }
+  ]
+}

@@ -21,15 +21,23 @@ export interface Grade {
 
 const ARTICLES = /^(?:a|an|the)\s+/;
 const LEADING_TO = /^to\s+/;
+/** Wörterbuch-Kürzel wie "(fam.)" oder "adv." — Beschriftung, keine Vokabel. */
+const MARKERS = /\(?\b(?:fam|ugs|f|m|pl|adv|adj|sg)\.\)?(?=\s|$)/g;
 
 /** Vereinheitlicht alles, was nicht zur Vokabel gehört. */
 export function normalize(raw: string): string {
+  return clean(raw).replace(LEADING_TO, '').replace(ARTICLES, '').trim();
+}
+
+/** Wie normalize, aber ohne englisches "to"/Artikel — im Französischen ist "a" ein Wort. */
+function clean(raw: string): string {
   let s = raw.toLowerCase().trim();
   s = s.replace(/[‘’´`]/g, "'"); // Apostroph-Varianten
+  s = s.replace(/\.{2,}|…/g, ' '); // Platzhalter: "Où est …?"
+  s = s.replace(MARKERS, ' ');
+  s = s.replace(/\s+([!?:;])/g, '$1'); // frz. Satzzeichen-Abstand: "À bientôt !"
   s = s.replace(/\s+/g, ' '); // Mehrfach-Leerzeichen
   s = s.replace(/[.,!?;:]+$/, ''); // Endsatzzeichen
-  s = s.replace(LEADING_TO, '');
-  s = s.replace(ARTICLES, '');
   return s.trim();
 }
 
@@ -104,6 +112,10 @@ function tolerance(len: number): number {
   return 2;
 }
 
+function stripAccents(s: string): string {
+  return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
 function firstDiff(a: string, b: string): number {
   const n = Math.min(a.length, b.length);
   for (let i = 0; i < n; i++) if (a[i] !== b[i]) return i;
@@ -147,6 +159,22 @@ export function grade(raw: string, word: Word, deck: readonly Word[]): Grade {
     if (other.id === word.id) continue;
     for (const sol of [...other.en, ...other.accept]) {
       if (expand(sol).includes(input)) return empty;
+    }
+  }
+
+  // --- Akzente vergessen ("a bientot" statt "à bientôt") ist fast richtig,
+  // unabhängig von der Länge — die Buchstaben stimmen ja alle.
+  const plainInput = stripAccents(clean(raw));
+  for (const sol of [...word.en, ...word.accept]) {
+    const target = normalize(sol);
+    if (stripAccents(clean(sol)) === plainInput) {
+      return {
+        verdict: 'near',
+        solution: sol,
+        viaAlternative: null,
+        diffIndex: firstDiff(input, target),
+        distance: editDistance(input, target),
+      };
     }
   }
 

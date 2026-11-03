@@ -1,0 +1,205 @@
+{
+  "id": "papas-vokabeln-tag4",
+  "title": "Papas Vokabeln Tag 4 — neuroscience bis provider",
+  "source": "Dad Brain · The Diary Of A CEO · Tag 4 von 6",
+  "lang": "en-GB",
+  "langLabel": "Englisch",
+  "direction": "de-en",
+  "words": [
+    {
+      "id": "neuroscience",
+      "de": "die Neurowissenschaft",
+      "en": [
+        "neuroscience"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "C1"
+    },
+    {
+      "id": "nurture",
+      "de": "die Fürsorge / erziehen",
+      "en": [
+        "nurture"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "C1"
+    },
+    {
+      "id": "observation",
+      "de": "die Beobachtung",
+      "en": [
+        "observation"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "offspring",
+      "de": "der Nachwuchs",
+      "en": [
+        "offspring"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "C1"
+    },
+    {
+      "id": "outcome",
+      "de": "das Ergebnis",
+      "en": [
+        "outcome"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "overwhelm",
+      "de": "überwältigen",
+      "en": [
+        "overwhelm"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "verb",
+      "hint": "Verb",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "phenomenon",
+      "de": "das Phänomen",
+      "en": [
+        "phenomenon"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "plasticity",
+      "de": "die Plastizität (Veränderbarkeit)",
+      "en": [
+        "plasticity"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "C2"
+    },
+    {
+      "id": "plummet",
+      "de": "stark abfallen / stürzen",
+      "en": [
+        "plummet"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "verb",
+      "hint": "Verb",
+      "example": null,
+      "note": "C2"
+    },
+    {
+      "id": "postpartum",
+      "de": "postnatal / nach der Geburt",
+      "en": [
+        "postpartum"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "word",
+      "hint": "Vokabel",
+      "example": null,
+      "note": "C2"
+    },
+    {
+      "id": "preference",
+      "de": "die Vorliebe / Präferenz",
+      "en": [
+        "preference"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "prioritize",
+      "de": "priorisieren / Vorrang geben",
+      "en": [
+        "prioritize"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "verb",
+      "hint": "Verb",
+      "example": null,
+      "note": "C1"
+    },
+    {
+      "id": "profound",
+      "de": "tiefgreifend",
+      "en": [
+        "profound"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "adjective",
+      "hint": "Adjektiv",
+      "example": null,
+      "note": "C1"
+    },
+    {
+      "id": "protector",
+      "de": "der Beschützer",
+      "en": [
+        "protector"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "provider",
+      "de": "der Versorger",
+      "en": [
+        "provider"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "B2"
+    }
+  ]
+}

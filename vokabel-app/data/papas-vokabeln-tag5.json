@@ -1,0 +1,205 @@
+{
+  "id": "papas-vokabeln-tag5",
+  "title": "Papas Vokabeln Tag 5 — pruning bis structural",
+  "source": "Dad Brain · The Diary Of A CEO · Tag 5 von 6",
+  "lang": "en-GB",
+  "langLabel": "Englisch",
+  "direction": "de-en",
+  "words": [
+    {
+      "id": "pruning",
+      "de": "der synaptische Abbau / Feinschliff",
+      "en": [
+        "pruning"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "word",
+      "hint": "Vokabel",
+      "example": null,
+      "note": "C2"
+    },
+    {
+      "id": "reproductive",
+      "de": "fortpflanzungsbezogen / reproduktiv",
+      "en": [
+        "reproductive"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "adjective",
+      "hint": "Adjektiv",
+      "example": null,
+      "note": "C1"
+    },
+    {
+      "id": "resentment",
+      "de": "der Groll / die Missgunst",
+      "en": [
+        "resentment"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "C1"
+    },
+    {
+      "id": "resilient",
+      "de": "widerstandsfähig",
+      "en": [
+        "resilient"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "adjective",
+      "hint": "Adjektiv",
+      "example": null,
+      "note": "C1"
+    },
+    {
+      "id": "resolution",
+      "de": "die Konfliktlösung",
+      "en": [
+        "resolution"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "resources",
+      "de": "die Ressourcen",
+      "en": [
+        "resources"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "scan",
+      "de": "die MRT-Aufnahme / Untersuchung",
+      "en": [
+        "scan"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "selection",
+      "de": "die Auswahl",
+      "en": [
+        "selection"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "sensitivity",
+      "de": "die Sensibilität",
+      "en": [
+        "sensitivity"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "C1"
+    },
+    {
+      "id": "shift",
+      "de": "der Wandel / die Verschiebung",
+      "en": [
+        "shift"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "significant",
+      "de": "signifikant / bedeutsam",
+      "en": [
+        "significant"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "adjective",
+      "hint": "Adjektiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "species",
+      "de": "die Spezies / Art",
+      "en": [
+        "species"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "stonewalling",
+      "de": "das Mauern (in Konflikten)",
+      "en": [
+        "stonewalling"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "C2"
+    },
+    {
+      "id": "strategy",
+      "de": "die Strategie",
+      "en": [
+        "strategy"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "structural",
+      "de": "strukturell",
+      "en": [
+        "structural"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "adjective",
+      "hint": "Adjektiv",
+      "example": null,
+      "note": "B2"
+    }
+  ]
+}

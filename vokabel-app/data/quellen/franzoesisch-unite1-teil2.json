@@ -1,0 +1,68 @@
+{
+  "unit": "Unité 1 – Bonjour Paris! (Teil 2)",
+  "quelle": "Schulbuch Französisch, Seiten 160–161",
+  "abschnitte": [
+    {
+      "titel": "Unité 1 – A2 bis A6",
+      "vokabeln": [
+        { "en": "une question", "lautschrift": "[ynkɛstjɔ̃]", "de": "eine Frage", "hinweis": "Das qu wird im Französischen als [k] ausgesprochen. · englisch: question · ! Die Bedeutung mancher französischer Wörter kannst du aus dem Englischen ableiten, z. B. place, attention, station oder question." },
+        { "en": "une fille", "lautschrift": "[ynfij]", "de": "ein Mädchen; eine Tochter", "hinweis": "Sprich den Laut [j] in fille wie ein schwaches j aus." },
+        { "en": "un copain / une copine (fam.)", "lautschrift": "[ɛ̃kɔpɛ̃], [ynkɔpin]", "de": "ein Freund / eine Freundin", "hinweis": "! Copain / copine ist umgangssprachlich (französisch: familier). Das „normale“ Wort für Freund / Freundin ist un ami / une amie (Standardsprache)." },
+        { "en": "une dame", "lautschrift": "[yndam]", "de": "eine Dame; eine Frau", "hinweis": "Maskulin (männlich) und feminin (weiblich): Vergleiche mit un voisin / une voisine." },
+        { "en": "un monsieur", "lautschrift": "[məsjø]", "de": "ein Herr; ein Mann", "beispiel": "Bonjour monsieur! – Guten Tag!", "hinweis": "Sprich den Laut [ø] in monsieur wie ein langes -ö- wie in böse." },
+        { "en": "il", "lautschrift": "[il]", "de": "er", "beispiel": "Voilà un garçon. Il est de Nice. – Da ist ein Junge. Er ist aus Nizza." },
+        { "en": "elle", "lautschrift": "[ɛl]", "de": "sie", "beispiel": "Voilà une fille. Elle est de Nice. – Da ist ein Mädchen. Sie ist aus Nizza." },
+        { "en": "un garçon", "lautschrift": "[ɛ̃gaʀsɔ̃]", "de": "ein Junge" },
+        { "en": "Allez !", "lautschrift": "[ale]", "de": "Los! (Aufforderung)" }
+      ]
+    },
+    {
+      "titel": "Unité 1 – B1 bis B5",
+      "vokabeln": [
+        { "en": "un perroquet", "lautschrift": "[pɛʀɔkɛ]", "de": "ein Papagei" },
+        { "en": "être", "lautschrift": "[ɛtʀ]", "de": "sein", "hinweis": "! je suis ich bin · tu es du bist · il est er ist · elle est sie ist · on est man ist / wir sind · nous sommes wir sind · vous êtes ihr seid · ils sont / elles sont sie sind. Vous steht auch für die höfliche Anrede (= „Sie“)." },
+        { "en": "avec", "lautschrift": "[avɛk]", "de": "mit" },
+        { "en": "dans", "lautschrift": "[dɑ̃]", "de": "in" },
+        { "en": "Tiens !", "lautschrift": "[tjɛ̃]", "de": "Sieh mal da!" },
+        { "en": "C'est quoi, ça ? (fam.)", "lautschrift": "[sɛkwa]", "de": "Was ist (denn) das?" },
+        { "en": "ça", "lautschrift": "[sa]", "de": "das" },
+        { "en": "un portable", "lautschrift": "[ɛ̃pɔʀtabl]", "de": "ein Handy; ein Mobiltelefon" },
+        { "en": "mais", "lautschrift": "[mɛ]", "de": "aber" },
+        { "en": "C'est qui ? (fam.)", "lautschrift": "[sɛki]", "de": "Wer ist das?" },
+        { "en": "mamie (fam.)", "lautschrift": "[mami]", "de": "Omi (ugs.)" },
+        { "en": "super (fam.)", "lautschrift": "[sypɛʀ]", "de": "toll (ugs.); super (ugs.)" },
+        { "en": "J'ai douze ans.", "lautschrift": "[ʒeduzɑ̃]", "de": "Ich bin zwölf (Jahre alt)." },
+        { "en": "un frère", "lautschrift": "[ɛ̃fʀɛʀ]", "de": "ein Bruder" },
+        { "en": "une sœur", "lautschrift": "[ynsœʀ]", "de": "eine Schwester" },
+        { "en": "Il a onze ans. / Elle a onze ans.", "lautschrift": "[ilaɔ̃zɑ̃], [ɛlaɔ̃zɑ̃]", "de": "Er / sie ist 11 (Jahre alt)." },
+        { "en": "aussi", "lautschrift": "[osi]", "de": "auch" },
+        { "en": "alors", "lautschrift": "[alɔʀ]", "de": "nun; jetzt; dann" },
+        { "en": "déjà", "lautschrift": "[deʒa]", "de": "schon" },
+        { "en": "pour", "lautschrift": "[puʀ]", "de": "für" },
+        { "en": "ce sont", "lautschrift": "[səsɔ̃]", "de": "das sind" },
+        { "en": "une réponse", "lautschrift": "[ynʀepɔ̃s]", "de": "eine Antwort" }
+      ]
+    },
+    {
+      "seite": 161,
+      "titel": "Un, deux, trois … So zählt man auf Französisch",
+      "vokabeln": [
+        { "en": "zéro", "lautschrift": "[zeʀo]", "de": "null (0)" },
+        { "en": "un", "lautschrift": "[œ̃]", "de": "eins (1)" },
+        { "en": "deux", "lautschrift": "[dø]", "de": "zwei (2)" },
+        { "en": "trois", "lautschrift": "[tʀwa]", "de": "drei (3)" },
+        { "en": "quatre", "lautschrift": "[katʀ]", "de": "vier (4)" },
+        { "en": "cinq", "lautschrift": "[sɛ̃k]", "de": "fünf (5)" },
+        { "en": "six", "lautschrift": "[sis]", "de": "sechs (6)" },
+        { "en": "sept", "lautschrift": "[sɛt]", "de": "sieben (7)" },
+        { "en": "huit", "lautschrift": "[ɥit]", "de": "acht (8)" },
+        { "en": "neuf", "lautschrift": "[nœf]", "de": "neun (9)" },
+        { "en": "dix", "lautschrift": "[dis]", "de": "zehn (10)" },
+        { "en": "onze", "lautschrift": "[ɔ̃z]", "de": "elf (11)" },
+        { "en": "douze", "lautschrift": "[duz]", "de": "zwölf (12)" },
+        { "en": "treize", "lautschrift": "[tʀɛz]", "de": "dreizehn (13)" },
+        { "en": "quatorze", "lautschrift": "[katɔʀz]", "de": "vierzehn (14)" }
+      ]
+    }
+  ]
+}

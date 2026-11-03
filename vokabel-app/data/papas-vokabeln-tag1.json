@@ -1,0 +1,205 @@
+{
+  "id": "papas-vokabeln-tag1",
+  "title": "Papas Vokabeln Tag 1 — adapt bis conflict",
+  "source": "Dad Brain · The Diary Of A CEO · Tag 1 von 6",
+  "lang": "en-GB",
+  "langLabel": "Englisch",
+  "direction": "de-en",
+  "words": [
+    {
+      "id": "adapt",
+      "de": "sich anpassen",
+      "en": [
+        "adapt"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "verb",
+      "hint": "Verb",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "aggressive",
+      "de": "aggressiv",
+      "en": [
+        "aggressive"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "adjective",
+      "hint": "Adjektiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "allocate",
+      "de": "zuweisen / aufwenden",
+      "en": [
+        "allocate"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "verb",
+      "hint": "Verb",
+      "example": null,
+      "note": "C1"
+    },
+    {
+      "id": "anxiety",
+      "de": "die Angst(störung)",
+      "en": [
+        "anxiety"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "attachment",
+      "de": "die Bindung",
+      "en": [
+        "attachment"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "C1"
+    },
+    {
+      "id": "baseline",
+      "de": "der Ausgangswert",
+      "en": [
+        "baseline"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "C1"
+    },
+    {
+      "id": "biology",
+      "de": "die Biologie",
+      "en": [
+        "biology"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "burden",
+      "de": "die Last / Belastung",
+      "en": [
+        "burden"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "characteristic",
+      "de": "die Eigenschaft",
+      "en": [
+        "characteristic"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "childcare",
+      "de": "die Kinderbetreuung",
+      "en": [
+        "childcare"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "commitment",
+      "de": "die Hingabe / Verpflichtung",
+      "en": [
+        "commitment"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "compassionate",
+      "de": "mitfühlend",
+      "en": [
+        "compassionate"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "adjective",
+      "hint": "Adjektiv",
+      "example": null,
+      "note": "C1"
+    },
+    {
+      "id": "competitive",
+      "de": "kompetitiv / wetteifernd",
+      "en": [
+        "competitive"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "adjective",
+      "hint": "Adjektiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "conception",
+      "de": "die Zeugung / Empfängnis",
+      "en": [
+        "conception"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "C1"
+    },
+    {
+      "id": "conflict",
+      "de": "der Konflikt",
+      "en": [
+        "conflict"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "B2"
+    }
+  ]
+}

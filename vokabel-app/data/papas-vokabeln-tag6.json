@@ -1,0 +1,140 @@
+{
+  "id": "papas-vokabeln-tag6",
+  "title": "Papas Vokabeln Tag 6 — survival bis vulnerable",
+  "source": "Dad Brain · The Diary Of A CEO · Tag 6 von 6",
+  "lang": "en-GB",
+  "langLabel": "Englisch",
+  "direction": "de-en",
+  "words": [
+    {
+      "id": "survival",
+      "de": "das Überleben",
+      "en": [
+        "survival"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "susceptible",
+      "de": "anfällig / empfänglich",
+      "en": [
+        "susceptible"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "adjective",
+      "hint": "Adjektiv",
+      "example": null,
+      "note": "C2"
+    },
+    {
+      "id": "synaptic",
+      "de": "synaptisch",
+      "en": [
+        "synaptic"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "adjective",
+      "hint": "Adjektiv",
+      "example": null,
+      "note": "C2"
+    },
+    {
+      "id": "systemic",
+      "de": "systemisch",
+      "en": [
+        "systemic"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "adjective",
+      "hint": "Adjektiv",
+      "example": null,
+      "note": "C2"
+    },
+    {
+      "id": "testosterone",
+      "de": "das Testosteron",
+      "en": [
+        "testosterone"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "trait",
+      "de": "das evolutionäre Merkmal",
+      "en": [
+        "trait"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "adjective",
+      "hint": "Adjektiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "transition",
+      "de": "der Übergang",
+      "en": [
+        "transition"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "trigger",
+      "de": "der Auslöser / auslösen",
+      "en": [
+        "trigger"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "volume",
+      "de": "das Volumen",
+      "en": [
+        "volume"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "vulnerable",
+      "de": "verletzlich",
+      "en": [
+        "vulnerable"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "adjective",
+      "hint": "Adjektiv",
+      "example": null,
+      "note": "B2"
+    }
+  ]
+}

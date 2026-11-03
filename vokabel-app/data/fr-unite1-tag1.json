@@ -1,0 +1,206 @@
+{
+  "id": "fr-unite1-tag1",
+  "title": "Französisch Tag 1 — Bienvenue! bis À bientôt !",
+  "source": "Au début / Unité 1 · S. 158 · Tag 1 von 7",
+  "lang": "fr-FR",
+  "langLabel": "Französisch",
+  "direction": "de-fr",
+  "words": [
+    {
+      "id": "bienvenue",
+      "de": "Willkommen!",
+      "en": [
+        "Bienvenue!"
+      ],
+      "accept": [],
+      "ipa": "bjɛ̃vny",
+      "pos": "phrase",
+      "hint": "Wendung",
+      "example": null,
+      "note": "Das en in bienvenue wird „durch die Nase“ ausgesprochen [ɛ̃]. Das geht leichter, wenn du dabei lächelst.",
+      "page": 158
+    },
+    {
+      "id": "bonjour",
+      "de": "Guten Tag!",
+      "en": [
+        "Bonjour."
+      ],
+      "accept": [],
+      "ipa": "bɔ̃ʒuʀ",
+      "pos": "phrase",
+      "hint": "Wendung",
+      "example": null,
+      "note": "Bonjour: Das j wird [ʒ] ausgesprochen wie in „Journalist“.",
+      "page": 158
+    },
+    {
+      "id": "je-m-appelle",
+      "de": "ich heiße",
+      "en": [
+        "je m'appelle"
+      ],
+      "accept": [],
+      "ipa": "ʒəmapɛl",
+      "pos": "phrase",
+      "hint": "Wendung · 2 Wörter",
+      "example": "Bonjour! Je m'appelle Célia. – Guten Tag! Ich heiße Célia.",
+      "note": "je m'appelle: [ɛ] wie in bellen",
+      "page": 158
+    },
+    {
+      "id": "moi",
+      "de": "ich (betont)",
+      "en": [
+        "moi"
+      ],
+      "accept": [],
+      "ipa": "mwa",
+      "pos": "word",
+      "hint": "Vokabel",
+      "example": null,
+      "note": "Sag mal „Wow!“ Damit bist du schon ganz nah an dem Laut -oi- [wa].",
+      "page": 158
+    },
+    {
+      "id": "c-est",
+      "de": "das ist",
+      "en": [
+        "c'est"
+      ],
+      "accept": [],
+      "ipa": "sɛ",
+      "pos": "word",
+      "hint": "Vokabel",
+      "example": "C'est Hugo. – Das ist Hugo.",
+      "note": "c'est: [ɛ] wie in bellen",
+      "page": 158
+    },
+    {
+      "id": "salut",
+      "de": "Hallo! (ugs.); Grüß dich! (ugs.); Tschüs! (ugs.)",
+      "en": [
+        "Salut!"
+      ],
+      "accept": [],
+      "ipa": "saly",
+      "pos": "phrase",
+      "hint": "Wendung",
+      "example": null,
+      "note": "umgangssprachlich · salut: [y] wie in Tür. Das t am Ende spricht man nicht.",
+      "page": 158
+    },
+    {
+      "id": "et",
+      "de": "und",
+      "en": [
+        "et"
+      ],
+      "accept": [],
+      "ipa": "e",
+      "pos": "word",
+      "hint": "Vokabel",
+      "example": null,
+      "note": "et: Das t am Ende spricht man nicht aus. Es bleibt „stumm“ wie bei „Salut“.",
+      "page": 158
+    },
+    {
+      "id": "toi",
+      "de": "du (betont)",
+      "en": [
+        "toi"
+      ],
+      "accept": [],
+      "ipa": "twa",
+      "pos": "word",
+      "hint": "Vokabel",
+      "example": null,
+      "note": "toi: [w] wie das w bei „Wow!“.",
+      "page": 158
+    },
+    {
+      "id": "comment",
+      "de": "wie (Frage)",
+      "en": [
+        "comment"
+      ],
+      "accept": [],
+      "ipa": "kɔmɑ̃",
+      "pos": "word",
+      "hint": "Vokabel",
+      "example": null,
+      "note": "Auch der Laut [ɑ̃] in comment wird „durch die Nase“ ausgesprochen.",
+      "page": 158
+    },
+    {
+      "id": "tu-t-appelles-comment",
+      "de": "Wie heißt du?",
+      "en": [
+        "Tu t'appelles comment?"
+      ],
+      "accept": [],
+      "ipa": "tytapɛlkɔmɑ̃",
+      "pos": "phrase",
+      "hint": "Wendung · 3 Wörter",
+      "example": "Moi, je m'appelle Liane. Et toi, tu t'appelles comment? – Ich heiße Liane. Und du, wie heißt du?",
+      "note": null,
+      "page": 158
+    },
+    {
+      "id": "ca-va",
+      "de": "Wie geht's?",
+      "en": [
+        "Ça va?"
+      ],
+      "accept": [],
+      "ipa": "sava",
+      "pos": "phrase",
+      "hint": "Wendung · 2 Wörter",
+      "example": null,
+      "note": "Das Häkchen unter dem C bedeutet, dass man das c [s] ausspricht. Es klingt, wie wenn eine Schlange zischt. Das Häkchen nennt man „une cédille“.",
+      "page": 158
+    },
+    {
+      "id": "un-bisou",
+      "de": "ein Küsschen",
+      "en": [
+        "un bisou"
+      ],
+      "accept": [],
+      "ipa": "ɛ̃bizu",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": "Das s spricht man stimmhaft: [z]. Es klingt, wie wenn eine Biene summt.",
+      "page": 158
+    },
+    {
+      "id": "merci",
+      "de": "danke",
+      "en": [
+        "merci"
+      ],
+      "accept": [],
+      "ipa": "mɛʀsi",
+      "pos": "word",
+      "hint": "Vokabel",
+      "example": "Ça va? – Ça va, merci. – Wie geht's? – Es geht mir gut, danke.",
+      "note": null,
+      "page": 158
+    },
+    {
+      "id": "a-bientot",
+      "de": "Bis bald!",
+      "en": [
+        "À bientôt !"
+      ],
+      "accept": [],
+      "ipa": "abjɛ̃to",
+      "pos": "phrase",
+      "hint": "Wendung · 2 Wörter",
+      "example": null,
+      "note": "Das t am Ende spricht man nicht, wie bei Salut.",
+      "page": 158
+    }
+  ]
+}

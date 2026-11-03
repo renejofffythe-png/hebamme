@@ -1,0 +1,209 @@
+{
+  "id": "fr-unite1-tag3",
+  "title": "Französisch Tag 3 — un café bis un voisin",
+  "source": "Au début / Unité 1 · S. 159 · Tag 3 von 7",
+  "lang": "fr-FR",
+  "langLabel": "Französisch",
+  "direction": "de-fr",
+  "words": [
+    {
+      "id": "un-cafe",
+      "de": "ein Café",
+      "en": [
+        "un café"
+      ],
+      "accept": [],
+      "ipa": "ɛ̃kafe",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": null,
+      "page": 159
+    },
+    {
+      "id": "un-quartier",
+      "de": "ein Stadtviertel",
+      "en": [
+        "un quartier"
+      ],
+      "accept": [],
+      "ipa": "ɛ̃kaʀtje",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": "Das qu wird im Französischen als [k] ausgesprochen.",
+      "page": 159
+    },
+    {
+      "id": "cool",
+      "de": "cool (ugs.)",
+      "en": [
+        "cool"
+      ],
+      "accept": [],
+      "ipa": "kul",
+      "pos": "word",
+      "hint": "Vokabel",
+      "example": null,
+      "note": "umgangssprachlich",
+      "page": 159
+    },
+    {
+      "id": "ou-est",
+      "de": "Wo ist …?",
+      "en": [
+        "Où est …?"
+      ],
+      "accept": [],
+      "ipa": "uɛ",
+      "pos": "phrase",
+      "hint": "Wendung · 2 Wörter",
+      "example": "Où est Max? Où est Lola? – Wo ist Max? Wo ist Lola?",
+      "note": null,
+      "page": 159
+    },
+    {
+      "id": "on-est",
+      "de": "man ist; wir sind (ugs.)",
+      "en": [
+        "on est"
+      ],
+      "accept": [],
+      "ipa": "ɔ̃nɛ",
+      "pos": "phrase",
+      "hint": "Wendung · 2 Wörter",
+      "example": null,
+      "note": "On heißt „man“. Umgangssprachlich (ugs.) wird es häufig für „wir“ verwendet.",
+      "page": 159
+    },
+    {
+      "id": "la",
+      "de": "da; dort",
+      "en": [
+        "là"
+      ],
+      "accept": [],
+      "ipa": "la",
+      "pos": "word",
+      "hint": "Vokabel",
+      "example": "On est là, maman! – Wir sind da, Mama!",
+      "note": null,
+      "page": 159
+    },
+    {
+      "id": "maman",
+      "de": "Mama; Mutti",
+      "en": [
+        "maman"
+      ],
+      "accept": [],
+      "ipa": "mamɑ̃",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "weiblich · Das an am Ende von maman wird [ɑ̃] ausgesprochen, wie bei comment.",
+      "page": 159
+    },
+    {
+      "id": "madame",
+      "de": "Frau …",
+      "en": [
+        "madame …"
+      ],
+      "accept": [],
+      "ipa": "madam",
+      "pos": "phrase",
+      "hint": "Wendung",
+      "example": "Bonjour madame! – Guten Tag! (zu einer Frau)",
+      "note": "Bonjour madame ist höflicher als ein einfaches Bonjour.",
+      "page": 159
+    },
+    {
+      "id": "attention",
+      "de": "Achtung!; Vorsicht!",
+      "en": [
+        "Attention!"
+      ],
+      "accept": [],
+      "ipa": "atɑ̃sjɔ̃",
+      "pos": "phrase",
+      "hint": "Wendung",
+      "example": null,
+      "note": "attention: [s] wie bei station.",
+      "page": 159
+    },
+    {
+      "id": "pardon",
+      "de": "Verzeihung.; Entschuldigung.",
+      "en": [
+        "Pardon."
+      ],
+      "accept": [],
+      "ipa": "paʀdɔ̃",
+      "pos": "phrase",
+      "hint": "Wendung",
+      "example": null,
+      "note": "Als Frage bedeutet Pardon? auch Wie bitte?",
+      "page": 159
+    },
+    {
+      "id": "je-suis",
+      "de": "ich bin",
+      "en": [
+        "je suis"
+      ],
+      "accept": [],
+      "ipa": "ʒəsɥi",
+      "pos": "phrase",
+      "hint": "Wendung · 2 Wörter",
+      "example": "Je suis une amie. – Ich bin eine Freundin.",
+      "note": null,
+      "page": 159
+    },
+    {
+      "id": "un-ami-une-amie",
+      "de": "ein Freund / eine Freundin",
+      "en": [
+        "un ami",
+        "une amie"
+      ],
+      "accept": [],
+      "ipa": "ɛ̃nami; ynami",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": null,
+      "page": 159
+    },
+    {
+      "id": "de-d",
+      "de": "aus; von",
+      "en": [
+        "de",
+        "d'"
+      ],
+      "accept": [],
+      "ipa": "də",
+      "pos": "word",
+      "hint": "Vokabel",
+      "example": "Je suis une amie d'Elsa. – Ich bin eine Freundin von Elsa.",
+      "note": "! Beginnt das folgende Wort mit einem Vokal (a, e, i, o, u), fällt das e von de weg und wird durch einen Apostroph ersetzt: d'Elsa.",
+      "page": 159
+    },
+    {
+      "id": "un-voisin-une-voisine",
+      "de": "ein Nachbar / eine Nachbarin",
+      "en": [
+        "un voisin",
+        "une voisine"
+      ],
+      "accept": [],
+      "ipa": "ɛ̃vwazɛ̃; ynvwazin",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": "Safia est une voisine de Max et Lola. – Safia ist eine Nachbarin von Max und Lola.",
+      "note": null,
+      "page": 159
+    }
+  ]
+}

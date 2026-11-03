@@ -1,0 +1,206 @@
+{
+  "id": "en-unit1-tag4",
+  "title": "Englisch Tag 4 — plumber bis trousers",
+  "source": "Unit 1 · S. 173–174 · Tag 4 von 6",
+  "lang": "en-GB",
+  "langLabel": "Englisch",
+  "direction": "de-en",
+  "words": [
+    {
+      "id": "plumber",
+      "de": "Installateur/-in; Klempner/-in",
+      "en": [
+        "plumber"
+      ],
+      "accept": [],
+      "ipa": "ˈplʌmə",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": "A plumber can fix your water pipes.",
+      "note": null,
+      "page": 173
+    },
+    {
+      "id": "hill",
+      "de": "Berg; Hügel",
+      "en": [
+        "hill"
+      ],
+      "accept": [],
+      "ipa": "hɪl",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": "Our house is on a hill and we've got a fantastic view.",
+      "note": null,
+      "page": 173
+    },
+    {
+      "id": "by",
+      "de": "bei; neben; an",
+      "en": [
+        "by"
+      ],
+      "accept": [],
+      "ipa": "baɪ",
+      "pos": "preposition",
+      "hint": "Präposition",
+      "example": null,
+      "note": "by = next to",
+      "page": 173
+    },
+    {
+      "id": "chimney",
+      "de": "Kamin; Schornstein",
+      "en": [
+        "chimney"
+      ],
+      "accept": [],
+      "ipa": "ˈtʃɪmni",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": "a roof with a chimney",
+      "note": null,
+      "page": 174
+    },
+    {
+      "id": "roof",
+      "de": "Dach",
+      "en": [
+        "roof"
+      ],
+      "accept": [],
+      "ipa": "ruːf",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": null,
+      "page": 174
+    },
+    {
+      "id": "cloud",
+      "de": "Wolke",
+      "en": [
+        "cloud"
+      ],
+      "accept": [],
+      "ipa": "klaʊd",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": null,
+      "page": 174
+    },
+    {
+      "id": "tin",
+      "de": "Zinn",
+      "en": [
+        "tin"
+      ],
+      "accept": [],
+      "ipa": "tɪn",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": "There's an old tin mine near Dave's house.",
+      "note": null,
+      "page": 174
+    },
+    {
+      "id": "to-go-right-back-to",
+      "de": "zurückgehen auf",
+      "en": [
+        "go right back to"
+      ],
+      "accept": [],
+      "ipa": "ˌɡəʊ raɪt ˈbæk tə",
+      "pos": "verb",
+      "hint": "Verb · 4 Wörter",
+      "example": "Cornwall's mining history goes right back to Celtic times.",
+      "note": null,
+      "page": 174
+    },
+    {
+      "id": "geocaching",
+      "de": "Geocaching",
+      "en": [
+        "geocaching"
+      ],
+      "accept": [],
+      "ipa": "ˈdʒiːəʊkæʃɪŋ",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": null,
+      "page": 174
+    },
+    {
+      "id": "to-solve",
+      "de": "lösen",
+      "en": [
+        "solve"
+      ],
+      "accept": [],
+      "ipa": "sɒlv",
+      "pos": "verb",
+      "hint": "Verb",
+      "example": "Dave and his friends want to solve the puzzle.",
+      "note": "Lat. solvere",
+      "page": 174
+    },
+    {
+      "id": "to-boom",
+      "de": "dröhnen",
+      "en": [
+        "boom"
+      ],
+      "accept": [],
+      "ipa": "buːm",
+      "pos": "verb",
+      "hint": "Verb",
+      "example": "A loud voice booms.",
+      "note": null,
+      "page": 174
+    },
+    {
+      "id": "to-keep-away-from",
+      "de": "(sich) fernhalten von",
+      "en": [
+        "keep away from"
+      ],
+      "accept": [],
+      "ipa": "ˌkiːp əˈweɪ frəm",
+      "pos": "verb",
+      "hint": "Verb · 3 Wörter",
+      "example": "Keep away from my chocolate!",
+      "note": null,
+      "page": 174
+    },
+    {
+      "id": "skirt",
+      "de": "Rock",
+      "en": [
+        "skirt"
+      ],
+      "accept": [],
+      "ipa": "skɜːt",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": null,
+      "page": 174
+    },
+    {
+      "id": "trousers",
+      "de": "Hose",
+      "en": [
+        "trousers"
+      ],
+      "accept": [],
+      "ipa": "ˈtraʊzəz",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": "You've got cool trousers.",
+      "note": "Plural · ! trousers steht immer im Plural.",
+      "page": 174
+    }
+  ]
+}

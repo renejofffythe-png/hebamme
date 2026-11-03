@@ -1,0 +1,219 @@
+{
+  "id": "fr-unite1-tag5",
+  "title": "Französisch Tag 5 — une question bis ça",
+  "source": "Au début / Unité 1 · Tag 5 von 7",
+  "lang": "fr-FR",
+  "langLabel": "Französisch",
+  "direction": "de-fr",
+  "words": [
+    {
+      "id": "une-question",
+      "de": "eine Frage",
+      "en": [
+        "une question"
+      ],
+      "accept": [],
+      "ipa": "ynkɛstjɔ̃",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": "Das qu wird im Französischen als [k] ausgesprochen. · englisch: question · ! Die Bedeutung mancher französischer Wörter kannst du aus dem Englischen ableiten, z. B. place, attention, station oder question."
+    },
+    {
+      "id": "une-fille",
+      "de": "ein Mädchen; eine Tochter",
+      "en": [
+        "une fille"
+      ],
+      "accept": [],
+      "ipa": "ynfij",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": "Sprich den Laut [j] in fille wie ein schwaches j aus."
+    },
+    {
+      "id": "un-copain-une-copine",
+      "de": "ein Freund / eine Freundin",
+      "en": [
+        "un copain",
+        "une copine"
+      ],
+      "accept": [],
+      "ipa": "ɛ̃kɔpɛ̃; ynkɔpin",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": "umgangssprachlich · ! Copain / copine ist umgangssprachlich (französisch: familier). Das „normale“ Wort für Freund / Freundin ist un ami / une amie (Standardsprache)."
+    },
+    {
+      "id": "une-dame",
+      "de": "eine Dame; eine Frau",
+      "en": [
+        "une dame"
+      ],
+      "accept": [],
+      "ipa": "yndam",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": "Maskulin (männlich) und feminin (weiblich): Vergleiche mit un voisin / une voisine."
+    },
+    {
+      "id": "un-monsieur",
+      "de": "ein Herr; ein Mann",
+      "en": [
+        "un monsieur"
+      ],
+      "accept": [],
+      "ipa": "məsjø",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": "Bonjour monsieur! – Guten Tag!",
+      "note": "Sprich den Laut [ø] in monsieur wie ein langes -ö- wie in böse."
+    },
+    {
+      "id": "il",
+      "de": "er",
+      "en": [
+        "il"
+      ],
+      "accept": [],
+      "ipa": "il",
+      "pos": "word",
+      "hint": "Vokabel",
+      "example": "Voilà un garçon. Il est de Nice. – Da ist ein Junge. Er ist aus Nizza.",
+      "note": null
+    },
+    {
+      "id": "elle",
+      "de": "sie",
+      "en": [
+        "elle"
+      ],
+      "accept": [],
+      "ipa": "ɛl",
+      "pos": "word",
+      "hint": "Vokabel",
+      "example": "Voilà une fille. Elle est de Nice. – Da ist ein Mädchen. Sie ist aus Nizza.",
+      "note": null
+    },
+    {
+      "id": "un-garcon",
+      "de": "ein Junge",
+      "en": [
+        "un garçon"
+      ],
+      "accept": [],
+      "ipa": "ɛ̃gaʀsɔ̃",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": null
+    },
+    {
+      "id": "allez",
+      "de": "Los! (Aufforderung)",
+      "en": [
+        "Allez !"
+      ],
+      "accept": [],
+      "ipa": "ale",
+      "pos": "phrase",
+      "hint": "Wendung",
+      "example": null,
+      "note": null
+    },
+    {
+      "id": "un-perroquet",
+      "de": "ein Papagei",
+      "en": [
+        "un perroquet"
+      ],
+      "accept": [],
+      "ipa": "pɛʀɔkɛ",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": null
+    },
+    {
+      "id": "etre",
+      "de": "sein",
+      "en": [
+        "être"
+      ],
+      "accept": [],
+      "ipa": "ɛtʀ",
+      "pos": "verb",
+      "hint": "Verb",
+      "example": null,
+      "note": "! je suis ich bin · tu es du bist · il est er ist · elle est sie ist · on est man ist / wir sind · nous sommes wir sind · vous êtes ihr seid · ils sont / elles sont sie sind. Vous steht auch für die höfliche Anrede (= „Sie“)."
+    },
+    {
+      "id": "avec",
+      "de": "mit",
+      "en": [
+        "avec"
+      ],
+      "accept": [],
+      "ipa": "avɛk",
+      "pos": "word",
+      "hint": "Vokabel",
+      "example": null,
+      "note": null
+    },
+    {
+      "id": "dans",
+      "de": "in",
+      "en": [
+        "dans"
+      ],
+      "accept": [],
+      "ipa": "dɑ̃",
+      "pos": "word",
+      "hint": "Vokabel",
+      "example": null,
+      "note": null
+    },
+    {
+      "id": "tiens",
+      "de": "Sieh mal da!",
+      "en": [
+        "Tiens !"
+      ],
+      "accept": [],
+      "ipa": "tjɛ̃",
+      "pos": "phrase",
+      "hint": "Wendung",
+      "example": null,
+      "note": null
+    },
+    {
+      "id": "c-est-quoi-ca",
+      "de": "Was ist (denn) das?",
+      "en": [
+        "C'est quoi, ça ?"
+      ],
+      "accept": [],
+      "ipa": "sɛkwa",
+      "pos": "phrase",
+      "hint": "Wendung · 3 Wörter",
+      "example": null,
+      "note": "umgangssprachlich"
+    },
+    {
+      "id": "ca",
+      "de": "das",
+      "en": [
+        "ça"
+      ],
+      "accept": [],
+      "ipa": "sa",
+      "pos": "word",
+      "hint": "Vokabel",
+      "example": null,
+      "note": null
+    }
+  ]
+}

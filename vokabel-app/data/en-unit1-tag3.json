@@ -1,0 +1,206 @@
+{
+  "id": "en-unit1-tag3",
+  "title": "Englisch Tag 3 — announcement bis mine",
+  "source": "Unit 1 · S. 173 · Tag 3 von 6",
+  "lang": "en-GB",
+  "langLabel": "Englisch",
+  "direction": "de-en",
+  "words": [
+    {
+      "id": "announcement",
+      "de": "Ankündigung; Durchsage",
+      "en": [
+        "announcement"
+      ],
+      "accept": [],
+      "ipa": "əˈnaʊnsmənt",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": "I never understand the announcements at the station.",
+      "note": "Lat. annuntiare",
+      "page": 173
+    },
+    {
+      "id": "couple",
+      "de": "Paar",
+      "en": [
+        "couple"
+      ],
+      "accept": [],
+      "ipa": "ˈkʌpl",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "Fr. couple (m)",
+      "page": 173
+    },
+    {
+      "id": "customer",
+      "de": "Kunde/Kundin",
+      "en": [
+        "customer"
+      ],
+      "accept": [],
+      "ipa": "ˈkʌstəmə",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": "A customer buys things in a shop.",
+      "note": "customer ↔ assistant",
+      "page": 173
+    },
+    {
+      "id": "to-supply",
+      "de": "versorgen",
+      "en": [
+        "supply"
+      ],
+      "accept": [],
+      "ipa": "səˈplaɪ",
+      "pos": "verb",
+      "hint": "Verb",
+      "example": "Shops supply people with the things they need.",
+      "note": null,
+      "page": 173
+    },
+    {
+      "id": "to-rule",
+      "de": "herrschen; regieren",
+      "en": [
+        "rule"
+      ],
+      "accept": [],
+      "ipa": "ruːl",
+      "pos": "verb",
+      "hint": "Verb",
+      "example": "Elizabeth II rules the UK.",
+      "note": null,
+      "page": 173
+    },
+    {
+      "id": "to-get",
+      "de": "werden",
+      "en": [
+        "get"
+      ],
+      "accept": [],
+      "ipa": "ɡet; ɡɒt; ɡɒt",
+      "pos": "verb",
+      "hint": "Verb",
+      "example": "If you learn more words, your English will get better.",
+      "note": "Unregelmäßig: get – got – got",
+      "page": 173
+    },
+    {
+      "id": "to-come-in",
+      "de": "hereinkommen",
+      "en": [
+        "come in"
+      ],
+      "accept": [],
+      "ipa": "ˌkʌm ˈɪn",
+      "pos": "verb",
+      "hint": "Verb · 2 Wörter",
+      "example": "Mrs Preston invites the friends to come in.",
+      "note": null,
+      "page": 173
+    },
+    {
+      "id": "hall",
+      "de": "Flur; Diele; Korridor",
+      "en": [
+        "hall"
+      ],
+      "accept": [],
+      "ipa": "hɔːl",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": null,
+      "page": 173
+    },
+    {
+      "id": "electricity",
+      "de": "Elektrizität; Strom",
+      "en": [
+        "electricity"
+      ],
+      "accept": [],
+      "ipa": "ˌelɪkˈtrɪsəti",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": "If there's no electricity, you can't make tea.",
+      "note": "Fr. électricité (f)",
+      "page": 173
+    },
+    {
+      "id": "what-s-the-matter",
+      "de": "Was ist los?; Was hast du?",
+      "en": [
+        "What's the matter?"
+      ],
+      "accept": [],
+      "ipa": "ˌwɒts ðə ˈmætə",
+      "pos": "phrase",
+      "hint": "Wendung · 3 Wörter",
+      "example": null,
+      "note": null,
+      "page": 173
+    },
+    {
+      "id": "oh-dear",
+      "de": "Oje!",
+      "en": [
+        "Oh dear!"
+      ],
+      "accept": [],
+      "ipa": "əʊ ˈdɪə",
+      "pos": "phrase",
+      "hint": "Wendung · 2 Wörter",
+      "example": "I've hurt my leg. – Oh dear!",
+      "note": null,
+      "page": 173
+    },
+    {
+      "id": "to-go-out",
+      "de": "ausgehen; hinausgehen",
+      "en": [
+        "go out"
+      ],
+      "accept": [],
+      "ipa": "ˌɡəʊ ˈaʊt",
+      "pos": "verb",
+      "hint": "Verb · 2 Wörter",
+      "example": "Let's go out!",
+      "note": null,
+      "page": 173
+    },
+    {
+      "id": "coastal-path",
+      "de": "Küstenweg",
+      "en": [
+        "coastal path"
+      ],
+      "accept": [],
+      "ipa": "ˌkəʊstl ˈpɑːθ",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": null,
+      "page": 173
+    },
+    {
+      "id": "mine",
+      "de": "Mine",
+      "en": [
+        "mine"
+      ],
+      "accept": [],
+      "ipa": "maɪn",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "mine → mining",
+      "page": 173
+    }
+  ]
+}

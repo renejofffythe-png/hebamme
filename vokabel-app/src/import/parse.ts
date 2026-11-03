@@ -99,10 +99,12 @@ function parenForms(s: string): { full: string; short: string | null } {
   return { full, short: short && short !== full ? short : null };
 }
 
-const ADJ_DE = /(ig|lich|isch|sam|bar|haft|los|voll|iv|ell|al|ös|ant|ent)$/;
+const ADJ_DE = /(ig|lich|isch|sam|bar|haft|los|voll|iv|ell|al|ös|ant|ent|end)$/;
 const ADJ_TARGET = /(y|ful|ous|ive|al|ic|ish|less|able|ible|ent|ant)$/;
 /** Artikel verstellen die Sicht auf das, was die Wortart verrät. */
 const ARTICLE_DE = /^(?:der|die|das|den|dem|des|ein|eine|einen|einem|einer|sich)\s+/i;
+/** Deutsche Infinitive, die nicht auf -en enden. */
+const VERBS_DE = new Set(['sein', 'tun']);
 const ADVERBS_DE = new Set([
   'nirgendwo', 'irgendwo', 'überall', 'immer', 'nie', 'niemals', 'oft', 'selten',
   'manchmal', 'bald', 'gestern', 'heute', 'morgen', 'sofort', 'endlich', 'zusammen',
@@ -112,8 +114,12 @@ function classify(
   de: string,
   primary: string,
   isVerb: boolean,
+  english: boolean,
 ): { pos: string; hint: string } {
-  const words = primary.split(/\s+/).length;
+  // "Où est …?" hat zwei Wörter; die Auslassungspunkte sind ein Platzhalter.
+  // Gezählt wird nur, was Buchstaben hat: "Où est …?" und "À bientôt !" sind
+  // zwei Wörter, Platzhalter und frei stehende Satzzeichen zählen nicht mit.
+  const words = Math.max(1, primary.split(/\s+/).filter((w) => /\p{L}/u.test(w)).length);
   // Führende Klammern, Zeichen und Artikel weg: "(Wind-)Surfen" und "das Haus"
   // sind beide Substantive.
   const bare = de.replace(/^[^\p{L}(]+/u, '').replace(ARTICLE_DE, '');
@@ -123,9 +129,18 @@ function classify(
   let pos = 'word';
   let hint = 'Vokabel';
 
-  if (isVerb) {
+  if (isVerb || VERBS_DE.has(deHead)) {
     pos = 'verb';
     hint = 'Verb';
+  } else if (/^\d+ \(|^\w+ \(\d+\)$/.test(de)) {
+    // "eins (1)", "vierzehn (14)" — Zahlen sind keine Substantive.
+    pos = 'number';
+    hint = 'Zahl';
+  } else if (/[?!.]$|…/.test(de.split(';')[0]!.replace(/\([^)]*\)/g, '').trim())) {
+    // "Wo ist …?", "Bis bald!" — Fragen und Ausrufe sind Wendungen, auch
+    // wenn sie großgeschrieben anfangen.
+    pos = 'phrase';
+    hint = 'Wendung';
   } else if (first !== '' && first === first.toUpperCase() && first !== first.toLowerCase()) {
     // Deutsche Substantive sind großgeschrieben — das ist das verlässlichste
     // Signal, das ohne Wörterbuch zu haben ist, und es gilt in jeder Zielsprache.
@@ -142,7 +157,7 @@ function classify(
   } else if (words >= 3 || de.includes('(nicht)')) {
     pos = 'phrase';
     hint = 'Wendung';
-  } else if (ADJ_DE.test(deHead) || ADJ_TARGET.test(primary)) {
+  } else if (ADJ_DE.test(deHead) || (english && ADJ_TARGET.test(primary))) {
     pos = 'adjective';
     hint = 'Adjektiv';
   } else if (words >= 2) {
@@ -153,6 +168,12 @@ function classify(
   if (words > 1) hint += ` · ${words} Wörter`;
   return { pos, hint };
 }
+
+const MARKERS = /\(?\b(fam|ugs|f|m|pl|adv|adj|sg)\.\)?(?=\s|$)/gi;
+const MARKER_TEXT: Record<string, string> = {
+  fam: 'umgangssprachlich', ugs: 'umgangssprachlich', f: 'weiblich', m: 'männlich',
+  pl: 'Plural', sg: 'Singular', adv: 'Adverb', adj: 'Adjektiv',
+};
 
 interface RawWord {
   target: string;
@@ -179,6 +200,18 @@ function buildWord(raw: RawWord, lang: string, taken: Set<string>, index: number
     notes.unshift(`Unregelmäßig: ${forms.map((f) => f.replace(/^to\s+/, '')).join(' – ')}`);
   }
 
+  // Wörterbuch-Kürzel ("Salut! (fam.)", "bien adv.") sind Beschriftung, keine
+  // Lösung — sonst wird "bien" falsch, weil die Lösung "bien adv." hieße.
+  const labels: string[] = [];
+  target = target
+    .replace(MARKERS, (_m, k: string) => {
+      labels.push(MARKER_TEXT[k.toLowerCase()] ?? k);
+      return ' ';
+    })
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (labels.length) notes.unshift(labels.join(', '));
+
   const idSource = target;
   const isVerb = isEnglish(lang) && /^to\s+/i.test(target);
 
@@ -195,7 +228,7 @@ function buildWord(raw: RawWord, lang: string, taken: Set<string>, index: number
   if (!en.length) return null;
 
   const primary = en[0]!;
-  const { pos, hint } = classify(de, primary, isVerb);
+  const { pos, hint } = classify(de, primary, isVerb, isEnglish(lang));
 
   let id = slug(idSource) || `wort-${index + 1}`;
   if (taken.has(id)) {

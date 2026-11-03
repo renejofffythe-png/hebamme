@@ -1,0 +1,206 @@
+{
+  "id": "en-unit1-tag2",
+  "title": "Englisch Tag 2 — plant bis accent",
+  "source": "Unit 1 · S. 172–173 · Tag 2 von 6",
+  "lang": "en-GB",
+  "langLabel": "Englisch",
+  "direction": "de-en",
+  "words": [
+    {
+      "id": "plant",
+      "de": "Pflanze",
+      "en": [
+        "plant"
+      ],
+      "accept": [],
+      "ipa": "plɑːnt",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": "A tree is a plant.",
+      "note": null,
+      "page": 172
+    },
+    {
+      "id": "from-around-the-world",
+      "de": "aus aller Welt",
+      "en": [
+        "from around the world"
+      ],
+      "accept": [],
+      "ipa": "frəm əˌraʊnd ðə ˈwɜːld",
+      "pos": "phrase",
+      "hint": "Wendung · 4 Wörter",
+      "example": "In our town there are people from around the world.",
+      "note": null,
+      "page": 172
+    },
+    {
+      "id": "environment",
+      "de": "Umwelt; Umgebung",
+      "en": [
+        "environment"
+      ],
+      "accept": [],
+      "ipa": "ɪnˈvaɪrənmənt",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": "Our environment is the world (or area) we live in.",
+      "note": "Fr. environnement (m)",
+      "page": 172
+    },
+    {
+      "id": "mining",
+      "de": "Bergbau",
+      "en": [
+        "mining"
+      ],
+      "accept": [],
+      "ipa": "ˈmaɪnɪŋ",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": "Cornwall has a long mining history.",
+      "note": null,
+      "page": 172
+    },
+    {
+      "id": "bronze-age",
+      "de": "Bronzezeit (ca. 2200–800 v. Chr.)",
+      "en": [
+        "Bronze Age"
+      ],
+      "accept": [],
+      "ipa": "ˈbrɒnz eɪdʒ",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": null,
+      "page": 172
+    },
+    {
+      "id": "cross",
+      "de": "Kreuz",
+      "en": [
+        "cross"
+      ],
+      "accept": [],
+      "ipa": "krɒs",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "Fr. croix (f); Lat. crux (f)",
+      "page": 172
+    },
+    {
+      "id": "irish",
+      "de": "irisch; Irisch",
+      "en": [
+        "Irish"
+      ],
+      "accept": [],
+      "ipa": "ˈaɪrɪʃ",
+      "pos": "adjective",
+      "hint": "Adjektiv",
+      "example": "There are lots of nice Irish songs.",
+      "note": null,
+      "page": 172
+    },
+    {
+      "id": "gaelic",
+      "de": "gälisch; Gälisch",
+      "en": [
+        "Gaelic"
+      ],
+      "accept": [],
+      "ipa": "ˈɡeɪlɪk",
+      "pos": "adjective",
+      "hint": "Adjektiv",
+      "example": "Gaelic is a Celtic language.",
+      "note": null,
+      "page": 173
+    },
+    {
+      "id": "besides",
+      "de": "neben",
+      "en": [
+        "besides"
+      ],
+      "accept": [],
+      "ipa": "bɪˈsaɪdz",
+      "pos": "preposition",
+      "hint": "Präposition",
+      "example": "Do you speak any languages besides German?",
+      "note": null,
+      "page": 173
+    },
+    {
+      "id": "geography",
+      "de": "Geografie; Erdkunde",
+      "en": [
+        "geography"
+      ],
+      "accept": [],
+      "ipa": "dʒiˈɒɡrəfi",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": "What do you know about the geography of Cornwall?",
+      "note": null,
+      "page": 173
+    },
+    {
+      "id": "tourism",
+      "de": "Tourismus",
+      "en": [
+        "tourism"
+      ],
+      "accept": [],
+      "ipa": "ˈtʊərɪzm",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "tourism → tour → tourist",
+      "page": 173
+    },
+    {
+      "id": "local",
+      "de": "örtlich; lokal",
+      "en": [
+        "local"
+      ],
+      "accept": [],
+      "ipa": "ˈləʊkl",
+      "pos": "adjective",
+      "hint": "Adjektiv",
+      "example": "The schools in your area are your local schools.",
+      "note": null,
+      "page": 173
+    },
+    {
+      "id": "dialect",
+      "de": "Dialekt",
+      "en": [
+        "dialect"
+      ],
+      "accept": [],
+      "ipa": "ˈdaɪəlekt",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": "Do people speak a dialect where you live?",
+      "note": null,
+      "page": 173
+    },
+    {
+      "id": "accent",
+      "de": "Akzent",
+      "en": [
+        "accent"
+      ],
+      "accept": [],
+      "ipa": "ˈæksnt",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": "My granny has a strong German accent when she speaks English.",
+      "note": null,
+      "page": 173
+    }
+  ]
+}

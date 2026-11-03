@@ -1,0 +1,143 @@
+{
+  "unit": "Unit 1 – Goodbye Greenwich (Teil 2)",
+  "quelle": "Schulbuch Englisch, Seiten 172–175",
+  "abschnitte": [
+    {
+      "seite": 172,
+      "titel": "Skills: How to get information",
+      "vokabeln": [
+        { "nr": "1", "en": "tourist board", "lautschrift": "['tʊərɪst bɔːd]", "de": "Touristeninformation", "beispiel": "At a tourist board you can get information about a country or region." },
+        { "nr": "2", "en": "Dear Sir or Madam", "lautschrift": "[dɪə ˌsɜːr‿ɔː ˈmædəm]", "de": "Sehr geehrte Dame, sehr geehrter Herr", "beispiel": "You begin a formal letter like this." },
+        { "en": "grammar school", "lautschrift": "['ɡræmə skuːl]", "de": "Gymnasium", "beispiel": "A school (in Britain) that is similar to the German 'Gymnasium'." },
+        { "en": "Best wishes", "lautschrift": "[ˌbest ˈwɪʃɪz]", "de": "Viele Grüße; Herzliche Grüße", "beispiel": "You can finish a formal letter like this." },
+        { "en": "to send off", "lautschrift": "[ˌsend ˈɒf]", "de": "abschicken", "beispiel": "Before you send off your e-mail, read it again." },
+        { "en": "yourselves", "lautschrift": "[jɔːˈselvz]", "de": "ihr/euch/Sie/sich (selbst); selber", "beispiel": "Did you enjoy yourselves? – Oh yes, the party was really great." }
+      ]
+    },
+    {
+      "seite": 172,
+      "titel": "Station 2: Visit Cornwall – You'll love it!",
+      "vokabeln": [
+        { "en": "in the far west", "lautschrift": "[ɪn ðə fɑː ˈwest]", "de": "im äußersten Westen", "beispiel": "Cornwall is in the far west of Great Britain." },
+        { "en": "coastline", "lautschrift": "['kəʊstlaɪn]", "de": "Küste; Küstenverlauf", "beispiel": "Cornwall's coastline is almost 300 miles long." },
+        { "en": "fishing", "lautschrift": "['fɪʃɪŋ]", "de": "Angeln; Fischen; Fischerei", "hinweis": "fishing → a fish" },
+        { "en": "to get to know", "lautschrift": "[ˌɡet tə ˈnəʊ]", "de": "kennenlernen", "beispiel": "I would like to get to know your friends." },
+        { "en": "wild", "lautschrift": "[waɪld]", "de": "wild", "beispiel": "pets – farm animals – wild animals" },
+        { "en": "prehistoric", "lautschrift": "[ˌpriːhɪˈstɒrɪk]", "de": "vorgeschichtlich" },
+        { "en": "monument", "lautschrift": "['mɒnjəmənt]", "de": "Monument; Denkmal", "beispiel": "In Cornwall you can visit lots of prehistoric monuments.", "hinweis": "Lat. monumentum (nt)" },
+        { "en": "walking trail", "lautschrift": "['wɔːkɪŋ treɪl]", "de": "Wanderweg", "beispiel": "On walking trails you can only go on foot." },
+        { "en": "plant", "lautschrift": "[plɑːnt]", "de": "Pflanze", "beispiel": "A tree is a plant." },
+        { "en": "from around the world", "lautschrift": "[frəm əˌraʊnd ðə ˈwɜːld]", "de": "aus aller Welt", "beispiel": "In our town there are people from around the world." },
+        { "en": "environment", "lautschrift": "[ɪnˈvaɪrənmənt]", "de": "Umwelt; Umgebung", "beispiel": "Our environment is the world (or area) we live in.", "hinweis": "Fr. environnement (m)" },
+        { "en": "mining", "lautschrift": "['maɪnɪŋ]", "de": "Bergbau", "beispiel": "Cornwall has a long mining history." },
+        { "en": "Bronze Age", "lautschrift": "['brɒnz eɪdʒ]", "de": "Bronzezeit (ca. 2200–800 v. Chr.)" },
+        { "en": "cross", "lautschrift": "[krɒs]", "de": "Kreuz", "hinweis": "Fr. croix (f); Lat. crux (f)" },
+        { "en": "Irish", "lautschrift": "['aɪrɪʃ]", "de": "irisch; Irisch", "beispiel": "There are lots of nice Irish songs." }
+      ]
+    },
+    {
+      "seite": 173,
+      "titel": "Station 2: Visit Cornwall – You'll love it! (Fortsetzung)",
+      "vokabeln": [
+        { "en": "Gaelic", "lautschrift": "['ɡeɪlɪk]", "de": "gälisch; Gälisch", "beispiel": "Gaelic is a Celtic language." },
+        { "en": "besides", "lautschrift": "[bɪˈsaɪdz]", "de": "neben", "beispiel": "Do you speak any languages besides German?" },
+        { "nr": "7", "en": "geography", "lautschrift": "[dʒiˈɒɡrəfi]", "de": "Geografie; Erdkunde", "beispiel": "What do you know about the geography of Cornwall?" },
+        { "en": "tourism", "lautschrift": "['tʊərɪzm]", "de": "Tourismus", "hinweis": "tourism → tour → tourist" },
+        { "nr": "11", "en": "local", "lautschrift": "['ləʊkl]", "de": "örtlich; lokal", "beispiel": "The schools in your area are your local schools." },
+        { "en": "dialect", "lautschrift": "['daɪəlekt]", "de": "Dialekt", "beispiel": "Do people speak a dialect where you live?" },
+        { "en": "accent", "lautschrift": "['æksnt]", "de": "Akzent", "beispiel": "My granny has a strong German accent when she speaks English." },
+        { "nr": "12", "en": "announcement", "lautschrift": "[əˈnaʊnsmənt]", "de": "Ankündigung; Durchsage", "beispiel": "I never understand the announcements at the station.", "hinweis": "Lat. annuntiare" },
+        { "nr": "13", "en": "couple", "lautschrift": "['kʌpl]", "de": "Paar", "hinweis": "Fr. couple (m)" },
+        { "en": "customer", "lautschrift": "['kʌstəmə]", "de": "Kunde/Kundin", "beispiel": "A customer buys things in a shop.", "hinweis": "customer ↔ assistant" },
+        { "nr": "14", "en": "to supply", "lautschrift": "[səˈplaɪ]", "de": "versorgen", "beispiel": "Shops supply people with the things they need." },
+        { "en": "to rule", "lautschrift": "[ruːl]", "de": "herrschen; regieren", "beispiel": "Elizabeth II rules the UK." }
+      ]
+    },
+    {
+      "seite": 173,
+      "titel": "Story: Things will get better",
+      "vokabeln": [
+        { "en": "to get, got, got", "lautschrift": "[ɡet], [ɡɒt], [ɡɒt]", "de": "werden", "beispiel": "If you learn more words, your English will get better." },
+        { "en": "to come in", "lautschrift": "[ˌkʌm ˈɪn]", "de": "hereinkommen", "beispiel": "Mrs Preston invites the friends to come in." },
+        { "en": "hall", "lautschrift": "[hɔːl]", "de": "Flur; Diele; Korridor" },
+        { "en": "electricity", "lautschrift": "[ˌelɪkˈtrɪsəti]", "de": "Elektrizität; Strom", "beispiel": "If there's no electricity, you can't make tea.", "hinweis": "Fr. électricité (f)" },
+        { "en": "What's the matter?", "lautschrift": "[ˌwɒts ðə ˈmætə]", "de": "Was ist los?; Was hast du?" },
+        { "en": "Oh dear!", "lautschrift": "[əʊ ˈdɪə]", "de": "Oje!", "beispiel": "I've hurt my leg. – Oh dear!" },
+        { "en": "to go out", "lautschrift": "[ˌɡəʊ ˈaʊt]", "de": "ausgehen; hinausgehen", "beispiel": "Let's go out!" },
+        { "en": "coastal path", "lautschrift": "[ˌkəʊstl ˈpɑːθ]", "de": "Küstenweg" },
+        { "en": "mine", "lautschrift": "[maɪn]", "de": "Mine", "hinweis": "mine → mining" },
+        { "en": "plumber", "lautschrift": "['plʌmə]", "de": "Installateur/-in; Klempner/-in", "beispiel": "A plumber can fix your water pipes." },
+        { "en": "hill", "lautschrift": "[hɪl]", "de": "Berg; Hügel", "beispiel": "Our house is on a hill and we've got a fantastic view." },
+        { "en": "by", "lautschrift": "[baɪ]", "de": "bei; neben; an", "hinweis": "by = next to" }
+      ]
+    },
+    {
+      "seite": 174,
+      "titel": "Story: Things will get better (Fortsetzung)",
+      "vokabeln": [
+        { "en": "chimney", "lautschrift": "['tʃɪmni]", "de": "Kamin; Schornstein", "beispiel": "a roof with a chimney" },
+        { "en": "roof", "lautschrift": "[ruːf]", "de": "Dach" },
+        { "en": "cloud", "lautschrift": "[klaʊd]", "de": "Wolke" },
+        { "en": "tin", "lautschrift": "[tɪn]", "de": "Zinn", "beispiel": "There's an old tin mine near Dave's house." },
+        { "en": "to go right back to", "lautschrift": "[ˌɡəʊ raɪt ˈbæk tə]", "de": "zurückgehen auf", "beispiel": "Cornwall's mining history goes right back to Celtic times." },
+        { "en": "geocaching", "lautschrift": "['dʒiːəʊkæʃɪŋ]", "de": "Geocaching" },
+        { "en": "to solve", "lautschrift": "[sɒlv]", "de": "lösen", "beispiel": "Dave and his friends want to solve the puzzle.", "hinweis": "Lat. solvere" },
+        { "en": "to boom", "lautschrift": "[buːm]", "de": "dröhnen", "beispiel": "A loud voice booms." },
+        { "en": "to keep away from", "lautschrift": "[ˌkiːp əˈweɪ frəm]", "de": "(sich) fernhalten von", "beispiel": "Keep away from my chocolate!" },
+        { "en": "skirt", "lautschrift": "[skɜːt]", "de": "Rock" },
+        { "en": "trousers (pl.)", "lautschrift": "['traʊzəz]", "de": "Hose", "beispiel": "You've got cool trousers.", "hinweis": "! trousers steht immer im Plural." },
+        { "en": "spear", "lautschrift": "[spɪə]", "de": "Speer", "beispiel": "The spear is broken." },
+        { "en": "to move in / to move into", "lautschrift": "[ˌmuːv ˈɪn], [ˌmuːv ˈɪntə]", "de": "einziehen in", "beispiel": "Dave and his parents moved into a new house in Cornwall." },
+        { "en": "warrior", "lautschrift": "['wɒriə]", "de": "Krieger" },
+        { "en": "society", "lautschrift": "[səˈsaɪəti]", "de": "Verein; Gesellschaft", "beispiel": "Bob is a member of a local history society.", "hinweis": "Fr. société (f)" },
+        { "en": "twin", "lautschrift": "[twɪn]", "de": "Zwilling; Zwillings-" },
+        { "en": "tool", "lautschrift": "[tuːl]", "de": "Werkzeug; Gerät", "beispiel": "A plumber needs special tools." },
+        { "en": "electrician", "lautschrift": "[ɪˌlekˈtrɪʃn]", "de": "Elektriker/-in", "hinweis": "electrician → electricity" },
+        { "en": "plumbing", "lautschrift": "['plʌmɪŋ]", "de": "Sanitäranlagen", "hinweis": "plumbing → plumber" },
+        { "en": "electrics", "lautschrift": "[ɪˈlektrɪks]", "de": "Elektrik", "beispiel": "An electrician can fix the electrics in your house." },
+        { "en": "change", "lautschrift": "[tʃeɪndʒ]", "de": "Änderung; Veränderung; Wechsel", "hinweis": "change → to change" },
+        { "en": "to turn to", "lautschrift": "['tɜːn tə]", "de": "sich wenden an; sich zuwenden", "beispiel": "I turned to him to say something but he wasn't there any more." }
+      ]
+    },
+    {
+      "seite": 175,
+      "titel": "More jobs",
+      "vokabeln": [
+        { "en": "mechanic", "de": "Mechaniker/-in", "hinweis": "What and where? – to fix, car, tools" },
+        { "en": "pilot", "de": "Pilot/-in", "hinweis": "What and where? – to travel, journey, airport" }
+      ]
+    },
+    {
+      "seite": 175,
+      "titel": "Story: Things will get better (Fortsetzung)",
+      "vokabeln": [
+        { "en": "diary entry", "lautschrift": "['daɪəri ˌentri]", "de": "Tagebucheintrag", "beispiel": "A diary entry is a personal text in which you write about what happened and what you felt." },
+        { "en": "nobody else", "lautschrift": "[ˌnəʊbədi ˈels]", "de": "niemand anderes", "beispiel": "Only you and nobody else should read your diary entries." },
+        { "en": "postcard", "lautschrift": "['pəʊstkɑːd]", "de": "Postkarte", "beispiel": "I love it when I get a real postcard and not just photos in an e-mail!" },
+        { "en": "sailboat", "lautschrift": "['seɪlbəʊt]", "de": "Segelboot" },
+        { "en": "to camp", "lautschrift": "[kæmp]", "de": "campen, zelten", "hinweis": "to camp → camping" }
+      ]
+    },
+    {
+      "seite": 175,
+      "titel": "Action UK! The caves",
+      "vokabeln": [
+        { "en": "cave", "lautschrift": "[keɪv]", "de": "Höhle", "hinweis": "Fr. caverne (f)" },
+        { "nr": "1", "en": "to feed, fed, fed", "lautschrift": "[fiːd], [fed], [fed]", "de": "füttern; ernähren", "beispiel": "Did you feed the dog this morning? People must work to feed their families." },
+        { "en": "to milk", "lautschrift": "[mɪlk]", "de": "melken" },
+        { "en": "cow", "lautschrift": "[kaʊ]", "de": "Kuh" },
+        { "nr": "2", "en": "love", "lautschrift": "[lʌv]", "de": "Liebe", "hinweis": "love → to love" },
+        { "nr": "3", "en": "to get lost", "lautschrift": "[ˌɡet ˈlɒst]", "de": "verloren gehen, sich verirren", "beispiel": "In a big city, it's easy to get lost." },
+        { "en": "darkness", "lautschrift": "['dɑːknəs]", "de": "Dunkelheit", "hinweis": "darkness → dark" }
+      ]
+    },
+    {
+      "seite": 175,
+      "titel": "Across cultures 1: British stories and legends",
+      "vokabeln": [
+        { "nr": "1", "en": "legend", "lautschrift": "['ledʒənd]", "de": "Legende; Sage", "beispiel": "An old story – maybe true in parts." },
+        { "nr": "2", "en": "ingredient", "lautschrift": "[ɪnˈɡriːdiənt]", "de": "Zutat", "beispiel": "Something is missing in this cake; hm, what ingredient did I forget?" }
+      ]
+    }
+  ]
+}

@@ -2,7 +2,9 @@ import { el, icon, announce, pick } from '../dom';
 import { audio } from '../audio';
 import { speech } from '../speech';
 import { speakButton } from '../ui';
-import { grade } from '../grading';
+import { grade, normalize } from '../grading';
+import { listen } from '../listen';
+import { readMode, type AnswerMode } from '../answerMode';
 import type { Session } from '../state';
 import type { Word } from '../types';
 
@@ -76,6 +78,10 @@ export class PlayScreen {
 
   /** Nur im Korrekturmodus gesetzt: die Lösung, die abgetippt werden muss. */
   private target = '';
+  /** Getippt oder gesprochen — gewählt im Briefing, gilt für diese Liste. */
+  private mode: AnswerMode = 'type';
+  private micBtn: HTMLButtonElement;
+  private micRow: HTMLElement;
   /** Was der Lautsprecher gerade sagen würde — erst nach der Bewertung gesetzt. */
   private spoken: string | null = null;
   private lastEmptyEnter = 0;
@@ -128,6 +134,14 @@ export class PlayScreen {
 
     this.skipBtn = el('button', { class: 'chip', type: 'button' }, ['weiß ich nicht']);
 
+    this.mode = readMode(session.set.id);
+    this.micBtn = el('button', { class: 'chip chip--mic', type: 'button' }, ['Antwort sprechen']);
+    this.micBtn.addEventListener('click', () => {
+      if (listen.active) this.stopListening();
+      else this.startListening();
+    });
+    this.micRow = el('div', { class: 'row', hidden: this.mode !== 'speak' }, [this.micBtn]);
+
     this.posterEl = el(
       'div',
       { class: 'poster paper paper--torn', 'style:--tilt': TILTS[0]! },
@@ -140,6 +154,7 @@ export class PlayScreen {
         el('div', { class: 'poster__gap', 'aria-hidden': 'true' }),
         this.hintEl,
         el('div', { class: 'row', 'style:justify-content': 'flex-end' }, [this.skipBtn]),
+        this.micRow,
         this.fieldEl,
         this.extraEl,
       ],
@@ -214,14 +229,70 @@ export class PlayScreen {
     this.skipBtn.addEventListener('click', () => {
       if (this.locked || this.phase !== 'idle') return;
       this.locked = true;
-      this.input.focus();
+      this.stopListening();
+      if (this.mode !== 'speak') this.input.focus();
       this.judge('wrong', '', true);
     });
   }
 
   /** Muss aus einem echten Click-Handler kommen (iOS-Tastatur). */
   focusInput(): void {
+    // Im Sprechmodus bleibt die Tastatur zu; getippt werden kann trotzdem,
+    // dafür reicht ein Tap ins Feld.
+    if (this.mode === 'speak') {
+      this.startListening();
+      return;
+    }
     this.input.focus();
+  }
+
+  // ------------------------------------------------------------- Sprechen
+
+  /**
+   * Ein Lauf je Vokabel. Das Erkannte landet im Eingabefeld und geht denselben
+   * Weg wie Getipptes — eine Bewertung, nicht zwei.
+   */
+  private startListening(): void {
+    if (this.mode !== 'speak' || listen.denied) return;
+    if (this.phase === 'judging') return;
+
+    const ok = listen.start(this.session.set.lang, {
+      onInterim: (text) => { this.input.value = text; },
+      onFinal: (text, alts) => {
+        this.input.value = text;
+        if (this.phase === 'correcting') {
+          if (!this.checkCorrection([text, ...alts])) {
+            this.banner('near', 'Noch nicht — sag es nochmal.', text);
+            window.setTimeout(() => this.startListening(), 500);
+          }
+          return;
+        }
+        if (this.locked || this.phase !== 'idle') return;
+        this.locked = true;
+        this.submit(alts);
+      },
+      onEnd: (reason) => {
+        this.micBtn.classList.remove('chip--live');
+        this.micBtn.textContent = 'Antwort sprechen';
+        if (reason === 'denied') {
+          this.mode = 'type';
+          this.micRow.hidden = true;
+          this.banner('near', 'Ohne Mikrofon geht es getippt weiter.');
+          this.input.focus();
+        }
+      },
+    });
+
+    if (ok) {
+      this.micBtn.classList.add('chip--live');
+      this.micBtn.textContent = 'Hört zu …';
+    }
+  }
+
+  private stopListening(): void {
+    listen.stop();
+    this.micBtn.classList.remove('chip--live');
+    this.micBtn.textContent = 'Antwort sprechen';
   }
 
   /** Nachmessen, sobald das Plakat im DOM hängt oder sich die Höhe ändert. */
@@ -231,7 +302,7 @@ export class PlayScreen {
 
   // -------------------------------------------------------------- Bewertung
 
-  private submit(): void {
+  private submit(alternatives: string[] = []): void {
     const word = this.session.current;
     if (!word) return;
 
@@ -253,9 +324,18 @@ export class PlayScreen {
       return;
     }
 
+    this.stopListening();
     audio.submit();
-    const g = grade(raw, word, this.session.deck);
-    this.judge(g.verdict, raw, false, g.solution, g.viaAlternative, g.diffIndex);
+    // Die Spracherkennung liefert mehrere Deutungen derselben Äußerung. Es
+    // zählt die beste — wer richtig spricht, soll nicht am Erkenner scheitern.
+    const rank = { correct: 0, near: 1, wrong: 2 };
+    let best = grade(raw, word, this.session.deck);
+    let heard = raw;
+    for (const alt of alternatives) {
+      const g = grade(alt, word, this.session.deck);
+      if (rank[g.verdict] < rank[best.verdict]) { best = g; heard = alt; }
+    }
+    this.judge(best.verdict, heard, false, best.solution, best.viaAlternative, best.diffIndex);
   }
 
   private judge(
@@ -349,6 +429,11 @@ export class PlayScreen {
     this.locked = false;
     this.target = solution;
 
+    if (this.mode === 'speak') {
+      this.micBtn.textContent = 'Antwort sprechen';
+      window.setTimeout(() => this.startListening(), 900);
+    }
+
     const reveal = el('p', { class: 'ghost ghost__solution', text: solution });
     const peek = el('button', { class: 'chip', type: 'button' }, ["Zeig's mir"]);
     this.hintEl.replaceChildren(reveal, el('div', { class: 'row', 'style:margin-top': 'var(--s-2)' }, [peek]));
@@ -383,9 +468,12 @@ export class PlayScreen {
   }
 
   /** Kein Enter nötig: sobald der Text stimmt, geht es weiter. */
-  private checkCorrection(): void {
-    const typed = this.input.value.trim().toLowerCase().replace(/\s+/g, ' ');
-    if (typed !== this.target.trim().toLowerCase()) return;
+  private checkCorrection(candidates?: string[]): boolean {
+    // Nicht zeichengenau: die Handytastatur macht aus "..." ein "…" und aus
+    // ' ein ’ — daran darf das Abtippen nicht hängen bleiben.
+    const want = normalize(this.target);
+    const tries = candidates ?? [this.input.value];
+    if (!tries.some((t) => normalize(t) === want)) return false;
 
     window.clearTimeout(this.timer);
     audio.corrected();
@@ -397,6 +485,7 @@ export class PlayScreen {
     this.input.placeholder = 'hier tippen';
     this.input.setAttribute('enterkeyhint', 'go');
     this.after(420, 420, true);
+    return true;
   }
 
   // ------------------------------------------------------------- Darstellung
@@ -424,13 +513,17 @@ export class PlayScreen {
     this.render();
     this.posterEl.classList.add('enter-up');
     window.setTimeout(() => this.posterEl.classList.remove('enter-up'), 200);
-    this.input.focus();
+    if (this.mode === 'speak') this.startListening();
+    else this.input.focus();
   }
 
   /** Aktualisiert nur Inhalte — das Eingabefeld bleibt derselbe Knoten. */
   render(): void {
     const word = this.session.current;
     if (!word) return;
+
+    this.mode = readMode(this.session.set.id);
+    this.micRow.hidden = this.mode !== 'speak';
 
     this.posterEl.style.setProperty('--tilt', pick(TILTS, word.id));
     this.metaEl.textContent = word.hint;
@@ -440,7 +533,12 @@ export class PlayScreen {
     this.pronEl.hidden = true;
     this.spoken = null;
     this.badgeEl.textContent = `RUNDE ${this.session.round}`;
-    this.banner('empty', `${this.session.set.langLabel} tippen, dann Enter.`);
+    this.banner(
+      'empty',
+      this.mode === 'speak'
+        ? `${this.session.set.langLabel} sprechen — oder tippen und Enter.`
+        : `${this.session.set.langLabel} tippen, dann Enter.`,
+    );
     this.renderRail();
     this.scoreEl.textContent = String(this.session.score);
     this.comboEl.hidden = this.session.combo < 3;

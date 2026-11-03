@@ -1,0 +1,220 @@
+{
+  "id": "fr-unite1-tag7",
+  "title": "Französisch Tag 7 — Zahlen 0 bis 14",
+  "source": "Au début / Unité 1 · S. 161 · Tag 7 von 7",
+  "lang": "fr-FR",
+  "langLabel": "Französisch",
+  "direction": "de-fr",
+  "words": [
+    {
+      "id": "zero",
+      "de": "null (0)",
+      "en": [
+        "zéro"
+      ],
+      "accept": [],
+      "ipa": "zeʀo",
+      "pos": "number",
+      "hint": "Zahl",
+      "example": null,
+      "note": null,
+      "page": 161
+    },
+    {
+      "id": "un",
+      "de": "eins (1)",
+      "en": [
+        "un"
+      ],
+      "accept": [],
+      "ipa": "œ̃",
+      "pos": "number",
+      "hint": "Zahl",
+      "example": null,
+      "note": null,
+      "page": 161
+    },
+    {
+      "id": "deux",
+      "de": "zwei (2)",
+      "en": [
+        "deux"
+      ],
+      "accept": [],
+      "ipa": "dø",
+      "pos": "number",
+      "hint": "Zahl",
+      "example": null,
+      "note": null,
+      "page": 161
+    },
+    {
+      "id": "trois",
+      "de": "drei (3)",
+      "en": [
+        "trois"
+      ],
+      "accept": [],
+      "ipa": "tʀwa",
+      "pos": "number",
+      "hint": "Zahl",
+      "example": null,
+      "note": null,
+      "page": 161
+    },
+    {
+      "id": "quatre",
+      "de": "vier (4)",
+      "en": [
+        "quatre"
+      ],
+      "accept": [],
+      "ipa": "katʀ",
+      "pos": "number",
+      "hint": "Zahl",
+      "example": null,
+      "note": null,
+      "page": 161
+    },
+    {
+      "id": "cinq",
+      "de": "fünf (5)",
+      "en": [
+        "cinq"
+      ],
+      "accept": [],
+      "ipa": "sɛ̃k",
+      "pos": "word",
+      "hint": "Vokabel",
+      "example": null,
+      "note": null,
+      "page": 161
+    },
+    {
+      "id": "six",
+      "de": "sechs (6)",
+      "en": [
+        "six"
+      ],
+      "accept": [],
+      "ipa": "sis",
+      "pos": "number",
+      "hint": "Zahl",
+      "example": null,
+      "note": null,
+      "page": 161
+    },
+    {
+      "id": "sept",
+      "de": "sieben (7)",
+      "en": [
+        "sept"
+      ],
+      "accept": [],
+      "ipa": "sɛt",
+      "pos": "number",
+      "hint": "Zahl",
+      "example": null,
+      "note": null,
+      "page": 161
+    },
+    {
+      "id": "huit",
+      "de": "acht (8)",
+      "en": [
+        "huit"
+      ],
+      "accept": [],
+      "ipa": "ɥit",
+      "pos": "number",
+      "hint": "Zahl",
+      "example": null,
+      "note": null,
+      "page": 161
+    },
+    {
+      "id": "neuf",
+      "de": "neun (9)",
+      "en": [
+        "neuf"
+      ],
+      "accept": [],
+      "ipa": "nœf",
+      "pos": "number",
+      "hint": "Zahl",
+      "example": null,
+      "note": null,
+      "page": 161
+    },
+    {
+      "id": "dix",
+      "de": "zehn (10)",
+      "en": [
+        "dix"
+      ],
+      "accept": [],
+      "ipa": "dis",
+      "pos": "number",
+      "hint": "Zahl",
+      "example": null,
+      "note": null,
+      "page": 161
+    },
+    {
+      "id": "onze",
+      "de": "elf (11)",
+      "en": [
+        "onze"
+      ],
+      "accept": [],
+      "ipa": "ɔ̃z",
+      "pos": "number",
+      "hint": "Zahl",
+      "example": null,
+      "note": null,
+      "page": 161
+    },
+    {
+      "id": "douze",
+      "de": "zwölf (12)",
+      "en": [
+        "douze"
+      ],
+      "accept": [],
+      "ipa": "duz",
+      "pos": "word",
+      "hint": "Vokabel",
+      "example": null,
+      "note": null,
+      "page": 161
+    },
+    {
+      "id": "treize",
+      "de": "dreizehn (13)",
+      "en": [
+        "treize"
+      ],
+      "accept": [],
+      "ipa": "tʀɛz",
+      "pos": "number",
+      "hint": "Zahl",
+      "example": null,
+      "note": null,
+      "page": 161
+    },
+    {
+      "id": "quatorze",
+      "de": "vierzehn (14)",
+      "en": [
+        "quatorze"
+      ],
+      "accept": [],
+      "ipa": "katɔʀz",
+      "pos": "number",
+      "hint": "Zahl",
+      "example": null,
+      "note": null,
+      "page": 161
+    }
+  ]
+}

@@ -1,0 +1,205 @@
+{
+  "id": "papas-vokabeln-tag2",
+  "title": "Papas Vokabeln Tag 2 — contempt bis external",
+  "source": "Dad Brain · The Diary Of A CEO · Tag 2 von 6",
+  "lang": "en-GB",
+  "langLabel": "Englisch",
+  "direction": "de-en",
+  "words": [
+    {
+      "id": "contempt",
+      "de": "die Verachtung",
+      "en": [
+        "contempt"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "C2"
+    },
+    {
+      "id": "correlation",
+      "de": "die Wechselbeziehung / Korrelation",
+      "en": [
+        "correlation"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "C1"
+    },
+    {
+      "id": "cortex",
+      "de": "die Hirnrinde",
+      "en": [
+        "cortex"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "C2"
+    },
+    {
+      "id": "crucial",
+      "de": "entscheidend",
+      "en": [
+        "crucial"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "adjective",
+      "hint": "Adjektiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "cue",
+      "de": "der Hinweisreiz / das Signal",
+      "en": [
+        "cue"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "C1"
+    },
+    {
+      "id": "depression",
+      "de": "die Depression",
+      "en": [
+        "depression"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "domestic",
+      "de": "häuslich",
+      "en": [
+        "domestic"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "adjective",
+      "hint": "Adjektiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "dominance",
+      "de": "die Dominanz",
+      "en": [
+        "dominance"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "C1"
+    },
+    {
+      "id": "dynamic",
+      "de": "die Dynamik",
+      "en": [
+        "dynamic"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "empirical",
+      "de": "empirisch",
+      "en": [
+        "empirical"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "adjective",
+      "hint": "Adjektiv",
+      "example": null,
+      "note": "C2"
+    },
+    {
+      "id": "empathy",
+      "de": "die Empathie",
+      "en": [
+        "empathy"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "C1"
+    },
+    {
+      "id": "evidence",
+      "de": "der Beweis / Beleg",
+      "en": [
+        "evidence"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "evolutionary",
+      "de": "evolutionär",
+      "en": [
+        "evolutionary"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "adjective",
+      "hint": "Adjektiv",
+      "example": null,
+      "note": "C1"
+    },
+    {
+      "id": "expectation",
+      "de": "die Erwartung",
+      "en": [
+        "expectation"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "external",
+      "de": "äußerlich / extern",
+      "en": [
+        "external"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "verb",
+      "hint": "Verb",
+      "example": null,
+      "note": "B2"
+    }
+  ]
+}

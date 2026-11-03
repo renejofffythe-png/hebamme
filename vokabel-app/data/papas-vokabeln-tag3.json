@@ -1,0 +1,205 @@
+{
+  "id": "papas-vokabeln-tag3",
+  "title": "Papas Vokabeln Tag 3 — foraging bis network",
+  "source": "Dad Brain · The Diary Of A CEO · Tag 3 von 6",
+  "lang": "en-GB",
+  "langLabel": "Englisch",
+  "direction": "de-en",
+  "words": [
+    {
+      "id": "foraging",
+      "de": "die Nahrungssuche (Evolution)",
+      "en": [
+        "foraging"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "C2"
+    },
+    {
+      "id": "fundamental",
+      "de": "grundlegend",
+      "en": [
+        "fundamental"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "adjective",
+      "hint": "Adjektiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "hormone",
+      "de": "das Hormon",
+      "en": [
+        "hormone"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "hypothesis",
+      "de": "die Hypothese",
+      "en": [
+        "hypothesis"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "C1"
+    },
+    {
+      "id": "impact",
+      "de": "die Auswirkung / der Einfluss",
+      "en": [
+        "impact"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "institution",
+      "de": "die Institution",
+      "en": [
+        "institution"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "internal",
+      "de": "innerlich / intern",
+      "en": [
+        "internal"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "verb",
+      "hint": "Verb",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "intimacy",
+      "de": "die Intimität",
+      "en": [
+        "intimacy"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "C1"
+    },
+    {
+      "id": "isolation",
+      "de": "die Isolation / Abgeschiedenheit",
+      "en": [
+        "isolation"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "longitudinal",
+      "de": "längsschnittlich (bei Studien)",
+      "en": [
+        "longitudinal"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "adjective",
+      "hint": "Adjektiv",
+      "example": null,
+      "note": "C2"
+    },
+    {
+      "id": "mammal",
+      "de": "das Säugetier",
+      "en": [
+        "mammal"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "B2"
+    },
+    {
+      "id": "mate",
+      "de": "der Partner (Evolution)",
+      "en": [
+        "mate"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "C1"
+    },
+    {
+      "id": "monogamy",
+      "de": "die Monogamie",
+      "en": [
+        "monogamy"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "C2"
+    },
+    {
+      "id": "navigate",
+      "de": "bewältigen / steuern",
+      "en": [
+        "navigate"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "verb",
+      "hint": "Verb",
+      "example": null,
+      "note": "C1"
+    },
+    {
+      "id": "network",
+      "de": "das Netzwerk",
+      "en": [
+        "network"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "B2"
+    }
+  ]
+}

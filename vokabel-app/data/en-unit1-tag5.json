@@ -1,0 +1,207 @@
+{
+  "id": "en-unit1-tag5",
+  "title": "Englisch Tag 5 — spear bis diary entry",
+  "source": "Unit 1 · S. 174–175 · Tag 5 von 6",
+  "lang": "en-GB",
+  "langLabel": "Englisch",
+  "direction": "de-en",
+  "words": [
+    {
+      "id": "spear",
+      "de": "Speer",
+      "en": [
+        "spear"
+      ],
+      "accept": [],
+      "ipa": "spɪə",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": "The spear is broken.",
+      "note": null,
+      "page": 174
+    },
+    {
+      "id": "to-move-in",
+      "de": "einziehen in",
+      "en": [
+        "move in",
+        "move into"
+      ],
+      "accept": [],
+      "ipa": "ˌmuːv ˈɪn; ˌmuːv ˈɪntə",
+      "pos": "verb",
+      "hint": "Verb · 2 Wörter",
+      "example": "Dave and his parents moved into a new house in Cornwall.",
+      "note": null,
+      "page": 174
+    },
+    {
+      "id": "warrior",
+      "de": "Krieger",
+      "en": [
+        "warrior"
+      ],
+      "accept": [],
+      "ipa": "ˈwɒriə",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": null,
+      "page": 174
+    },
+    {
+      "id": "society",
+      "de": "Verein; Gesellschaft",
+      "en": [
+        "society"
+      ],
+      "accept": [],
+      "ipa": "səˈsaɪəti",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": "Bob is a member of a local history society.",
+      "note": "Fr. société (f)",
+      "page": 174
+    },
+    {
+      "id": "twin",
+      "de": "Zwilling; Zwillings-",
+      "en": [
+        "twin"
+      ],
+      "accept": [],
+      "ipa": "twɪn",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": null,
+      "page": 174
+    },
+    {
+      "id": "tool",
+      "de": "Werkzeug; Gerät",
+      "en": [
+        "tool"
+      ],
+      "accept": [],
+      "ipa": "tuːl",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": "A plumber needs special tools.",
+      "note": null,
+      "page": 174
+    },
+    {
+      "id": "electrician",
+      "de": "Elektriker/-in",
+      "en": [
+        "electrician"
+      ],
+      "accept": [],
+      "ipa": "ɪˌlekˈtrɪʃn",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "electrician → electricity",
+      "page": 174
+    },
+    {
+      "id": "plumbing",
+      "de": "Sanitäranlagen",
+      "en": [
+        "plumbing"
+      ],
+      "accept": [],
+      "ipa": "ˈplʌmɪŋ",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "plumbing → plumber",
+      "page": 174
+    },
+    {
+      "id": "electrics",
+      "de": "Elektrik",
+      "en": [
+        "electrics"
+      ],
+      "accept": [],
+      "ipa": "ɪˈlektrɪks",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": "An electrician can fix the electrics in your house.",
+      "note": null,
+      "page": 174
+    },
+    {
+      "id": "change",
+      "de": "Änderung; Veränderung; Wechsel",
+      "en": [
+        "change"
+      ],
+      "accept": [],
+      "ipa": "tʃeɪndʒ",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "change → to change",
+      "page": 174
+    },
+    {
+      "id": "to-turn-to",
+      "de": "sich wenden an; sich zuwenden",
+      "en": [
+        "turn to"
+      ],
+      "accept": [],
+      "ipa": "ˈtɜːn tə",
+      "pos": "verb",
+      "hint": "Verb · 2 Wörter",
+      "example": "I turned to him to say something but he wasn't there any more.",
+      "note": null,
+      "page": 174
+    },
+    {
+      "id": "mechanic",
+      "de": "Mechaniker/-in",
+      "en": [
+        "mechanic"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "What and where? – to fix, car, tools",
+      "page": 175
+    },
+    {
+      "id": "pilot",
+      "de": "Pilot/-in",
+      "en": [
+        "pilot"
+      ],
+      "accept": [],
+      "ipa": null,
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "What and where? – to travel, journey, airport",
+      "page": 175
+    },
+    {
+      "id": "diary-entry",
+      "de": "Tagebucheintrag",
+      "en": [
+        "diary entry"
+      ],
+      "accept": [],
+      "ipa": "ˈdaɪəri ˌentri",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": "A diary entry is a personal text in which you write about what happened and what you felt.",
+      "note": null,
+      "page": 175
+    }
+  ]
+}
