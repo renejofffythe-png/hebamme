@@ -35,6 +35,7 @@ import type { WordSet } from './types';
 import { clearSessionFor } from './state';
 import { clearRecords } from './records';
 import { clearShaky, familyOf, shakyIds } from './shaky';
+import { clearStats } from './stats';
 
 const INDEX_KEY = 'ueberklebt.sets';
 const setKey = (id: string) => `ueberklebt.set.${id}`;
@@ -276,6 +277,7 @@ export function deleteSet(id: string): void {
   clearSessionFor(id);
   clearRecords(id);
   clearShaky(id);
+  clearStats(id);
 }
 
 /** Merkt sich, wann zuletzt gespielt wurde — die Bibliothek sortiert danach. */
@@ -306,4 +308,34 @@ export function formatDay(ts: number): string {
   if (diff === 1) return 'gestern';
   if (diff < 7) return `vor ${diff} Tagen`;
   return formatDate(ts);
+}
+
+/** Die festen Gruppen der Bibliothek und der Statistik, in dieser Reihenfolge. */
+export const GROUPS: readonly { label: string; short: string }[] = [
+  { label: 'Französisch', short: 'FR' },
+  { label: 'Englisch', short: 'EN' },
+  { label: 'Papas Vokabeln', short: 'Papa' },
+];
+
+/** Papas Vokabeln sind Englisch, gehören aber jemand anderem — eigene Gruppe. */
+export function groupOf(set: WordSet): string {
+  return familyOf(set.id).startsWith('papas-vokabeln') ? 'Papas Vokabeln' : set.langLabel;
+}
+
+/**
+ * Teilt die Einträge in Gruppen: feste Gruppen zuerst, weitere Sprachen aus dem
+ * Import in der Reihenfolge, in der sie zuerst vorkommen. Leere fallen weg.
+ */
+export function groupEntries(
+  entries: LibraryEntry[],
+): { label: string; short: string; entries: LibraryEntry[] }[] {
+  const labels = GROUPS.map((g) => g.label);
+  for (const e of entries) if (!labels.includes(groupOf(e.set))) labels.push(groupOf(e.set));
+  return labels
+    .map((label) => ({
+      label,
+      short: GROUPS.find((g) => g.label === label)?.short ?? label,
+      entries: entries.filter((e) => groupOf(e.set) === label),
+    }))
+    .filter((g) => g.entries.length);
 }

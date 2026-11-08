@@ -15,6 +15,8 @@ import { libraryScreen } from './screens/library';
 import { importScreen } from './screens/importList';
 import { soundToggle } from './ui';
 import { loadRecords, saveRecords } from './records';
+import { logSession } from './stats';
+import { statsScreen } from './screens/stats';
 import { announce } from './dom';
 import { deleteSet, getSet, listSets, markPlayed } from './library';
 import type { WordSet } from './types';
@@ -52,12 +54,17 @@ function goLibrary(): void {
         if (picked) goStart(picked);
       },
       onAdd: goImport,
+      onStats: goStats,
       onDelete: (id) => {
         deleteSet(id);
         goHome();
       },
     }),
   );
+}
+
+function goStats(): void {
+  show(statsScreen(listSets(), goLibrary));
 }
 
 function goImport(): void {
@@ -156,6 +163,14 @@ function goFinish(): void {
     score: s.score,
     rounds: s.round,
     streak: s.bestCombo,
+  });
+  logSession({
+    set: set.id,
+    at: Date.now(),
+    words: s.totalCount,
+    firstTry: s.firstTryCount,
+    rounds: s.round,
+    ms: s.elapsedMs,
   });
   announce(
     `Geschafft. ${s.totalCount} von ${s.totalCount}. ` +

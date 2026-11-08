@@ -615,3 +615,57 @@ html, body {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.55; }
 }
+
+/* --------------------------------------------------------------- Statistik */
+
+/* Ein langes Blatt: Abschnitte mit Luft dazwischen, Zahlen als Beleg-Zeilen. */
+.stat-paper {
+  display: flex; flex-direction: column; gap: var(--s-6);
+  padding: var(--s-5) var(--s-4);
+}
+.stat-head { margin: 0; color: var(--c-brown); }
+
+.stat-bar {
+  display: flex; height: 12px;
+  border: var(--b-base) solid var(--c-ink);
+  background: var(--c-paper);
+}
+.stat-bar__sits { background: var(--c-ok-ink); }
+.stat-bar__practised { background: var(--c-brown); }
+
+.stat-legend {
+  display: flex; flex-wrap: wrap; gap: var(--s-1) var(--s-4);
+  font: 600 11px/1.4 var(--font-text); letter-spacing: .06em; text-transform: uppercase;
+  color: var(--c-ink-muted);
+}
+.stat-legend > span { display: inline-flex; align-items: center; gap: var(--s-1); }
+.stat-key {
+  width: 10px; height: 10px; flex: none;
+  border: var(--b-hair) solid var(--c-ink);
+  background: var(--c-paper-line);
+}
+.stat-key--ok { background: var(--c-ok-ink); }
+.stat-key--brown { background: var(--c-brown); }
+.stat-key--empty { background: var(--c-paper); }
+
+.stat-list { display: flex; flex-direction: column; gap: var(--s-1); }
+.stat-list__name { font-weight: 700; font-size: 15px; line-height: 1.2; }
+.stat-list__meta { font-size: 12px; line-height: 1.35; color: var(--c-ink-muted); }
+
+/* 14 Tage nebeneinander, jeder Balken von unten: ganz = Antworten, grün = richtig. */
+.stat-days {
+  display: grid; grid-template-columns: repeat(14, 1fr); gap: 3px;
+}
+.stat-day { display: flex; flex-direction: column; align-items: stretch; gap: 2px; }
+.stat-day__col {
+  height: 72px; display: flex; align-items: flex-end;
+  border-bottom: var(--b-base) solid var(--c-ink);
+}
+.stat-day__bar {
+  width: 100%; display: flex; align-items: flex-end;
+  background: var(--c-paper-line);
+}
+.stat-day__ok { width: 100%; background: var(--c-ok-ink); }
+.stat-day__label {
+  text-align: center; font: 600 10px/1.2 var(--font-text); color: var(--c-ink-muted);
+}
