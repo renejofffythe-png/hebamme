@@ -2,9 +2,10 @@
  * Die Sammlung der Vokabellisten.
  *
  * Mitgeliefert sind Unit 1 (Englisch, S. 168–170 als eine Liste, S. 172–175 in
- * Tagesportionen) und Französisch Au début / Unité 1 in Tagesportionen; alles
- * Weitere kommt über den Import und lebt in localStorage. Kein Konto, kein Server — die Listen gehören dem Gerät, auf
- * dem sie eingetragen wurden.
+ * Tagesportionen) und Französisch Au début / Unité 1 und Unité 2 in
+ * Tagesportionen; alles Weitere kommt über den Import und lebt in localStorage.
+ * Kein Konto, kein Server — die Listen gehören dem Gerät, auf dem sie
+ * eingetragen wurden.
  */
 
 import unit1 from '../data/unit1.json';
@@ -15,6 +16,9 @@ import frTag4 from '../data/fr-unite1-tag4.json';
 import frTag5 from '../data/fr-unite1-tag5.json';
 import frTag6 from '../data/fr-unite1-tag6.json';
 import frTag7 from '../data/fr-unite1-tag7.json';
+import fr2Tag1 from '../data/fr-unite2-tag1.json';
+import fr2Tag2 from '../data/fr-unite2-tag2.json';
+import fr2Tag3 from '../data/fr-unite2-tag3.json';
 import papaTag1 from '../data/papas-vokabeln-tag1.json';
 import papaTag2 from '../data/papas-vokabeln-tag2.json';
 import papaTag3 from '../data/papas-vokabeln-tag3.json';
@@ -46,6 +50,9 @@ const BUILTIN: readonly WordSet[] = [
   frTag5 as WordSet,
   frTag6 as WordSet,
   frTag7 as WordSet,
+  fr2Tag1 as WordSet,
+  fr2Tag2 as WordSet,
+  fr2Tag3 as WordSet,
   papaTag1 as WordSet,
   papaTag2 as WordSet,
   papaTag3 as WordSet,

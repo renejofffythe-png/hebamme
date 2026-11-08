@@ -1,0 +1,57 @@
+{
+  "unit": "Unité 2",
+  "quelle": "Schulbuch Französisch, Unité 2, Atelier A1, A2, A4",
+  "abschnitte": [
+    {
+      "titel": "Unité 2 – Atelier A1",
+      "vokabeln": [
+        { "en": "une activité", "lautschrift": "[ynaktivite]", "de": "eine Freizeitbeschäftigung; eine Aktivität" },
+        { "en": "aimer", "lautschrift": "[eme]", "de": "jdn./etw. lieben; jemanden/etwas mögen", "beispiel": "J'aime le sport. – Ich mag Sport.", "hinweis": "aimer qn/qc · qc = quelque chose (etwas), qn = quelqu'un (jemand)" },
+        { "en": "le sport", "lautschrift": "[ləspɔʀ]", "de": "der Sport" },
+        { "en": "la danse", "lautschrift": "[ladɑ̃s]", "de": "der Tanz; das Tanzen", "beispiel": "Tu aimes aussi la danse ? – Magst du auch Tanzen?", "hinweis": "englisch: dance" },
+        { "en": "une chanson", "lautschrift": "[ynʃɑ̃sɔ̃]", "de": "ein Lied", "hinweis": "! Les chansons: Die meisten Nomen bekommen im Plural ein -s. Man spricht es aber nicht aus." },
+        { "en": "adorer", "lautschrift": "[adɔʀe]", "de": "jdn./etw. sehr gern mögen", "beispiel": "J'adore le foot. – Ich mag Fußball sehr gern.", "hinweis": "adorer qn/qc" },
+        { "en": "un jeu vidéo / des jeux vidéo", "lautschrift": "[ɛ̃ʒøvideo], [deʒøvideo]", "de": "ein Computerspiel / Computerspiele", "hinweis": "! Un jeu / des jeux: Jeu bekommt im Plural ein -x. Man schreibt es, aber man spricht es nicht!" },
+        { "en": "détester", "lautschrift": "[detɛste]", "de": "jdn./etw. verabscheuen; etw. überhaupt nicht mögen", "beispiel": "Je déteste la danse. – Tanzen mag ich überhaupt nicht.", "hinweis": "détester qn/qc · ! J'aime les chats. J'adore le sport. Je déteste la danse." },
+        { "en": "la natation", "lautschrift": "[lanatasjɔ̃]", "de": "das Schwimmen" },
+        { "en": "C'est nul ! (fam.)", "lautschrift": "[sɛnyl]", "de": "Das ist blöd! (ugs.)" },
+        { "en": "un livre", "lautschrift": "[ɛ̃livʀ]", "de": "ein Buch" },
+        { "en": "le théâtre", "lautschrift": "[ləteatʀ]", "de": "das Theater" },
+        { "en": "le ping-pong", "lautschrift": "[ləpiŋpɔ̃g]", "de": "das Tischtennis" },
+        { "en": "la musique", "lautschrift": "[lamyzik]", "de": "die Musik" },
+        { "en": "l'escalade (f.)", "lautschrift": "[lɛskalad]", "de": "das Klettern" },
+        { "en": "le foot", "lautschrift": "[ləfut]", "de": "der Fußball (als Sportart)" }
+      ]
+    },
+    {
+      "titel": "Unité 2 – Atelier A2",
+      "vokabeln": [
+        { "en": "chez", "lautschrift": "[ʃe]", "de": "bei jdm.", "beispiel": "Nous sommes chez Max et Lola. – Wir sind bei Max und Lola.", "hinweis": "chez qn" },
+        { "en": "écouter", "lautschrift": "[ekute]", "de": "jdm. zuhören; etw. anhören", "beispiel": "Lola écoute une chanson. – Lola hört ein Lied an.", "hinweis": "écouter qn/qc" },
+        { "en": "entrer", "lautschrift": "[ɑ̃tʀe]", "de": "eintreten; hereinkommen", "beispiel": "Max entre. – Max kommt herein." },
+        { "en": "le silence", "lautschrift": "[ləsilɑ̃s]", "de": "die Ruhe; die Stille", "hinweis": "englisch: silence" },
+        { "en": "s'il te plaît", "lautschrift": "[siltəplɛ]", "de": "bitte (wenn man jemanden duzt)", "beispiel": "Lola, silence, s'il te plaît ! – Lola, Ruhe, bitte!" },
+        { "en": "s'il vous plaît", "lautschrift": "[silvuplɛ]", "de": "bitte (wenn man mehrere Personen anspricht oder jdn. siezt)", "beispiel": "Max et Lola, silence, s'il vous plaît. – Max und Lola, Ruhe bitte!" },
+        { "en": "travailler", "lautschrift": "[tʀavaje]", "de": "arbeiten", "beispiel": "Je travaille. – Ich arbeite." },
+        { "en": "danser", "lautschrift": "[dɑ̃se]", "de": "tanzen", "hinweis": "→ la danse (der Tanz)" },
+        { "en": "en silence", "lautschrift": "[ɑ̃silɑ̃s]", "de": "still; ohne Lärm zu machen" },
+        { "en": "un casque", "lautschrift": "[ɛ̃kask]", "de": "ein Kopfhörer" },
+        { "en": "tard", "lautschrift": "[taʀ]", "de": "spät" },
+        { "en": "plus tard", "lautschrift": "[plytaʀ]", "de": "später" },
+        { "en": "une chambre", "lautschrift": "[ynʃɑ̃bʀ]", "de": "ein (Schlaf-)Zimmer", "beispiel": "Lola entre dans la chambre de Max. – Lola kommt in Max' Zimmer herein." },
+        { "en": "jouer", "lautschrift": "[ʒwe]", "de": "spielen", "beispiel": "Tu travailles ? – Non, je joue. – Arbeitest du? – Nein, ich spiele.", "hinweis": "→ un jeu (ein Spiel)" },
+        { "en": "regarder", "lautschrift": "[ʀəgaʀde]", "de": "jdn./etw. ansehen; etw. betrachten", "beispiel": "Regarde ! – Sieh mal!", "hinweis": "regarder qn/qc" },
+        { "en": "un match", "lautschrift": "[ɛ̃matʃ]", "de": "ein Spiel; ein Wettkampf", "beispiel": "On regarde le match de foot ? – Sehen wir das Fußballspiel an?" },
+        { "en": "Ah, bon ?", "lautschrift": "[abɔ̃]", "de": "Ach ja?; Wirklich?" },
+        { "en": "ensemble", "lautschrift": "[ɑ̃sɑ̃bl]", "de": "gemeinsam; zusammen", "beispiel": "Nous regardons le match ensemble. – Wir schauen zusammen das Spiel." },
+        { "en": "un but", "lautschrift": "[ɛ̃by(t)]", "de": "ein Ziel; ein Tor (beim Ballspiel)" }
+      ]
+    },
+    {
+      "titel": "Unité 2 – Atelier A4",
+      "vokabeln": [
+        { "en": "chanter", "lautschrift": "[ʃɑ̃te]", "de": "singen", "hinweis": "! chanter ist ein regelmäßiges Verb auf -er: je chante, tu chantes, il/elle/on chante, nous chantons, vous chantez, ils/elles chantent. Nur die Endungen -ons und -ez spricht man aus. → une chanson (ein Lied)" }
+      ]
+    }
+  ]
+}

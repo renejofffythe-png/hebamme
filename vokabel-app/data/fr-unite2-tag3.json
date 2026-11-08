@@ -1,0 +1,166 @@
+{
+  "id": "fr-unite2-tag3",
+  "title": "Französisch Unité 2 Tag 3 — en silence bis chanter",
+  "source": "Unité 2 · Tag 3 von 3",
+  "lang": "fr-FR",
+  "langLabel": "Französisch",
+  "direction": "de-fr",
+  "words": [
+    {
+      "id": "en-silence",
+      "de": "still; ohne Lärm zu machen",
+      "en": [
+        "en silence"
+      ],
+      "accept": [],
+      "ipa": "ɑ̃silɑ̃s",
+      "pos": "phrase",
+      "hint": "Wendung · 2 Wörter",
+      "example": null,
+      "note": null
+    },
+    {
+      "id": "un-casque",
+      "de": "ein Kopfhörer",
+      "en": [
+        "un casque"
+      ],
+      "accept": [],
+      "ipa": "ɛ̃kask",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": null
+    },
+    {
+      "id": "tard",
+      "de": "spät",
+      "en": [
+        "tard"
+      ],
+      "accept": [],
+      "ipa": "taʀ",
+      "pos": "adverb",
+      "hint": "Adverb",
+      "example": null,
+      "note": null
+    },
+    {
+      "id": "plus-tard",
+      "de": "später",
+      "en": [
+        "plus tard"
+      ],
+      "accept": [],
+      "ipa": "plytaʀ",
+      "pos": "phrase",
+      "hint": "Wendung · 2 Wörter",
+      "example": null,
+      "note": null
+    },
+    {
+      "id": "une-chambre",
+      "de": "ein (Schlaf-)Zimmer",
+      "en": [
+        "une chambre"
+      ],
+      "accept": [],
+      "ipa": "ynʃɑ̃bʀ",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": "Lola entre dans la chambre de Max. – Lola kommt in Max' Zimmer herein.",
+      "note": null
+    },
+    {
+      "id": "jouer",
+      "de": "spielen",
+      "en": [
+        "jouer"
+      ],
+      "accept": [],
+      "ipa": "ʒwe",
+      "pos": "verb",
+      "hint": "Verb",
+      "example": "Tu travailles ? – Non, je joue. – Arbeitest du? – Nein, ich spiele.",
+      "note": "→ un jeu (ein Spiel)"
+    },
+    {
+      "id": "regarder",
+      "de": "jdn./etw. ansehen; etw. betrachten",
+      "en": [
+        "regarder"
+      ],
+      "accept": [],
+      "ipa": "ʀəgaʀde",
+      "pos": "verb",
+      "hint": "Verb",
+      "example": "Regarde ! – Sieh mal!",
+      "note": "regarder qn/qc"
+    },
+    {
+      "id": "un-match",
+      "de": "ein Spiel; ein Wettkampf",
+      "en": [
+        "un match"
+      ],
+      "accept": [],
+      "ipa": "ɛ̃matʃ",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": "On regarde le match de foot ? – Sehen wir das Fußballspiel an?",
+      "note": null
+    },
+    {
+      "id": "ah-bon",
+      "de": "Ach ja?; Wirklich?",
+      "en": [
+        "Ah, bon ?"
+      ],
+      "accept": [],
+      "ipa": "abɔ̃",
+      "pos": "phrase",
+      "hint": "Wendung · 2 Wörter",
+      "example": null,
+      "note": null
+    },
+    {
+      "id": "ensemble",
+      "de": "gemeinsam; zusammen",
+      "en": [
+        "ensemble"
+      ],
+      "accept": [],
+      "ipa": "ɑ̃sɑ̃bl",
+      "pos": "adverb",
+      "hint": "Adverb",
+      "example": "Nous regardons le match ensemble. – Wir schauen zusammen das Spiel.",
+      "note": null
+    },
+    {
+      "id": "un-but",
+      "de": "ein Ziel; ein Tor (beim Ballspiel)",
+      "en": [
+        "un but"
+      ],
+      "accept": [],
+      "ipa": "ɛ̃byt",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": null
+    },
+    {
+      "id": "chanter",
+      "de": "singen",
+      "en": [
+        "chanter"
+      ],
+      "accept": [],
+      "ipa": "ʃɑ̃te",
+      "pos": "verb",
+      "hint": "Verb",
+      "example": null,
+      "note": "! chanter ist ein regelmäßiges Verb auf -er: je chante, tu chantes, il/elle/on chante, nous chantons, vous chantez, ils/elles chantent. Nur die Endungen -ons und -ez spricht man aus. → une chanson (ein Lied)"
+    }
+  ]
+}

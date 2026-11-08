@@ -1,0 +1,167 @@
+{
+  "id": "fr-unite2-tag1",
+  "title": "Französisch Unité 2 Tag 1 — une activité bis le théâtre",
+  "source": "Unité 2 · Tag 1 von 3",
+  "lang": "fr-FR",
+  "langLabel": "Französisch",
+  "direction": "de-fr",
+  "words": [
+    {
+      "id": "une-activite",
+      "de": "eine Freizeitbeschäftigung; eine Aktivität",
+      "en": [
+        "une activité"
+      ],
+      "accept": [],
+      "ipa": "ynaktivite",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": null
+    },
+    {
+      "id": "aimer",
+      "de": "jdn./etw. lieben; jemanden/etwas mögen",
+      "en": [
+        "aimer"
+      ],
+      "accept": [],
+      "ipa": "eme",
+      "pos": "verb",
+      "hint": "Verb",
+      "example": "J'aime le sport. – Ich mag Sport.",
+      "note": "aimer qn/qc · qc = quelque chose (etwas), qn = quelqu'un (jemand)"
+    },
+    {
+      "id": "le-sport",
+      "de": "der Sport",
+      "en": [
+        "le sport"
+      ],
+      "accept": [],
+      "ipa": "ləspɔʀ",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": null
+    },
+    {
+      "id": "la-danse",
+      "de": "der Tanz; das Tanzen",
+      "en": [
+        "la danse"
+      ],
+      "accept": [],
+      "ipa": "ladɑ̃s",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": "Tu aimes aussi la danse ? – Magst du auch Tanzen?",
+      "note": "englisch: dance"
+    },
+    {
+      "id": "une-chanson",
+      "de": "ein Lied",
+      "en": [
+        "une chanson"
+      ],
+      "accept": [],
+      "ipa": "ynʃɑ̃sɔ̃",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": "! Les chansons: Die meisten Nomen bekommen im Plural ein -s. Man spricht es aber nicht aus."
+    },
+    {
+      "id": "adorer",
+      "de": "jdn./etw. sehr gern mögen",
+      "en": [
+        "adorer"
+      ],
+      "accept": [],
+      "ipa": "adɔʀe",
+      "pos": "verb",
+      "hint": "Verb",
+      "example": "J'adore le foot. – Ich mag Fußball sehr gern.",
+      "note": "adorer qn/qc"
+    },
+    {
+      "id": "un-jeu-video",
+      "de": "ein Computerspiel / Computerspiele",
+      "en": [
+        "un jeu vidéo",
+        "des jeux vidéo"
+      ],
+      "accept": [],
+      "ipa": "ɛ̃ʒøvideo; deʒøvideo",
+      "pos": "noun",
+      "hint": "Substantiv · 3 Wörter",
+      "example": null,
+      "note": "! Un jeu / des jeux: Jeu bekommt im Plural ein -x. Man schreibt es, aber man spricht es nicht!"
+    },
+    {
+      "id": "detester",
+      "de": "jdn./etw. verabscheuen; etw. überhaupt nicht mögen",
+      "en": [
+        "détester"
+      ],
+      "accept": [],
+      "ipa": "detɛste",
+      "pos": "verb",
+      "hint": "Verb",
+      "example": "Je déteste la danse. – Tanzen mag ich überhaupt nicht.",
+      "note": "détester qn/qc · ! J'aime les chats. J'adore le sport. Je déteste la danse."
+    },
+    {
+      "id": "la-natation",
+      "de": "das Schwimmen",
+      "en": [
+        "la natation"
+      ],
+      "accept": [],
+      "ipa": "lanatasjɔ̃",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": null
+    },
+    {
+      "id": "c-est-nul",
+      "de": "Das ist blöd! (ugs.)",
+      "en": [
+        "C'est nul !"
+      ],
+      "accept": [],
+      "ipa": "sɛnyl",
+      "pos": "phrase",
+      "hint": "Wendung · 2 Wörter",
+      "example": null,
+      "note": "umgangssprachlich"
+    },
+    {
+      "id": "un-livre",
+      "de": "ein Buch",
+      "en": [
+        "un livre"
+      ],
+      "accept": [],
+      "ipa": "ɛ̃livʀ",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": null
+    },
+    {
+      "id": "le-theatre",
+      "de": "das Theater",
+      "en": [
+        "le théâtre"
+      ],
+      "accept": [],
+      "ipa": "ləteatʀ",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": null
+    }
+  ]
+}

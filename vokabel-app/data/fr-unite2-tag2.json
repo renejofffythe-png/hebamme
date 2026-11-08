@@ -1,0 +1,166 @@
+{
+  "id": "fr-unite2-tag2",
+  "title": "Französisch Unité 2 Tag 2 — le ping-pong bis danser",
+  "source": "Unité 2 · Tag 2 von 3",
+  "lang": "fr-FR",
+  "langLabel": "Französisch",
+  "direction": "de-fr",
+  "words": [
+    {
+      "id": "le-ping-pong",
+      "de": "das Tischtennis",
+      "en": [
+        "le ping-pong"
+      ],
+      "accept": [],
+      "ipa": "ləpiŋpɔ̃g",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": null
+    },
+    {
+      "id": "la-musique",
+      "de": "die Musik",
+      "en": [
+        "la musique"
+      ],
+      "accept": [],
+      "ipa": "lamyzik",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": null
+    },
+    {
+      "id": "l-escalade",
+      "de": "das Klettern",
+      "en": [
+        "l'escalade"
+      ],
+      "accept": [],
+      "ipa": "lɛskalad",
+      "pos": "noun",
+      "hint": "Substantiv",
+      "example": null,
+      "note": "weiblich"
+    },
+    {
+      "id": "le-foot",
+      "de": "der Fußball (als Sportart)",
+      "en": [
+        "le foot"
+      ],
+      "accept": [],
+      "ipa": "ləfut",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": null
+    },
+    {
+      "id": "chez",
+      "de": "bei jdm.",
+      "en": [
+        "chez"
+      ],
+      "accept": [],
+      "ipa": "ʃe",
+      "pos": "preposition",
+      "hint": "Präposition",
+      "example": "Nous sommes chez Max et Lola. – Wir sind bei Max und Lola.",
+      "note": "chez qn"
+    },
+    {
+      "id": "ecouter",
+      "de": "jdm. zuhören; etw. anhören",
+      "en": [
+        "écouter"
+      ],
+      "accept": [],
+      "ipa": "ekute",
+      "pos": "verb",
+      "hint": "Verb",
+      "example": "Lola écoute une chanson. – Lola hört ein Lied an.",
+      "note": "écouter qn/qc"
+    },
+    {
+      "id": "entrer",
+      "de": "eintreten; hereinkommen",
+      "en": [
+        "entrer"
+      ],
+      "accept": [],
+      "ipa": "ɑ̃tʀe",
+      "pos": "verb",
+      "hint": "Verb",
+      "example": "Max entre. – Max kommt herein.",
+      "note": null
+    },
+    {
+      "id": "le-silence",
+      "de": "die Ruhe; die Stille",
+      "en": [
+        "le silence"
+      ],
+      "accept": [],
+      "ipa": "ləsilɑ̃s",
+      "pos": "noun",
+      "hint": "Substantiv · 2 Wörter",
+      "example": null,
+      "note": "englisch: silence"
+    },
+    {
+      "id": "s-il-te-plait",
+      "de": "bitte (wenn man jemanden duzt)",
+      "en": [
+        "s'il te plaît"
+      ],
+      "accept": [],
+      "ipa": "siltəplɛ",
+      "pos": "phrase",
+      "hint": "Wendung · 3 Wörter",
+      "example": "Lola, silence, s'il te plaît ! – Lola, Ruhe, bitte!",
+      "note": null
+    },
+    {
+      "id": "s-il-vous-plait",
+      "de": "bitte (wenn man mehrere Personen anspricht oder jdn. siezt)",
+      "en": [
+        "s'il vous plaît"
+      ],
+      "accept": [],
+      "ipa": "silvuplɛ",
+      "pos": "phrase",
+      "hint": "Wendung · 3 Wörter",
+      "example": "Max et Lola, silence, s'il vous plaît. – Max und Lola, Ruhe bitte!",
+      "note": null
+    },
+    {
+      "id": "travailler",
+      "de": "arbeiten",
+      "en": [
+        "travailler"
+      ],
+      "accept": [],
+      "ipa": "tʀavaje",
+      "pos": "verb",
+      "hint": "Verb",
+      "example": "Je travaille. – Ich arbeite.",
+      "note": null
+    },
+    {
+      "id": "danser",
+      "de": "tanzen",
+      "en": [
+        "danser"
+      ],
+      "accept": [],
+      "ipa": "dɑ̃se",
+      "pos": "verb",
+      "hint": "Verb",
+      "example": null,
+      "note": "→ la danse (der Tanz)"
+    }
+  ]
+}
